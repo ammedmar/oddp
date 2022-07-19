@@ -1,0 +1,28 @@
+% !TEX root = ../oddp.tex
+
+\section{Comparison with the surjection operad (drafty)}
+
+Consider the functor tensor product $F^*\otimes G$, that is, $N_*(\Delta^\bullet)\otimes_\Delta N_\bullet(\Delta^n)$. It is related to the previous tensor product via Poincaré duality and it is isomorphic to $N_*(\Delta^n)^{\otimes r}$. Similarly, there is a chain complex analogous to $\Omega(r,n)$ that we denote, for the moment as $\Omega^\vee(r,n)$. Instead of using the previous isomorphism, we will use the isomorphism that sends $u_i\in U$ to the $w_i$-th factor of the tensor product.
+
+If $\tau$ is a simplex of dimension $m$, one consider all pairs $(f,A)$ where
+\begin{itemize}
+	\item $f$ is a surjection, i.e., a non-degenerate word in $EC_r$ that contains every element $0,1,\ldots,r-1$ at least once.
+	\item $A$ is a decomposition of a simplex $\tau$ into overlapping intervals.
+\end{itemize}
+Now,
+\begin{itemize}
+	\item The pair $(f,A)$ defines a word in $EC_r$ given by replicating each number in $f$ as many times as the length of each interval dictates. For example, if $r=3$ and $f= 0121012$ and $A=(0,1,2)(2)(2,3)(3)(3,4,5)(5,6)(6)$, then the resulting word is $w=0001221000112$.
+	\item $A$ gives a simplex in $\Delta^m$ that results from erasing the parentheses: $U=[0,1,2,2,2,3,3,3,4,5,5,6,6]$
+\end{itemize}
+The triple $(f,A,\tau)$ thus yields an element of $\Omega^\vee(r,n)$, whose image coincides with the image of the operation $(f,A)$ on $\tau$.
+
+If we want to interpret this element in $\Omega(r,n)$, we just need to do the following:
+\begin{itemize}
+	\item The new $U$ is obtained from the maximally degenerate simplex \[(0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6)\] by removing the elements of $U$. In our case, $U=(0,0,1,1,4,4,5,6)$.
+	\item The new $w$ is obtained from $w$ by setting $w_i$ equal to any element of $C_r$ different from the ones that where labeling $u_i$ in the old $w$ \emph{provided that the old ones were not repeated. Otherwise, the operation is zero!!. Nonetheless, these cases may be easily identified}. This happens quite often. In our case $w=(12121220)$.
+\end{itemize}
+Finally, we need to substract $u_i$ from $w_i$ to obtain the word we care about in $\Omega(r,n)$: (12010100)
+
+If $f$ is a surjection, let $w$ be the pieced word that comes from replacing each entry by its complement. Let $Q(f)$ be the collection of all subwords of all representatives of $w$.
+\begin{lemma} In this dictionary (without the last substraction), the collection of words associated to a surjection $f$ is $Q(f)$.
+\end{lemma}
