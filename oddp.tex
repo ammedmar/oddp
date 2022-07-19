@@ -1,0 +1,31 @@
+\immediate\write18{biber \jobname}
+
+\documentclass{amsart}
+\input{aux/style}
+\input{aux/usualcmds}
+\addbibresource{aux/usualpapers.bib}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\input{aux/commands} % add commands here
+\addbibresource{aux/bibliography.bib} % add references here
+%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Short title]{Full title}
+
+\author[A.M.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
+\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
+\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
+
+\date{\today}
+\subjclass[2020]{TBW}
+\keywords{TBW}
+
+\begin{document}
+	\input{sec/abstract}
+	\maketitle
+	\input{sec/introduction}
+	\input{sec/acknowledgment}
+	\nocite{*}
+	\sloppy
+	\printbibliography
+\end{document}
