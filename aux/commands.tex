@@ -1,3 +1,37 @@
 % !TEX root = ../oddp.tex
 
-% Write new commands below
+%\usepackage{amssymb,amsmath,amsthm}
+%\usepackage{multirow,xspace,color,accents,circledsteps,comment,url}
+%\usepackage[table]{xcolor}
+%\usepackage{graphicx}
+
+\usepackage[all]{xy}
+\usepackage{marginnote}
+\newcommand{\fcnote}[1]{\marginnote{fc: #1}}
+
+\newtheorem*{warning}{Warning}
+\newtheorem*{assumption}{Assumption}
+
+\newcommand{\Id}{\id}
+\newcommand{\Perm}{\Sigma}
+\newcommand{\dual}[1]{{#1}^{\vee}}
+\newcommand{\sgn}{\operatorname*{sgn}}
+\newcommand{\resp}{resp.\,}
+\newcommand{\ind}{\mathrm{ind}}
+\newcommand{\nP}{\overline{\cP}}
+\newcommand{\cev}[1]{\reflectbox{\ensuremath{\vec{\reflectbox{\ensuremath{#1}}}}}}
+\newcommand{\uvec}[1]{\underaccent{\vec}{#1}}
+\newcommand{\ucev}[1]{\reflectbox{\ensuremath{\uvec{\reflectbox{\ensuremath{#1}}}}}}
+\newcommand{\late}[1]{\vec{#1}}
+\newcommand{\early}[1]{\cev{#1}}
+\newcommand{\prev}[1]{}
+\newcommand{\merging}[2]{\partial_{{#1}_{#2}}^{2}\otimes \partial_{{#1}_{#2}}^1\otimes \partial_{{#1}_{#2}}^0}
+\newcommand{\Sq}{\operatorname*{Sq}}
+\newcommand{\cube}[1]{\mathbf{2^{#1}}}
+\newcommand{\ndinsertion}{non-degenerate insertion\xspace}
+\newcommand{\ndinsertions}{non-degenerate insertions\xspace}
+\newcommand{\alert}[1]{{\color{red}#1}}
+\newcommand{\lra}{\longrightarrow}
+
+\newcommand{\obs}[1]{\noindent\fbox{\parbox{\textwidth}{\begin{center}#1.\end{center}}}}
+

@@ -1,0 +1,805 @@
+% !TEX root = ../oddp.tex
+
+\section{Odd prime operations}
+
+In the first section we construct a map from the normalized chain complex of the Milnor resolution to the minimal resolution of $EC_r$.
+In the second section we construct a $C_r$-equivariant map $W_*(r)\otimes N_*(\Delta^n)\to N_*(\Delta^n)^{\otimes r}$.
+
+All chain complexes are augmented. Chain complexes are taken with generic ring coefficients unless specified. The linear dual of a chain complex $C_*$ is denoted $C^*$. The boundary of a chain complex is denoted $\partial$, the coboundary of a cochain complex is denoted $\delta$ and the face maps of a simplicial set are denoted $d_i$. The linear dual of a map $f$ or a vector $v$ is denoted by $f^\vee$ and $v^\vee$, though we will drop the superscript when the context allows. Chain complexes and cochain complexes are positively graded, though we understand a positively graded cochain complex as a negatively graded chain complex. All the (co)chain complexes in this work come with a prescribed basis, and since they are of finite type, this basis can be used to generate the dual complex.
+
+We will construct four maps from the dual of the minimal resolution of $C_r$. Sometimes it will be convenient to treat their linear duals: It is easier to construct a map $W^*(r)\to N^*(EC_r)$ because $W^*(r)$ is free on one object in each dimension, but it is easier to construct maps $N_*(EC_r)\to N_*(EC_r)$ because the differential in chains is easier than the differential in cochains.
+
+\subsection*{To be done}
+\begin{itemize}
+	\item The first section we suspend in the left, in the second section we suspend in the right. What is the best convention?
+	\item Words are called $A$ in the first section and $w$ in the second section.
+	\item I've added a section ``other considerations'' with possible comments to be made around the main theorem.
+\end{itemize}
+
+\subsection*{Recent changes}
+\begin{itemize}
+	\item One has to take $C^*(EC_r)$ instead of $N^*(EC_r)$ because that is what is needed in $N^*(\Delta^n\times EC_r)$.
+	\item The case $r=3$ was badly written, I've corrected it.
+	\item The whole proof has been rewritten.
+\end{itemize}
+
+\section{The minimal resolution of $C_r$ and the Milnor construction}
+Let $r$ be an odd number, let $C_r$ be the cyclic group of order $r$ and let $\rho$ be a generator.
+
+\subsection{Cyclic resolutions}
+Recall the augmented minimal resolution $W_*(r)$ of the cyclic group $C_r$ by $R$-modules:
+\[R[C_r]\lra\ldots \lra R[C_r]\overset{T}{\lra} R[C_r]\overset{N}{\lra}R[C_r]\overset{T}{\lra} R[C_r] \overset{N}{\lra} R.\]
+The generator $\rho$ in degree $k\geq -1$ will be denoted by $e_k$ (here $e_{-1}=1$), and
+\begin{align*}
+	N(e_k) &= \sum_{i=0}^{r-1} \rho^ie_{k-1} &
+	T(e_k) &= (1-\rho)e_{k-1}
+\end{align*}
+
+Recall the Milnor construction applied to the cyclic group $C_r$, which yields a contractible augmented simplicial set with a free $C_r$-action:
+\begin{align*}
+	(EC_r)_k &= C_r^{k+1}\\
+	d_i(a_0\ldots a_k) &= (a_0\ldots\hat{a}_i\ldots a_k) \\
+	s_i(a_0\ldots a_k) &= (a_0\ldots a_i,a_i\ldots a_k)
+\end{align*}
+The $i$th coface $d^i\colon C^*(EC_r)\to C^{*+1}(EC_r)$ is given by inserting a number $b\in \{0,\ldots,r-1\}$ in $i$-th position in all possible ways (some of them yield degenerate cochains). Write $d^{i,b}(a_0\ldots a_n) = (a_0\ldots a_{i-1},b,a_i,\ldots, a_n)$, so that
+\[\delta(a_0\ldots a_n) = \sum_{0\leq i\leq n}\sum_{0\leq b\leq r-1}(-1)^i \delta^{i,b}(a_0\ldots a_n).\]
+\begin{warning} Observe that $\rho$ acts on the dual complex as $\rho^{-1}$.
+\end{warning}
+There are \emph{suspension maps}
+\begin{align*}
+	\theta_{r-1}\colon W_*(r) & \lra  \Sigma^{r-1}W_*(r) \\
+	e_k & \longmapsto e_{k-r+1} \\
+	%   S\colon \Lambda(r)^*&\lra \Sigma^{r-1} \Lambda(r)^* \\
+	%   (a_0,\ldots,a_k) & \longmapsto \sum_{(b_{0},\ldots,b_{r-1})\in \Perm_r} (-1)^{\sigma(a_k\ldots a_{k+r-1})} %(a_0,\ldots,a_{k},a_{k+1},\ldots,a_{k+r-1})
+	S\colon  C_*(EC_r)&\lra \Sigma^{r-1}C_*(EC_r) \\
+	(a_0,\ldots,a_k) & \longmapsto \begin{cases}
+		{\sgn(a_{0},\ldots,a_{r-1})} (a_{r-1},\ldots,a_{k}) & \text{ if $k\geq r-1$} \\
+		\emptyset & \text{if $k = r-2$ and $a_i\neq a_j$ for all $i,j$} \\
+		0 & \text{otherwise.}
+	\end{cases}
+\end{align*}
+\begin{remark}
+	For any even integer $k$, the suspension $\theta_{k}\colon W_*(r)\to \Sigma^{k}W_*(r)$ is a homomorphism of chain complexes.
+\end{remark}
+%The following lemma is very similar to its version for the surjection operad (whose complex in arity $r$ is a quotient of $\Lambda(r)_*$).
+\begin{lemma}
+	The suspension $S\colon C_*(EC_r)\to \Sigma^{r-1}C_*(EC_r)$ is a homomorphism of chain complexes.
+\end{lemma}
+\begin{proof}
+	Consider first a simplex $(a_0,\ldots,a_k)$ of dimension $k\geq r$. If $A=(a_{0},\ldots,a_{r-1})$ has no repeated entries (i.e., it is a permutation), we choose the unique $j<r-1$ such that $a_j = a_r$. Let $A' = (a_{0},\ldots,\hat{a}_j,\ldots,a_r)$, and observe that the permutations $A$ and $A'$ differ by $r-j-1$ transpositions, hence $\sgn(A') = (-1)^{r-j+1}\sgn(A) = (-1)^j\sgn(A)$.
+	\begin{align*}
+		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+		&= \sum_{i=0}^{r-1} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=r}^{k} (-1)^iS(d_i (a_0,\ldots,a_k))
+	\end{align*}
+	All the terms in the first summation on the RHS are zero but the one indexed by $j$, because $(a_0,\ldots,\hat{a}_i,\ldots,a_r)$ is not a permutation in those cases. Additionally, $Sd_i = d_{i-r+1}S$ in each term in the second summation on the RHS, hence we have:
+	\begin{align*}
+		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+		&= (-1)^jS(d_j (a_0,\ldots,a_k)) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
+		&= (-1)^{j}\sgn(A')(a_r,\ldots,a_k) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
+		&= (-1)^{0}\sgn(A)(a_r,\ldots,a_k) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
+		&= \sum_{i=0}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)
+	\end{align*}
+If $A$ has repeated entries, then $S(a_0,\ldots,a_k) = 0$. We consider two cases: if the repeated entries of $A$ are different from $a_k$ or there are more than two repeated entries, then all summands in $d(a_0,\ldots,a_k)$ have repeated entries in its first $r$ positions, therefore $S(dA)=0$. If there are exactly two repeated entries $a_j=a_m = a_r$ with $j,m<r$, let $A' = (a_0,\ldots,\hat{a}_j,\ldots,a_{r})$, $A'' = (a_0,\ldots,\hat{a}_m,\ldots,a_{r})$, and observe that these two words differ by $|m-j-1|$ transpositions, hence $\sgn(A') = (-1)^{m-j-1}\sgn(A'')$.
+\begin{align*}
+	S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+	&= \sum_{i=0}^{r-1} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=r}^{k} (-1)^iS(d_i (a_0,\ldots,a_k)) \\
+	&= (-1)^jS(d_j (a_0,\ldots,a_k)) + (-1)^mS(d_m (a_0,\ldots,a_k)) \\
+	&= \left((-1)^{j}\sgn(A') + (-1)^m\sgn(A'')\right)(a_r,\ldots,a_k)\\
+	&= 0
+\end{align*}
+The case $k=r-1$ is left to the reader.
+\end{proof}
+
+\subsection{A comparison homomorphism} Here we introduce a homomorphism between the previous two cochain complexes.
+
+\begin{definition} For each $0\leq k<r-1$, let $L_k\subset C_k(EC_r)$ be the set of those increasing words $(a_0\ldots a_k)$ such that $a_{2i}$ is even and different from $r-1$, and $a_{2i+1}$ is odd. Define
+\begin{equation}\label{eq:111}
+	\psi_k = \sum_{(a_0,\ldots,a_k)\in L_k}\sum_{\sigma\in \Sigma_{k+1}} \sgn(\sigma)(a_{\sigma(0)},\ldots,a_{\sigma(k)})\in C^k(EC_r)
+\end{equation}
+For each $k = \ell (r-1) + s\geq r-2$ with $s<r-1$, define
+\begin{equation}\label{eq:112}
+	\psi_{k} = (\dual{S})^\ell(\psi_s)\in C^k(EC_r).
+\end{equation}
+\end{definition}
+\begin{notation} If $A= (a_{\sigma(0)},\ldots,a_{\sigma(k)})$, we will sometimes denote the sign of the permutation $\sigma$ as $\sgn(A)$. If $a$ is a non-negative number, write $\tilde{a} = \left\lfloor \frac{a}{2}\right\rfloor$.
+\end{notation}
+Define the $C_r$-equivariant map $\Psi\colon W^*(r;\bZ[\frac{1}{\tilde{r}!}])\lra C^*(EC_r; \bZ[\frac{1}{\tilde{r}!}])$ as
+\[e_k\mapsto \frac{(\tilde{r}-\tilde{s}-1)!}{(\tilde{r}!)^{\ell+1}}\psi_k\]
+
+
+
+\begin{theorem}
+$\Psi$ is a homomorphism of cochain complexes.
+\end{theorem}
+%If $r>3$ and $R\neq \bZ_r$, then the $C_r$-equivariant map $\Psi\colon W^{\leq m(r-1)}(r)\lra N^*(EC_r)_{\leq m(r-1)}$ given by $e_k\mapsto (\tilde{r}!)^{m-\ell-1}(\tilde{r}-\tilde{s}-1)!\psi_k$ is a homomorphism of cochain complexes.
+\begin{remark} If $r$ is prime, the coefficient $\tilde{r}!\mod r$ is, by Wilson's theorem, one of the two values of $\sqrt{(-1)^{\tilde{r}+1}}$, though determining which of them is not immediate\footnote{\url{https://mathoverflow.net/questions/121678/the-value-pm-1-for-the-square-root-of-wilsons-theorem-p-1-2-mod-p}}.
+\end{remark}
+\begin{remark} If $r=3$, then $\bZ[\frac{1}{\tilde{r}!}] = \bZ$ and if $r$ is prime, then $\bZ/r$ is a $\bZ[\frac{1}{\tilde{r}!}]$-algebra, hence these coefficients are also allowed.
+\end{remark}
+
+\begin{proof}
+We need to prove that
+\begin{align*}
+	N\psi_{k} & = (\tilde{r}-\tilde{s})\delta(\psi_{k-1}) & \text{ if $k$ is even} \\
+	T\psi_{k} &= d(\psi_{k-1}) & \text{ if $k$ is odd.}
+\end{align*}
+For the case $k\leq r-2$ we need to check that
+\begin{align*}
+	\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{0\leq b\leq r-1}(-1)^i\sgn(A)\delta^{i,b}A &= \bar{\psi}_k. & \text{ if $k$ is even,}\\
+	\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{0\leq b\leq r-1}(-1)^i\sgn(A)\delta^{i,b}A &= T\psi_k & \text{if $k$ is odd.}
+\end{align*}
+This will be proved in Lemmas \ref{lemma:pair} and \ref{lemma:cancel}. In higher degrees we have, by induction  ($\lambda = \tilde{r}-\tilde{s})$,
+\begin{align*}
+	N\psi_{k} &= N\dual{S}\psi_{k-r+1} = \dual{S} N\psi_{k-r+1} = \lambda\dual{S} d\psi_{k-r} = \lambda d\dual{S} \psi_{k-r} = \lambda d\psi_{k-1}\\
+	T\psi_{k} &= T\dual{S}\psi_{k-r+1} = \dual{S} T\psi_{k-r+1} = \dual{S} d\psi_{k-r} = d\dual{S} \psi_{k-r} = d\psi_{k-1}.
+\end{align*}
+This also sets the case when because both definitions of $\psi_{r-2}$ agree.
+\end{proof}
+
+
+
+%If $k<r$, the \emph{shape} of such a simplex $(a_0,\ldots,a_k)$ is the cyclic set of cyclic differences $\{a_i - \bar{a}_{i-1}\}_{i=0}^k$. By this we mean that two shapes are equivalent if they differ by a cyclic permutation.
+%\begin{lemma} If $k<r$ is even, the cyclic orbit of each summand of $\psi_k$ has $(\tilde{r}-\tilde{k}-1)$ elements in $\psi_k$.
+%\end{lemma}
+%\begin{proof}
+%Since $(a_0,\ldots,a_k)$ has $\tilde{k}+1$ elements, this is the number of cyclic permutations that contain $r-1$. Since there are $\tilde{r}$ cyclic permutations in total, the result follows.
+%\end{proof}
+
+
+
+A number $b$ is \emph{friend} of a word $A$ of $\psi_k$ under any of the following conditions:
+\begin{itemize}
+\item $b>A$ and $b$ has the same parity as $a_{k}$,
+\item $b<A$ and $b$ is odd,
+\item $b=r-1$.
+\end{itemize}
+A number is \emph{enemy} of a word $A$ of $\psi_k$ if it is not its friend. Write $b\vdash A$ if $b$ and $A$ are friends and $b\not\vdash A$ if they are enemies.
+
+Say that a word $A = (a_{\sigma(0)},\ldots,a_{\sigma(k)})\in N_k(EC_r)$ is \emph{even} if it b (\emph{odd}) if $a_{2i}$ is even (odd) and $a_{2i+1}$ is odd (even). A word is \emph{good even} if it is even and $r-1\notin A$. A word $A$ is \emph{good odd} if $\rho^{-1}(A)$ is even good, i.e., if $r-2\notin A$ and either $A$ is odd, or $r-1\in A$ and $A\smallsetminus \{r-1\}$ is even. Observe that the summands of $\psi_k$ are precisely on the good even words, and that if $k$ is odd, then all even words are good even. Let $\bar{\psi}_k$ be the sum of all even and odd words in $\Lambda(r)_k$ with their permutation signs.
+%For the next lemma, observe that if $A$ is even, then $\rho^b(A)$ is either even or odd. Observe also that, if $k$ is even, removing the minimum of an odd sequence, or removing the maximum of an even sequence yields a summand of $\psi_{k-1}$.
+\begin{lemma}\label{lemma:simp} If $k\leq r-2$ is even, then $N\psi_k = (\tilde{r}-\tilde{k})\bar{\psi}_k$. If $k$ is odd, then $T\psi_k$ is the sum of all good odd words minus the (good) even words with their permutation signs.
+\end{lemma}
+\begin{proof}
+Suppose first that $k$ is even. We will first establish that every summand in $N\psi_k$ is a summand in $\bar{\psi}_k$. Then, we will prove that every summand in $\bar{\psi}_k$ appears exactly $(\tilde{r}-\tilde{k})$ times in $N\psi_k$, with the same signs.
+
+If $A$ is even and $0\notin A$ ($0\in A$), then $\rho(A)$ is odd (even), while if $A$ is odd, then $\rho(A)$ is even,. This has two consequences: first, since the summands in $\psi_k^0$ are good even summands, every summand in $N\psi_k^0$ is either even or odd; second, if $A$ is an even (odd) word, then $\rho^{b+1}(A)$ is a summand in $\psi_k$ if and only if $b\notin A$ (this condition assures that $r-1\notin \rho^{b+1}(A)$) and has opposite parity to $|\{a\in A\mid a<b\}|$ (this assures that $\rho^{b+1}(A)$ is even). There are $r-k-1$ many summands satisfying the first condition, and half of them satisfy the second condition, hence there are exactly $\tilde{r}-\tilde{k}$ such $b$'s, therefore the first statement follows. Regarding the sign, observe that if $A$ is even, then the permutation that reorders $\rho(A)$ is either the same as the permutation $\sigma$ that reorders $A$, or it is the result of precomposing $\sigma$ with a cyclic permutation of $\Sigma_k$, hence its sign is that of $\sigma$. If $A$ is odd, then the permutation that reorders $\rho(A)$ is $\sigma$.
+
+The second statement follows by inspection.
+%
+%The second statement follows because there is a summand in $\psi_k^0$ for each orbit of $C_r$ in $\psi_k$.
+%
+%On the other hand, if $A$ is an even (odd) word such that either $0\notin A$ or $r-1\notin A$, then $\rho^{\mi}A\in \psi_0$. If both $0\in A$ and $r-1\in A$, then choose two consecutive values $b,b+1\notin A$. Then either $\rho^{b+1}(A)$ or $\rho^{b+1}(A)$ is a summand in $\psi_k$, and therefore a summand in $\psi_k^0$, by the previous lemma.
+\end{proof}
+
+\newcommand{\mi}{{\sigma^{-1}(0)}}
+\newcommand{\ma}{{\sigma^{-1}(k)}}
+
+\begin{lemma}\label{lemma:pair} If $k\leq r-2$ is even,
+\begin{align*}
+	\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\vdash A}(-1)^i\sgn(A)\delta^{i,b}A &= \bar{\psi}_k.
+\end{align*}
+If $k$ is odd,
+\begin{align*}
+	\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\vdash A}(-1)^i\sgn(A)\delta^{i,b}A &= T\psi_k.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Since each summation has no repeated summands, it will be enough to prove that every summand in the left appears in the right with the same sign, and viceversa.
+
+%Observe first that the summands in $N\psi_k^0$ and $T\psi_k$ are the precisely the even and the odd words. Moreover, when $k$ is odd, the summands in $\psi_k$ are the even words, while the summands in $\rho\psi_k$ are the odd words.
+
+Let $k$ be even. Since $b$ is friend of $A$, and $A$ is good even, the word $\delta^{i,b}A$ is either even or odd (depending on whether $b>A$ or $b<A$).  Hence the summands in the left appear as summands in the right. Reciprocally, if $A$ is an even (odd) word, then removing its maximal (minimal) element $b=a_{\ma}$ ($b=a_{\mi}$) yields a good even word in $\psi_{k-1}$, hence $A = \delta^{\ma,b}A\smallsetminus\{b\}$ ($A = \delta^{\mi,b}A\smallsetminus\{b\}$).
+
+Let $k$ be odd. Since $b$ is friend of $A$ and $A$ is good even, the word $\delta^{i,b}A$ is again even or odd (depending on whether $b>A$ or $b<A$). If $b<A$, since $A$ is even, we have that $\max \delta^{i,b}(A) = \max A \leq r-3$, hence $\delta^{i,b}A$ is good. If $b>A$, then either $b$ is odd, in which case $\delta^{i,b}$ is good even, or $b=r-1$, in which case removing $r-1$ from $\delta{i,b}A$ yields the good even word $A$, hence $A$ is good odd. Reciprocally, if $A$ is a good even (odd) word, then removing its maximal (minimal) element $b=a_{\ma}$ ($b=a_{\mi}$) yields a good even word in $\psi_{k-1}$, hence $A = \delta^{\ma,b}A\smallsetminus\{b\}$ ($A = \delta^{\mi,b}A\smallsetminus\{b\}$).
+
+%If $b>A$, as $b$ is odd, it is different from $r-1$, hence $\delta^{i,b}A$ is good. If $b<A$, then
+%%
+%%if $A = (a_{\sigma(0)},\ldots,a_{\sigma(k)})$ is a summand in the right (i.e., an even or odd word), then
+%%\[
+%%\rho^{b}(A) = \begin{cases}
+	%%\delta^{\sigma(s),a_{\sigma(s)}}\left(A\smallsetminus \{a_{\sigma(s)}\}\right) & \text{if $A$ is odd and $a_{\sigma(s)} = \min A$}, \\
+	%%\delta^{\sigma(s),a_{\sigma(s)}}\left(A\smallsetminus \{a_{\sigma(s)}\}\right) & \text{if $A$ is even and $a_{\sigma(s)} = \max A$},
+	%%\end{cases}
+	%%\]
+	%%with $A\smallsetminus \{a_{\sigma(s)}\}\in \psi_{k-1}$ because it is even and does not contain $r-1$.
+
+	%Moreover, if $k$ is odd, then $\delta^{i,b}A$ is always good.
+
+	Regarding the signs, observe that the sign of the summand in the left indexed by $A = (a_{\sigma(0)},\ldots,a_{\sigma(k-1)})$, $b$ and $i$ is $(-1)^i\sgn(A)$ while the sign of the summand $\delta^{i,b}A$ in the right is computed as follows:
+	\[
+	\sgn(\delta^{i,b}A) = \begin{cases}
+		(-1)^i\sgn(\delta^{0,b}A) = (-1)^i\sgn(A) &\text{ if $b<A$,}\\
+		(-1)^{k-i}\sgn(\delta^{k,b}A) = (-1)^k(-1)^i\sgn(A) &\text{ if $b>A$,}
+	\end{cases}
+	\]
+	where the first equality follows because $\delta^{i,b}A$ and $\delta^{0,b}A$ (\resp $\delta^{k,b}A$) differ by $i$ (\resp $k-i$) transpositions, and the second equality follows because the permutation that reorders $\delta^{0,b}A$ (\resp $\delta^{k,b}A$) fixes the first (last) entry, and because $k$ is even.
+
+	Hence, if $k$ is even, then all summands in the left appear with the sign $\sgn(\delta^{i,b}A)$, as in the right, while if $k$ is odd, the even summands appear with opposite sign and the odd summands with the same sign.
+\end{proof}
+\begin{lemma}\label{lemma:cancel} Let $k\leq r-2$.
+	\begin{align*}
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\not{\vdash} A}(-1)^i\sgn(A)\delta^{i,b}A &= 0.
+	\end{align*}
+\end{lemma}
+\begin{proof}  Let $A$ be a summand of $\psi_k$ and let $0\leq b\leq r-1$ be enemy of $A$. Then, if $b >\min(A)$ and $b<\max(A)$, then both $\max\{a\in A\mid a<b\}$ and $\min\{a\in A\mid a>b\}$ are well defined and have different parity, hence one of them ($c$) has the same parity as $b$. If $b<\min(A)$ or $b>\max(A)$, we let $c = \min(A)$ or $c = \max(A)$ respectively. Let $j$ be the position of $c$ in $A$  and let $A' = (\delta^{i,b} A)\smallsetminus \{c\}$. Then $c$ is enemy of $A'$ and $\delta^{j,c}A = \delta^{i,b}A'$. Let us show that they appear with opposite signs: The permutation that reorders $A'$ differs from the permutation that reorders $A$ by $|j-i-1|$ transpositions, therefore
+	\[(-1)^{i}\sgn(A) = (-1)^{i}(-1)^{j-i-1}\sgn(A') = -(-1)^j\sgn(A').\]
+	Finally, observe that $A'' = A$, hence the summands cancel in pairs.
+\end{proof}
+
+
+
+
+
+\section{Some cochain complexes}
+There is a Poincaré duality isomorphism
+\[PD\colon N_*(\Delta^n)\lra N^{n-1-*}(\Delta^n)\]
+that sends a simplex to its complement in the maximal simplex.
+
+
+\subsection{Models of $N_*(\Delta^n)^{\otimes r}$}
+Consider the functor tensor product $F\otimes_{\Delta}G$ of the following two functors:
+\begin{align*}
+	F\colon \Delta&\lra \Ch(R)&  G\colon \Delta^{\op}&\lra \Ch(R)\\
+	F([m])&=\Sigma^{(r-1)m-r}(N^*(\Delta^m)^{\otimes r})&  G[m] &= N_m(\Delta^n).
+\end{align*}
+\begin{lemma} The map $\alpha\colon F\otimes_{\Delta} G\lra N_*(\Delta^n)^{\otimes r}$ given by
+	\[\alpha((U_1,\ldots,U_r)\otimes \tau) = (d_{U_1}^\tau(\tau),\ldots, d_{U_r}^\tau(\tau))\]
+	is a  $C_r$-isomorphism of chain complexes.
+\end{lemma}
+Consider now the chain complex $\bar{\Omega}_*(r,n)$ that in degree $k$ is generated by equivalence classes of triples $(U,w,\tau)$ where \fcnote{This is actually a quotient of a functor tensor product. Maybe it is worthy defining it like that.}
+\begin{itemize}
+	\item $U$ is a generator of $C_{(r-1)m-1-k}(\Delta^m)$,
+	\item $w$ is a generator of $C_{(r-1)m-1-k}(EC_r)$ (a word),
+	\item $\tau$ is a generator of $N_m(\Delta^n)$
+\end{itemize}
+such that
+\begin{itemize}
+	\item $(U,w)$ is a non-degenerate simplex in $EC_r\times \Delta^m$
+\end{itemize}
+subject to the following relations:
+\begin{itemize}
+	\item (Inner reorderings) $(U,w,\tau)\sim (-1)^{|\sigma|}(U,w',\tau)$ if there is an interval $u_{i-1}<u_i =\ldots u_{i+k}<u_{i+k+1}$ such that the sequences $(w_i,\ldots,w_{i+k})$ and $(w'_i,\ldots,w'_{i+k})$ differ by a permutation $\sigma$ and $w$ and $w'$ agree outside that interval. Notice that if all elements of $U$ are different, then $w=w'$.
+	\item (Full piece removal) $(U,w,d_i(\tau))\sim (-1)^r(D_i(U,w),\tau)$, where $D_i(U,w) = (U',w')$ and
+	\begin{align*}
+		U'_j &= \begin{cases} U_j &\text{ if $j<i$} \\ i & \text{ if $i\leq j < i+r$} \\ U_{j-r} + 1 & \text{ if $j\geq i+r$.}\end{cases} &
+		w'_j &= \begin{cases} w_j &\text{ if $j<i$} \\ w_{j-r} - 1 & \text{ if $j\geq i+r$.}\end{cases}
+	\end{align*}
+	and $(w'_{i},w'_{i+1},\ldots,w'_{i+r-1}) = (0,1,\ldots,r-1)$ (a \emph{full piece}).
+\end{itemize}
+This complex has a differential defined as follows: The full piece removal defines an order relation on each equivalence class. Then $\partial([(U,w,\tau)]) = [\partial(\bar{U},\bar{w},\tau)]$ where $(\bar{U},\bar{w},\tau)$ is a maximal representative of $[(U,w,\tau)]$ (in order to compute it it is enough to consider representatives that have a single full piece).
+
+\begin{lemma} The map $\beta'\colon \bar{\Omega}^*(r,n)\lra \bar{\Omega}^*(r,n)$ given by sending $(U,w,\tau)$ to $(U,w',\tau)$, where $w_i' = u_i+w_1\mod r$ is a $C_r$-equivariant isomorphism of chain complexes.
+\end{lemma}
+
+Given a generator $[(U,w,\tau)]$, define for each $0\leq i\leq r-1$, $U_w^i \subset U$ as the subset of those entries $u_j$ such that $w_j=i$. Define the word $w_U$ as $(\omega_U)_j = \omega_j$ and $\sigma(U,w)$ as the sign of the permutation that arranges $\omega_U$ in ascending order. \fcnote{This map may be further factored?}
+\begin{lemma} The map $\beta\colon \bar{\Omega}^*(r,n)\lra F\otimes_\Delta G$ given by
+	\[\beta([U,w,\tau]) = (-1)^{\sigma(U,w)}(U_w^0\otimes\ldots\otimes U_w^{r-1})\otimes \tau\]
+	is a $C_r$-equivariant isomorphism of chain complexes.
+\end{lemma}
+
+
+
+
+
+
+
+
+\subsection{Models of $W_*(r)\otimes N_*(\Delta^n)$}
+Recall that $W_*(r)$ is the augmented minimal resolution of $C_r$.
+\begin{definition} If $k\geq -1$ is odd, define the \emph{flip map} $\varphi_k\colon W_*(r)\to W^{k-*}(r)$ as $e_q\mapsto e^{\vee}_{k-q}$. If $k$ is an even integer, define the \emph{suspension map} $\theta_k\colon W_*(r)\to W_{*-k}(r)$ as $\theta_k(e_q) = e_{q-k}$.
+\end{definition}
+Let $r$ be odd. Define the graded complex
+\[V^{*}(r) = \bigoplus_{m}W^{(r-1)m-1-*}(r)\otimes N_m(\Delta^n)\]
+with the differential $d(e^\vee_q\otimes \tau) = d(e^\vee_q)\otimes \tau + (-1)^q \theta_{r-1}(e^\vee_q)\otimes d(\tau)$%\fcnote{the sign works even better with $(-1)^n$. Maybe the other order is better?}. Define a $C_r$-equivariant homomorphism of chain complexes
+\[\varphi\colon W_*(r)\otimes N_*(\Delta^n)\lra V^{*}(r)\]
+as $e_{q}\otimes \tau\mapsto \varphi(e_q)\otimes \tau$.
+
+\section{A higher cup-product map}
+In this section we build, from a certain equivariant map between spheres, a chain homomorphism with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$.
+\[\Psi\colon V^*(r)\to \bar{\Omega}^*(r,n)\]
+Let $\Omega_*(r,m)$ be generated in degree $q$ by the equivalence classes of pairs $(U,w)$ such that $w$ has at most one full piece, for the relation generated by inner reorderings and standarizations. The differential $\sum_{i} (-1)^i(d_iU,d_iw)$ is well-defined in classes. $\Omega_*(r,m)^{nf}$ is the subcomplex of words without full pieces and $\Omega_*(r,m)^{f}$ is the submodule of words with full pieces.
+
+Let $\Phi\colon \Omega_*(r,m)^f\to \Sigma^{r}\Omega_{*}(r,m-1)^{nf}$ be the (non-chain) homomorphism that sends a pair $(U,w)$ to the result of removing a full piece if it is possible and decrease all entries in $U$ to the right of the piece, and increase all entries in $w$ to the right of the piece.
+\begin{remark} For the $D_i$ defined in the ``full piece removal'' condition, $\sum_iD_i(U,w) = \Phi^{\vee}(U,w)$ if $\tau$ has dimension $m$.
+\end{remark}
+
+
+\begin{lemma}\label{lemma:omegarm} Suppose one is given a family of $C_r$-equivariant maps
+	\begin{align*}
+		\hat{\Psi}\colon \Omega_*(r,m)^{nf}&\lra W_*(r)
+	\end{align*}
+	related by the following equation:
+	\begin{align}\label{it:1a}
+		\hat{\Psi}_{q-1}((\partial (U,w)^{nf}) &= \hat{\Psi}_{q-r}\Phi(U,w) &\text{if $(U,w)$ has a full piece}
+	\end{align}
+	%\begin{enumerate}
+	%\item\label{it:1} $\hat{\Psi}_q\partial = \partial \hat{\Psi}_q + \hat{\Psi}_{q-r}\Phi$ !!!
+	%\item\label{it:1a} $\hat{\Psi}_{q-1}((\partial (U,w)^{nf}) = \hat{\Psi}_{q-r}\Phi(U,w)$ if $w$ has a full piece.
+	%\item\label{it:2a} $\hat{\Psi}_{q-1}((\partial (U,w)) = \partial \hat{\Psi}_{q}( (U,w))$ if $w$ has no full pieces.
+	%\item\label{it:2} $\Phi(S_m(U,w)) = S_{m}(\Phi(U,w))$
+	%\item\label{it:3} $\hat{\Psi}S_{m-1}\partial = \hat{\Psi}\partial S_m$ if $w$ has no full pieces
+	%\item\label{it:4} $\hat{\Psi}_{r-2} = \theta_{r-1}\hat{\Psi}_{-1}S_{r-2}$
+	%\end{enumerate}
+	%Then $\hat{\Psi}$ extends recursively to the whole $\Omega_*(r,m)^{nf}$ as
+	%\[
+	%\hat{\Psi}_q =\begin{cases}
+		%\hat{\Psi}_q & \text{if $q\leq r-2$} \\
+		%\theta_{r-1}\hat{\Psi}_{q-r+1}S & \text{if $q\geq r-2$}.
+		%\end{cases}
+		%\]
+		%and satisfies \eqref{it:1} and \eqref{it:3}, and
+		Then there is a chain homomorphism
+		\[\Psi\colon V^*(r)\lra \bar{\Omega}^*(r,n)\]
+		defined as $\Psi(e_q\otimes \tau) = \hat{\Psi}^\vee(e_q)\otimes \tau$.
+	\end{lemma}
+	\begin{proof}
+		\begin{align*}\delta\hat{\Psi}^{\vee}(e_q)\otimes \tau
+			&= (\delta\hat{\Psi}^{\vee}(e_q))^{nf}\otimes\tau + (\delta\hat{\Psi}^{\vee}(e_q))^f\otimes\tau \\
+			&= \hat{\Psi}^{\vee}(\delta e_q)\otimes \tau + \Phi^\vee\check{\Psi}^\vee_{q-r}(e_{q-r})\otimes\tau \\
+			&= \hat{\Psi}^{\vee}(\delta e_{q})\otimes \tau + \sum_i D_i(\check{\Psi}^\vee_{q-r}(e_{q-r}))\otimes \tau\\
+			&= \hat{\Psi}^{\vee}(\delta e_q)\otimes \tau + \sum_i \check{\Psi}^\vee_{q-r}(e_{q-r})\otimes d_i\tau \\
+			&= \Psi(\delta(e_q\otimes \tau))\qedhere
+		\end{align*}
+	\end{proof}
+
+	A \emph{pieced word} $w$ is a word in $EC_r$ together with a decomposition of $w$ into pieces of length $\leq r$. Define the following relation on them:
+	\begin{itemize}
+		\item (Inner reorderings) $w\sim (-1)^{|\sigma|}w'$ if all entries of $w$ and $w'$ coincide, except for a single piece where they differ by a permutation $\sigma$.
+		%\item (Full piece removal) $w\sim (-1)^rw'$ if $w'$ is obtained from $w$ by removing a piece of length $r$ (a \emph{full piece}).
+		\item (Standarization) $w\sim w'$ if $w'$ is obtained from $w$ by removing a piece of length $0$.
+	\end{itemize}
+	The complex $\Omega_*(r)$ is generated in degree $q$ by the equivalence classes of words of length $q+1$ and at most one full piece.
+	%Up to inner reorderings, every class $[w]$ has a maximal representative $\bar{w}$.
+	%Define $\partial([w]) = [\partial(\bar{w})]$.
+	The differential $\partial(w) = \sum_{i} (-1)^id_iw$ is well-defined in classes. $\Omega_*(r)^{nf}$ is the subcomplex of words without full pieces and $\Omega_*(r)^{f}$ is the submodule of words with full pieces.
+
+
+
+	If $(U,w)$ is a generator of $\Omega_*(r,m)$, then $w$ has a canonical piece decomposition: a sequence $(w_i,\ldots,w_{i+k})$ is a piece if and only if $u_{i-1}<u_i =\ldots= u_{i+k}<u_{i+k+1}$. This defines a chain homomorphism
+	\[\lambda_m\colon \Omega_*(r,m)\to \Omega_*(r)\]
+	Let $\Phi\colon \Omega_*(r)^f\to \Sigma^{r}\Omega_{*}(r)^{nf}$ be the (non-chain) homomorphism that sends a pair $(U,w)$ to the result of removing a full piece if it is possible and increase all entries in $w$ to the right of the piece.
+
+	%If $w'$ is a subword of $w$ and $(U,w)$ is a pair, define the pair $(U|_{w'},w')$ in the obvious way.
+	%where $w^{*}=w$ if $w$ has no full piece and $0$ otherwise and $w^{**}$ is the opposite.
+
+	%A pieced word $w$ and a generator $U\in C^q(\Delta^m)$ are \emph{compatible} if they have the same length and  if and only if the sequence $(w_i,\ldots,w_{i+k})$ is a piece. If $U$ and $w$ are compatible, write $(U,w)$ for the generator of $\hat{\Omega}^*(r,m)$ that is obtained by forgetting the pieces of $w$. Otherwise, define $(U,w) = 0$.
+
+	\begin{lemma}\label{lemma:omegar} Suppose one is given a $C_r$-equivariant map
+		\begin{align*}
+			\check{\Psi}\colon \Omega_*(r)^{nf}&\lra W_*(r)
+		\end{align*}
+		such that
+		\begin{itemize}
+			\item $\hat{\Psi}_{q-1}((\partial (w)^{nf}) = \hat{\Psi}_{q-r}\Phi(w)$ if $w$ has a full piece.
+		\end{itemize}
+		Then the family of maps $\hat{\Psi}_m = \check{\Psi}\lambda_m$ satisfies the conditions of Lemma \ref{lemma:omegarm}.
+	\end{lemma}
+	\begin{proof}
+		Immediate.
+	\end{proof}
+
+
+
+
+
+
+	\subsection{Maps between spheres}\footnote{Actually we will need the map on unnormalised chains} We will use the canonical identification $N_*(X*Y) \cong N_*(X)\otimes N_*(Y)$ and write $\sigma$ for the top dimensional class of $N_*(\Delta^{r-1})$. The cyclic group acts on $\Delta_{r-1}$ by permuting its vertices. Let
+	\begin{align*}
+		\iota_1\colon N_k(\Sigma^{r-1}\partial \Delta^{r-1})&\lra N_{k}(\partial\Delta^{r-1})\otimes N_{r-2}(\partial\Delta^{r-1})\\
+		\iota_2\colon N_k(\Sigma^{r-1}\partial \Delta^{r-1})&\lra N_{r-2}(\partial\Delta^{r-1})\otimes N_{k}(\partial\Delta^{r-1})
+	\end{align*}
+	be the $C_r$-equivariant chain homomorphisms given by
+	\begin{align*}
+		\iota_1(\tau) &= \tau\otimes \partial \sigma \\
+		\iota_2(\tau) &= \partial \sigma\otimes \tau \\
+	\end{align*}
+
+	\renewcommand{\theenumi}{\roman{enumi}}
+	Let $f\colon N_*(\partial\Delta^{r-1}*\partial\Delta^{r-1})\to N_*(\mathbb{S}^{r-1}*\partial\Delta^{r-1})$ be a $C_r$-equivariant chain homomorphism such that
+	\begin{enumerate}
+		\item\label{cond:1} $f\circ \iota_1 = \Id$
+		\item\label{cond:2} $f\circ \iota_2 = \rho$.
+		\item\label{cond:3} If $\tau_1\otimes\tau_2$ has degree $r-1$, then $f(\tau_1\otimes \tau_2)$ is a vertex if $\tau_1,\tau_2$ form a permutation and $0$ otherwise.
+	\end{enumerate}
+	\begin{remark} If we additionally impose the condition that $f$ sends simplices to simplices, then it is determined by its values on $(r-1)$-simplices.
+	\end{remark}
+	\begin{remark} Condition \eqref{cond:3} can be replaced by the more general condition
+		\[\partial f(\tau_1\otimes\tau_2) = \begin{cases}
+			\emptyset & \text{if $\tau_1$ and $\tau_2$ form a full permutation} \\
+			0 & \text{otherwise}.\end{cases}\]
+	\end{remark}
+	\begin{remark} The former condition $f(\tau_1,\tau_2)\subset \tau_1$ is no longer necessary: It is necessary to define suspension maps for $\Omega_*(r,m)$, but with the current argument that is not needed.
+	\end{remark}
+	\begin{remark} In the examples constructed, $f(\tau_1,\tau_2)\subset \tau_1\smallsetminus \tau_2$.
+	\end{remark}
+
+	A word $w$ can be canonically broken into overlapping subwords of length at most $r$ called \emph{blocks}: Set the last block to be the last $r$ entries of the word, and recursively define the rest of the blocks by removing the last $r-1$ entries of the last block. Each pair of adjacent blocks share an element, that is called \emph{pivot}. If $w$ is a minimal pieced word, let $w_1$ be the piece that contains the last pivot and let $w_2$ be the complement of that piece in the last block.
+	\begin{example} The pieced word $w=01|24|013|12|4$ has as blocks $01-12401-13124$, the last pivot is $1$, and $w_1 = 013$ and $w_2 = 124$.
+	\end{example}
+	\begin{definition} Define a homomorphism $S\colon \Omega_*(r)^{nf}\to \Sigma^{r-1}\Omega_*(r)^{nf}$ by sending a pieced word $w$ to the result of replacing $w_1$ and $w_2$ by the piece $f(w_1,w_2)$. %If $w$ is a pieced word with a full piece, define $S(w)$ as the result of inserting back the full piece into $S(\Phi(w))$ (if the full piece was to the right of $w_1$, then it gets inserted at the end of the word).
+	\end{definition}
+	\begin{lemma} $S$ is a chain homomorphism.
+	\end{lemma}
+	\begin{proof}
+		Let $\hat{w}$ be the result of removing $w_1$ and $w_2$ from $w$, and let $\ell$ be the dimension of $\hat{w}$. Given two words $w$ and $w'$, let $w*w'$ be its concatenation. Recall that $\partial w = \sum_{i} (-1)^{i}d_iw$, where $d_i$ removed the $i$-th entry of $w$. Then
+		\begin{equation}\label{eq:931}
+			\partial S(w) = \partial \hat{w}*f(w_1,w_2) + (-1)^{\ell+1}\hat{w}*\partial f(w_1,w_2).
+		\end{equation}
+		while, if the piece of the pivot contains at least two elements of the penultimate block,
+		\[S(\partial w) = \partial \hat{w}*f(w_1,w_2) + (-1)^{\ell+1}\hat{w}*f(\partial(w_1),w_2) + (-1)^{\ell+1}\hat{w}*f(w_1,\partial w_2),\]
+		which equals the previous sum. Suppose that the piece of the pivot is contained in the last block, in which case $f(w_1,w_2)$ is of dimension $0$. Then, letting $w_0$ be the piece to the left of $w_1$ and $\check{w}$ be the subword to the left of $w_0$, we have
+		\begin{equation}\label{eq:933}
+			S(\partial w) = \partial \check{w}*f(w_1,w_2) + \check{w}*f(w_0,\partial(w_1*w_2)).
+		\end{equation}
+		Now, the last summand of \eqref{eq:931} is zero or $\hat{w}$ depending on whether $f(w_1,w_2)$ vanishes or not. By condition \eqref{cond:3}, this is equivalent to $w_1,w_2$ not being or being a full permutation, which by condition \eqref{cond:1} is equivalent to $f(w_0,\partial(w_1*w_2))$ being $0$ or $w_0$, and therefore equivalent to the last summand of \eqref{eq:933} being zero or $\hat{w}$.
+	\end{proof}
+
+	There is an inclusion $C_*(EC_r)\to \Omega_*(r)^{nf}$ that sends a word to that same word with all pieces of length $1$. There is a map in the opposite direction with $\bZ[\frac{1}{(r-1)!}]$-coefficients that sends a pieced word to the sum of the underlying words of all its representatives, divided by the number of representatives. The composition (here $\Psi$ is the map from the previous section)
+	\begin{equation}\label{eq:234}
+		\Omega_*(r)^{nf}\lra C_*(EC_r)\overset{\Psi^\vee}{\lra} W_*(r)
+	\end{equation}
+	is a chain homomorphism with $\bZ[\frac{1}{(r-1)!}]$-coefficients, but in degrees $*\leq r-2$ it lifts to a homomorphism with $\bZ$-coefficients, that we denote by $\check{\Psi}_*\colon \Omega_*(r)^{nf}\to W_*(r)$.
+
+	\begin{definition} Define a homomorphism $\check{\Psi}\colon \Omega_*(r)^{nf}\to W_*(r)$ recursively as
+		\[\check{\Psi}_q(w) = \begin{cases} \check{\Psi}_q(w) & \text{if $*\leq r-2$} \\
+			\theta_{1-r}\check{\Psi}_{q-r+1}S(w) & \text{if $*\geq r-2$.}\end{cases}\]
+	\end{definition}
+
+
+
+	\begin{lemma} $\check{\Psi}$ is a well-defined homomorphism. %$\check{\Psi}\partial = \partial\check{\Psi}$
+	\end{lemma}
+	\begin{proof}
+		In degrees $*\leq r-2$ it is a homomorphism because it is a composition of the homomorphisms \eqref{eq:234}. The verification in the higher degrees follows from the previous lemma and induction:
+		\begin{align*}
+			\Psi_{q-1}\partial(w) &= \theta_{r-1}\Psi_{q-r}S\partial(w) = \theta_{r-1}\Psi_{q-r}\partial S(w) = \\
+			&=\theta_{r-1}\partial\Psi_{q-r+1}S(w) = \partial\theta_{r-1}\Psi_{q-r+1}S(w) = \partial \Psi_{q}(w).
+		\end{align*}
+		Finally, one deduces from \eqref{cond:3} that $\theta_{r-1}\check{\Psi}_{-1}S(w) = \check{\Psi}_{r-2}(w)$, hence both definitions coincide at their common case.
+	\end{proof}
+
+
+	%\begin{lemma} $\hat{\Psi}_{q-1}((\partial w)^{nf}) = \partial\hat{\Psi}_{q-r}\Phi(w)$ if $w$ has a full piece.
+	%\end{lemma}
+	%\begin{proof}
+	%\begin{itemize}
+	%\item if the full piece is to the left of $w_1$ \fcnote{doublecheck this, if it is exactly to the left an additional argument may be needed}, then $S\partial(w) = \partial S(w)$.
+	%\item if the full piece is to the right of $w_1$, then let $w_3$ be that full piece, and assume, without loss of generality that is the last piece. Then
+	%\[\partial S(w) = \partial \hat{w}*f(w_1,w_2)*w_3 + \hat{w}*\partial f(w_1,w_2)*w_3 + \hat{w}*f(w_1,w_2)*\partial w_3\]
+	%\[S\partial(w) = \partial \hat{w}*f(w_1,w_2)*w_3 + \hat{w}*\partial f(w_1,w_2)*w_3 + \hat{w}*w_1*f(w_2,\partial w_3)\]
+	%We need to check that the value of $\check{\Psi}$ in the last term coincides. If $q-r+1\geq r-2$, then we have that
+	%\[\check{\Psi}(\hat{w}*f(w_1,w_2)*\partial w_3) = \check{\Psi}S(\hat{w}*f(w_1,w_2)*\partial w_3) = \check{\Psi}(\hat{w}*f(f(w_1,w_2),\partial w_3)\]
+	%\[\check{\Psi}(\hat{w}*w_1*f(w_2,\partial w_3)) = \check{\Psi}S(\hat{w}*w_1*f(w_2,\partial w_3)) = \check{\Psi}(\hat{w}*f(w_1*f(w_2,\partial w_3))\]
+	%and both terms equal $f(w_1,w_2)$.
+	%\end{itemize}
+	%
+	%\end{proof}
+
+	\begin{lemma} $\hat{\Psi}_{q-1}((\partial w)^{nf}) = \hat{\Psi}_{q-r}\Phi(w)$ if $w$ has a full piece.
+	\end{lemma}
+	\begin{proof} We will prove it by induction on the position from the right of the left piece. Since $w$ has at least one full piece, $q\geq r-1$.
+
+		If the full piece is the last piece, write $w=\hat{w}*w_1*w_2$ with $w_2$ the full piece. Then by Condition \eqref{cond:1}:
+		%\[\partial S(w) = \partial \hat{w}*f(w_1,w_2)*w_3 + \hat{w}*\partial f(w_1,w_2)*w_3 + \hat{w}*f(w_1,w_2)*\partial w_3\]
+		\begin{align*}
+			\Psi_{q-r}(S(\partial(w))^{nf}) &= \Psi_{q-r}(S(\hat{w}*w_1*\partial w_2)) \\
+			&= \Psi_{q-r}(\hat{w}*f(w_1,\partial w_2)) \\
+			&= \Psi_{q-r}(\hat{w}*w_1) \\
+			&= \Psi_{q-r}\Phi(w).
+		\end{align*}
+		If the full piece is not the last piece but contains the pivot, write $w=\hat{w}*w_1*w_2$ with $w_2$ the full piece. Then by Condition \eqref{cond:2}:
+		\begin{align*}
+			\Psi_{q-r}(S(\partial(w))^{nf}) &= \Psi_{q-r}(S(\hat{w}*\partial w_1* w_2)) \\
+			&= \Psi_{q-r}(\hat{w}*f(\partial w_1, w_2)) \\
+			&= \Psi_{q-r}(\hat{w}*\rho(w_2)) \\
+			&= \Psi_{q-r}\Phi(w).
+		\end{align*}
+		If the full piece $\bar{w}$ is left to the last pivot, write $w=\hat{w}_1*\bar{w}*\hat{w}_2*w_1*w_2$ with $w_1$ the piece that contains the last pivot and $w_2$ the word to the right of $w_1$. Assume by induction that the lemma holds when $\hat{w}*w_1*w_2$ is of smaller length. Then
+		\begin{align*}
+			\Psi_{q-r}(S(\partial(w))^{nf}) &= \Psi_{q-r}(S(\hat{w}_1*\bar{w}*\hat{w}_2w_1w_2)) \\
+			&= \Psi_{q-r}(\hat{w}_1*\bar{w}*\hat{w}_2*f(w_1,w_2)) \\
+			&\overset{*}{=} \Psi_{q-r}(\hat{w}_1*\rho(\hat{w}_2*f(w_1,w_2)))\\
+			&= \Psi_{q-r}(\hat{w}_1*\rho(\hat{w}_2*w_1*w_2))\\
+			&=  \Psi_{q-r}(\Phi(w)). \qedhere
+		\end{align*}
+	\end{proof}
+	\begin{corollary} The map $\check{\Psi}$ satisfies the conditions of Lemma \ref{lemma:omegar}, hence together with Lemma \ref{lemma:omegarm} it defines a chain homomorphism $\Psi\colon V^*(r)\to \bar{\Omega}^*(r,n)$.
+	\end{corollary}
+
+
+
+
+
+
+	\subsection{Maps $f$}
+	If $r=3$, then there is a unique map $f\colon N_*(\partial \Delta^2)\otimes N_*(\partial\Delta^2)\to \Sigma^2N_*(\partial\Delta^2)$ satisfying all conditions, namely $f([0]\otimes [1,2]) = [0], f([0,1]\otimes [2])=0$, which extends $C_r$-equivariantly as follows (we only indicate the non-zero terms):
+	\begin{align*}
+		f([0,1]*[2,0]) &= [0,1]
+	\end{align*}
+
+	If $r=5$, then there is no unique map $f\colon N_*(\partial \Delta^4)\otimes N_*(\partial \Delta^4)\to \Sigma^4N_*(\partial \Delta^4)$, but here is one of them:
+	\begin{align*}
+		f([0]\otimes[1,2,3,4]) &= [0] &
+		f([0,1]\otimes [2,3,4]) &= [0] &
+		f([0,2]\otimes [1,3,4]) &= [0] \\
+		f([0,1,2]\otimes [3,4]) &= [0] &
+		f([0,1,3]\otimes [2,4]) &= [0] &
+		f([0,1,2,3]\otimes [4]) &= [0],
+	\end{align*}
+	which extends $C_r$-equivariantly as follows (we only indicate the non-zero terms):
+	\begin{align*}
+		f([0,1]\otimes [2,3,4,0]) &= [0,1] &
+		f([0,2]\otimes [1,3,4,0]) &= [0,2] \\
+		f([0,1,2]\otimes [3,4,0]) &= [0,1,2] &
+		f([0,1,3]\otimes [2,4,0]) &= [0,1] \\
+		f([0,1,3]\otimes [2,4,1]) &= [0,3] &
+		f([0,1,2,3]\otimes [4,0]) &= [0,1] \\
+		f([0,1,2,3]\otimes [4,1]) &= [2,0] &
+		f([0,1,3]\otimes [2,4,0,1]) &= [0,1,3] \\
+		f([0,1,2,3]\otimes [4,0,1]) &= [0,1,2] &
+		f([0,1,2,3]\otimes [4,1,2]) &= [0,2,3] \\
+		f([0,1,2,3]\otimes [4,0,1,2]) &= [0,1,2,3] &&
+	\end{align*}
+
+	There is also an explicit map for $r=7$.
+	\section{Other considerations}
+	\begin{enumerate}
+		\item These operations are compatible with suspension.
+		\item Cup product is the Alexander cup product (possibly divided by a scalar).
+		\item Succint description of the higher power operations.
+		\item A measurement of the computational complexity of these operations.
+		\item Comparison with previous formulas.
+		\item The case $r=2$. It is not trivial: $C^*(EC_2)\neq W^*(2)$.
+	\end{enumerate}
+
+	\section{Comparison with the surjection operad (drafty)}
+	Consider the functor tensor product $F^*\otimes G$, that is, $N_*(\Delta^\bullet)\otimes_\Delta N_\bullet(\Delta^n)$. It is related to the previous tensor product via Poincaré duality and it is isomorphic to $N_*(\Delta^n)^{\otimes r}$. Similarly, there is a chain complex analogous to $\Omega(r,n)$ that we denote, for the moment as $\Omega^\vee(r,n)$. Instead of using the previous isomorphism, we will use the isomorphism that sends $u_i\in U$ to the $w_i$-th factor of the tensor product.
+
+	If $\tau$ is a simplex of dimension $m$, one consider all pairs $(f,A)$ where
+	\begin{itemize}
+		\item $f$ is a surjection, i.e., a non-degenerate word in $EC_r$ that contains every element $0,1,\ldots,r-1$ at least once.
+		\item $A$ is a decomposition of a simplex $\tau$ into overlapping intervals.
+	\end{itemize}
+	Now,
+	\begin{itemize}
+		\item The pair $(f,A)$ defines a word in $EC_r$ given by replicating each number in $f$ as many times as the length of each interval dictates. For example, if $r=3$ and $f= 0121012$ and $A=(0,1,2)(2)(2,3)(3)(3,4,5)(5,6)(6)$, then the resulting word is $w=0001221000112$.
+		\item $A$ gives a simplex in $\Delta^m$ that results from erasing the parentheses: $U=[0,1,2,2,2,3,3,3,4,5,5,6,6]$
+	\end{itemize}
+	The triple $(f,A,\tau)$ thus yields an element of $\Omega^\vee(r,n)$, whose image coincides with the image of the operation $(f,A)$ on $\tau$.
+
+	If we want to interpret this element in $\Omega(r,n)$, we just need to do the following:
+	\begin{itemize}
+		\item The new $U$ is obtained from the maximally degenerate simplex \[(0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6)\] by removing the elements of $U$. In our case, $U=(0,0,1,1,4,4,5,6)$.
+		\item The new $w$ is obtained from $w$ by setting $w_i$ equal to any element of $C_r$ different from the ones that where labeling $u_i$ in the old $w$ \emph{provided that the old ones were not repeated. Otherwise, the operation is zero!!. Nonetheless, these cases may be easily identified}. This happens quite often. In our case $w=(12121220)$.
+	\end{itemize}
+	Finally, we need to substract $u_i$ from $w_i$ to obtain the word we care about in $\Omega(r,n)$: (12010100)
+
+	If $f$ is a surjection, let $w$ be the pieced word that comes from replacing each entry by its complement. Let $Q(f)$ be the collection of all subwords of all representatives of $w$.
+	\begin{lemma} In this dictionary (without the last substraction), the collection of words associated to a surjection $f$ is $Q(f)$.
+	\end{lemma}
+
+	\section{Some notes in the search for $f$}
+
+	Let $Z_\bullet(r)$ be the semi-simplicial set whose $k$-simplices are partitions $(q_0,\ldots,q_k)$ of $r$ with face maps given by
+	\begin{align*}
+		\partial_i(q_0,\ldots,q_k) &= \begin{cases}
+			(q_0,\ldots,q_{i-1}+q_{i},q_{i+1},\ldots,q_k) & \text{if $i>0$} \\
+			(q_1,\ldots,q_{k}+q_0) & \text{if $i=0$}
+		\end{cases}
+	\end{align*}
+	We write $\Lambda(r)$ for the quotient of $N_*(Z(r))$ by the equivalence relation generated by $(q_0,q_1,\ldots,q_k)\sim (q_k,q_0,\ldots,q_{k-1})$.
+	\begin{example} $r=7$, $(q_0,q_1,q_2) = (2,2,3)$ and its boundary is $(2,5)-(4,3)+(2,5)$.
+	\end{example}
+	Write $\Theta(r)$ for the quotient of $N_*(\partial \Delta^{r-1})$ by the equivalence relation generated by $(a_0,a_1,\ldots,a_k)\sim (\rho(a_0),\rho(a_1),\ldots,\rho(a_k))$. If $(a_0,\ldots,a_k)$ is a $k$-simplex, we will use the cyclic notation $a_{k+1} = a_0$.
+	\begin{definition} Let $a = (a_0,\ldots,a_k)\in \partial \Delta^{r-1}$ be a simplex. The \emph{pattern} $q(a)$ of $a$ is the sequence of cyclic differences $(a_0-a_k+r,a_1-a_0,a_2-a_1,\ldots,a_k-a_{k-1})$.
+	\end{definition}
+	\begin{lemma} The map $q\colon \Theta(r)\to \Lambda(r)$ is an isomorphism of chain complexes.
+	\end{lemma}
+	\begin{proof} Immediate.
+	\end{proof}
+	\subsection{Reflections on the map $f$} As we said before, the map $f$ is determined by its value on $(r-1)$-simplices. Therefore, we face the problem of choosing wisely a $C_r$-equivariant function $f\colon (\partial\Delta^{r-1}*\partial\Delta^{r-1})_{r-1}\to \{0,1,\ldots,r-1\}$ satisfying condition \eqref{cond:3}, and then check that
+	\begin{enumerate}
+		\item $f$ extends to the whole join.
+		\item $f$ satisfies condition \eqref{cond:1}
+		\item $f$ satisfies condition \eqref{cond:2}.
+	\end{enumerate}
+	The set of $C_r$-isomorphism classes of $(r-1)$-simplices of $\partial\Delta^{r-1}*\partial\Delta^{r-1}$ is in bijection with the generators of $\Theta(r)$ in two ways: The first isomorphism sends a pair $(a,b)$ to the class of $a$. The second isomorphism sends $(a,b)$ to $b$. I believe that the extra structure (the differential) in $\Lambda(r)$ (or $\Theta(r)$) will be helpful.
+
+	I will start working with $\Theta(r)$, though many of the ideas come from thinking about $\Lambda(r)$. The restriction of the unknown $f$ to $\Theta(r)$ along the two isomorphisms above will be denoted $\ell,\bar{\ell}\colon \Theta(r)\to \{0,1,\ldots,r-1\}$. If $a$ is a generator of $\Theta(r)$, its complement in $\{0,1,\ldots,r-1\}$ wil be denoted $b$.
+
+	\subsection{First assumption} I will make the following assumption:
+	\begin{assumption} $\ell(a)\in a$ and $\ell(a)-1\notin a$.
+	\end{assumption}
+	\begin{remark} This assumption on $\ell$ translates to $\bar{\ell}$ as follows: Since $\ell(a)-1\in b$, $\rho^{-1}(\bar{\ell}(b))\in b$
+	\end{remark}
+	\begin{definition} Given a generator $\sigma$ of $\Theta(r)$, a \emph{spike} of $\sigma$ is any $a_i$ such that $\ell(\partial_i a) \neq \ell(a)$. Observe that $\ell(a)$ is always a spike under the assumption above. The set of all spikes of $a$ is called $\mathrm{spk}(a)$. The assignment $a\mapsto \partial_i a$ is \emph{standar} if $\ell(\partial_i a) = \ell(a)$, otherwise we say that it is \emph{exceptional}.
+	\end{definition}
+	\begin{lemma} Under the above assumption, $f(a,b) \neq 0$ if and only if $a\cap b$ is a spike, in which case its value is $(\ell(a),\ell(a\smallsetminus b))$.
+	\end{lemma}
+	\begin{proof} All the face maps yield non-full pairs (pairs where $a\cup b \neq \{0,1,\ldots,r-1\}$) except for the two face map that remove the element $a\cap b$ from $a$ and from $b$. Removing it from $b$ yields the pair $(a,b\smallsetminus b)$ whose image under $f$ is $\ell(a)$. Removing it from $a$ yields $\ell(\partial_i a)$, which cancels with the other image unless $a_i$ is a spike.
+	\end{proof}
+	\subsection{Second assumption}We introduce from now on the following stronger assumption.
+	\begin{assumption} if $a\mapsto \partial_ia$ is exceptional (i.e., $a_i$ is a spike of $a$), then $\ell(\partial_i a) = a_{i+1}$.
+	\end{assumption}
+	\begin{remark} This assumption translates to $\bar{\ell}$ as follows: if $b\mapsto \partial_i b$ is exceptional, then $\ell(\partial_ib)$ is a number in $b$ such that all the numbers between it and $\ell(b)-1$ belong to $b$.
+	\end{remark}
+
+
+	\begin{lemma} If $\sigma$ is a simplex in $\Theta(r)$ and $i\leq j$, consider the square
+		\[\xymatrix @=2pc{
+			&\sigma \ar[dl]_{\partial_i}\ar[dr]^{\partial_{j+1}} &\\
+			\partial_i\sigma\ar[dr]_{\partial_j} && \partial_{j+1}\sigma\ar[dl]^{\partial_i}\\
+			&\partial_j\partial_{i}\sigma &
+		}\]
+		and write $\circ$ if an arrow is standard and $\times$ if it is exceptional. Then the only possible configurations are
+		\[\xymatrix @=1pc{
+			&\ar[dl]_{\times} \ar[dr]^{\times}&& \\
+			\ar[dr]_{\times} && \ar[dl]^{\circ} \\
+			&&
+		}
+		\xymatrix @=1pc{
+			&\ar[dl]_{\times} \ar[dr]^{\times}&& \\
+			\ar[dr]_{\circ} && \ar[dl]^{\times} \\
+			&&
+		}
+		\xymatrix @=1pc{
+			&\ar[dl]_{\times} \ar[dr]^{\circ}&& \\
+			\ar[dr]_{\circ} && \ar[dl]^{\times} \\
+			&&
+		}
+		\xymatrix @=1pc{
+			&\ar[dl]_{\circ} \ar[dr]^{\times}&& \\
+			\ar[dr]_{\times} && \ar[dl]^{\circ} \\
+			&&
+		}
+		\xymatrix @=1pc{
+			&\ar[dl]_{\circ} \ar[dr]^{\circ}&& \\
+			\ar[dr]_{\circ} && \ar[dl]^{\circ} \\
+			&&
+		}
+		\]
+
+
+
+
+
+		%\begin{assumption} If $\ell(a) = a_i$, then $\ell(\partial_i a) = a_{i+1}$
+		%Suppose that for each $k\geq 0$ there is a function $\ell\colon Z_k(r)\to \{0,\ldots,k\}$ such that either
+		%\[
+		%\ell(\partial_i\sigma) \overset{*}{=}
+		%\begin{cases}
+		%\ell(\sigma) & \text{if $\ell(\sigma)<i$} \\
+		%\ell(\sigma)-1 & \text{if $\ell(\sigma)\geq i$}
+		%\end{cases}
+		%\quad \text{or}\quad
+		%\ell(\partial_i\sigma)\overset{**}{=}i-1.
+		%\]
+		%Additionally, suppose that $\ell$ is $C_{k+1}$-equivariant.
+		%\end{assumption}
+		%\begin{example}
+		%$r=5$, define
+		%\begin{align*}
+		%\ell(1,4) &= 1 &
+		%\ell(2,3) &= 1 &
+		%\ell(1,1,3) &= 2 &
+		%\ell(1,2,2) &= 2 &
+		%\ell(1,1,1,2) &= 3
+		%\end{align*}
+		%and extend equivariantly.
+		%\end{example}
+		\begin{example}
+			$r=5$, define
+			\begin{align*}
+				\ell(0,1) &= 0 &
+				\ell(0,2) &= 0 &
+				\ell(0,1,2) &= 0 &
+				\ell(0,1,3) &= 0 &
+				\ell(0,1,2,3) &= 0
+			\end{align*}
+			and extend equivariantly. For $r=7$ define $\ell$ to take value $0$ on the following simplices, and extend equivariantly:
+			\begin{align*}
+				(0) &&
+				(0,1) &&
+				(0,2) &&
+				(0,3) \\
+				(0,1,2) &&
+				(0,1,3) &&
+				(0,1,4) &&
+				(0,2,3) &&
+				(0,2,4) \\
+				(0,1,2,3) &&
+				(0,1,2,4) &&
+				(0,1,3,4) &&
+				(0,2,3,4) &&
+				(0,1,3,5) \\
+				(0,1,2,3,4) &&
+				(0,1,2,3,5) &&
+				(0,1,3,4,5) &&
+				(0,1,2,3,4,5)
+			\end{align*}
+		\end{example}
+
+		%\begin{itemize}
+		%\item if $i$ and $j+1$ are non-leading spikes of $\sigma$, then all arrows are exceptional but one of the lower ones.
+		%\item if $i$ and $j+1$ are not non-leading spikes of $\sigma$, then all arrows are standard.
+		%\item if $i$ is a non-leading spike and $j+1$ is not, then....
+		%\end{itemize}
+	\end{lemma}
+	\begin{lemma} There is an inclusion $\mathrm{spk}(\partial_i\sigma)\subset \mathrm{spk}(\sigma)$.
+	\end{lemma}
+	\begin{proof} Follows from the previous lemma
+	\end{proof}
+	\begin{lemma} If $T\subset \mathrm{spk}(\sigma)$ is a collection of spikes of $\sigma$, then there is exactly one spike $i$ such that $T\subset \mathrm{spk}(\partial_i\sigma)$. We call it the \emph{principal spike} of $(\sigma,T)$.
+	\end{lemma}
+	\begin{proof} Not so easy, should follow from the previous lemma.
+
+	\end{proof}
+	\subsection{A map $f$} Here we construct a map $f$ that satisfies Condition \eqref{cond:1} but not necessarily condition \eqref{cond:2}. The maps we already have for $r=5,7$ can be constructed using this method.
+	\begin{definition}  %The \emph{spikes} of $a$ (denoted $\mathrm{spk}(a)$) are the spikes of $q(a)$.
+		A \emph{snippet} of $a$ is a sequence $v = (a_j,a_{j+1},\ldots,a_{j+m})$ of consecutive elements of $a$ such that $a_j$ is a spike, there are no other spikes in the sequence and $j+m\neq \ell(a)-1$. For that snippet, its \emph{slided snippet} $v^+$ is the sequence $(a_{j+1},a_{j+2},\ldots,a_{j+m+1})$.
+	\end{definition}
+	Define a map $f\colon \partial N_*(\Delta^{r-1}*\Delta^{r-1})\to \Sigma^{r-1}\partial N_*(\Delta^{r-1})$ as follows:
+	\[
+	f(a,b) = \begin{cases}
+		\{\ell(a)\}\cup v_0^+\cup v_1^+\cup\ldots \cup v_d^+ & \begin{array}{l} \text{if $\{0,1,\ldots,r\}\subset a\cup b$ and} \\ \text{$a\cap b$ is a union of snippets $v_0,v_1,\ldots,v_d$}\end{array} \\
+		0 & \text{otherwise.}
+	\end{cases}
+	\]
+	\begin{lemma} If $\ell$ satisfies both assumptions, then $f$ is a map of chain complexes.
+	\end{lemma}
+	\begin{proof} Recall that the differential of $(a,b)$ is the sum of all possible removals of elements of $a$ and $b$. Observe first that removing an element from $a$ or $b$ that is not in $a\cap b$ yields a simplex $(a',b')$ that does not satisfy Condition \eqref{cond:711}, and therefore $f(a',b') = 0$.
+
+		We will prove the lemma by induction, the base case being in dimension $r-1$, when $a\cap b = \emptyset$ and there are no snippets.
+
+		Suppose first that we are in the first case, i.e.,
+		\begin{align}\label{cond:711}
+			&\{0,1,\ldots,r\}\subset a\cup b \\ \label{cond:712}
+			&a\cap b\text{ is a union of snippets }v_0,v_1,\ldots,v_d.
+		\end{align}
+
+
+		Now, let $T(a,b)$ be the set of those spikes of $a$ that are in some snippet but not in any slided snippet.
+		\begin{enumerate}
+			\item Removing a highest element from a snippet $v$ in $b$ yields a simplex $(a,b')$ that satisfies both conditions and $f(a,b')$ results from removing the highest element of $v^+$ from $f(a,b)$.
+			\item Removing any non-spike element from a snippet $v$ in $a$ yields a simplex $(a',b)$ that satisfies both conditions and $f(a',b)$ results from removing that element from $f(a,b)$.
+			\item Removing the principal spike of $(a,T(a,b))$ from $a$ yields a simplex $(a',b)$ that satisfies both conditions and $f(a',b)$ results from removing $a_0$ from $f(a,b)$
+		\end{enumerate}
+		In the remaining cases, $f(a',b')=0$:
+		\begin{enumerate}
+			\item Removing a non-highest element $\hat{a}$ from a snippet $v$ in $b$ yields a simplex $(a,b')$ such that $a\cap b$ is not a union of snippets (the part of $v$ to the right of $\hat{a}$ is not a snippet and is not part of any other snippet).
+			\item Removing a non-principal spike of $(a,T(a,b))$ from $a$ yields a simplex $(a',b)$ where some spike of $(a,\mathrm{spk}(a)\cap b)$ is not a spike of $a'$.
+			\item Removing a spike of a snippet that does not belong to $T(a,b)$ yields a simplex whose highest element is contained in $a\cap b$ (hence cannot be part of any snippet).
+		\end{enumerate}
+		Suppose now that \eqref{cond:711} is not satisfied. Then removing any element of $a\cap b$ from $a$ or $b$ yields a simplex that does not satisfy \eqref{cond:711}.
+
+		Finally, suppose that \eqref{cond:711} is satisfied, but not \eqref{cond:712}. Then removing any element of $a\cap b$ from $a$ or $b$ yields a simplex that does not satisfy \eqref{cond:711} unless $a\cap b$ is the result of removing from a union of snippets $v_0,\ldots,v_d$ the penultimate element $\hat{a}$ of some snippet. If $a' = a\smallsetminus \{\hat{a}\}$ and $b' = b\smallsetminus \{a\}$, then $(a',b)$ and $(b',a)$ are the only summands in the differential of $(a,b)$ that take non-zero value under $f$, and both take value $\{a_0\}\cup v_0^+\cup \ldots \cup V_d^+$.
+	\end{proof}
+	\begin{lemma} $f(\iota_1(a)) = a$.
+	\end{lemma}
+	\begin{proof} The elements in $\iota_1(a)$ consist on all pairs $(a,b)$ with $|b|=r-1$, hence $a\cap b$ consists on all elements of $a$ but one. Since the term $\ell(a)-1$ can never belong to $a\cap b$, there is only one such pair where $f$ is non-zero: $b = \{0,1,\ldots,r-1\}\smallsetminus \{\ell(a)-1\}$, and the value of $f$ on it is $a$.
+	\end{proof}
+	\begin{remark} There is no reason why $f(\iota_2(a))$ should equal $\rho(a)$. Our choices of $\ell$ for $r=5,7$ do satisfy all the assumptions, and do indeed satisfy Condition \eqref{eq:2}. Nonetheless, these are the only cases in which this construction works:
+	\end{remark}
+	\begin{lemma} The above construction cannot yield Condition \eqref{cond:2} if $r$ is a prime number bigger than 7 and smaller than 100.
+	\end{lemma}
+	\begin{proof}
+		Let $a$ be the generator of $\Theta(r)_{r-2}$. Consider the set $Q=(i_0,\ldots,i_q)$ whose elements are
+		\begin{itemize}
+			\item the number of elements between consecutive spikes, where the right spike is not $\ell(\sigma)$.
+			\item the number of elements minus one between consecutive spikes, where the right spike is $\ell(\sigma)$.
+		\end{itemize}
+		Then the number of possible combinations of snippets is $\prod_j{(i_j+2)}$.
+
+		On the other hand, the number of simplices in $N_*(\partial\Delta^{r-1})$ of dimension at least $0$ up to cyclic ordering is $\frac{2^r-2}{r}$. If $r=5$, then the number of simplices is $6$, and in the example we have of $f$ for $r=5$, $Q=(2,3)$. If $r=7$, the number of simplices is $18$ and in the example we have of $f$ we have $Q=(2,3,3)$. For $r=11$, the quatity is $186 = 2*3*31$, hence there should be a snippet of length $29$, and this is impossible. The same issue happens for all higher primes up to 100.
+	\end{proof}
+	\subsection{Other methods} Suppose that we have constructed already a map $f$. Then the map $f'$ defined as $f'(a,b) = f(b)$ is a chain map, and it satisfies condition \eqref{cond:2} if $f$ satisfies condition \eqref{cond:1}.
+
+	$\ell\colon \Theta(r)\to \{0,1,\ldots,r-1\}$ is a map that extends to the whole join. Then defining $\ell'(a) = \rho^{-1}(\bar{\ell}(a))$ we obtain a new map that extends. If $\ell$ satisfies condition \eqref{cond:1}, then $\ell'$ satisfies condition \eqref{cond:2}.
+
+	$\Theta(r)$ has an automorphism $\varphi(x)= -x$ that reverses the cyclic order: $(0,1,3)\mapsto (0,4,2)$. Precomposing with that automorphism yields new $\ell$'s.
+
+	In the examples above: If $r=5$, then $\ell = \rho^{-1}(\bar{\ell}(\varphi))$. If $r=7$, then $\ell$ and $\bar{\ell})$ are not related in this way. In fact, $\rho^{-1}(\bar{\ell})$ yields another solution that does not satisfy the assumptions made.
+
+	Hence one should try to relax the assumptions.
+	\begin{remark} One could be tempted to ask at the same time for the second assumption both on $\ell$ and $\bar{\ell}\circ \varphi$. I have found that there is no such $\ell$ even for $r=7$.
+	\end{remark}
