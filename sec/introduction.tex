@@ -2,4 +2,57 @@
 
 \section{Introduction} \label{s:introduction}
 
-\noindent TBW
+In 1946, Steenrod was looking for invariants of maps between spheres generalizing the Hopf invariant when he found certain cochain operations on a simplicial complex 
+\[\smile_i\colon C^k(X;\bF_2)\otimes C^j(X;\bF_2)\lra C^{k+j+i}(X;\bF_2),\qquad i\geq 0\]
+which in cohomology gave rise to the celebrated \emph{Steenrod squares}
+\[\Sq^{k}\colon H^j(X;\bF_2)\lra H^{j+k}(X;\bF_2).\]
+Shortly after these operations were given a more abstract and axiomatic treatment. This new viewpoint exhibited new power operations
+\begin{align*}
+P^k\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)}(X;\bF_r), k\geq 0 \\
+\beta P^k\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)+1}(X;\bF_r), k\geq 0
+\end{align*}
+for $r$ an odd prime. These operations where known to come from generalised $\smile_i$-products
+\begin{align}\label{eq:1}
+C^{k_1}(X;\bF_r)\otimes\overset{r}{\ldots}\otimes C^{k_r}(X;\bF_r)\lra C^{k_1+\ldots +k_r + i}(X;\bF_r),\qquad i\geq 0
+\end{align}
+though no explicit formula was pursued until the work of McClure and Smith \cite{MS02} and Berger and Fresse \cite{BF03} based on previous work by Benson \cite{Benson}. These operations were known to be the image of the homology of the symmetric group under a certain equivariant map 
+\[E\Sigma_r\lra \hom(C^*(X;\bZ)^{\otimes r},C^*(X;\bZ))\]
+that was thoroughly described. All these maps together yield an action of the Barratt--Eccles operad on the cochains of a simplicial complex, or more generally, of a simplicial set. The inclusion $C_r\hookrightarrow \Sigma_r$ of the cyclic group of order $r$ into the symmetric group on $r$ letters is a surjection in homology. Recently \cite{Anibaletal} a homomorphism
+\[\cW_*(r)\lra E\Sigma_r\]
+from the minimal resolution of $C_r$ has been found. Altogether these maps yield explicit maps as \eqref{eq:1}.
+
+In our study of odd power operations for $\Sigma$-spectra or Khovanov homology, we have found that these cochain operations have three inconveniences for their adaptation to the stable setting:
+\federico{Probably it is better to emphasize cochain operations in $\Sigma$-spectra as in \cite{Gill20} more than Khovanov homology, since the interested audience is broader}
+\begin{enumerate}
+\item {\bf Efficiency:} The definition of the cochain operations is recursive on the degree of the cochain operation. A standard PC cannot perform almost any power operation for the prime $5$ or higher. 
+\item {\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas. In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
+\item {\bf Augmentation:} Khovanov homology deals with augmented semi-simplicial objects. The formulas of McClure--Smith and Berger--Fresse are not designed for the augmented context. 
+\end{enumerate}
+In this article, we introduce new formulas for the cochain operations that solve these three problems at once. In addition, they are described with the language of face maps, which has a more natural taste than the language of overlapping intervals used in \cite{MS02} and \cite{BF03}. We will work with augmented pointed simplicial sets.
+
+The \emph{pair subdivision} of the $n$th simplex is a cubulation $\Psd \Delta^n$ of the standard simplex $\Delta^n$ whose vertices are the barycenters of the faces of $\Delta^n$ (see Definition \ref{TBW}). An \emph{enhanced pair subdivision map} is a map $\Psd \Delta^n\to \Delta^n$ satisfying certain properties (see Definition \ref{TBW}). We write $\Delta^n_+$ for the augmented simplex with a disjoint basepoint and $\NN^*(\Delta^n_+)$ for the normalized cochains on $\Delta^n_+$. %Let $R$ be a commutative ring that is an algebra over $\bZ\left[\frac{1}{\tilde{r}!}\right]$, where $\tilde{r} = \frac{r-1}{2}$.
+\begin{theorem} 
+	Let $r$ be an odd prime. Each enhanced pair subdivision map $\Psd \Delta^{r-1}\to \Delta^{r-1}$ defines an explicit natural homomorphism on any augmented simplicial set $X$
+	\[\Psi\colon W_*(r)\lra \hom(\NN^*(X)^{\otimes r},\NN^*(X)).\]
+	The power operations $P^k(x)$ and $\beta P^k(x)$ are computed as $\nu(m)\cdot \Psi(e_{m(r-1)-2i(r-1)})(x\otimes\overset{r}{\ldots}\otimes x)$ and $\nu(m)\cdot \Psi(e_{m(r-1)-2i(r-1)+1})(x\otimes\overset{r}{\ldots}\otimes x)$ respectively, with $R=\bF_r$ and $m$ the dimension of $x$.
+\end{theorem}
+\federico{Here $\nu(m)$ should be a factor of $\frac{1}{(\tilde{r}!)^m}$, otherwise the operation is not stable}
+
+%Examples of algebras over $\bZ\left[\frac{1}{\tilde{r}!}\right]$ are $\bZ_{(r)}$, the integers localized at $r$, the rationals $\bQ$ or $\bF_r$ the finite field with $r$ elements. The ring $R$ may be taken to be $\bZ$ at the cost of loosing part of the compatibility with suspension. 
+This compatibility has the following form:
+\begin{theorem}
+ Let $X$ be an augmented pointed simplicial set and let $\Sigma X$ be its simplicial suspension. Let $\rho$ be the standard generator of the cyclic group $C_r$. Then 
+\[\Psi(\rho(e_{k-r+1)})(\Sigma x_1\otimes\overset{r}{\ldots}\otimes \Sigma x_r) = \tilde{r}!\Sigma\Psi(e_{k})(x_1\otimes \overset{r}{\ldots} \otimes x_r).
+\]
+\end{theorem}
+
+In Section \ref{sec:BLA} we give three explicit pair subdivision maps for the primes $r=3,5,7$. In Section \ref{sec:BLA} we give a succint description of these formulas. 
+
+The homomorphism $\Psi$ does not seem to factor in general through the Barratt-Eccles operad or the surjection operad. We have empirically tested by computer that our operations for $r=3$ coincide with the operations of \cite{Anibaletal}. For $r=5$ the operations of \cite{Anibaletal} cannot come from our method. 
+
+Apart from the pair subdivision map, our construction has two main ingredients. First, a Poincaré duality theorem for the normalized chains and cochains of the augmented standard simplex. Second, an explicit $C_r$-equivariant homomorphism $N_*(EC_r)\to W_*(r)$ from the normalized chains of the Milnor construction on the cyclic group $C_r$ to the minimal resolution of $C_r$, whenever $r$ is odd. These results, which may be of independent interest, are described in sections \ref{sec:BLA1} and \ref{sec:BLA2}.
+
+As we are considering augmented objects, the degree of the operations has a shift of $r-1$ with respect to the classical degree. All the ``old'' operations in classical degree $0$ coincided with the Alexander-Whitney diagonal. Our operations in augmented degree $r-1$ do coincide with the Alexander-Whitney diagonal up to multiplication by a scalar (see \ref{BLA}). The augmented context allows for an extra operation $P^{-1}$ that has augmented degree $0$ and classical degree $r-1$. This operation is always zero except in degree $-1$, in which $P^{-1}(x) = x^r$. This operation is induced by a cochain operation in augmented degree $0$
+\[\NN^{k}(X)\otimes \NN^{0}(X)\otimes\overset{r-1}{\ldots}\otimes \NN^{0}(X)\lra \NN^{k}(X)\]
+that sends a cochain $(x_1,\ldots,x_r)$ to the cochain $x$ whose value on a $k$-simplex $\tau$ is $x_1(\tau)\cdot \prod_{i\geq 2} x_i(d_{\mathrm{all}}\tau)$, where $d_{\mathrm{all}}\colon \NN_k(X)\to \NN_{-1}(X)$ is the augmentation. 
+

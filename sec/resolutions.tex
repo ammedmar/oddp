@@ -33,7 +33,7 @@ There are \emph{suspension maps}
 	% (a_0,\ldots,a_k) & \longmapsto \sum_{(b_{0},\ldots,b_{r-1})\in \Perm_r} (-1)^{\sigma(a_k\ldots a_{k+r-1})} %(a_0,\ldots,a_{k},a_{k+1},\ldots,a_{k+r-1})
 	S\colon C_*(EC_r)&\lra \Sigma^{r-1}C_*(EC_r) \\
 	(a_0,\ldots,a_k) & \longmapsto \begin{cases}
-		{\sgn(a_{0},\ldots,a_{r-1})} (a_{r-1},\ldots,a_{k}) & \text{ if $k\geq r-1$} \\
+		{\sgn(a_{k-r+1},\ldots,a_{k})} (a_{0},\ldots,a_{k-r+1}) & \text{ if $k\geq r-1$} \\
 		\emptyset & \text{if $k = r-2$ and $a_i\neq a_j$ for all $i,j$} \\
 		0 & \text{otherwise.}
 	\end{cases}
@@ -49,20 +49,20 @@ There are \emph{suspension maps}
 \end{lemma}
 
 \begin{proof}
-	Consider first a simplex $(a_0,\ldots,a_k)$ of dimension $k\geq r$. If $A=(a_{0},\ldots,a_{r-1})$ has no repeated entries (i.e., it is a permutation), we choose the unique $j<r-1$ such that $a_j = a_r$. Let $A' = (a_{0},\ldots,\hat{a}_j,\ldots,a_r)$, and observe that the permutations $A$ and $A'$ differ by $r-j-1$ transpositions, hence $\sgn(A') = (-1)^{r-j+1}\sgn(A) = (-1)^j\sgn(A)$.
+	Consider first a simplex $(a_0,\ldots,a_k)$ of dimension $k\geq r$. If $A=(a_{k-r+1},\ldots,a_{r})$ has no repeated entries (i.e., it is a permutation), we choose the unique $j>k-r$ such that $a_j = a_{k-r}$. Let $A' = (a_{k-r},a_{k-r+1},\ldots,\hat{a}_j,\ldots,a_k)$, and observe that the permutations $A$ and $A'$ differ by $j-k+r-1$ transpositions, hence $\sgn(A') = (-1)^{j-k+r-1}\sgn(A).$
 	\begin{align*}
 		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
-		&= \sum_{i=0}^{r-1} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=r}^{k} (-1)^iS(d_i (a_0,\ldots,a_k))
+		&= \sum_{i=0}^{k-r} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=k-r+1}^{k} (-1)^iS(d_i (a_0,\ldots,a_k))
 	\end{align*}
-	All the terms in the first summation on the RHS are zero but the one indexed by $j$, because $(a_0,\ldots,\hat{a}_i,\ldots,a_r)$ is not a permutation in those cases. Additionally, $Sd_i = d_{i-r+1}S$ in each term in the second summation on the RHS, hence we have:
+	All the terms in the second summation on the RHS are zero but the one indexed by $j$, because $(a_{k-r},\ldots,\hat{a}_i,\ldots,a_k)$ is not a permutation in those cases. Additionally, $Sd_i = d_{i}S$ in each term in the first summation on the RHS, hence we have:
 	\begin{align*}
 		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
-		&= (-1)^jS(d_j (a_0,\ldots,a_k)) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
-		&= (-1)^{j}\sgn(A')(a_r,\ldots,a_k) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
-		&= (-1)^{0}\sgn(A)(a_r,\ldots,a_k) + \sum_{i=1}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)\\
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^j S(d_j (a_0,\ldots,a_k)) \\
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^{j}\sgn(A')(a_0,\ldots,a_{k-r}) \\
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^{k-r+1}\sgn(A)(a_0,\ldots,a_{k-r}) \\
 		&= \sum_{i=0}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)
 	\end{align*}
-	If $A$ has repeated entries, then $S(a_0,\ldots,a_k) = 0$. We consider two cases: if the repeated entries of $A$ are different from $a_k$ or there are more than two repeated entries, then all summands in $d(a_0,\ldots,a_k)$ have repeated entries in its first $r$ positions, therefore $S(dA)=0$. If there are exactly two repeated entries $a_j=a_m = a_r$ with $j,m<r$, let $A' = (a_0,\ldots,\hat{a}_j,\ldots,a_{r})$, $A'' = (a_0,\ldots,\hat{a}_m,\ldots,a_{r})$, and observe that these two words differ by $|m-j-1|$ transpositions, hence $\sgn(A') = (-1)^{m-j-1}\sgn(A'')$.
+	If $A$ has repeated entries, then $S(a_0,\ldots,a_k) = 0$. We consider two cases: if the repeated entries of $A$ are different from $a_{k-r}$ or there are more than two repeated entries, then all summands in $d(a_0,\ldots,a_k)$ have repeated entries in its last $r$ positions, therefore $S(dA)=0$. If there are exactly two repeated entries $a_j=a_m = a_{k-r}$ with $r>j,m$, let $A' = (a_0,\ldots,\hat{a}_j,\ldots,a_{r})$, $A'' = (a_0,\ldots,\hat{a}_m,\ldots,a_{r})$, and observe that these two words differ by $|m-j-1|$ transpositions, hence $\sgn(A') = (-1)^{m-j-1}\sgn(A'')$.
 	\begin{align*}
 		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
 		&= \sum_{i=0}^{r-1} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=r}^{k} (-1)^iS(d_i (a_0,\ldots,a_k)) \\
