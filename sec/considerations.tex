@@ -11,7 +11,10 @@
 	%\item The case $r=2$. It is not trivial: $C^*(EC_2)\neq W^*(2)$.
 	\item Naturality of the cup-i products. Bockstein. Cartan formulas. (I think we need them to axiomatically deduce that the power operations are the usual ones)
 \end{enumerate}
-\subsection{Compatibility with suspension} There standard suspension functor in the category of pointed semi-simplicial sets sends a semi-simplicial set $X_\bullet$ to the semi-simplicial set $(\Sigma X)_\bullet$ defined as:
+
+\subsection{Compatibility with suspension}
+
+There standard suspension functor in the category of pointed semi-simplicial sets sends a semi-simplicial set $X_\bullet$ to the semi-simplicial set $(\Sigma X)_\bullet$ defined as:
 \begin{align*}
     (\Sigma X)_n &= X_{n-1},& d_i(\Sigma\sigma) &= \Sigma d_{i+1}(\sigma),& d_{0}(\Sigma \sigma) &= *.
 \end{align*}
@@ -33,7 +36,7 @@ We also have that, for a semi-simplicial set $X_\bullet$ \begin{align*}
 
 Now, if $\mu_{k}\colon \colon N_*(X)\to N_*(X)^{\otimes r}$ is the symmetric comultiplication in degree $k$, then we can define
 \begin{align*}
-    \Sigma \mu_k\colon \Sigma N_*(X)&\lra \Sigma N_*(X)^{\otimes r} 
+    \Sigma \mu_k\colon \Sigma N_*(X)&\lra \Sigma N_*(X)^{\otimes r}
     &
     \hat{\Sigma} \mu_k\colon \hat{\Sigma} N_*(X)&\lra \hat{\Sigma} N_*(X)^{\otimes r}
 \end{align*}
@@ -44,103 +47,61 @@ which, under the above isomorphisms have the same domain and codomain as $\mu_{k
         \hat{\Sigma} \mu_k &= \mu_{k+r-1}
     \end{align*}
 \end{proposition}
+
 \begin{proof}
     Let $\tau$ be a generator of $N_m(X)$, so that \[\mu_k(\tau) = \mathrm{rev}\circ \alpha\circ\beta\circ\beta'\circ \Psi(e_{(r-1)m-k}^\vee\otimes \vec{\tau}).\]
-    
-    On the other hand, writing $\xi = \Sigma \tau$, we have 
+
+    On the other hand, writing $\xi = \Sigma \tau$, we have
     \[\mu_{k+r-1}(\Sigma \tau) = \mathrm{rev}\circ \alpha\circ\beta\circ\beta'\circ \Psi(e_{(r-1)(m+1)-(k-r+1)}^\vee\otimes \vec{\xi})\]
      Observe now that $k+r-1-(r-1)(m+1) = k-(r-1)m$, and therefore the words that will appear in the formulas for $\Psi(e_{(r-1)m-k}\otimes \vec{\tau})$ and $\Psi(e_{(r-1)m-k}\otimes \vec{\xi})$ are the same, while the sequences $U$ that appear in the formulas for $\Psi(e_{(r-1)m-k}\otimes \vec{\tau})$ are bounded by $m$ and the ones appearing in $\Psi(e_{(r-1)m-k}\otimes \vec{\xi})$ are bounded by $m+1$.
-     
+
      Write $q = (r-1)m-k$.
      \[\Psi(e_{q}\otimes \vec{\tau}) = \sum_{U\in C^{q}(\Delta^m)}\sum_{w\in C^q(EC_r)} (U,w)\otimes \vec{\tau} \]
      Hence
      \begin{align*}
-         \Sigma\Psi(e_{q}\otimes \vec{\tau}) 
+         \Sigma\Psi(e_{q}\otimes \vec{\tau})
          &= \sum_{U\in C^{q}(\Delta^m)}\sum_{w\in C^q(EC_r)} (\Sigma U,\rho(w))\otimes \vec{\tau} \\
          &= \sum_{U\in C^{q}(\Delta^m)}\sum_{w\in C^q(EC_r)} (U,\rho(w))\otimes \vec{\tau} \\
          &= \Psi(\rho(e_q^\vee)\otimes \vec{\tau})
     \end{align*}
-    In the first equality we had to take $\rho(w)$ (recall that this is a dual action, hence $\rho(a) = a-1$) to counteract the effect of $\Sigma$ on $U$, which reindexes the indices by one up. In the second equality we use that any $U$ containing a $0$ yields a trivial summand because in $\Sigma X$ the face map $d_0$ sends everything to the basepoint. This proves the first claim, and an analogous argument proves the second claim. 
+    In the first equality we had to take $\rho(w)$ (recall that this is a dual action, hence $\rho(a) = a-1$) to counteract the effect of $\Sigma$ on $U$, which reindexes the indices by one up. In the second equality we use that any $U$ containing a $0$ yields a trivial summand because in $\Sigma X$ the face map $d_0$ sends everything to the basepoint. This proves the first claim, and an analogous argument proves the second claim.
 \end{proof}
-\subsection{Stable $\mathbb{E}_\infty$ actions after [Gill20]} Now, if $\mathbf{E}$ is a spectrum, we can define the spectral chains $C_*(\mathbf{E})$, taking the colimit
+
+\subsection{Stable $\mathbb{E}_\infty$ actions after [Gill20]}
+
+Now, if $\mathbf{E}$ is a spectrum, we can define the spectral chains $C_*(\mathbf{E})$, taking the colimit
 \[C_n(\mathbf{E}_0)\lra C_{n+1}(\mathbf{E}_1)\lra \ldots\]
 The spectral chains come equipped with a stable $\mathbb{E}_\infty$ structure. The $\mathbb{E}_\infty$ operad has several models, as the stable Eilenberg-Zilber operad or the stable surjection operad, and are always defined as the limit of the suspension endomorphism of the unstable operad
 \[\lim(\ldots \Sigma^2 \chi \lra \Sigma \chi\lra \chi).\]
 Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite.
 
-Also: the complexity in the definition of the operations grows as the dimension of the degree of the domain grows. Not only because bigger simplices have more overlapping intervals, but also because the surjections that appear as summands in $\mu_{k+1}$ are more involved (and different) from the surjections that appear in $\mu_k$. 
+Also: the complexity in the definition of the operations grows as the dimension of the degree of the domain grows. Not only because bigger simplices have more overlapping intervals, but also because the surjections that appear as summands in $\mu_{k+1}$ are more involved (and different) from the surjections that appear in $\mu_k$.
 
-By the proposition above (and its proof), we observe that our new formula for $\mu_k$ on an $m$-dimensional simplex is almost the same as the formula for $\mu_{k+r-1}$ on an $(m+1)$-dimensional simplex: both are indexed by the same words. 
+By the proposition above (and its proof), we observe that our new formula for $\mu_k$ on an $m$-dimensional simplex is almost the same as the formula for $\mu_{k+r-1}$ on an $(m+1)$-dimensional simplex: both are indexed by the same words.
 
-\subsection{Alexander product} Recall that a semi-simplicial set $X$ can be viewed as an augmented semi-simplicial pointed set $X_+$ by taking augmening $X$ with the basepoint. 
+\subsection{Alexander product}
+
+Recall that a semi-simplicial set $X$ can be viewed as an augmented semi-simplicial pointed set $X_+$ by taking augmening $X$ with the basepoint.
 
 The operation induced in degree $0$
 \[\mu_0\colon N_m(\Delta^n)\lra (N_*(\Delta^n)^{\otimes r})_m\]
-is indexed by words of length $m(r-1)$, with the coefficient $\frac{1}{(\tilde{r}!)^m}$ and a CERTAIN SIGN TO BE COMPUTED. As observed before, $\tilde{r}!\mod r$ is one of the two square roots of $-1$. Moreover, since $\Delta^n$ is augmented with the basepoint, all summands of $\mu_0(\tau)$ that involve elements of degree $0$ are automatically zero in $\Delta^n$ (but not in $\Delta^n_+$). Say that those elements are \emph{suboptimal}. A word $(w_0,w_1,\ldots,w_q)$ in $EC_r$ is \emph{ascending} if $w_{i+1} = w_i+1\mod r$. 
+is indexed by words of length $m(r-1)$, with the coefficient $\frac{1}{(\tilde{r}!)^m}$ and a CERTAIN SIGN TO BE COMPUTED. As observed before, $\tilde{r}!\mod r$ is one of the two square roots of $-1$. Moreover, since $\Delta^n$ is augmented with the basepoint, all summands of $\mu_0(\tau)$ that involve elements of degree $0$ are automatically zero in $\Delta^n$ (but not in $\Delta^n_+$). Say that those elements are \emph{suboptimal}. A word $(w_0,w_1,\ldots,w_q)$ in $EC_r$ is \emph{ascending} if $w_{i+1} = w_i+1\mod r$.
 
 \begin{proposition}
     The non-suboptimal summands in $\mu_0(\tau)$ are those indexed by ascending words.
 \end{proposition}
+
 \begin{proposition}
-    The non-suboptimal summands indexed by ascending words form the Alexander diagonal. The sign is as follows: BLABLA 
+    The non-suboptimal summands indexed by ascending words form the Alexander diagonal. The sign is as follows: BLABLA
 \end{proposition}
+
 \begin{corollary}
     $\mu_0$ is the usual diagonal. [I highly doubt that we get the same signs]
 \end{corollary}
 
+\subsection{Augmentations} It is remarkable that these operations extend to the category of augmented (pointed) semi-simplicial sets, something that was not available through the surjection operad description.
 
-
-
-\subsection{Augmentations} It is remarkable that these operations extend to the category of augmented (pointed) semi-simplicial sets, something that was not available through the surjection operad description.  
-
-\subsection{Power operations} A symmetric comultiplication induces power operations 
+\subsection{Power operations} A symmetric comultiplication induces power operations
 \[P^k\colon H^*(\Delta^n)\to \Sigma^{-k} H^*(\Delta^n)\]
-defined as $P^k(x) =\nu(m)\cdot \mu_{(r-1)m-k}^*(x\otimes x\otimes\ldots\otimes x)$. In our case the action of $C_r$ on $N(\Delta^n)^{\otimes r}$ factors through the action of the symmetric group $\Sigma_r$, and therefore only some of these operations survive. 
+defined as $P^k(x) =\nu(m)\cdot \mu_{(r-1)m-k}^*(x\otimes x\otimes\ldots\otimes x)$. In our case the action of $C_r$ on $N(\Delta^n)^{\otimes r}$ factors through the action of the symmetric group $\Sigma_r$, and therefore only some of these operations survive.
 \federico{Here $\nu(m) = \frac{1}{(\tilde{r}!)^m}$}
-
-\section{To be discarded}
-\subsection{Comparison with the surjection operad (drafty)}
-
-Consider the functor tensor product $F^*\otimes G$, that is, $N_*(\Delta^\bullet)\otimes_\Delta N_\bullet(\Delta^n)$. It is related to the previous tensor product via Poincaré duality and it is isomorphic to $N_*(\Delta^n)^{\otimes r}$. Similarly, there is a chain complex analogous to $\Omega(r,n)$ that we denote, for the moment as $\Omega^\vee(r,n)$. Instead of using the previous isomorphism, we will use the isomorphism that sends $u_i\in U$ to the $w_i$-th factor of the tensor product.
-
-If $\tau$ is a simplex of dimension $m$, one consider all pairs $(f,A)$ where
-\begin{itemize}
-	\item $f$ is a surjection, i.e., a non-degenerate word in $EC_r$ that contains every element $0,1,\ldots,r-1$ at least once.
-	\item $A$ is a decomposition of a simplex $\tau$ into overlapping intervals.
-\end{itemize}
-Now,
-\begin{itemize}
-	\item The pair $(f,A)$ defines a word in $EC_r$ given by replicating each number in $f$ as many times as the length of each interval dictates. For example, if $r=3$ and $f= 0121012$ and $A=(0,1,2)(2)(2,3)(3)(3,4,5)(5,6)(6)$, then the resulting word is $w=0001221000112$.
-	\item $A$ gives a simplex in $\Delta^m$ that results from erasing the parentheses: $U=[0,1,2,2,2,3,3,3,4,5,5,6,6]$
-\end{itemize}
-The triple $(f,A,\tau)$ thus yields an element of $\Omega^\vee(r,n)$, whose image coincides with the image of the operation $(f,A)$ on $\tau$.
-
-If we want to interpret this element in $\Omega(r,n)$, we just need to do the following:
-\begin{itemize}
-	\item The new $U$ is obtained from the maximally degenerate simplex \[(0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6)\] by removing the elements of $U$. In our case, $U=(0,0,1,1,4,4,5,6)$.
-	\item The new $w$ is obtained from $w$ by setting $w_i$ equal to any element of $C_r$ different from the ones that where labeling $u_i$ in the old $w$ \emph{provided that the old ones were not repeated. Otherwise, the operation is zero!!. Nonetheless, these cases may be easily identified}. This happens quite often. In our case $w=(12121220)$.
-\end{itemize}
-Finally, we need to substract $u_i$ from $w_i$ to obtain the word we care about in $\Omega(r,n)$: (12010100)
-
-If $f$ is a surjection, let $w$ be the pieced word that comes from replacing each entry by its complement. Let $Q(f)$ be the collection of all subwords of all representatives of $w$.
-\begin{lemma} In this dictionary (without the last substraction), the collection of words associated to a surjection $f$ is $Q(f)$.
-\end{lemma}
-
-\subsection{The even prime [TO BE DELETED]} This strategy can be also applied to recover the presentation in [ANIBAL] of the classical formulas of Steenrod for the cup-$i$ products. All the maps remain the same except for $\varphi\colon W_*(r)\otimes N_*(\Delta^n)\to \WW^*(r)\otimes N^r_*(\Delta^n)$, which is no longer well-defined because $(r-1)m$ is not always even. To remedy this handicap, consider the other (suspended) resolution $\VV_*(2)$ of $C_2$:
-\[R\langle C_2\rangle \overset{T-1}{\lra} R\langle C_2\rangle \overset{1+T}{\lra} R\langle C_2\rangle \overset{T-1}{\lra} R.\]
-There is a flip map $\varphi_k\colon W_*(2)\to \VV^*(2)$ for every odd $k$, and there are suspension maps $\theta\colon \WW^*(r)\to \Sigma \VV^*(r)$ and $\theta\colon \VV^*(r)\to \Sigma \WW^*(r)$ that send a generator $e_q$ to $e_{q-1}$. Consider the complex
-\[\mathbf{U}^*(2,n) = \bigoplus_{m\text{ odd}} \VV^m(r)\otimes N^2_m(\Delta^n)
-oplus
-\bigoplus_{m\text{ even}} \WW^m(r)\otimes N^2_m(\Delta^n)
-\]
-with differential $\partial(e_q^\vee\otimes \vec{\tau}) = \partial(e_q^\vee)\otimes \vec{\tau} + (-1)^q \theta(e_q)\otimes \partial \vec{\tau}$. Define
-\[\varphi\colon \varphi\colon W_*(r)\otimes N_*(\Delta^n)\to 
-\mathbf{U}^*(2,n)\]
-as $\varphi(e_q\otimes \tau) = \varphi_m(e_q)\otimes \vec{\tau}$.
-
-In this case $\Theta(2,n) = \NN^*(\Delta^\bullet)\otimes_{\Delta} N_*^2(\Delta^n)$. Define a map $\Psi\colon U^*(2,n)\to \Theta(2,n)$ as $e_q\otimes \vec{\tau}\mapsto \Psi(e_q)\otimes \vec{\tau}$ where 
-\begin{align*}
-    \WW^*(r)\lra N^*(EC_r) \lra N^*(\Delta^n\times EC_r) \\
-    \VV^*(r)\lra N^*(EC_r) \lra N^*(\Delta^n\times EC_r) \\
-\end{align*}
-{color{red}THIS DOES NOT WORK. I think twisted coefficients might be needed}
