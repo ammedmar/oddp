@@ -92,7 +92,7 @@ Let $\Phi\colon \Omega_*(r)^f\to \Sigma^{r}\Omega_{*}(r)^{nf}$ be the (non-chain
 	Immediate.
 \end{proof}
 
-\subsection{Maps between spheres}\footnote{Actually we will need the map on unnormalised chains}
+\subsection{Maps between spheres}\label{section:sphere_maps}\footnote{Actually we will need the map on unnormalised chains}
 
 We will use the canonical identification $N_*(X*Y) \cong N_*(X)\otimes N_*(Y)$ and write $\sigma$ for the top dimensional class of $N_*(\Delta^{r-1})$. The cyclic group $C_r$ acts on $\Delta^{r-1}$ by permuting its vertices.
 Let
@@ -248,40 +248,120 @@ In the three cases the sign in $\Phi(w)$ appears because after removing a full p
 \begin{corollary} Each map $f\colon N_*(\Delta^{r-1})\otimes N_*(\Delta^{r-1})\to N_*(\Delta^{r-1})$ satisfying conditions \eqref{cond:1}, \eqref{cond:2} and \eqref{cond:3} yields a chain homomorphism $\check{\Psi}$ satisfying the conditions of Lemma \ref{lemma:omegar}.
 \end{corollary}
 
-\subsection{The pair barycentric subdivision} Recall that the barycentric subdivision $\sd \Delta^n$ of the geometric simplex $\Delta^n$ has one vertex for each non-empty face of $\Delta^n$ and every ascending chain of simplices $\sigma_0\subset \sigma_1\subset\ldots \subset \sigma_n$ of $\Delta^n$ yields a simplex $(\sigma_0,\ldots,\sigma_n)$ of the barycentric subdivision.
+\section{Barycentric subdivisions} Recall that the barycentric subdivision $\sd \Delta^n$ of the geometric simplex $\Delta^n$ is the ordered simplicial complex that has one vertex for each non-empty face of $\Delta^n$ and one face $(\sigma_0,\ldots,\sigma_k)$ of dimension $k$ for every ascending chain $\sigma_0\subset \sigma_1\subset\ldots \subset \sigma_k$ of simplices of $\Delta^n$. There is a chain homomorphism (the \emph{subdivision homomorphism} \cite[\P 1.12]{NR})
+\[
+    s_*\colon C_*(\Delta^n)\lra C_*(\sd \Delta^n)
+\]
+that sends a $k$-dimensional face $\sigma$ to the signed sum of all ascending chains whose last element is $\sigma$. The Poincaré duality homomorphism induces a simplicial map between the barycentric subdivisions
+\[PD\colon \sd \Delta^n\lra \sd \Delta^n\]
+that sends a chain $(\sigma_0,\ldots,\sigma_k)$ to its Poincaré dual $(PD(\sigma_0),\ldots,PD(\sigma_k))$.
+\begin{definition}
+    An \emph{assemblage map} is a simplicial map $a\colon \Delta^n\to \sd \Delta^n$ such that the composition of chain homomorphisms $a_*\circ s_*$ is the identity.
+\end{definition}
+\begin{definition}
+    A \emph{cyclic assemblage map} is an assemblage map that is cyclic with respect to the action of the cyclic group $C_{n+1}$ on $\Delta^n$.
+\end{definition}
+\begin{definition}
+    A \emph{cyclic assemblage map with duality} is a cyclic assemblage map $a$ such that the composition
+    \[\sd \Delta^n \overset{PD}{\lra} \sd \Delta^n \overset{a}{\lra} \Delta^n\overset{\rho}{\lra} \Delta^n \]
+    is also an assemblage map.
+\end{definition}
+The purpose of this subsection is to prove the following theorems:
+\begin{theorem}
+    Every cyclic assemblage map with duality yields a map between spheres as in Section \ref{section:sphere_maps}, and every such map is induced by a syclic assemblage map.
+\end{theorem}
 
-The \emph{pair barycentric subdivision} $\Psd \Delta^n$ of $\Delta^n$ is a cubulation of $\Delta^n$ with the same vertices as $\sd \Delta^n$ and one face for each pair $(a,b)$ of faces of $\Delta^n$ such that $b\subset a$. That face is the union of all the faces of the barycentric subdivision that correspond to ascending chains $b\subset \sigma_0\subset \ldots\subset \sigma_k\subset a$.
+\subsection{The pair barycentric subdivision} The \emph{pair barycentric subdivision} $\Psd \Delta^n$ of $\Delta^n$ is a cubulation of $\Delta^n$ with the same vertices as $\sd \Delta^n$ and one face for each pair $(a,b)$ of faces of $\Delta^n$ such that $b\subset a$. That face is the union of all the faces of the barycentric subdivision that correspond to ascending chains $b\subset \sigma_0\subset \ldots\subset \sigma_k\subset a$.
 
 Think of the vertices of a cube $2^m$ as the powerset of $\{1,\ldots,m\}$. The pair barycentric subdivision is a cubulation of the geometric simplex where a pair $(a,b)$ with $m=|b\smallsetminus a|$ corresponds to the cube
 \[F_{a,b}\colon 2^{m}\to \Delta^n\]
-given by $F_{a,b}(u_1,\ldots,u_i) = b\cup \{c_1,\ldots,c_i\}$ where $c=a\smallsetminus b$. The associated cochain complex has differential
+given by $F_{a,b}(u_1,\ldots,u_i) = b\cup \{c_1,\ldots,c_i\}$ where $c=a\smallsetminus b$. The associated cochain complex can be endowed with several differentials:
+\begin{itemize}
+\item the extrinsic differential:
+\[\partial(a,b) = \partial a + (-1)^{|a|-|b|} \delta b\]
+where $\partial$ is the boundary map of $C_*(\Delta^n)$ and $\delta$ is the coboundary map of $C^*(\Delta^n)$ and $b$ is interpreted as the dual of the simplex $b$.
+\item the intrinsic differential:
 \[\delta(a,b) = \sum_{i=0}^m (-1)^i((a,\delta^i_c b)-(\partial^c_i a,b)\]
 where $\partial_i^c$ removes the $i$th element of $c$ and $\delta^i_c$ adds the $i$th element of $c$.
+\end{itemize}
+we will work with the extrinsic differential.
 
+There is a \emph{pair subdivision homomorphism}
+\[s_*^{\Psd}\colon N_*(\Psd \Delta^n)\lra N_*(\sd \Delta^n)\]
+that sends each cubical face to the signed sum of all simplicial faces contained in it.
 
-There is a homomorphism
-\[s_*\colon N_*(\Delta^n)\to N_*(\Psd \Delta^n)\]
-that sends each cubical face to the sum of all simplicial faces contained in it. There is a homomorphism
-\[N_*(\Psd \Delta^n)\lra N_*(\sd \Delta^n)\]
-that sends each cubical face to the sum of all simplicial faces contained in it,
-\begin{definition}
-    A pair barycentric subdivision map is a map if polyhedra $h\colon \Psd \Delta^n\to \Delta^n$ such that $h_*\circ s_* = \Id$ and [SOMETHING ELSE?]
-\end{definition}
-There is a map
-\[g\colon N_*(\Delta^{r-1}*\Delta^{r-1})\lra N_*(\Sigma^{r-1}\Psd \Delta^{r-1})\]
-that sends a pair $(a,b)$ to the pair $(a,a\smallsetminus b)$ if $(a,b)$ is a full permutation WITH AN APPROPRIATE SIGN QUITE DIFFICULT TO FIGURE OUT, and to zero otherwise. This map sends $(a,\partial \sigma)$ to the sum (AGAIN, THE SIGNS ARE DIFFICULT TO UNDERSTAND) $(-1)^{|a|}\sum_{i=0}^{|a|}(-1)^i (a,a_i)$ and $(\partial \sigma, b)$ to the sum $\sum_{b\subset d_i\sigma}(-1)^i(d_i\sigma,b)$.
+There is a \emph{product map}
+\[m\colon C_*(\partial \Delta^n)\otimes C_*(\partial \Delta^n)\lra \Sigma^n C_*(\Psd \partial \Delta^n) \]
+that sends a pair $(a,b)$ to the pair $(a,PD(b))$ with a certain sign if $a$ and $b$ span $\Delta^n$ and to $0$ otherwise.
 
 \begin{proposition}
-    If $h\colon \Psd \Delta^{r-1}\to \Delta^{r-1}$ is a cyclic pair barycentric subdivision map such that for every face $a$ of $\Delta^{r-1}$
-    \begin{align*}
-        (-1)^{|a|}\sum_{i=0}^{|a|}(-1)^i (a,a_i) &= a &
-        \sum_{b\subset d_i\sigma}(-1)^i(d_i\sigma,b) &= \rho(b)
-    \end{align*}
-    with $\sigma$ the top simplex of $\Delta^{r-1}$, then the composition $f = h\circ g$ satisfies the conditions \eqref{cond:1}, \eqref{cond:2}, \eqref{cond:3}.
+    If $g$ is a cyclic assemblage map with duality, then the composition $f = g_*\circ s_*^{\Psd}\circ m_*$ satisfies the conditions of Section \ref{section:sphere_maps}.
 \end{proposition}
 \begin{proof}
-    The chain complex of $\Psd \Delta^n$ is generated in degree $k$ by pairs $(a,b)$ as above, with differential $\partial(a,b) = (\partial a,b) + (-1)^{|a|}(a,\delta^\dagger b)$. In this sum any pair $(a',b')$ in which $b'\not\subset a'$ is understood as zero.
+For condition \ref{cond:1}, consider the chain $(a,\partial \tau)\in C_*(\partial \Delta^n*\partial \Delta^n)$.
+
+We have that
+\[
+m\left(\sum (a,\partial \tau)\right) = \sum_{v\in a} \pm(a,v)
+\]
+and
+\[
+s^{\Psd}_*(a,b) = \sum_{\sigma\subset a} \sigma
+\]
+and
+\[g_*\left(\sum_{\sigma\subset a} \sigma\right) = g(s_*(a)) = a
+\]
+For condition \ref{cond:2}, notice that the following diagram commutes:
+\[\xymatrix{
+C_*(\partial \Delta^n*\partial\Delta^n)\ar[r]^m\ar[d]^{\text{twist}} &C_*(\Psd \partial \Delta^n) \ar[r]^{s_*^{\Psd}}\ar[d]^{PD}& C_*(\sd \partial \Delta^n)\ar[d]^{PD}\\
+C_*(\partial \Delta^n*\partial\Delta^n)\ar[r]^m &C_*(\Psd \partial \Delta^n) \ar[r]^{s_*^{\Psd}}& C_*(\sd \partial \Delta^n).
+}\]
+Finally, for Condition \ref{cond:3} notice that, if $(\tau_2,\tau_2)$ has degree $n$, then
+\[m(\tau_1,\tau_2) =
+\begin{cases}
+(\tau_1,\tau_1) & \text{if $\tau_1$ and $\tau_2$ span the whole simplex} \\
+0 & \text{otherwise}
+\end{cases}
+\]
+and that $s^{\Psd}_*(\tau_1,\tau_1) = \tau_1$ whose image must be a vertex.
 \end{proof}
+
+\begin{proposition} If $f\colon C_*(\partial \Delta^n)\otimes C_*(\partial \Delta^n)\lra C_*(\Sigma^n\partial \Delta^n)$ is a homomorphism satisfying the conditions, then $f$ factors as
+\[f = g\circ s_*^{\Psd}\circ m\]
+for some cyclic assemblage map with duality $g$.
+\end{proposition}
+\begin{proof}
+The map $m$ is universal among maps that annihilate pairs of faces that do not span the whole simplex, therefore $f$ does factor through $m$. Secondly, any map from the pair subdivision of $\partial \Delta^n$ to a simplicial complex factors through the barycentric subdivision. Condition \eqref{cond:3} guarantees that the resulting map $g$ is simplicial.
+
+The proof on the previous proposition can be followed to show that Conditions \eqref{cond:1} and \eqref{cond:2} for $f$ translate into $g$ being a assemblage map with duality.
+\end{proof}
+
+Let $\partial \Delta^n_{C_n}$ be the set of orbits of faces of $\partial \Delta^n$ under the action of the cyclic group $C_n$, and let $A$ be a set with
+
+
+\begin{lemma}[Palmer's lemma] An assemblage map with duality is the same as a  $C_n$-equivariant choice of an element $x_A$ in each proper subset $A$ of $\{0,1,\ldots,n\}$ such that its cyclic predecessor $x_A-1$ is not in $A$.
+\end{lemma}
+Since this choice is always possible as long as $n$ is prime, we have that assemblage maps with duality exist for all odd primes.
+\begin{example}
+    If $r=3$, the only assemblage map with duality comes from the choice
+    \begin{align*}
+        [0]&\mapsto 0 & [0,1]&\mapsto [0]
+    \end{align*}
+\end{example}
+\begin{example}
+    If $r=5$, there are four assemblage maps with duality corresponding to the following choices:
+    \begin{align*}
+        [0]&\mapsto 0 & [0,1]&\mapsto 0 & [0,2]&\mapsto 0 & [0,1,2]&\mapsto 0 & [0,1,3] & \mapsto 0 & [0,1,2,3] & \mapsto 0 \\
+        [0]&\mapsto 0 & [0,1]&\mapsto 0 & [0,2]&\mapsto 2 & [0,1,2]&\mapsto 0 & [0,1,3] & \mapsto 0 & [0,1,2,3] & \mapsto 0 \\
+        [0]&\mapsto 0 & [0,1]&\mapsto 0 & [0,2]&\mapsto 0 & [0,1,2]&\mapsto 0 & [0,1,3] & \mapsto 3 & [0,1,2,3] & \mapsto 0 \\
+        [0]&\mapsto 0 & [0,1]&\mapsto 0 & [0,2]&\mapsto 2 & [0,1,2]&\mapsto 0 & [0,1,3] & \mapsto 3 & [0,1,2,3] & \mapsto 0
+    \end{align*}
+\end{example}
+If $r=7$ there are several thousands of assemblage maps with duality.
+
+
+
+\subsection{Old section on examples of assemblage maps, needs to be reformulated}
 If $r=3$, there is a unique cyclic subdivision map $h\colon \Psd \partial \Delta^{2}\to \partial \Delta^2$ satisfying both conditions (we only indicate the value on a cyclic basis):
 \begin{align*}
     h([0],[0]) &= [0] &
@@ -323,29 +403,29 @@ f([0,1]\otimes [2,0]) &= [0,1]
 \end{figure}
 
 \begin{figure}
-	\begin{tikzpicture}[line join = round, line cap = round]
-		\pgfmathsetmacro{\factor}{1/sqrt(2)};
-		\coordinate [label=left:A] (A) at (-2,0,0);
-		\coordinate [label=below:B] (B) at (.4,-1,0);
-		\coordinate [label=right:2] (C) at (2,0,0);
-		\coordinate [label=above:3] (D) at (0,2.8,.2);
+\begin{tikzpicture}[line join = round, line cap = round]
+\pgfmathsetmacro{\factor}{1/sqrt(2)};
+\coordinate [label=left:A] (A) at (-2,0,0);
+\coordinate [label=below:B] (B) at (.4,-1,0);
+\coordinate [label=right:2] (C) at (2,0,0);
+\coordinate [label=above:3] (D) at (0,2.8,.2);
 
-		path (B) -- (C) node[midway] (BC) {BC}
+path (B) -- (C) node[midway] (BC) {BC}
 
-		\coordinate (AB) at ($ (A)!0.5!(C) $); % Anibal: I modified this line to get rid of an error
-		\coordinate (AC) at (0,0,0);
-		\coordinate (AD) at (2,0,0);
-		\coordinate (D) at (0,2.8,.2);
+\coordinate (AB) at ($ (A)!0.5!(C) $); % Anibal: I modified this line to get rid of an error
+\coordinate (AC) at (0,0,0);
+\coordinate (AD) at (2,0,0);
+\coordinate (D) at (0,2.8,.2);
 
-		%\draw[->] (0,0) -- (3,0,0) node[right] {$x$};
-		%\draw[->] (0,0) -- (0,3,0) node[above] {$y$};
-		%\draw[->] (0,0) -- (0,0,3) node[below left] {$z$};
-		\foreach \i in {A,B,C,D}
-		\draw[dashed] (\i) -- (AB);
-		\draw[-, fill=red!30, opacity=.5] (A)--(D)--(B)--cycle;
-		\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
-		\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
-	\end{tikzpicture}
+%\draw[->] (0,0) -- (3,0,0) node[right] {$x$};
+%\draw[->] (0,0) -- (0,3,0) node[above] {$y$};
+%\draw[->] (0,0) -- (0,0,3) node[below left] {$z$};
+\foreach \i in {A,B,C,D}
+    \draw[dashed] (\i) -- (AB);
+\draw[-, fill=red!30, opacity=.5] (A)--(D)--(B)--cycle;
+\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
+\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
+\end{tikzpicture}
     \caption{The cyclic subdivision map for $\partial \Delta^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face).}
     \label{fig:my_label}
 \end{figure}
