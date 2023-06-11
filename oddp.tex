@@ -1,19 +1,15 @@
 \immediate\write18{biber \jobname}
-
-
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/usualcmds}
 \addbibresource{aux/usualpapers.bib}
-\addbibresource{aux/bibliography.bib}
 %%%%%%%%%%%%%%%%%%%%%%
 
 \input{aux/commands} % add commands here
 \addbibresource{aux/bibliography.bib} % add references here
-\usetikzlibrary{calc} % add packages here
+\input{aux/packages} % add packages here
 %%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{appendix}
 \title{Simplicial power operations}
 % Simplicial Poincar\'e duality and cochain level Steenrod operations
 % Simplexwise Poincar\'e duality and May--Steenrod operations
@@ -22,9 +18,9 @@
 \address{Universidad Autónoma de Madrid \& ICMAT}
 \email{\href{mailto:federico.cantero@uam.es}{federico.cantero@uam.es}}
 
-\author[A.M.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
-\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
-\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
+\author[Medina-Mardones]{Anibal~M.~Medina-Mardones}
+\address{LAGA, Universit\'e Sorbonne Paris Nord. Institut Galilée 99, avenue Jean-Baptiste Clément, 93430, Villetaneuse, France.}
+\email{\href{mailto:medina-mardones@math.univ-paris13.fr}{medina-mardones@math.univ-paris13.fr}}
 
 \date{\today}
 \subjclass[2020]{TBW}
@@ -36,22 +32,22 @@
 	\input{sec/introduction}
 	\input{sec/acknowledgment}
 	\input{sec/2preliminaries}
-    \input{sec/2bcomultiplications}
+	\input{sec/2bcomultiplications}
 	\input{sec/3alexanderduality}
-    \input{sec/3complexes}
+	\input{sec/3complexes}
 	\input{sec/4simplextominimal}
-    \input{sec/5omegatominimal}
-    \input{sec/6milnortominimal}
-    \input{sec/7suspensionandproduct}
-    \input{sec/8products}
-    \input{sec/9Kanspectra}
-%\appendix
-%	\input{sec/cup_product}
-%    \input{sec/sym_multiplications}
-%	\input{sec/considerations}
-%    \input{sec/reverse_order}
-%	\input{sec/surjection}
-%	\input{sec/search}
+	\input{sec/5omegatominimal}
+	\input{sec/6milnortominimal}
+	\input{sec/7suspensionandproduct}
+	\input{sec/8products}
+	\input{sec/9Kanspectra}
+	%	\appendix
+	%	\input{sec/cup_product}
+	%	\input{sec/sym_multiplications}
+	%	\input{sec/considerations}
+	%	\input{sec/reverse_order}
+	%	\input{sec/surjection}
+	%	\input{sec/search}
 	\sloppy
 	\printbibliography
 \end{document}

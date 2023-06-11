@@ -2,15 +2,13 @@
 
 \section{Alexander duality on the simplex and tensor products}\label{s:3complexes}
 
+In this section we present a duality on the normalised chains of the augmented simplex, and use it to build manageable models of the $r$-fold tensor product of the normalised chain complex of an augmented semi-simplicial object in $\cC$. In Proposition \ref{prop:omegarm} and Lemma \ref{lemma:omegar} we reduce the construction of a connected comultiplication to the construction of a map between two resolutions of the cyclic group $\Cyc_r$ satisfying an additional hypothesis.
 
-In this section we present a duality on the normalised chains of the augmented simplex, and use it to build manageable models of the $r$-fold tensor product of the normalised chain complex of an augmented semi-simplicial object in $\cC$. In Proposition \ref{prop:omegarm} and Lemma \ref{lemma:omegar} we reduce the construction of a connected comultiplication to the construction of a map between two resolutions of the cyclic group $\Cyc_r$ satisfying an additional hypothesis. 
-
-\subsection{Alexander duality on the augmented standard simplex} 
+\subsection{Alexander duality on the augmented standard simplex}
 
 \anibal{What is the structure on $\sSet_+$?}
 
 \anibal{What is the bar construction of this algebra?} \federico{See the complex $\Omega_*(r)$ in Section 4}
-
 
 \begin{definition}\label{d:poincare_duality_algebra}
 	Let $A$ be a connected commutative algebra that is finite dimensional for each degree.
@@ -41,16 +39,15 @@ We will refer to this duality as \emph{Alexander duality}.
 	To verify \cref{i:pd3} consider a basis element $x = [v_1,\dots,v_i]$.
 	Let $x^c$ be the ordered complement of $\set{v_1,\dots,v_i}$ in $\{0,\dots,n\}$ and notice that $x \ast x^c = \pm [0,\dots,n]$ as required.
 \end{proof}
+
 \begin{definition}
     Let $\Lambda\colon \chains_*(\asimplex^\bn)\to \sus{n+1}\chains^*(\asimplex^\bn)$ be the isomorphism induced by the pairing above. In detail, $\Lambda(\tau) = (-1)^{\lambda(\tau)}\tau^c$, where $\lambda(\tau)$ is the sign of the permutation that orders the vertices of $\tau*\tau^c$.
 \end{definition}
+
 \begin{remark}
-    The sign of the permutation that orders the vertices of $\tau*\tau^c$, for $\tau = [v_1,\ldots,v_m]$ and $\tau^c  = [u_1,\ldots,u_k]$ has the parity of either of the following numbers: 
+    The sign of the permutation that orders the vertices of $\tau*\tau^c$, for $\tau = [v_1,\ldots,v_m]$ and $\tau^c  = [u_1,\ldots,u_k]$ has the parity of either of the following numbers:
     \begin{align*}
         \sum_{i=1}^m (v_i-i) &= \sum_{i=1}^m v_i - \binom{m+1}{2} \\
         \sum_{i=1}^m (n-u_i-(m-i)) &\equiv \sum_{i=1}^m u_i +m(n+1)+\binom{m+1}{2}.
     \end{align*}
 \end{remark}
-
-
-
