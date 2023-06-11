@@ -62,15 +62,15 @@ which, under the above isomorphisms have the same domain and codomain as $\mu_{k
     \end{align*}
     In the first equality we had to take $\rho(w)$ (recall that this is a dual action, hence $\rho(a) = a-1$) to counteract the effect of $\Sigma$ on $U$, which reindexes the indices by one up. In the second equality we use that any $U$ containing a $0$ yields a trivial summand because in $\Sigma X$ the face map $d_0$ sends everything to the basepoint. This proves the first claim, and an analogous argument proves the second claim. 
 \end{proof}
-\subsection{Stable $\mathbb{E}_\infty$ actions after [Gill20]} Now, if $\mathbf{E}$ is a spectrum, we can define the spectral chains $C_*(\mathbf{E})$, taking the colimit
-\[C_n(\mathbf{E}_0)\lra C_{n+1}(\mathbf{E}_1)\lra \ldots\]
-The spectral chains come equipped with a stable $\mathbb{E}_\infty$ structure. The $\mathbb{E}_\infty$ operad has several models, as the stable Eilenberg-Zilber operad or the stable surjection operad, and are always defined as the limit of the suspension endomorphism of the unstable operad
-\[\lim(\ldots \Sigma^2 \chi \lra \Sigma \chi\lra \chi).\]
-Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite.
+\subsection{REV} \subsection{A reordering} Consider the $r$-fold tensor product $\chains(\Delta^n)^{\otimes r}$ with the backwards cyclic action of $C_r$:
+\[\rho(U_0\otimes \ldots\otimes U_{r-1}) = U_1\otimes \ldots \otimes U_{r-1}\otimes U_0\]
+and the forward cyclic action:
+\[\rho(U_0\otimes \ldots\otimes U_{r-1}) = U_{r-1}\otimes U_0\otimes \otimes \ldots \otimes U_{r-2}.\]
+Let $\mathrm{rev}\colon N_*(\Delta^n)^{\otimes r}\to N_*(\Delta^n)^{\otimes r}$ be the $C_r$-equivariant homomorphism that sends a product $(\tau_0\otimes\ldots\otimes \tau_{r-1})$ to the product $(-1)^{\xi(\tau_{0},\ldots,\tau_{r-1})}(\tau_{r-1}\otimes\ldots\otimes \tau_0)$, where $\xi(\tau_0,\ldots,\tau_{r-1})$ is the Koszul sign associated to the reversal.
+\begin{example}\label{ex:101}
+    If $r=3$ and $(\tau_0,\tau_1,\tau_2) = [0,2,3]\otimes [3,4,5] \otimes [5,7,9]$, then its reversal is $-[5,7,9]\otimes [3,4,5]\otimes [0,2,3]$.
+\end{example}
 
-Also: the complexity in the definition of the operations grows as the dimension of the degree of the domain grows. Not only because bigger simplices have more overlapping intervals, but also because the surjections that appear as summands in $\mu_{k+1}$ are more involved (and different) from the surjections that appear in $\mu_k$. 
-
-By the proposition above (and its proof), we observe that our new formula for $\mu_k$ on an $m$-dimensional simplex is almost the same as the formula for $\mu_{k+r-1}$ on an $(m+1)$-dimensional simplex: both are indexed by the same words. 
 
 \subsection{Alexander product} Recall that a semi-simplicial set $X$ can be viewed as an augmented semi-simplicial pointed set $X_+$ by taking augmening $X$ with the basepoint. 
 

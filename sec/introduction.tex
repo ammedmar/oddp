@@ -2,57 +2,67 @@
 
 \section{Introduction} \label{s:introduction}
 
-In 1946, Steenrod was looking for invariants of maps between spheres generalizing the Hopf invariant when he found certain cochain operations on a simplicial complex 
+In 1946, Steenrod was looking for invariants of maps between spheres generalizing the Hopf invariant when he found certain cochain operations on simplicial complexes 
 \[\smile_i\colon C^k(X;\bF_2)\otimes C^j(X;\bF_2)\lra C^{k+j+i}(X;\bF_2),\qquad i\geq 0\]
 which in cohomology gave rise to the celebrated \emph{Steenrod squares}
 \[\Sq^{k}\colon H^j(X;\bF_2)\lra H^{j+k}(X;\bF_2).\]
-Shortly after these operations were given a more abstract and axiomatic treatment. This new viewpoint exhibited new power operations
+Shortly after, these cohomology operations were given a more abstract and axiomatic treatment that avoided the explicit chain maps $\smile_i$. This new viewpoint exhibited new power operations
 \begin{align*}
-P^k\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)}(X;\bF_r), k\geq 0 \\
-\beta P^k\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)+1}(X;\bF_r), k\geq 0
+\mathrm{P}^{k}\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)}(X;\bF_r) & k\geq 0 \\
+\beta \mathrm{P}^k\colon H^j(X;\bF_r)&\lra H^{j+2k(r-1)+1}(X;\bF_r) & k\geq 0
 \end{align*}
-for $r$ an odd prime. These operations where known to come from generalised $\smile_i$-products
-\begin{align}\label{eq:1}
-C^{k_1}(X;\bF_r)\otimes\overset{r}{\ldots}\otimes C^{k_r}(X;\bF_r)\lra C^{k_1+\ldots +k_r + i}(X;\bF_r),\qquad i\geq 0
-\end{align}
-though no explicit formula was pursued until the work of McClure and Smith \cite{MS02} and Berger and Fresse \cite{BF03} based on previous work by Benson \cite{Benson}. These operations were known to be the image of the homology of the symmetric group under a certain equivariant map 
-\[E\Sigma_r\lra \hom(C^*(X;\bZ)^{\otimes r},C^*(X;\bZ))\]
-that was thoroughly described. All these maps together yield an action of the Barratt--Eccles operad on the cochains of a simplicial complex, or more generally, of a simplicial set. The inclusion $C_r\hookrightarrow \Sigma_r$ of the cyclic group of order $r$ into the symmetric group on $r$ letters is a surjection in homology. Recently \cite{Anibaletal} a homomorphism
-\[\cW_*(r)\lra E\Sigma_r\]
-from the minimal resolution of $C_r$ has been found. Altogether these maps yield explicit maps as \eqref{eq:1}.
+for $r$ an odd prime. In \cite{may1970general}, May gave an axiomatic approach to the power operations via chain maps. He defined a category whose objects are chain complexes $C_*$ endowed with an associative multiplication together with an equivariant homomorphism $W_*(r)\otimes C_*\to C_*^{\otimes r}$ from the tensor product of the minimal free resolution of the cyclic group $\Cyc_r$ and the chain complex $C_*$ to the $r$-fold tensor product of $C_*$, satisfying two additional axioms regarding the multiplication and the action of the symmetric group. This structure was later baptised by the second author as a \emph{May-Steenrod structure}. In this article we coin the term \emph{$r$-cyclic unstable comultiplication} for a May-Steenrod structure without the second axiom. Every such object induces power operations (note the reindexing)
+\begin{align*}
+    \power^i\colon H^*(C)&\lra H^{*+i}(C), & i\geq 0
+\end{align*}
+and the second axiom assures that they vanish unless $i = 2k(r-1), 2k(r-1)+1$ if $r$ is odd. These operations satisfy that, if $x\in H^*(C)$ has even degree $m$, then $\power^{m(r-1)}(x)$ is the $r$-fold power of the multiplication of $x$ with itself and all higher power operations of $x$ vanish. Often they satisfy the additional condition that $\power^0(x) = x$ and $\power^i(x) = 0$ for negative $i$, but not always, and this tends to be hard to prove.
 
-In our study of odd power operations for $\Sigma$-spectra or Khovanov homology, we have found that these cochain operations have three inconveniences for their adaptation to the stable setting:
-\federico{Probably it is better to emphasize cochain operations in $\Sigma$-spectra as in \cite{Gill20} more than Khovanov homology, since the interested audience is broader}
-\begin{enumerate}
-\item {\bf Efficiency:} The definition of the cochain operations is recursive on the degree of the cochain operation. A standard PC cannot perform almost any power operation for the prime $5$ or higher. 
-\item {\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas. In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
-\item {\bf Augmentation:} Khovanov homology deals with augmented semi-simplicial objects. The formulas of McClure--Smith and Berger--Fresse are not designed for the augmented context. 
-\end{enumerate}
-In this article, we introduce new formulas for the cochain operations that solve these three problems at once. In addition, they are described with the language of face maps, which has a more natural taste than the language of overlapping intervals used in \cite{MS02} and \cite{BF03}. We will work with augmented pointed simplicial sets.
+In this article we introduce an alternative formalism to encode power operations at the cochain level. We introduce a category of chain complexes with additional structure that we call \emph{$r$-cyclic connected comultiplication} with one extra axiom that plays a role similar to the first axiom of May (but not the same). As before, every object in this category has cohomology operations
+\begin{align*}
+    \power^i\colon H^*(C)&\lra H^{*+i}(C), &i\geq 0
+\end{align*}
+These operations satisfy always that $\power^0(x) = x$ and $\power^{i}(x) = 0$ for negative $i$, but need not to be compatible with any associative multiplication a priori. %In fact, we prove with some work that in some cases it is compatible with a certain multiplication.
 
-The \emph{pair subdivision} of the $n$th simplex is a cubulation $\Psd \Delta^n$ of the standard simplex $\Delta^n$ whose vertices are the barycenters of the faces of $\Delta^n$ (see Definition \ref{TBW}). An \emph{enhanced pair subdivision map} is a map $\Psd \Delta^n\to \Delta^n$ satisfying certain properties (see Definition \ref{TBW}). We write $\Delta^n_+$ for the augmented simplex with a disjoint basepoint and $\NN^*(\Delta^n_+)$ for the normalized cochains on $\Delta^n_+$. %Let $R$ be a commutative ring that is an algebra over $\bZ\left[\frac{1}{\tilde{r}!}\right]$, where $\tilde{r} = \frac{r-1}{2}$.
-\begin{theorem} 
-	Let $r$ be an odd prime. Each enhanced pair subdivision map $\Psd \Delta^{r-1}\to \Delta^{r-1}$ defines an explicit natural homomorphism on any augmented simplicial set $X$
-	\[\Psi\colon W_*(r)\lra \hom(\NN^*(X)^{\otimes r},\NN^*(X)).\]
-	The power operations $P^k(x)$ and $\beta P^k(x)$ are computed as $\nu(m)\cdot \Psi(e_{m(r-1)-2i(r-1)})(x\otimes\overset{r}{\ldots}\otimes x)$ and $\nu(m)\cdot \Psi(e_{m(r-1)-2i(r-1)+1})(x\otimes\overset{r}{\ldots}\otimes x)$ respectively, with $R=\bF_r$ and $m$ the dimension of $x$.
+This new formalism changes the way the cochain level operations are constructed in practice: With the formalism of May, one is given first an associative product that will compute $\power^{(r-1)m}(x)$ if $x$ has degree $m$, and from that builds the rest of the cochain operations downwards towards $\power^0(x)$ ---and possibly beyond, in case $\power^0(x)\neq x$. With the new formalism, one builds first the cochain operation that induces $\power^0$, and then proceeds to build the higher operations upwards.
+
+We then use this new formalism to define power operations on simplicial objects as follows: We let $\cC$ be a distributive monoidal category with a natural distributive $r$-cyclic diagonal $\Delta\colon X\to X^{\otimes r}$ for each object $X$, and an $r$-cyclic coproduct-preserving monoidal functor $\abel\colon \cC\to \Mod{R}$ to the category of $R$-modules. By virtue of $L$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
+
+Define an \emph{$r$-cyclic assymetry} as an equivariant choice of an element $a\in A$ for every proper non-empty subset $A\subset \{0,1,\ldots,r-1\}$ and observe that they exist if and only if $r$ is prime. Our main result is the following.
+
+\begin{theorem}\label{thm:main}
+    Each $r$-cyclic asymmetry yields a natural $r$-cyclic connected comultiplication on the chain complex of augmented semi-simplicial objects in $\cC$.  
 \end{theorem}
-\federico{Here $\nu(m)$ should be a factor of $\frac{1}{(\tilde{r}!)^m}$, otherwise the operation is not stable}
-
-%Examples of algebras over $\bZ\left[\frac{1}{\tilde{r}!}\right]$ are $\bZ_{(r)}$, the integers localized at $r$, the rationals $\bQ$ or $\bF_r$ the finite field with $r$ elements. The ring $R$ may be taken to be $\bZ$ at the cost of loosing part of the compatibility with suspension. 
-This compatibility has the following form:
+Examples of categories $\cC$ satisfying the hypotheses are the category of sets, the category of pointed sets, the category of groups or the category of associative algebras. If $\cC$ has a cyclic diagonal for $r= 2$, then simplicial objects in $\cC$ have natural diagonal maps that induce an associative product in cohomology. With some effort we will prove that
 \begin{theorem}
- Let $X$ be an augmented pointed simplicial set and let $\Sigma X$ be its simplicial suspension. Let $\rho$ be the standard generator of the cyclic group $C_r$. Then 
-\[\Psi(\rho(e_{k-r+1)})(\Sigma x_1\otimes\overset{r}{\ldots}\otimes \Sigma x_r) = \tilde{r}!\Sigma\Psi(e_{k})(x_1\otimes \overset{r}{\ldots} \otimes x_r).
-\]
+    If $X$ is a simplicial object in $\cC$, the power operation $\power^{(r-1)m}(x)$ of a class of degree $m$ is the $m$-fold power of the multiplication of $x$ with itself.
 \end{theorem}
+%This theorem applies if the category $\cC$ is the category of sets with the cartesian product or the category of pointed sets with the smash product. 
+As a consequence, our connected comultiplications yield natural unstable comultiplications too when $X$ is not augmented.
 
-In Section \ref{sec:BLA} we give three explicit pair subdivision maps for the primes $r=3,5,7$. In Section \ref{sec:BLA} we give a succint description of these formulas. 
+\begin{question}
+    The cochain complex of a simplicial object in $\cC$ has always a multiplication. If the tensor product in $\cC$ is symmetric monoidal, how clear is it that this multiplication extends to an $E_{\infty}$-structure? \federico{I believe that the answer is yes, since all the machinery of McClure-Smith et al will work fine. Even if it is not symmetric monoidal, the machinery works the same, the only difference being that the endomorphism operad will have an action of the cyclic group, instead of the full symmetric group. }
+\end{question}
+\begin{question}
+    Can one replace in this article the requirement that $L$ goes to $R$-modules by the requirement that $L$ goes to chain complexes?
+\end{question}
 
-The homomorphism $\Psi$ does not seem to factor in general through the Barratt-Eccles operad or the surjection operad. We have empirically tested by computer that our operations for $r=3$ coincide with the operations of \cite{Anibaletal}. For $r=5$ the operations of \cite{Anibaletal} cannot come from our method. 
+\subsection*{Simplicial sets} If $r=2$, there is a special May-Steenrod structure on simplicial sets that has been described in multiple occasions \cite{steenrod1947products,gonzalez-diaz1999steenrod,medina2021fast_sq}. If $r$ is odd, an explicit May-Steenrod structure was found by the second author \cite{medina2021may_st} as the composition of a certain map $W_*(r)\to \cE_*(r)$ to the arity $r$ operations in the Barratt-Eccles operad, another map $\cE_*(r)\to \chi_*(r)$ to the arity $r$ operations in the surjection operad \cite{berger2004combinatorial} and a third map $\chi_*(r)\to EZ(r)$ to the arity $r$ operation in the Eilenberg-Zilber operad\cite{mcclure2003multivariable}. 
 
-Apart from the pair subdivision map, our construction has two main ingredients. First, a Poincaré duality theorem for the normalized chains and cochains of the augmented standard simplex. Second, an explicit $C_r$-equivariant homomorphism $N_*(EC_r)\to W_*(r)$ from the normalized chains of the Milnor construction on the cyclic group $C_r$ to the minimal resolution of $C_r$, whenever $r$ is odd. These results, which may be of independent interest, are described in sections \ref{sec:BLA1} and \ref{sec:BLA2}.
+If $r=2$ there is a unique $r$-cyclic asymmetry, and therefore our theorem yields a unique connected comultiplication. The induced unstable comultiplication is the same as the one of the previous paragraph. In fact, the presentation of this May-Steenrod structure in \cite{medina2021fast_sq} contains the germ of the notion of a connected comultiplication. If $r=3$ there is again a unique $r$-cyclic asymmetry, and we have empirically tested that the May-Steenrod structure of \cite{medina2021may_st} coincides, up to a permutation of the tensor factors, with the unstable comultiplication associated to our connected comultiplication. If $r= 5$, there are four $r$-cyclic assymetries, which yield four connected comultiplications, but none of them yield the unstable comultiplications obtained in \cite{medina2021may_st}.
 
-As we are considering augmented objects, the degree of the operations has a shift of $r-1$ with respect to the classical degree. All the ``old'' operations in classical degree $0$ coincided with the Alexander-Whitney diagonal. Our operations in augmented degree $r-1$ do coincide with the Alexander-Whitney diagonal up to multiplication by a scalar (see \ref{BLA}). The augmented context allows for an extra operation $P^{-1}$ that has augmented degree $0$ and classical degree $r-1$. This operation is always zero except in degree $-1$, in which $P^{-1}(x) = x^r$. This operation is induced by a cochain operation in augmented degree $0$
-\[\NN^{k}(X)\otimes \NN^{0}(X)\otimes\overset{r-1}{\ldots}\otimes \NN^{0}(X)\lra \NN^{k}(X)\]
-that sends a cochain $(x_1,\ldots,x_r)$ to the cochain $x$ whose value on a $k$-simplex $\tau$ is $x_1(\tau)\cdot \prod_{i\geq 2} x_i(d_{\mathrm{all}}\tau)$, where $d_{\mathrm{all}}\colon \NN_k(X)\to \NN_{-1}(X)$ is the augmentation. 
+This new viewpoint has some advantages: first, the construction is very explicit: it is easy to find the coefficient of any given summand and it is easy to list all the non-vanishing summands. In contrast, most of the summands in the description of the maps $\cE(r)\to \chi(r)\to EZ(r)$ vanish universally. Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable comultiplication in general. Such upgrade in the May-Steenrod structure would involve a replacement of the complex of surjections by a complex of functions. Third, power operations $\power^i$ for $i$ small are simpler to compute with connected comultiplications, while if $i$ is close to $(r-1)m$, then they are simpler to compute with unstable comultiplications. This latter fact makes connected comultiplications well-suited for computations of power operations in the cochain complex of a simplicial spectrum \cite{Gill2020}, that have no associative multiplication but satisfy that $\power^0([x])=[x]$. In Section \ref{s:suspension} we will show that the operations of this article are well-behaved both with left and right suspension, while the operations of \cite{medina2021may_st} are only well-behaved with right suspension.
+
+\subsection*{Kan spectra} Kan spectra \cite{Kan1963} are models of spectra introduced by Kan, that fell in disgrace because of the lack of a convenient smash product, a situation that has been recently treated \cite{CKP2023}. Our viewpoint applies in this setting too, and yields natural connected comultiplications on the chain complexes of Kan spectra. Again, they do not extend to unstable comultiplications.
+
+
+
+%{\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas. In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
+
+%\subsection{Desymmetrisations} The notion of $r$-cyclic desymmetrisation is new to the extend of our knowledge. A $2$-cyclic desymmetrisation was implicitely used by the first author in \cite{cantero-moran2020khovanov} to find Steenrod squares in augmented semi-simplicial objects in the Burnside $2$-category. In a future work we expect to find such structures for $r$ an odd prime, thus yielding expicit formulas for the odd power operations in Khovanov homology. For the reader acquainted with the surjection operad we remark that the operations that are involved in these desymmetrisations would correspond to summands indexed by non-overlapping intervals. 
+
+\subsection*{Outline} 
+The notion of connected comultiplication is presented in Section \ref{s:2bcomultiplications}. The construction of the connected comultiplication for augmented semi-simplicial objects of Theorem \ref{thm:main} has two main ingredients. First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in Section \ref{s:3complexes} to build a manageable model of the tensor product $\chains_*(X)^{\otimes r}$. Second, an explicit $\Cyc_r$-equivariant homomorphism $\Omega^*(r)^{\nf}\to W_*(r)$ between two resolutions of $\Cyc_r$ that is constructed in Section \ref{s:resolutions}. In Section \ref{s:suspension} we show that these operations behave well with suspension, and in Section \ref{s:8products} we prove the second theorem. In Section \ref{s:9Kanspectra} we explain how our method yields natural connected comultiplications in the chain complex of a Kan spectrum.
+
+
+
 

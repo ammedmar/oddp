@@ -1,0 +1,219 @@
+
+
+\section{Cyclic comultiplications and power operations} \label{s:2bcomultiplications}
+
+Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\ldots,r-1\}$ via $i\mapsto \rho^i$. The letter $\tilde{r}$ will denote the quatity $\lfloor \frac{r}{2} \rfloor$.
+
+
+
+\subsection{Unstable comultiplications}  The \emph{minimal augmented $\Cyc_r$-resolution} of the commutative ring $R$ with trivial action is the chain complex $W_*(r)$ defined as follows:
+\begin{align*}
+    W_i(r) &= \begin{cases}
+        R[\Cyc_r]\langle e_i\rangle & \text{if $i\geq 0$} \\
+        R & \text{if $i=-1$}.
+    \end{cases} & 
+    \partial(e_i) &= \begin{cases}
+        N(e_{i-1}) & \text{if $i$ is even} \\
+        T(e_{i-1}) & \text{if $i$ is odd,}
+    \end{cases}
+\end{align*}
+where $N = \sum_j \rho^j$ and $T = \rho - \Id$. %Consistenly with our conventions, we will denote by $\rW_*(r)$ the suspended complex $\sus{} W_*(r)$. 
+
+    An \emph{unstable $r$-cyclic comultiplication} on a chain complex $(C_*,\partial)$ is an equivariant chain homomorphism
+    \[\mu\colon W_*(r)\otimes C_*\lra C_*^{\otimes r}\]
+together with an associative comultiplication on $C_*$ such that $x\mapsto \mu(e_0,x)$ is the $r$-fold comultiplication.
+\begin{proposition}\label{prop:unstable}
+    If $r$ is prime, an unstable $r$-cyclic comultiplication induces operations indexed by the integers
+\begin{align*}
+    \power^{i}\colon H^*(C;\mathbb{F}_r)&\lra H^{*+i}(C;\mathbb{F}_r)
+\end{align*}
+that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with 
+\[
+    y(a) = \frac{1}{(\tilde{r}!)^n}(y\otimes \overset{r}{\ldots}\otimes y)(\mu(e_{(r-1)n-i},a))
+\]
+These operations satisfy the following equation
+\begin{itemize}
+    \item $\power^i(x) = 0$ if $i>(r-1)n$ and $x$ has degree $n$.
+\end{itemize}
+\end{proposition}
+\begin{proof} See \cite{may1970general}.    %The operations are linear because $\mu$ is linear and Fermat's little theorem in $\mathbb{F}_r$ guarantees that $(\lambda\cdot y)^\otimes{r} = \lambda\cdot (y)^{\otimes r}$ for a scalar $\lambda$. That the operations are well-defined follows through the usual argument: if $x$ is a representative of a cohomology class, its coboundary vanishes, and so does the coboundary of $y\otimes\ldots\otimes y$, hence it maps cocycles to cocycles. If $x = \delta y$ is a coboundary, then FILL.
+    For the last claim, note that if $i>(r-1)m$, then $(r-1)m-i$ is negative, and therefore $\mu(e_{(r-1)m-i},a)$ vanishes.
+    \end{proof}
+
+\subsection{Stable comultiplications}
+Let $W^{\st}_*(r)$ be the unbounded cochain complex
+\[
+\ldots\lra \Cyc_r\langle e_2\rangle \overset{N}{\lra}
+\Cyc_r\langle e_1\rangle \overset{T}{\lra}
+\Cyc_r\langle e_0\rangle \overset{N}{\lra}
+\Cyc_r\langle e_{-1}\rangle \overset{T}{\lra}
+\Cyc_r\langle e_{-2}\rangle \overset{N}{\lra}
+\ldots
+\]
+This is the complex that computes the Tate homology of $\Cyc_r$. In this work we understand it as the colimit of
+\[
+    W_*(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} W_*(r) \overset{\theta_{2(1-r)}}{\lra} \sus{4(1-r)} W_*(r) \overset{\theta_{2(1-r)}}{\lra} \ldots
+\]
+where $\theta_{k}\colon W_*(r)\to \sus{k} W_*(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q-k}$, which only exists if $k$ is even. If $r$ is odd, one can instead use the maps $\theta_{1-r}$ to form the colimit.
+
+A \emph{stable $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain homomorphism
+\[
+\mu\colon W_*^{\st}(r)\otimes C_*\lra C_*^{\otimes r}
+\]
+\begin{proposition}
+If $r$ is prime, a stable $r$-cyclic comultiplication induces operations indexed by the integers
+\begin{align*}
+    \power^{i}\colon H^*(C;\mathbb{F}_r)&\lra H^{*+i}(C;\mathbb{F}_r)
+\end{align*}
+that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with 
+\[
+    y(a) = \frac{1}{(\tilde{r}!)^n}(y\otimes \overset{r}{\ldots}\otimes y)(\mu(e_{(r-1)n-i},a))
+\]
+\end{proposition}
+\begin{proof}
+    As in Proposition \ref{prop:unstable}
+\end{proof}
+
+\subsection{Connected comultiplications}
+
+Let $\uchains_*^r$ be the chain complex $\bigoplus_m \sus{(r-1)m}\uchains_m$ with the same differential as $\uchains_*$, which now has degree $-r$. An element $x\in \uchains_*$ viewed in $\uchains_*^r$ will be denoted $\vec{x}$. We write $\rW^*(r)$ for the cochain complex
+\[
+    R\overset{N}{\lra} R[\Cyc_r]\langle e_1\rangle \overset{T}{\lra} R[\Cyc_r]\langle e_2\rangle \overset{N}{\lra} \ldots
+\]
+(note the reindexing\footnote{This makes the definition of the $\power^i$ simpler}, so that $e_i$ has degree $i$). Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho e^\vee = (\rho^{-1} e)^{\vee}$.
+
+
+If $r$ is odd or $R=\mathbb{F}_2$, define the chain complex $\rW^*(r)\hotimes \uchains_*^r$ as the graded $R[\Cyc_r]$-module $\rW^*(r)\otimes \uchains_*^r$ with the differential\footnote{Another possility is to define 
+\[
+    \partial(e^\vee_q\otimes \vec{x}) = \partial (e^\vee_q)\otimes \vec{x} + (-1)^q \frac{1}{\tilde{r}!}\theta_{1-r}(e^\vee_q)\otimes \partial (\vec{x}).
+\]
+This yields the equation $\power^0(x) = x$ instead of $\power^0(x) = \frac{1}{(\tilde{r}!)^m}$
+}
+\[
+    \partial(e^\vee_q\otimes \vec{x}) = \partial (e^\vee_q)\otimes \vec{x} + (-1)^q \theta_{1-r}(e^\vee_q)\otimes \partial (\vec{x}).
+\]
+If $r$ is even and $R$ is arbitrary, define the cochain complex $\hat{\rW}^*(r)$ as
+\[
+    R\overset{T}{\lra} R[\Cyc_r]\langle e_1\rangle \overset{N}{\lra} R[\Cyc_r]\langle e_2\rangle \overset{T}{\lra}\ldots
+\]
+There are now homomorphisms $\theta_{1-r}\colon \rW_*(r)\to \sus{1-r}\hat{\rW}_*(r)$ and $\theta_{1-r}\colon \hat{\rW}_*(r)\to \sus{1-r}\rW_*(r)$. Define $\uchains_{\mathrm{even}} = \bigoplus_{m\geq 0}\uchains_{2m}$ and $\uchains_{\mathrm{odd}} = \bigoplus_{m\geq 0}\uchains_{2m+1}$ and write $\rW^*(r)\hotimes \uchains_*^r$ for the graded $R[\Cyc_r]$-module $\left(\rW^*(r)\otimes \uchains_{\mathrm{odd}}^r\right)\otimes \left(\hat{\rW}^*(r)\otimes \uchains_{\mathrm{even}}^r\right)$ with the differential
+\[
+    \partial(e^\vee_q\otimes \vec{x}) = \partial (e^\vee_q)\otimes \vec{x} + (-1)^q \theta_{1-r}(e^\vee_q)\otimes \partial (\vec{x}).
+\]
+    A \emph{connected $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain homomorphism\footnote{the factor $\tilde{r}!$ can be removed if the other convention is adopted.}
+    \[
+        \mu\colon \rW^*(r)\hotimes \uchains^r_*\lra \uchains_*^{\otimes r}
+    \]
+    such that $\mu(1 \otimes \vec{x}) = (\tilde{r}!)^{m}x\otimes\overset{r}{\ldots}\otimes x$ if $x$ has degree $m$.
+\begin{proposition}
+    If $r$ is prime, a connected $r$-cyclic comultiplication induces operations indexed by the integers
+    \begin{align*}
+        \power^{i}\colon H^*(C;\mathbb{F}_r)&\lra H^{*+i}(C;\mathbb{F}_r)
+    \end{align*}
+    that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with
+    \[
+        y(a) = (y\otimes \overset{r}{\ldots}\otimes y)(\frac{1}{(\tilde{r}!)^n}\mu(e_{ri}^\vee\otimes a))
+    \]
+    These operations satisfy the following equation
+\begin{itemize}
+    \item $\power^0(x) = x$ and $\power^i(x) = 0$ for $i<0$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+    As it is explained in the next subsection, a connected comultiplication yields a stable comultiplication, which in turn yields power operations. \federico{I believe that an independent and nicer construction exists using the structure of a connected comultiplication}
+
+    The last claim follows from the assumption, because $\power^0(x)$ is computed evaluating $x\otimes \ldots\otimes x$ on $\mu(1 \otimes \vec{a}) = a\otimes\overset{r}{\ldots}\otimes a$, which equals $x(a)^{r} \equiv x(a) \mod r$. That the negative power operations vanish follows from the fact that the map $W_*^{\st}\otimes C_*\to \rW^*\hotimes \uchains_*^r$ vanishes in the range that computes these operations.
+\end{proof}
+
+
+
+\subsection{Relations between comultiplications}
+If $k$ is even, let $\varphi_k\colon W^{\st}_*(r)\to \sus{k}\rW^*(r)$ be the homomorphism that sends $e_q$ to $e_{k-q}^{\vee}$. If $k$ is odd, let $\varphi_k\colon W^{\st}_*(r)\to \sus{k}\hat{\rW}^*(r)$ be the homomorphism that sends $e_q$ to $e_{k-q}^{\vee}$. There are homomorphisms
+\[
+    W_*(r)\otimes C_* \longleftarrow W^{\st}_*\otimes C_*\longrightarrow \rW^*\hotimes \uchains_*^r 
+\]
+that send $e_q\otimes x$ to $e_q\otimes x$ and to $\varphi_{(r-1)m}(e_q)\otimes \vec{x}$ respectively (the second map has degree $r$). Note that the first map vanishes on negative degrees and is an isomorphismon non-negative degrees, while the second map is non-zero in all degrees, but never an isomorphism.
+
+\begin{example}\label{ex:105} For $r=3$ and $\uchains_*= \chains_*(\asimplex^9)$, we have
+\[
+    \varphi(e_0\otimes [0,2,3,4,5,7,9]) = e^\vee_{12}\otimes [0,2,3,4,5,7,9].
+\]
+\end{example}
+
+
+A connected comultiplication extends to a unstable comultiplication as in the following diagram
+\[
+    \xymatrix{
+        W_*^{\st}(r)\otimes C_*\ar[r]\ar[d] & \rW^*(r)\hotimes \uchains_*^r \ar[r]^-{\mu} & \uchains_*^{\otimes r} \\
+        W_*(r)\otimes C_*\ar@{-->}[rr] & & C_*^{\otimes r} \ar[u]_{\sus{\otimes r}}
+    }
+\]
+if and only if $\mu(e_{(r-1)m+1}\otimes\vec{x}) = 0$ for if the dimension of $x$ is $m$. A connected comultiplication extends to a unstable comultiplication as in the following diagram
+\[
+    \xymatrix{
+        W_*^{\st}(r)\otimes C_*\ar[r]\ar[d] & W_*(r)\otimes C_*^r \ar[r]^-{\mu} & C_*^{\otimes r} \ar[d]^{\sus{\otimes r}} \\
+        \rW_*(r)\hotimes \uchains_*\ar@{-->}[rr] & & \uchains_*^{\otimes r} 
+    }
+\]
+if and only if $\mu(e_{(r-1)(m-1)}\otimes x) = (\tilde{r}!)^mx\otimes \overset{r}{\ldots} \otimes x$ if the degree of $x$ is $m$.% (and this implies that $\mu_i(x) = 0$ if $i>(r-1)m$).
+
+
+
+
+
+
+\subsection{Properties of the power operations}
+If $F\colon \cD\to \Ch{R}$ is a functor, a \emph{natural $r$-cyclic comultiplication} is a natural choice, for each object $D\in \cD$, of an $r$-cyclic comultiplication on $F(D)$. 
+
+
+The following two lemmas can be proved as follows: Use the fact that $W^{\st}_*(r)$ is a colimit of $W_*(r)$ to prove them for stable comultiplications. Then use that every connected comultiplication gives a stable comultiplication that computes its power operations.
+\begin{lemma}
+    If $r\neq 0$ in $R$, then the operation $\power^1$ is the Bockstein homomorphism.
+\end{lemma}
+%\begin{proof}
+%    We have that $\power^1(y)(x) = (y\otimes \overset{r}{\ldots}y)(\bar{\mu}(e_r,\vec{x}))$, but $\bar{\mu}(e_r,\vec{x}) = N$
+%\end{proof}
+\begin{lemma}
+    $\susp{} \power^i([x]) = \power^i([\susp{} x])$.
+\end{lemma}
+%\begin{proof}
+%\end{proof}
+Since a connected comultiplication does not have an associative product, one cannot define a Cartan formula for them. Nonetheless, we have the following if $\cD$ is the category of augmented semi-simplicial objects in a monoidal category $\cC$.
+\begin{lemma}
+    If $X$ is an augmented semi-simplicial object in $\cC$, then, under the isomorphism $\chains_*(X*Y)\cong \chains_*(X)\otimes\chains_*(Y)$, we have 
+    \[
+        \power^i(x\otimes y) = \sum_{j=0}^{i} \power^{i-j}(x)\otimes \power^j(y)
+    \]
+\end{lemma}
+\begin{proof} \federico{Not proven}
+\end{proof}
+
+For an unstable comultiplication, it is often difficult to prove that $\power^0$ is the identity \cite{may1970general}. It turns out that, for the connected comultiplications $\mu$ developed in this work, it is also difficult to prove that the operations $\mu_{(r-1)(m-1)}$ are chain maps, and that $\power^{(r-1)(m-1)}(x)$ is the $r$-fold product of $x$ with itself using the product induced by the simplicial diagonal. This will be done in the last section of this paper. 
+
+Additionally, the formula for a power operation $\power^i([x])$ of an unstable comultiplication depends heavily on the degree of the class $x$, while for a connected comultiplication, this dependance is only on the variable $x$. As a consequence, computing $\power^i([x])$ for small $i$'s tends to be simpler for a connected comultiplication than for an unstable comultiplication, while computing them for $i$'s close to $(m-1)r$ is simpler for an unstable comultiplication than for a connected comultiplication. 
+
+
+\subsection{Examples}
+Here are four examples for the prime $2$:
+\begin{itemize}
+    \item If $\cD$ is the category of simplicial sets and $F$ is the functor of normalised chains, then the operations in \cite{steenrod1947products} yield a natural $2$-cyclic unstable comultiplication. This extends to a natural $2$-cyclic connected stable comultiplication.
+    \item if $\cD$ is the category of cocommutative Hopf algebras, then the unstable comultiplication constructed in \cite{may1970general} does not extend to a connected stable comultiplication.
+    \item if $\cD$ is the category of suspension spectra in simplicial sets, then the forementioned unstable comultiplication yields a stable comultiplication in the stable chains (cf. \cite{Gill2020}) that does not extend to an unstable comultiplication.
+    \item if $\cD$ is the category of simplicial objects in the Burnside $2$-category and $F$ is the chain functor, then the operations in \cite{cantero-moran2020khovanov} yield an almost natural $2$-cyclic connected stable comultiplication that does not extend to an unstable comultiplication.
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\subsection{May-Steenrod structures} In \cite{may1970general}, May considered unstable cyclic comultiplications with an additional assumption that we are not treating: That %the chain complex $C_*$ has an associative comultiplication and that 
+the equivariant homomorphism $W_*(r)\otimes C_*\to C_*^{\otimes r}$ is homotopic to a composition $W_*\otimes C_*\to V_*\otimes C_*\to C_*^{\otimes r}$, where $V_*$ is a free $R[\Sigma_r]$-resolution of $R$, the first map is $\Cyc_r$-equivariant and the second map is $\Sigma_r$-equivariant.
+
+%The $0$-th operation in an unstable $2$-cyclic structure yields a comultiplication in chains, but it may not be associative. 
+The upshot of this condition is that the power operations vanish in all degrees but those of the form $i = 2s(r-1)$ or $i = 2s(r-1)+1$ with $s\geq 0$. This is not guaranteed by our definitions.

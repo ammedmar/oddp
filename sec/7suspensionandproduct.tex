@@ -1,0 +1,129 @@
+% !TEX root = ../oddp.tex
+
+\section{Suspension}\label{s:suspension}
+
+\federico{This section can be written for an aribitrary category $\cC$ with a zero object, I've made a short discussion about that at the end}
+
+In this section, we show that our connected comultiplications yield nice connected comultiplications on the chain complex of a semi-simplicial $\susp{}$-spectrum or a simplicial $\sus{}$-spectrum. The unstable comultiplications of \cite{medina2021may_st} yield nice stable comultiplications on the chain complex of a simplicial $\sus{}$-spectrum. At the end we give some comments on other stable categories. We have chosen to work with semi-simplicial pointed sets, but one may very well work with simplicial pointed sets using the Kan suspension instead.
+
+%Let us assume that the category $\cC$ has a zero object. Otherwise, since $\Mod{R}$ has a zero object, we can replace $\cC$ by the category $\cC_*$ of pointed objects in $\cC$, which then inherits the coproducts and the tensor product and the diagonal, and the linearization functor factors through $\cC_*$. 
+
+\subsection{Compatibility with suspension} The \emph{left suspension functor} sends an augmented semi-simplicial pointed set $X_\bullet$ to the semi-simplicial pointed set $(\Sigma X)_\bullet$ defined as:
+\begin{align*}
+    (\susp{} X)_n &= X_{n-1},& d_i(\susp{}\sigma) &= \susp{} d_{i+1}(\sigma),& d_{0}(\susp{}\sigma) &= *.
+\end{align*}
+Ther \emph{right suspension functor} is the following:
+\begin{align*}
+    (\sus{} X)_n &= X_{n-1}, &d_i(\sus{}\sigma) &= \sus{} d_i(\sigma),& d_{n+1}(\sus{} \sigma) &= *.
+\end{align*}
+Similarly, we have the left suspension of a chain complex $(C_*,\partial)$:
+\begin{align*}
+    (\susp{} C)_n &= C_{n-1}, & \partial (\susp{} c) = -\susp{} \partial c.
+\end{align*}
+and the right suspension:
+\begin{align*}
+    (\sus{} C)_n &= C_{n-1}, & \partial (\sus{} c) = \sus{} \partial c.
+\end{align*}
+We also have that, for an augmented semi-simplicial pointed set $X_\bullet$ in $\cC$,
+\begin{align*}
+    \uchains_*(\Sigma X)&\cong \susp{} \uchains_*(X) & \uchains_*(\sus{}X) &\cong \sus{}\uchains_*(X)
+\end{align*}
+
+An $\susp{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $E = \{E_n\}_{n\geq 0}$ with structural maps $\susp{} E_n\to E_{n+1}$. An $\sus{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $\{E_n\}_{n\geq 0}$ with structural maps $\sus{} E_n\to E_{n+1}$. 
+
+The chain complex of a $\susp{}$-spectrum is the colimit 
+\[
+    C_*(E) = \colim_n \susp{-n} C_*(E_n)\to \susp{-n-1} C_*(E_{n+1})
+\]
+The chain complex of a $\sus{}$-spectrum is the colimit 
+\[
+    C_*(E) = \colim_n \sus{-n} C_*(E_n)\to \sus{-n-1} C_*(E_{n+1})
+\]
+These chain complexes compute the ordinary homology of the spectrum $E$ and come equipped with a stable $\mathbb{E}_\infty$ structure \cite{Gill2020}. The stable $\mathbb{E}_\infty$ operad has two well-known models \cite[Appendix]{berger2004combinatorial}: the stable Barratt-Eccles operad or the stable surjection operad, and are defined as the limit of the suspension endomorphism of the Barratt Eccles operad $\cE$ or the surjection operad $\chi$. In detail, we have in arity $r$:
+\[\cE_{st} = \lim(  \Sigma^2\cE(r)[2-2r] \lra \Sigma \cE(r)[1-r]\lra \cE(r).\]
+\[\chi_{st} = \lim(  \Sigma^2\chi(r)[2-2r] \lra \Sigma \chi(r)[1-r]\lra \chi(r).\]
+Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite. In the next proposition we observe that the homomorphism $W_*(r)\to \cE(r)$ constructed in \cite{medina2021may_st} is compatible with the right suspension, and therefore gives a nice map
+\[
+    W_*(r)_{st}\lra \cE_{st}
+\]
+that yields a stable comultiplication on the chain complex of a $\sus{}$-spectrum.
+
+
+%\begin{definition}
+%    A natural unstable $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes.
+%    \[
+%    \xymatrix{
+%        W_*\otimes C_*\ar[r] \ar[d]^{\theta_{1-r}\otimes \sus{}} & C_*^{\otimes r} \ar[d]^{\sus{\otimes r}}\\
+%        W_{*-r+1}\otimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\otimes r}.
+%    }
+%    \]
+%    A natural connected $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes
+%\[
+%    \xymatrix{
+%        \rW^*\hotimes C_*\ar[r]\ar[d]^{\id\otimes \sus{}} & C_*^{\otimes r} \ar[d]^{\sus{\otimes r}} \\
+%        \rW^*\hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\otimes r}        
+%    }
+%    \]
+%\end{definition}
+\begin{proposition}\label{prop:suspensionunstable}
+    The effect of left and right suspensions on the $r$-cyclic unstable comultiplications of \cite{medina2021may_st} is the following:
+    \begin{align*}
+        \mu(e_q\otimes \susp{} \tau) &= (\tilde{r}-1)!\susp{\otimes r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1}\otimes \tau) 
+        \\
+       \mu(e_q\otimes \sus{}\tau) &= \tilde{r}!\sus{\otimes r}\mu(e_{q-r+1}\otimes \tau)
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\ldots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct, in which case they contribute always with a plus sign. A count yields the result. 
+
+    For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
+\end{proof}
+
+\begin{corollary}
+    If $\mu$ is the unstable comultiplication of \cite{medina2021may_st}, we can define the following stable comultiplication $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum:
+    \[
+        \mu_{st}(e_q\otimes [\tau_m]) = [\mu(e_{q+m(r-1)}\otimes \tau_m)]
+    \]
+    where $\tau_m\in \chains_*(E_m)$.
+\end{corollary}
+
+For the connected comultiplication constructed in this work we have compatibility both with the left and the right suspension, as we see in the next proposition.
+
+
+
+
+\begin{proposition}\label{prop:suspensionconnected}
+    The effect of left and right suspensions on the $r$-cyclic connected comultiplications defined in Corollary \ref{thm2:mainthm} is the following:
+    \begin{align*}
+       \mu(e_q\otimes \susp{}\tau) &= \tilde{r}!\susp{\otimes r}\rho^{-1}(\mu(e_q\otimes \tau) &
+       \mu(e_q\otimes \sus{}\tau) &= \tilde{r}!\sus{\otimes r}\mu(e_q\otimes \tau)
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    Let $\tau\in \rA^r(X)$ be an element of degree $m$. Observe that the summands in $\alpha\circ\beta\circ\gamma\circ \Psi(e_q\otimes \tau)$ coincide with the summands of $\alpha\circ\beta\circ\gamma\circ \Psi(e_q\otimes \sus{}\tau)$ except for those that are indexed by a $U$ that contains some entry equal to $m+1$. These extra summands are zero because are faces of $d_{m+1}(s{} \tau) = 0$. Hence we have the same summands, with an extra coefficient of $(\tilde{r}!)^{m+1}$ on the left and a coefficient of $(\tilde{r}!)^m$ on the right. 
+
+    Regarding the left suspension, we have the same situation, though now the map $\sus{}\colon \chains^*(\asimplex^{n+1})\to \chains^*(\asimplex^{n})$ sends a tuple $(u_0,\ldots,u_q)$ to the tuple $(u_0-1,\ldots,u_q-1)$ if $u_0>0$ and to zero otherwise. Additionally, the extra summands that vanish are those with an $U$ that contains some entry equal to $0$.  
+\end{proof}
+
+\begin{corollary}
+    On the stable chains of a $\susp{}$-spectrum $\{E_n\}_{n\geq 0}$ we can define the following connected comultiplication $\mu_{st}$ (which restricts to a stable comultiplication)
+    \[
+        \mu_{st}(e_q\otimes [\tau_m]) = [\rho^m \mu(e_q\otimes \tau_m)]
+    \]
+    where $\tau_m\in \chains_*(E_m)$.
+\end{corollary}
+\begin{corollary}
+    On the stable chains of a $\sus{}$-spectrum $\{E_n\}_{n\geq 0}$ we can define the following connected comultiplication $\mu_{st}$ (which restricts to a stable comultiplication):
+    \[
+        \mu_{st}(e_q\otimes [\tau_m]) = [\mu(e_q\otimes \tau_m)]
+    \]
+    where $\tau_m\in\chains_*(E_m)$.
+\end{corollary}
+
+
+
+\subsection{Other simplicial stable categories}
+If the category $\cC$ has a zero object we can define the left and right suspensions of augmented semi-simplicial objects in $\cC$ as we did before for $\cC = \Setp$. This yields a notion of $\susp{}$-spectrum and $\sus{}$-spectrum with their stable chain complexes. These stable chain complexes have comultiplications as described in the preceeding corollaries. 
+
+\subsection{Other stable categories}
+If $\cD$ is a category with a functor $F\colon \cD\to \Ch{R}$ such that there is an endofunctor $\susp{}\colon \cD\to \cD$ such that $F\circ \susp{} \cong \susp{}\cong F$, then one can consider the stable category $\cD[\susp{-1}]$ which has a functor to $\Ch{R}$. If the chain complexes of $\cD$ come with a natural (connected or unstable) comultiplication that is compatible with suspension as in Propositions \ref{prop:suspensionconnected} and \ref{prop:suspensionunstable}, then one obtains a natural stable comultiplication on the chain complexes of $\cD[\susp{-1}]$. If the original comultiplication was connected, then $\power^0(x) = x$ remains true for the stable comultiplication. If the original comultiplication was unstable, we cannot deduce an analogous equation because the degree of an element may be arbitrarily changed by suspension.  

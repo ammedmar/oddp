@@ -1,5 +1,5 @@
 % environments
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -60,6 +60,7 @@
 \newcommand{\Top}{\mathsf{Top}}
 \newcommand{\CW}{\mathsf{CW}}
 \newcommand{\Mod}[1]{\mathsf{Mod}(#1)}
+\newcommand{\grMod}[1]{\mathsf{Mod_*}(#1)}
 \newcommand{\Ch}[1]{\mathsf{Ch}(#1)}
 \newcommand{\simplex}{\triangle}
 \newcommand{\sSet}{\mathsf{sSet}}
@@ -99,7 +100,7 @@
 % other
 \newcommand{\id}{\mathsf{id}}
 \renewcommand{\th}{\mathrm{th}}
-\newcommand{\op}{\mathrm{op}}
+\newcommand{\op}{{\mathrm{op}}}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\Med}{\mathcal{M}}
@@ -183,3 +184,5 @@
 % comments
 \newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
 \newcommand{\federico}[1]{\textcolor{red}{\underline{Federico}: #1}}
+
+\newcommand{\khovanov}[1]{}

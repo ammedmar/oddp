@@ -1,0 +1,198 @@
+ There are \emph{suspension maps}
+\begin{align*}
+	\theta\colon \rW_*(r) & \lra \Sigma^{r-1}\rW_*(r) 
+ &
+	% S\colon \Phi(r)^*&\lra \Sigma^{r-1} \Phi(r)^* \\
+	% (a_0,\ldots,a_k) & \longmapsto \sum_{(b_{0},\ldots,b_{r-1})\in \Perm_r} (-1)^{\sigma(a_k\ldots a_{k+r-1})} %(a_0,\ldots,a_{k},a_{k+1},\ldots,a_{k+r-1})
+	S\colon \uchains_*(\EC_r)&\lra \Sigma^{r-1}\uchains_*(\EC_r) 
+ \end{align*}
+ with $\theta(e_k)= e_{k-r+1}$ and 
+ \[
+	S(a_0,\ldots,a_k) = \begin{cases}
+		{\sgn(a_{k-r+1},\ldots,a_{k})} (a_{0},\ldots,a_{k-r+1}) & \text{ if $k\geq r-1$} \\
+		\emptyset & \text{if $k = r-2$ and $a_i\neq a_j$ for all $i,j$} \\
+		0 & \text{otherwise.}
+	\end{cases}
+\]
+\begin{lemma}
+	The suspension $S\colon \uchains_*(EC_r)\to \Sigma^{r-1}\uchains_*(EC_r)$ is a homomorphism of chain complexes.
+\end{lemma}
+
+\begin{proof}
+	Consider first a simplex $(a_0,\ldots,a_k)$ of dimension $k\geq r$. If $A=(a_{k-r+1},\ldots,a_{r})$ has no repeated entries (i.e., it is a permutation), we choose the unique $j>k-r$ such that $a_j = a_{k-r}$. Let $A' = (a_{k-r},a_{k-r+1},\ldots,\hat{a}_j,\ldots,a_k)$, and observe that the permutations $A$ and $A'$ differ by $j-k+r-1$ transpositions, hence $\sgn(A') = (-1)^{j-k+r-1}\sgn(A).$
+	\begin{align*}
+		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+		&= \sum_{i=0}^{k-r} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=k-r+1}^{k} (-1)^iS(d_i (a_0,\ldots,a_k))
+	\end{align*}
+	All the terms in the second summation on the RHS are zero but the one indexed by $j$, because $(a_{k-r},\ldots,\hat{a}_i,\ldots,a_k)$ is not a permutation in those cases. Additionally, $Sd_i = d_{i}S$ in each term in the first summation on the RHS, hence we have:
+	\begin{align*}
+		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^j S(d_j (a_0,\ldots,a_k)) \\
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^{j}\sgn(A')(a_0,\ldots,a_{k-r}) \\
+		&= \sum_{i=0}^{k-r} (-1)^i d_i S(a_0,\ldots,a_k) + (-1)^{k-r+1}\sgn(A)(a_0,\ldots,a_{k-r}) \\
+		&= \sum_{i=0}^{k-r+1} (-1)^i d_i S(a_0,\ldots,a_k)
+	\end{align*}
+	If $A$ has repeated entries, then $S(a_0,\ldots,a_k) = 0$. We consider two cases: if the repeated entries of $A$ are different from $a_{k-r}$ or there are more than two repeated entries, then all summands in $d(a_0,\ldots,a_k)$ have repeated entries in its last $r$ positions, therefore $S(dA)=0$. If there are exactly two repeated entries $a_j=a_m = a_{k-r}$ with $r>j,m$, let $A' = (a_0,\ldots,\hat{a}_j,\ldots,a_{r})$, $A'' = (a_0,\ldots,\hat{a}_m,\ldots,a_{r})$, and observe that these two words differ by $|m-j-1|$ transpositions, hence $\sgn(A') = (-1)^{m-j-1}\sgn(A'')$.
+	\begin{align*}
+		S\left(\sum_{i=0}^k (-1)^id_i (a_0,\ldots,a_k)\right)
+		&= \sum_{i=0}^{r-1} (-1)^iS(d_i (a_0,\ldots,a_k)) + \sum_{i=r}^{k} (-1)^iS(d_i (a_0,\ldots,a_k)) \\
+		&= (-1)^jS(d_j (a_0,\ldots,a_k)) + (-1)^mS(d_m (a_0,\ldots,a_k)) \\
+		&= \left((-1)^{j}\sgn(A') + (-1)^m\sgn(A'')\right)(a_r,\ldots,a_k)\\
+		&= 0
+	\end{align*}
+	The case $k=r-1$ is left to the reader.
+\end{proof}
+
+
+
+
+
+If $A=(a_0,\ldots,a_k)\in \EC_r$ is a word, let $\sigma(A)$ denote the sign of the permutation that orders the entries of $A$. For a natural number $m$, write $\tilde{m} = \left\lfloor \frac{m}{2}\right\rfloor$.
+
+There is a join homomorphism $\kappa\colon \chains_*(\EC_r)\to \chains_*(\partial \asimplex^{r-1})$ in augmented degrees $\leq r-1$ that sends a word $(a_0,\ldots,a_{q-1})$ to the simplex $[a_0,\ldots,a_{q-1}]$. We may define a homomorphism
+\[
+    \Phi\colon \chains_*(\EC_r)\to \rW_*(r)
+\]
+recursively as 
+\[
+    \Phi((a_0,\ldots,a_{q-1})) = \begin{cases}
+        \Phi\circ \kappa(a_0,\ldots,a_{q-1}) & \text{if $q\leq r-1$} \\
+        \frac{1}{\tilde{r}!}\theta_{r-1}\circ \Phi\circ\kappa\circ S(a_0,\ldots,a_{q-1}) & \text{if $q\geq r-1$}
+    \end{cases}
+\]
+One checks by inspection that both definitions coincide at $q=r-1$, and then it follows inductively that $\Phi$ is a chain homomorphism.
+
+
+
+\begin{theorem}\label{thm:map_phi}
+	The $\Cyc_r$-equivariant homomorphism 
+ \[
+ \Phi\colon \rW^*(r)\otimes\bZ\left[{\textstyle\frac{1}{\tilde{r}!}}\right]\lra \uchains^*\left(\EC_r; \bZ\left[{\textstyle\frac{1}{\tilde{r}!}}\right]\right))
+ \]
+ given by $\Phi(e_k)= \frac{(\tilde{r}-\tilde{s}-1)!}{(\tilde{r}!)^{\ell+1}}\psi_k$ is a chain homomorphism.
+\end{theorem}
+%If $r>3$ and $R\neq \bZ_r$, then the $\Cyc_r$-equivariant map $\PSI\colon W^{\leq m(r-1)}(r)\lra N^*(EC_r)_{\leq m(r-1)}$ given by $e_k\mapsto (\tilde{r}!)^{m-\ell-1}(\tilde{r}-\tilde{s}-1)!\psi_k$ is a homomorphism of cochain complexes.
+%\begin{remark}
+%	If $r$ is prime, the coefficient $\tilde{r}!\mod r$ is, by Wilson's theorem, one of the two values of $\sqrt{(-1)^{\tilde{r}+1}}$, though determining which of them is not immediate\footnote{\url{https://mathoverflow.net/questions/121678/the-value-pm-1-for-the-square-root-of-wilsons-theorem-p-1-2-mod-p}}.
+%\end{remark}
+
+\begin{remark}
+	If $r=3$, then $\bZ[\frac{1}{\tilde{r}!}] = \bZ$ and if $r$ is prime, then $\bZ/r$ is a $\bZ[\frac{1}{\tilde{r}!}]$-algebra, hence these coefficients are also allowed.
+\end{remark}
+
+
+
+
+\begin{proof}
+	We need to prove that
+	\begin{align*}
+		N\psi_{k} & = (\tilde{r}-\tilde{s})\delta(\psi_{k-1}) & \text{ if $k$ is even} \\
+		T\psi_{k} &= d(\psi_{k-1}) & \text{ if $k$ is odd.}
+	\end{align*}
+	For the case $k\leq r-2$ we need to check that
+	\begin{align*}
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{0\leq b\leq r-1}(-1)^i\sgn(A)d^{i,b}A &= \bar{\psi}_k. & \text{ if $k$ is even,}\\
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{0\leq b\leq r-1}(-1)^i\sgn(A)d^{i,b}A &= T\psi_k & \text{if $k$ is odd.}
+	\end{align*}
+	This will be proved in Lemmas \ref{lemma:pair} and \ref{lemma:cancel}. In higher degrees we have, by induction ($\lambda = \tilde{r}-\tilde{s})$,
+	\begin{align*}
+		N\psi_{k} &= N\dual{S}\psi_{k-r+1} = \dual{S} N\psi_{k-r+1} = \lambda\dual{S} d\psi_{k-r} = \lambda d\dual{S} \psi_{k-r} = \lambda d\psi_{k-1}\\
+		T\psi_{k} &= T\dual{S}\psi_{k-r+1} = \dual{S} T\psi_{k-r+1} = \dual{S} d\psi_{k-r} = d\dual{S} \psi_{k-r} = d\psi_{k-1}.
+	\end{align*}
+	This also sets the case when because both definitions of $\psi_{r-2}$ agree.
+\end{proof}
+
+%If $k<r$, the \emph{shape} of such a simplex $(a_0,\ldots,a_k)$ is the cyclic set of cyclic differences $\{a_i - \bar{a}_{i-1}\}_{i=0}^k$. By this we mean that two shapes are equivalent if they differ by a cyclic permutation.
+%\begin{lemma} If $k<r$ is even, the cyclic orbit of each summand of $\psi_k$ has $(\tilde{r}-\tilde{k}-1)$ elements in $\psi_k$.
+%\end{lemma}
+%\begin{proof}
+%Since $(a_0,\ldots,a_k)$ has $\tilde{k}+1$ elements, this is the number of cyclic permutations that contain $r-1$. Since there are $\tilde{r}$ cyclic permutations in total, the result follows.
+%\end{proof}
+
+
+
+A number $b$ is \emph{friend} of a word $A$ of $\psi_k$ under any of the following conditions:
+\begin{itemize}
+	\item $b>A$ and $b$ has the same parity as $a_{k}$,
+	\item $b<A$ and $b$ is odd,
+	\item $b=r-1$.
+\end{itemize}
+A number is \emph{enemy} of a word $A$ of $\psi_k$ if it is not its friend. Write $b\vdash A$ if $b$ and $A$ are friends and $b\not\vdash A$ if they are enemies.
+
+Say that a word $A = (a_{\sigma(0)},\ldots,a_{\sigma(k)})\in \chains_k(\EC_r)$ is \emph{even} if it b (\emph{odd}) if $a_{2i}$ is even (odd) and $a_{2i+1}$ is odd (even). A word is \emph{good even} if it is even and $r-1\notin A$. A word $A$ is \emph{good odd} if $\rho^{-1}(A)$ is even good, i.e., if $r-2\notin A$ and either $A$ is odd, or $r-1\in A$ and $A\smallsetminus \{r-1\}$ is even. Observe that the summands of $\psi_k$ are precisely on the good even words, and that if $k$ is odd, then all even words are good even. Let $\bar{\psi}_k$ be the sum of all even and odd words in $\Phi(r)_k$ with their permutation signs.
+%For the next lemma, observe that if $A$ is even, then $\rho^b(A)$ is either even or odd. Observe also that, if $k$ is even, removing the minimum of an odd sequence, or removing the maximum of an even sequence yields a summand of $\psi_{k-1}$.
+
+\begin{lemma} \label{lemma:simp}
+	If $k\leq r-2$ is even, then $N\psi_k = (\tilde{r}-\tilde{k})\bar{\psi}_k$. If $k$ is odd, then $T\psi_k$ is the sum of all good odd words minus the (good) even words with their permutation signs.
+\end{lemma}
+
+\begin{proof}
+	Suppose first that $k$ is even. We will first establish that every summand in $N\psi_k$ is a summand in $\bar{\psi}_k$. Then, we will prove that every summand in $\bar{\psi}_k$ appears exactly $(\tilde{r}-\tilde{k})$ times in $N\psi_k$, with the same signs.
+
+	If $A$ is even and $0\notin A$ ($0\in A$), then $\rho(A)$ is odd (even), while if $A$ is odd, then $\rho(A)$ is even,. This has two consequences: first, since the summands in $\psi_k^0$ are good even summands, every summand in $N\psi_k^0$ is either even or odd; second, if $A$ is an even (odd) word, then $\rho^{b+1}(A)$ is a summand in $\psi_k$ if and only if $b\notin A$ (this condition assures that $r-1\notin \rho^{b+1}(A)$) and has opposite parity to $|\{a\in A\mid a<b\}|$ (this assures that $\rho^{b+1}(A)$ is even). There are $r-k-1$ many summands satisfying the first condition, and half of them satisfy the second condition, hence there are exactly $\tilde{r}-\tilde{k}$ such $b$'s, therefore the first statement follows. Regarding the sign, observe that if $A$ is even, then the permutation that reorders $\rho(A)$ is either the same as the permutation $\sigma$ that reorders $A$, or it is the result of precomposing $\sigma$ with a cyclic permutation of $\Sigma_k$, hence its sign is that of $\sigma$. If $A$ is odd, then the permutation that reorders $\rho(A)$ is $\sigma$.
+
+	The second statement follows by inspection.
+	%
+	%The second statement follows because there is a summand in $\psi_k^0$ for each orbit of $\Cyc_r$ in $\psi_k$.
+	%
+	%On the other hand, if $A$ is an even (odd) word such that either $0\notin A$ or $r-1\notin A$, then $\rho^{\mi}A\in \psi_0$. If both $0\in A$ and $r-1\in A$, then choose two consecutive values $b,b+1\notin A$. Then either $\rho^{b+1}(A)$ or $\rho^{b+1}(A)$ is a summand in $\psi_k$, and therefore a summand in $\psi_k^0$, by the previous lemma.
+\end{proof}
+
+\begin{lemma} \label{lemma:pair}
+	If $k\leq r-2$ is even,
+	\begin{align*}
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\vdash A}(-1)^i\sgn(A)d^{i,b}A &= \bar{\psi}_k.
+	\end{align*}
+	If $k$ is odd,
+	\begin{align*}
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\vdash A}(-1)^i\sgn(A)d^{i,b}A &= T\psi_k.
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Since each summation has no repeated summands, it will be enough to prove that every summand in the left appears in the right with the same sign, and viceversa.
+
+	%Observe first that the summands in $N\psi_k^0$ and $T\psi_k$ are the precisely the even and the odd words. Moreover, when $k$ is odd, the summands in $\psi_k$ are the even words, while the summands in $\rho\psi_k$ are the odd words.
+
+	Let $k$ be even. Since $b$ is friend of $A$, and $A$ is good even, the word $d^{i,b}A$ is either even or odd (depending on whether $b>A$ or $b<A$). Hence the summands in the left appear as summands in the right. Reciprocally, if $A$ is an even (odd) word, then removing its maximal (minimal) element $b=a_{\ma}$ ($b=a_{\mi}$) yields a good even word in $\psi_{k-1}$, hence $A = d^{\ma,b}A\smallsetminus\{b\}$ ($A = d^{\mi,b}A\smallsetminus\{b\}$).
+
+	Let $k$ be odd. Since $b$ is friend of $A$ and $A$ is good even, the word $d^{i,b}A$ is again even or odd (depending on whether $b>A$ or $b<A$). If $b<A$, since $A$ is even, we have that $\max d^{i,b}(A) = \max A \leq r-3$, hence $d^{i,b}A$ is good. If $b>A$, then either $b$ is odd, in which case $d^{i,b}$ is good even, or $b=r-1$, in which case removing $r-1$ from $\delta{i,b}A$ yields the good even word $A$, hence $A$ is good odd. Reciprocally, if $A$ is a good even (odd) word, then removing its maximal (minimal) element $b=a_{\ma}$ ($b=a_{\mi}$) yields a good even word in $\psi_{k-1}$, hence $A = d^{\ma,b}A\smallsetminus\{b\}$ ($A = d^{\mi,b}A\smallsetminus\{b\}$).
+
+	%If $b>A$, as $b$ is odd, it is different from $r-1$, hence $d^{i,b}A$ is good. If $b<A$, then
+	%%
+	%%if $A = (a_{\sigma(0)},\ldots,a_{\sigma(k)})$ is a summand in the right (i.e., an even or odd word), then
+	%%\[
+	%%\rho^{b}(A) = \begin{cases}
+	%%d^{\sigma(s),a_{\sigma(s)}}\left(A\smallsetminus \{a_{\sigma(s)}\}\right) & \text{if $A$ is odd and $a_{\sigma(s)} = \min A$}, \\
+	%%d^{\sigma(s),a_{\sigma(s)}}\left(A\smallsetminus \{a_{\sigma(s)}\}\right) & \text{if $A$ is even and $a_{\sigma(s)} = \max A$},
+	%%\end{cases}
+	%%\]
+	%%with $A\smallsetminus \{a_{\sigma(s)}\}\in \psi_{k-1}$ because it is even and does not contain $r-1$.
+
+	%Moreover, if $k$ is odd, then $d^{i,b}A$ is always good.
+
+	Regarding the signs, observe that the sign of the summand in the left indexed by $A = (a_{\sigma(0)},\ldots,a_{\sigma(k-1)})$, $b$ and $i$ is $(-1)^i\sgn(A)$ while the sign of the summand $d^{i,b}A$ in the right is computed as follows:
+	\[
+		\sgn(d^{i,b}A) =
+		\begin{cases}
+			(-1)^i\sgn(d^{0,b}A) = (-1)^i\sgn(A) &\text{ if $b<A$,}\\
+			(-1)^{k-i}\sgn(d^{k,b}A) = (-1)^k(-1)^i\sgn(A) &\text{ if $b>A$,}
+		\end{cases}
+	\]
+	where the first equality follows because $d^{i,b}A$ and $d^{0,b}A$ (\resp $d^{k,b}A$) differ by $i$ (\resp $k-i$) transpositions, and the second equality follows because the permutation that reorders $d^{0,b}A$ (\resp $d^{k,b}A$) fixes the first (last) entry, and because $k$ is even.
+
+	Hence, if $k$ is even, then all summands in the left appear with the sign $\sgn(d^{i,b}A)$, as in the right, while if $k$ is odd, the even summands appear with opposite sign and the odd summands with the same sign.
+\end{proof}
+
+\begin{lemma}\label{lemma:cancel}
+	Let $k\leq r-2$.
+	\begin{align*}
+		\sum_{A\in L_{k-1}}\sum_{\sigma\in \Sigma_{k-1}}\sum_{b\not{\vdash} A}(-1)^i\sgn(A)d^{i,b}A &= 0.
+	\end{align*}
+\end{lemma}
+
+\begin{proof}
+	Let $A$ be a summand of $\psi_k$ and let $0\leq b\leq r-1$ be enemy of $A$. Then, if $b >\min(A)$ and $b<\max(A)$, then both $\max\{a\in A\mid a<b\}$ and $\min\{a\in A\mid a>b\}$ are well defined and have different parity, hence one of them ($c$) has the same parity as $b$. If $b<\min(A)$ or $b>\max(A)$, we let $c = \min(A)$ or $c = \max(A)$ respectively. Let $j$ be the position of $c$ in $A$ and let $A' = (d^{i,b} A)\smallsetminus \{c\}$. Then $c$ is enemy of $A'$ and $d^{j,c}A = d^{i,b}A'$. Let us show that they appear with opposite signs: The permutation that reorders $A'$ differs from the permutation that reorders $A$ by $|j-i-1|$ transpositions, therefore
+	\[(-1)^{i}\sgn(A) = (-1)^{i}(-1)^{j-i-1}\sgn(A') = -(-1)^j\sgn(A').\]
+	Finally, observe that $A'' = A$, hence the summands cancel in pairs.
+\end{proof}

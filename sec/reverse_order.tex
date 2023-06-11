@@ -1,0 +1,188 @@
+\subsection{Maps between spheres}\label{section:sphere_maps}
+\footnote{\federico{Here the shifted up convention must be used. We will use the canonical identification $\uchains_*(X*Y) \cong \uchains_*(X)\otimes \chains_*(Y)$ and write $\sigma$ for the top simplex of $\simplex^{r-1}$.}}
+ The cyclic group $\Cyc_r$ acts on $\partial \asimplex^{r-1}$ by permuting its vertices forwards. Let
+\begin{align*}
+	\iota_1\colon \uchains_k(\susp{r-1}\partial \Delta^{r-1})&\lra \uchains_{k}(\partial\Delta^{r-1})\otimes \uchains_{r-1}(\partial\Delta^{r-1})\\
+	\iota_2\colon \uchains_k(\susp{r-1}\partial \Delta^{r-1})&\lra \uchains_{r-2}(\partial\Delta^{r-1})\otimes \uchains_{k}(\partial\Delta^{r-1})
+\end{align*}
+be the $\Cyc_r$-equivariant chain homomorphisms given by
+\begin{align*}
+	\iota_1(\tau) &= (-1)^{|\tau|}\tau\otimes \partial \sigma &
+	\iota_2(\tau) &= \partial \sigma\otimes \tau
+\end{align*}
+Let $f\colon \uchains_*(\partial\Delta^{r-1})\otimes(\partial\Delta^{r-1})\to \uchains_*(\sus{r-1}*\partial\Delta^{r-1})$ be a $\Cyc_r$-equivariant chain homomorphism such that
+\renewcommand{\theenumi}{\roman{enumi}}
+\begin{enumerate}
+	\item\label{cond:1} $f\circ \iota_1 = \Id$
+	\item\label{cond:2} $f\circ \iota_2 = \rho$.
+	\item\label{cond:3} if $\tau_1\otimes\tau_2$ has degree $r$, then $ \partial f(\tau_1\otimes\tau_2) =
+	\begin{cases}
+	\pm\emptyset & \text{if $\tau_1* \tau_2$ is non-degenerate} \\
+	0 & \text{otherwise},
+	\end{cases}$
+ where the last sign is the sign of the permutation that orders $\tau_1*\tau_2$.
+\end{enumerate}
+
+\begin{remark}
+	Condition \eqref{cond:3} is implied by the following condition:
+    \begin{itemize}
+        \item[(iii')] If $\tau_1\otimes\tau_2$ has degree $r$, then $f(\tau_1\otimes \tau_2)$ is $\pm v$ for some vertex of $\asimplex^{r-1}$ if $\tau_1* \tau_2$ is non-degenerate and $0$ otherwise. The sign is that of the permutation that orders $\tau_1*\tau_2$.
+    \end{itemize}
+    Condition \eqref{cond:3} is equivalent to the following condition:
+    \begin{itemize}
+    \item[(iii'')]if $\tau_1\otimes\tau_2$ has degree $r-1$, then $ f(\tau_1\otimes\tau_2) =
+	\begin{cases}
+	\pm \emptyset & \text{if $\tau_1* \tau_2$ is non-degenerate} \\
+	0 & \text{otherwise},
+    \end{cases}$
+    where the sign is the one of the permutation that orders $a*\tau_1*\tau_2$, where $a$ is the only vertex such that $a*\tau_1*\tau_2$ is non-degenerate.
+    \end{itemize}
+\end{remark}
+
+%\begin{remark}
+%	The former condition $f(\tau_1,\tau_2)\subset \tau_1$ is no longer necessary: It is necessary to define suspension maps for $\Omega_*(r,m)$, but with the current argument that is not needed.
+%\end{remark}
+
+%\begin{remark}
+%	In the examples constructed, $f(\tau_1,\tau_2)\subset \tau_1\smallsetminus \tau_2$.
+%\end{remark}
+
+\footnote{{\color{red} A word $A$ can be canonically broken into overlapping subwords of length at most $r$ called \emph{blocks}: Set the last block to be the last $r$ entries of the word, and recursively define the rest of the blocks by removing the last $r-1$ entries of the last block. Each pair of adjacent blocks share an element, that is called {\color{red}\emph{pivot}}. All blocks have length $r$ except the first one, that has length strictly smaller than $r$.}}
+
+Let $A*A'$ denote the concatenation of two words $A,A'$. If $A$ is a minimal pieced word, the \emph{pivotal piece} $A_1$ is the piece that contains the $r$th element from the right. Then $A=\hat{A}*A_1*\hat{A}_2$ for some pieced words $\hat{A}$ and $\hat{A}_2$, and we write $A_2$ for the underlying word of $\hat{A}_2$ with a single piece.
+\begin{example}
+	If $r=5$, the pivotal piece of the pieced word $A=01|24|013|12|4$ is $A_1 = 013$, while $A_2 = 12|4$ and $\hat{A} = 01|24$. If $r=3$, the pivotal piece of the pieced word $01|20|1|02|1|20|12$ is $20$, while $A_2 = 12$ and $\hat{A} = 01|20|1|02|1$. 
+\end{example}
+
+\begin{definition}
+	Define a homomorphism $S\colon \Omega_*(r)^{nf}\to \sus{r-1}\Omega_*(r)^{nf}$ by sending a pieced word $A$ to the pieced word $\hat{A}*f(A_1\otimes A_2)$. %If $w$ is a pieced word with a full piece, define $S(w)$ as the result of inserting back the full piece into $S(\DDD(w))$ (if the full piece was to the right of $w_1$, then it gets inserted at the end of the word).
+\end{definition}
+
+\begin{lemma}\label{lemma:pieced_suspension}
+	$S$ is a chain homomorphism.
+\end{lemma}
+
+\begin{proof}
+    First, observe that the homomorphism $\Omega_*(r)^{nf}\to \Omega_*(r)^{nf}$ that sends a pieced word $A$ to $\hat{A}*A_1*A_2$ is a chain homomorphism. Hence we may assume that $\hat{A}_2 = A_2$. Let $\ell$ be the degree of $\hat{A}$. Then %and recall that $\partial A = \sum_{i} (-1)^{i}d_iA$, where $d_i$ removes the $i$-th entry of $A$. Then
+	\begin{equation}\label{eq:931}
+		\partial S(A) = \partial \hat{A}*f(A_1\otimes A_2) + (-1)^{\ell}\hat{A}*\partial f(A_1\otimes A_2).
+	\end{equation}
+	We distinguish two cases: if $A_1$ has length at least $2$,
+	\[S(\partial A) = \partial \hat{A}*f(A_1\otimes A_2) + (-1)^{\ell}\hat{A}*f(\partial (A_1\otimes A_2)),\]
+	which equals the previous sum. If $A_1$ has length $1$, let $A_0$ be the piece to the left of $A_1$ and $\check{A}$ be the pieced subword to the left of $A_0$. Then
+	\begin{equation}\label{eq:933}
+		S(\partial A) = \partial \hat{A}*f(A_1\otimes A_2) + (-1)^\ell \check{A}*f(A_0\otimes \partial(A_1*A_2)).
+	\end{equation}
+	Let $\pm$ be the sign of the permutation that orders $A_1*A_2$. By condition \eqref{cond:3}, the last summand of \eqref{eq:931} is zero or $\pm(-1)^\ell\hat{A}$ depending on whether $A_1*A_2$ is degenerate or not, which by condition \eqref{cond:1} is equivalent to $f(A_0,\partial(A_1*A_2))$ being $0$ or $\pm(-1)^{\ell}A_0$, and therefore equivalent to the last summand of \eqref{eq:933} being zero or $\pm(-1)^{\ell}\hat{A}$.
+\end{proof}
+
+There is an inclusion $\uchains_*(\EC_r)\to \Omega_*(r)^{nf}$ that sends a word to that same word with all pieces of length $1$. In augmented degrees $*\leq r$, there is a map in the opposite direction with $\bZ[\frac{1}{(r-1)!}]$-coefficients that sends a pieced word to the signed sum of the underlying words of all its representatives, divided by the number of representatives (there is a sign ambiguity due to the sign of the inner reorderings). Postcomposing this homomorphism with the map $\Phi$ from Theorem \ref{thm:map_phi}), we obtain a chain homomorphism
+\begin{equation} \label{eq:234}
+	\Omega_*(r)^{nf}\lra \uchains_*(\EC_r)\overset{\Phi^\vee}{\lra} \WW_*(r)
+\end{equation}
+with $\bZ[\frac{1}{(r-1)!}]$-coefficients (and the sign ambiguity due to inner reorderings cancels with the signs of $\psi$). The image of a pieced word under this map is the same as the image of the underlying word under $\Psi^\vee$, and therefore it lifts to a homomorphism with $\bZ$-coefficients, that we denote by $\bar{\Phi}_*\colon \Omega_*(r)^{nf}\to \WW_*(r)$.
+
+\begin{definition}
+	Define a homomorphism $\Phi\colon \Omega_*(r)^{nf}\to \WW_*(r)$ recursively as
+	\[\Phi_q(w) = \begin{cases} \bar{\Phi}_q(A) & \text{if $*\leq r$} \\
+		\frac{1}{\tilde{r}!}\theta_{1-r}\bar{\Phi}_{q-r+1}S(A) & \text{if $*\geq r$.}\end{cases}\]
+\end{definition}
+
+\begin{lemma}
+	$\Psiom$ is a well-defined chain homomorphism. %$\Psiom\partial = \partial\Psiom$
+\end{lemma}
+
+\begin{proof}
+It follows by inspection that both expressions coincide in degree $r-1$. The first expression is already a chain homomorphism, while the second one is proven to be a chain homomorphism by induction.
+%	We already know that it is a chain homomorphism in degrees $*\leq r-2$. The verification in higher degrees follows from Lemma \ref{lemma:pieced_suspension} and induction. 
+ %(for clarity, we omit the factor $\frac{1}{\tilde{r}!}$):
+%	\begin{align*}
+%		\Psiom_{q-1}\partial(A) &= {\textstyle\frac{1}{\tilde{r}!}}\theta_{1-r}\Psiom_{q-r}S\partial(A) = {\textstyle\frac{1}{\tilde{r}!}} \theta_{1-r}\Psiom_{q-r}\partial S(A) = \\
+%		&={\textstyle\frac{1}{\tilde{r}!}}\theta_{1-r}\partial\Psiom_{q-r+1}S(A) = {\textstyle\frac{1}{\tilde{r}!}}\partial\theta_{1-r}\Psiom_{q-r+1}S(A) = \partial \Psiom_{q}(A).
+%	\end{align*}
+%	Finally, recall that the map $\Psi_{r-2}$ of the previous section has a factor of $\frac{1}{\tilde{r}!}$ and consists on all permutations of $\{0,1,\ldots,r-1\}$, hence one deduces from \eqref{cond:3} that $\frac{1}{\tilde{r}!}\theta_{r-1}\Psiom_{-1}S(A) = \Psiom_{r-2}(A)$, hence both definitions coincide at their common case.
+\end{proof}
+
+%\begin{lemma} $\hat{\Psi}_{q-1}((\partial A)^{nf}) = \partial\hat{\Psi}_{q-r}\DDD(A)$ if $A$ has a full piece.
+%\end{lemma}
+%\begin{proof}
+%\begin{itemize}
+%\item if the full piece is to the left of $w_1$ \fcnote{doublecheck this, if it is exactly to the left an additional argument may be needed}, then $S\partial(A) = \partial S(A)$.
+%\item if the full piece is to the right of $w_1$, then let $A_3$ be that full piece, and assume, without loss of generality that is the last piece. Then
+%\[\partial S(A) = \partial \hat{A}*f(A_1,A_2)*A_3 + \hat{A}*\partial f(A_1,A_2)*A_3 + \hat{A}*f(A_1,A_2)*\partial A_3\]
+%\[S\partial(A) = \partial \hat{A}*f(A_1,A_2)*A_3 + \hat{A}*\partial f(A_1,A_2)*A_3 + \hat{A}*A_1*f(A_2,\partial A_3)\]
+%We need to check that the value of $\Psiom$ in the last term coincides. If $q-r+1\geq r-2$, then we have that
+%\[\Psiom(\hat{A}*f(A_1,A_2)*\partial A_3) = \PsiomS(\hat{A}*f(A_1,A_2)*\partial A_3) = \Psiom(\hat{A}*f(f(A_1,A_2),\partial A_3)\]
+%\[\Psiom(\hat{A}*A_1*f(A_2,\partial A_3)) = \PsiomS(\hat{A}*A_1*f(A_2,\partial A_3)) = \Psiom(\hat{A}*f(A_1*f(A_2,\partial A_3))\]
+%and both terms equal $f(A_1,A_2)$.
+%\end{itemize}
+%
+%\end{proof}
+
+\begin{lemma}
+	$\tilde{r}!\Psiom_{q-1}((\partial A)^{nf}) = \theta_{1-r} \Psiom_{q-r}\DDD(A)$ if $A$ has a full piece and there are $\ell$ elements to the left of the full piece.
+\end{lemma}
+
+\begin{proof}
+	We will prove it by induction on the position of the full piece from the right. Since $A$ has one full piece, $q\geq r-1$. We distinguish three cases:
+
+	If the full piece is the last piece, write $A=\hat{A}*A_1*A_2$ with $A_2$ the full piece and $A_1$ the penultimate piece, and let $\ell' = |A_1|$. Then by Condition \eqref{cond:1}: 
+	\begin{align*}
+	    \tilde{r}!\Psiom_{q-1}((\partial A)^{nf}) &=
+		\theta_{1-r}\Psiom_{q-r}(S(\partial(A)^{nf})) \\
+		&= (-1)^{\ell+\ell'} \theta_{1-r}\Psiom_{q-r}(S(\hat{A}*A_1*\partial A_2)) \\
+		&= (-1)^{\ell+\ell'} \theta_{1-r}\Psiom_{q-r}(\hat{A}*f(A_1\otimes \partial A_2)) \\
+		&= (-1)^{\ell} \theta_{1-r}\Psiom_{q-r}(\hat{A}*A_1) \\
+		&= \theta_{1-r}\Psiom_{q-r}\DDD(A).
+	\end{align*}
+	If the full piece is not the last piece but contains the pivot, write $A=\hat{A}*A_1*A_2$ with $A_1$ the full piece. Then by Condition \eqref{cond:2}:
+	\begin{align*}
+	    \tilde{r}!\Psiom_{q-1}((\partial A)^{nf}) &=
+        \theta_{1-r}\Psiom_{q-r}(S(\partial(A)^{nf})) \\
+        &= (-1)^{\ell}\theta_{1-r}\Psiom_{q-r}(S(\hat{A}*\partial A_1* A_2)) \\
+		&= (-1)^{\ell} \Psiom_{q-r}(\hat{A}*f(\partial A_1\otimes A_2)) \\
+		&= (-1)^{\ell} \theta_{1-r}\Psiom_{q-r}(\hat{A}*\rho(A_2)) \\
+		&= \theta_{1-r}\Psiom_{q-r}\DDD(A).
+	\end{align*}
+	If the full piece is left to the last pivot (hence $q\geq 2r$), %write $A=\hat{A}_1*\bar{A}*\hat{A}_2*A_1*A_2$ with $A_1$ the piece that contains the last pivot and $A_2$ the word to the right of $A_1$. Assume by induction that the lemma holds for words of smaller length. Then
+    \begin{align*}
+        \tilde{r}!\Psiom_{q-1}((\partial A)^{nf}) 
+        &= \tilde{r}!\theta_{1-r} \Psiom_{q-r}(S(\partial A)^{nf}) \\
+        &= \tilde{r}!\theta_{1-r} \Psiom_{q-r}((\partial SA)^{nf}) \\
+        &= \theta_{1-r}\theta_{1-r} \Psiom_{q-2r+1}(\DDD (SA)) \\
+        &= \theta_{1-r}\theta_{1-r} \Psiom_{q-2r+1}(S(\DDD A)) \\
+        &= \theta_{1-r} \Psiom_{q-r}(\DDD A)
+    \end{align*}
+\end{proof}
+
+\begin{corollary} Each equivariant map $f\colon \uchains_*(\Delta^{r-1})\otimes \uchains_*(\Delta^{r-1})\to \uchains_*(\Delta^{r-1})$ satisfying conditions \eqref{cond:1}, \eqref{cond:2} and \eqref{cond:3} yields a chain homomorphism $\Psiom$ satisfying the conditions of Lemma \ref{lemma:omegar}.
+\end{corollary}
+
+\subsection{Barycentric subdivisions} Recall that the barycentric subdivision $\sd \Delta^n$ of the geometric simplex $\Delta^n$ is the ordered simplicial complex that has one vertex for each non-empty face of $\Delta^n$ and one face $(\sigma_0,\ldots,\sigma_k)$ of dimension $k$ for every ascending chain $\sigma_0\subset \sigma_1\subset\ldots \subset \sigma_k$ of simplices of $\Delta^n$. We will denote the face $(\sigma_0,\ldots,\sigma_k)$ as $(a_0|a_1|\ldots|a_k)$, where $a_i = \sigma_i\smallsetminus \sigma_{i-1}$. With this notation, the differential on $\uchains_*(\simplex^n)$ becomes
+\[
+\partial(a_0|a_1|\ldots|a_k) = \sum_{i=0}^{k-1} (-1)^i(a_0|\ldots|a_i*a_i+1|\ldots |a_k|) + (-1)^k (a_0|\ldots|a_{k-1}).
+\]
+The \emph{pair barycentric subdivision}\footnote{Here we are flipping the order of $a,b$ to fit the convention of the rest of the paper, in which we are writing cochains on the left} $\Psd \Delta^n$ of $\Delta^n$ is a cubulation of $\Delta^n$ with the same vertices as $\sd \Delta^n$ and one face for each pair $(b,a)$ of faces of $\Delta^n$ such that $b\subset a$. Geometrically, that face is the union of all the faces of the barycentric subdivision that correspond to ascending chains $b\subset \sigma_0\subset \ldots\subset \sigma_k\subset a$. Interpreting $b$ as a dual cochain, its chain complex $\uchains_*(\Psd \Delta^n)$ is isomorphic to the tensor product $\uchains^*(\Delta^n)\otimes \uchains_*(\Delta^n)$ modulo the pairs $b\otimes a$ such that the support of $b$ is not contained in $a$. It has the following differential:
+\[\partial(b\otimes a) = (-1)^b(\delta b\otimes a + b\otimes \partial a)\]
+%\[\partial(a\otimes b) = \partial a + (-1)^{|a|-|b|} \delta b\]
+There are chain homomorphisms
+\[
+\xymatrix{
+&C_*(\simplex^n)\otimes C_*(\simplex^n)\ar[d]^h& \\
+C_*(\simplex^n)\ar[r]^{s_*^{\simplex}}\ar@/_2.0pc/[rr]^{s_*} & C_*(\Psd \simplex^n)\ar[r]^{s^{\Psd}} & C_*(\sd\simplex^n) 
+}
+\]
+defined as follows \cite[\P 1.12]{NR}):
+\[
+    s_*([a_0,\ldots,a_k]) = \sum_{\sigma\in \Sigma_{k+1}} (-1)^{\sgn(\sigma)}(a_{\sigma(0)}|a_{\sigma(1)}|\ldots|a_{\sigma(k)}).
+\]
+If $b\subset a$ and $b\smallsetminus a = (c_0,\ldots,c_{k})$,
+\[
+s_*^{\Psd}(a\otimes b) = \sum_{\sigma\in \Sigma_{k+1}} (-1)^{\sgn(\sigma)} (b|c_{\sigma(0)}|c_{\sigma(1)}|\ldots|c_{\sigma(k)})
+\]
+\[
+s_*^{\simplex}([a_0,\ldots,a_k]) = \sum_{j=0}^k (-1)^j[a_j]\otimes [a_0,\ldots,a_k]
+\]
+\[
+h( a\otimes b) = (-1)^{\lambda(b)+|a||b|}a\otimes \alex(b)
+\]

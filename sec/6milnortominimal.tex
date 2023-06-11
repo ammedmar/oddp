@@ -1,0 +1,29 @@
+
+
+
+ \subsection{The bar resolution}\label{ss:milnor} Observe that, since $\chains_*(\EC_r)$ includes into $\Omega_*(r)^0$, the composition
+ \[
+    N_*(\EC_r)\lra \Omega_*(r)^0\lra \rW_*(r)
+ \]
+ is an equivariant chain map. This composition has a description analogous to the one used to define $\Psiom$, using the following suspension map:
+  \[
+	S(a_0,\ldots,a_k) = \begin{cases}
+		{\sgn(a_{k-r+1},\ldots,a_{k})} (a_{0},\ldots,a_{k-r+1}) & \text{ if $k\geq r-1$} \\
+		\emptyset & \text{if $k = r-2$ and $a_i\neq a_j$ for all $i,j$} \\
+		0 & \text{otherwise.}
+	\end{cases}
+\]
+With this latter description, the homomorphism is well-defined for any odd $r$.
+\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Omega_*(2)^{\nf}$ is isomorphic to the unnormalised chain complex of $\EC_2$, while $\rW_*(2)$ is isomorphic to the normalised chain complex of $\EC_2$. The map $\uchains_*(\EC_2)\to \chains_*(\EC_2)$ induces therefore a map
+\[
+    \Omega_*(2)^{\nf}\to \rW_*(2)
+\]
+that satisfies the conditions of Lemma \ref{lemma:omegar}.
+\begin{remark}
+    The combinatorics in pages 13 and 14 of \cite{medina2021fast_sq} correspond in this paper to the fact that the map from the unnormalised chains to the normalised chains is well-defined, i.e., to the fact that the degenerate simplices form a subcomplex of the unnormalised chain complex.
+\end{remark}
+
+\federico{If $r=2$ and $R=\bZ$, no clue on how to do that}
+
+
+
