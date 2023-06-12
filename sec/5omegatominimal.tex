@@ -17,12 +17,12 @@ The cyclic group $\Cyc_r$ acts on $\partial \asimplex^{r-1}$ by permuting its ve
 	\iota_1\colon \chains_k(\sus{r-1}\partial \simplex^{r-1})&\lra \chains_{k}(\partial\simplex^{r-1})\otimes \chains_{r-1}(\partial\simplex^{r-1})\\
 	\iota_2\colon \chains_k(\sus{r-1}\partial \simplex^{r-1})&\lra \chains_{r-1}(\partial\simplex^{r-1})\otimes \chains_{k}(\partial\simplex^{r-1})
 \end{align*}
-be the $\Cyc_r$-equivariant chain homomorphisms given by
+be the $\Cyc_r$-equivariant chain maps given by
 \begin{align*}
 	\iota_1(\tau) &= (-1)^{|\tau|}\tau\otimes \partial \sigma &
 	\iota_2(\tau) &= \partial \sigma\otimes \tau
 \end{align*}
-Let $f\colon \chains_*(\partial\simplex^{r-1})\otimes\chains_*(\partial\simplex^{r-1})\to \chains_*(\sus{r-1}\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain homomorphism such that
+Let $f\colon \chains_*(\partial\simplex^{r-1})\otimes\chains_*(\partial\simplex^{r-1})\to \chains_*(\sus{r-1}\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain map such that
 \renewcommand{\theenumi}{\roman{enumi}}
 \begin{enumerate}
 	\item\label{cond:1} $f\circ \iota_1 = \Id$
@@ -81,12 +81,12 @@ Let $f\colon \chains_*(\partial\simplex^{r-1})\otimes\chains_*(\partial\simplex^
 \end{definition}
 
 \begin{lemma}
-	$\Psiom$ is a chain homomorphism. %$\Psiom\partial = \partial\Psiom$
+	$\Psiom$ is a chain map. %$\Psiom\partial = \partial\Psiom$
 \end{lemma}
 
 \begin{proof}
-	The first expression is already a chain homomorphism. To check that it is also a homomorphism in degree $r$, we distinguish two cases: if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two canceling terms, while if it has more repeated entries, it is zero on the nose. If $\Psiom(A)\neq 0$, then $A$ has no repetitions, and we can assume without loss of generality that $A=(0,1,\ldots,r)$ therefore $\Psiom(d_iA) = (-1)^{i+2}\rho^{i+1} e_{r-1}$. Hence, $\Psiom(\partial A) = \sum (-1)^i\Psiom(d_iA) = \sum \rho^{i+1} e_{r-1} = Ne_{r-1} = \partial \Psi_r(A)$. The second expression is then proven to be a chain homomorphism by induction.
-	%	We already know that it is a chain homomorphism in degrees $*\leq r-2$. The verification in higher degrees follows from Lemma \ref{lemma:pieced_suspension} and induction.
+	The first expression is already a chain map. To check that it is also a homomorphism in degree $r$, we distinguish two cases: if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two canceling terms, while if it has more repeated entries, it is zero on the nose. If $\Psiom(A)\neq 0$, then $A$ has no repetitions, and we can assume without loss of generality that $A=(0,1,\ldots,r)$ therefore $\Psiom(d_iA) = (-1)^{i+2}\rho^{i+1} e_{r-1}$. Hence, $\Psiom(\partial A) = \sum (-1)^i\Psiom(d_iA) = \sum \rho^{i+1} e_{r-1} = Ne_{r-1} = \partial \Psi_r(A)$. The second expression is then proven to be a chain map by induction.
+	%	We already know that it is a chain map in degrees $*\leq r-2$. The verification in higher degrees follows from Lemma \ref{lemma:pieced_suspension} and induction.
 	%(for clarity, we omit the factor $\frac{1}{\tilde{r}!}$):
 	%	\begin{align*}
 		%		\Psiom_{q-1}\partial(A) &= {\textstyle\frac{1}{\tilde{r}!}}\theta_{1-r}\Psiom_{q-r}S\partial(A) = {\textstyle\frac{1}{\tilde{r}!}} \theta_{1-r}\Psiom_{q-r}\partial S(A) = \\
@@ -163,7 +163,7 @@ Let $f\colon \chains_*(\partial\simplex^{r-1})\otimes\chains_*(\partial\simplex^
 The \emph{pair barycentric subdivision}\footnote{Here we are flipping the order of $a,b$ to fit the convention of the rest of the paper, in which we are writing cochains on the left} $\Psd \simplex^n$ of $\simplex^n$ is a cubulation of $\simplex^n$ with the same vertices as $\sd \simplex^n$ and one face for each pair $(b,a)$ of faces of $\simplex^n$ such that $b\subset a$. Geometrically, that face is the union of all the faces of the barycentric subdivision that correspond to ascending chains $b\subset \sigma_0\subset \ldots\subset \sigma_k\subset a$. Interpreting $b$ as a dual cochain, its chain complex $\chains_*(\Psd \simplex^n)$ is isomorphic to the tensor product $\chains^*(\simplex^n)\otimes \chains_*(\simplex^n)$ modulo the pairs $b\otimes a$ such that the support of $b$ is not contained in $a$. It has the following differential:
 \[\partial(b\otimes a) = (-1)^{|b|}(\delta b\otimes a + b\otimes \partial a)\]
 %\[\partial(a\otimes b) = \partial a + (-1)^{|a|-|b|} \delta b\]
-There are chain homomorphisms
+There are chain maps
 \[
 \xymatrix{
 	&\chains_*(\simplex^n)\otimes \chains_*(\simplex^n)\ar[d]^h& \\
@@ -207,7 +207,7 @@ that sends $a\otimes b$ to $(-1)^{|a||b|} b\otimes a$.
 \end{definition}
 
 \begin{proposition} Let $r$ be odd.
-	If $g$ is an $r$-cyclic assemblage map with duality, then the composition $f = g_*\circ s_*^{\Psd}\circ h_*\circ \mathrm{twist}$ satisfies the conditions of Section \ref{ss:mapf}.
+	If $g$ is an $r$-cyclic assemblage map with duality, then the composition $f = g_*\circ s_*^{\Psd}\circ h_*\circ \mathrm{twist}$ satisfies the conditions of \cref{ss:mapf}.
 \end{proposition}
 \begin{proof}
 	For condition \ref{cond:1},
@@ -306,8 +306,9 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 	\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
 	\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
 \end{tikzpicture}
-\caption{The cyclic subdivision map for $\partial \simplex^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face). \federico{to be discarded if it is too complicated}}
+\caption{The cyclic subdivision map for $\partial \simplex^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face).}
 \label{fig:my_label}
+\federico{to be discarded if it is too complicated}
 \end{figure}
 
 \begin{example}\label{ex:107}

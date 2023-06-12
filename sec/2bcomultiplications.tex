@@ -18,7 +18,7 @@ The \emph{minimal augmented $\Cyc_r$-resolution} of the commutative ring $R$ wit
 \end{align*}
 where $N = \sum_j \rho^j$ and $T = \rho - \Id$. %Consistenly with our conventions, we will denote by $\rW_*(r)$ the suspended complex $\sus{} W_*(r)$.
 
-An \emph{unstable $r$-cyclic comultiplication} on a chain complex $(C_*,\partial)$ is an equivariant chain homomorphism
+An \emph{unstable $r$-cyclic comultiplication} on a chain complex $(C_*,\partial)$ is an equivariant chain map
 \[\mu\colon W_*(r)\otimes C_*\lra C_*^{\otimes r}\]
 together with an associative comultiplication on $C_*$ such that $x\mapsto \mu(e_0,x)$ is the $r$-fold comultiplication.
 \begin{proposition}\label{prop:unstable}
@@ -57,7 +57,7 @@ W_*(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} W_*(r) \overset{\theta_{2(1-r
 \]
 where $\theta_{k}\colon W_*(r)\to \sus{k} W_*(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q-k}$, which only exists if $k$ is even. If $r$ is odd, one can instead use the maps $\theta_{1-r}$ to form the colimit.
 
-A \emph{stable $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain homomorphism
+A \emph{stable $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain map
 \[
 \mu\colon W_*^{\st}(r)\otimes C_*\lra C_*^{\otimes r}
 \]
@@ -85,7 +85,7 @@ R\overset{N}{\lra} R[\Cyc_r]\langle e_1\rangle \overset{T}{\lra} R[\Cyc_r]\langl
 (note the reindexing\footnote{This makes the definition of the $\power^i$ simpler}, so that $e_i$ has degree $i$). Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho e^\vee = (\rho^{-1} e)^{\vee}$.
 
 
-If $r$ is odd or $R=\mathbb{F}_2$, define the chain complex $\rW^*(r)\hotimes \uchains_*^r$ as the graded $R[\Cyc_r]$-module $\rW^*(r)\otimes \uchains_*^r$ with the differential\footnote{Another possility is to define
+If $r$ is odd or $R=\mathbb{F}_2$, define the chain complex $\rW^*(r)\hotimes \uchains_*^r$ as the graded $R[\Cyc_r]$-module $\rW^*(r)\otimes \uchains_*^r$ with the differential\footnote{Another possibility is to define
 	\[
 	\partial(e^\vee_q\otimes \vec{x}) = \partial (e^\vee_q)\otimes \vec{x} + (-1)^q \frac{1}{\tilde{r}!}\theta_{1-r}(e^\vee_q)\otimes \partial (\vec{x}).
 	\]
@@ -102,11 +102,14 @@ There are now homomorphisms $\theta_{1-r}\colon \rW_*(r)\to \sus{1-r}\hat{\rW}_*
 \[
 \partial(e^\vee_q\otimes \vec{x}) = \partial (e^\vee_q)\otimes \vec{x} + (-1)^q \theta_{1-r}(e^\vee_q)\otimes \partial (\vec{x}).
 \]
-A \emph{connected $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain homomorphism\footnote{the factor $\tilde{r}!$ can be removed if the other convention is adopted.}
-\[
-\mu\colon \rW^*(r)\hotimes \uchains^r_*\lra \uchains_*^{\otimes r}
-\]
-such that $\mu(1 \otimes \vec{x}) = (\tilde{r}!)^{m}x\otimes\overset{r}{\ldots}\otimes x$ if $x$ has degree $m$.
+\begin{definition}
+	A \emph{connected $r$-cyclic comultiplication} on a chain complex $C_*$ is an equivariant chain map
+	\[
+	\mu\colon \rW^*(r)\hotimes \uchains^r_*\lra \uchains_*^{\otimes r}
+	\]
+	such that $\mu(1 \otimes \vec{x}) = (\tilde{r}!)^{m}x\otimes\overset{r}{\ldots}\otimes x$ if $x$ has degree $m$.\footnote{the factor $\tilde{r}!$ can be removed if the other convention is adopted.}
+\end{definition}
+
 \begin{proposition}
 	If $r$ is prime, a connected $r$-cyclic comultiplication induces operations indexed by the integers
 	\begin{align*}
@@ -129,6 +132,7 @@ such that $\mu(1 \otimes \vec{x}) = (\tilde{r}!)^{m}x\otimes\overset{r}{\ldots}\
 \end{proof}
 
 \subsection{Relations between comultiplications}
+
 If $k$ is even, let $\varphi_k\colon W^{\st}_*(r)\to \sus{k}\rW^*(r)$ be the homomorphism that sends $e_q$ to $e_{k-q}^{\vee}$. If $k$ is odd, let $\varphi_k\colon W^{\st}_*(r)\to \sus{k}\hat{\rW}^*(r)$ be the homomorphism that sends $e_q$ to $e_{k-q}^{\vee}$. There are homomorphisms
 \[
 W_*(r)\otimes C_* \longleftarrow W^{\st}_*\otimes C_*\longrightarrow \rW^*\hotimes \uchains_*^r
@@ -158,6 +162,7 @@ if and only if $\mu(e_{(r-1)m+1}\otimes\vec{x}) = 0$ for if the dimension of $x$
 if and only if $\mu(e_{(r-1)(m-1)}\otimes x) = (\tilde{r}!)^mx\otimes \overset{r}{\ldots} \otimes x$ if the degree of $x$ is $m$.% (and this implies that $\mu_i(x) = 0$ if $i>(r-1)m$).
 
 \subsection{Properties of the power operations}
+
 If $F\colon \cD\to \Ch{R}$ is a functor, a \emph{natural $r$-cyclic comultiplication} is a natural choice, for each object $D\in \cD$, of an $r$-cyclic comultiplication on $F(D)$.
 
 The following two lemmas can be proved as follows: Use the fact that $W^{\st}_*(r)$ is a colimit of $W_*(r)$ to prove them for stable comultiplications. Then use that every connected comultiplication gives a stable comultiplication that computes its power operations.
@@ -180,7 +185,8 @@ Since a connected comultiplication does not have an associative product, one can
 	\]
 \end{lemma}
 
-\begin{proof} \federico{Not proven}
+\begin{proof}
+	\federico{Not proven}
 \end{proof}
 
 For an unstable comultiplication, it is often difficult to prove that $\power^0$ is the identity \cite{may1970general}. It turns out that, for the connected comultiplications $\mu$ developed in this work, it is also difficult to prove that the operations $\mu_{(r-1)(m-1)}$ are chain maps, and that $\power^{(r-1)(m-1)}(x)$ is the $r$-fold product of $x$ with itself using the product induced by the simplicial diagonal. This will be done in the last section of this paper.
@@ -195,7 +201,6 @@ Here are four examples for the prime $2$:
 	\item if $\cD$ is the category of cocommutative Hopf algebras, then the unstable comultiplication constructed in \cite{may1970general} does not extend to a connected stable comultiplication.
 	\item if $\cD$ is the category of suspension spectra in simplicial sets, then the forementioned unstable comultiplication yields a stable comultiplication in the stable chains (cf. \cite{Gill2020}) that does not extend to an unstable comultiplication.
 	\item if $\cD$ is the category of simplicial objects in the Burnside $2$-category and $F$ is the chain functor, then the operations in \cite{cantero-moran2020khovanov} yield an almost natural $2$-cyclic connected stable comultiplication that does not extend to an unstable comultiplication.
-
 \end{itemize}
 
 \subsection{May-Steenrod structures}
