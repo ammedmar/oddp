@@ -9,13 +9,13 @@
 \newtheorem*{warning}{Warning}
 \newtheorem*{assumption}{Assumption}
 
+\newcommand{\sign}[1]{\operatorname{sign}(#1)}
+\newcommand{\perm}{\pi}
+\newcommand{\alexall}{\bar{\Lambda}}
 \DeclareMathOperator{\DDD}{D}
 \newcommand{\Psiom}{\operatorname{\check{\Psi}}}
 \newcommand{\alex}{\Lambda}
 \newcommand{\twist}{\operatorname{twist}}
-\newcommand{\rA}{\operatorname{L}}
-\renewcommand{\AA}{\operatorname{\mathbf{L}}}
-\newcommand{\abel}{\operatorname{{\it L}}}
 %\newcommand{\barra}{\mid }
 \DeclareMathOperator{\barra}{|}
 \DeclareMathOperator{\join}{\ast}
@@ -28,14 +28,24 @@
 \newcommand{\nf}{nf}
 \newcommand{\f}{f}
 
+\newcommand{\green}[1]{{\color{green} #1}}
 
-\renewcommand{\NN}{\mathbf{N}}
+\renewcommand{\d}{\operatorname{d}} %face maps in a simplicial/cosimplicial object
+\newcommand{\diff}{d} %the face map that is part of the differential of the chain complex of a simplicial object.
+\newcommand{\s}{\operatorname{s}} %degeneracy maps in a simplicial/cosimplicial object
+
+\newcommand{\signo}{\mathfrak{s}}
+\newcommand{\signot}{\mathfrak{t}}
 \newcommand{\CC}{\mathbf{C}}
 \newcommand{\WW}{\mathbf{W}}
 \newcommand{\VV}{\mathbf{V}}
+\newcommand{\EG}{\mathrm{E}G}
 \newcommand{\EC}{\mathrm{E}\Cyc}
+\newcommand{\ES}{\mathrm{E}\Sym}
+\newcommand{\ESst}{\mathrm{E}\Sym^{\mathrm{st}}}
 \newcommand{\sd}{\operatorname{sd}}
 \newcommand{\Psd}{\operatorname{P}}
+\newcommand{\PsdSimp}{\Psd(\partial\asimplex^n)}
 
 \newcommand{\mi}{{\sigma^{-1}(0)}}
 \newcommand{\ma}{{\sigma^{-1}(k)}}
@@ -61,6 +71,8 @@
 \newcommand{\lra}{\longrightarrow}
 
 \newcommand{\obs}[1]{\noindent\fbox{\parbox{\textwidth}{\begin{center}#1.\end{center}}}}
+
+\DeclareMathOperator{\hofib}{hofib}
 
 % Anibal
 

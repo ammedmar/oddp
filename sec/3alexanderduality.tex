@@ -2,9 +2,10 @@
 
 \section{Alexander duality on the simplex and tensor products}\label{s:3complexes}
 
-In this section we present a duality on the normalised chains of the augmented simplex, and use it to build manageable models of the $r$-fold tensor product of the normalised chain complex of an augmented semi-simplicial object in $\cC$. In Proposition \ref{prop:omegarm} and Lemma \ref{lemma:omegar} we reduce the construction of a connected comultiplication to the construction of a map between two resolutions of the cyclic group $\Cyc_r$ satisfying an additional hypothesis.
+In this section we present a duality on the normalised chains of the augmented simplex, and use it to build manageable models of the $r$-fold tensor product of the normalised chain complex of an augmented simplicial object in $\cC$. In Proposition \ref{prop:omegarm} and Lemma \ref{lemma:omegar} we reduce the construction of a connected comultiplication to the construction of a map between two resolutions of the cyclic group $\Cyc_r$ satisfying an additional hypothesis. This latter map is constructed in Section \ref{s:resolutions}.
 
-\subsection{Alexander duality on the augmented standard simplex}
+\subsection{Alexander duality on the augmented standard simplex}\label{s:alexander}
+Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right suspension of the normalised chains of $X$.
 
 \anibal{What is the structure on $\sSet_+$?}
 
@@ -21,16 +22,20 @@ In this section we present a duality on the normalised chains of the augmented s
 \end{definition}
 
 \begin{definition}\label{d:join_product}
-	For any $[n] \in \ob\asimplex$ the \textit{join product} $\ast \colon \chains(\asimplex^{n})^{\ot 2} \to \chains(\asimplex^{n})$ is the linear map defined by sending a basis element $[v_0, \dots, v_{p-1}] \ot [v_{p},\dots,v_{m-1}]$ to $(-1)^{\sign \pi}[v_{\pi(0)}, \dots, v_{\pi(m-1)}]$	if $v_i \neq v_j$ for all $i \neq j$, where $\pi$ is the permutation ordering the vertices, and to $0$ otherwise.
+	For any $[n] \in \ob\asimplex$ the \textit{join product} $\ast \colon \chains(\asimplex^{n})^{\ot 2} \to \chains(\asimplex^{n})$ is the linear map defined by sending a basis element $[v_0, \dots, v_{p-1}] \ot [v_{p},\dots,v_{m-1}]$ to $(-1)^{\sign{\perm}}[v_{\perm(0)}, \dots, v_{\perm(m-1)}]$	if $v_i \neq v_j$ for all $i \neq j$, where $\perm$ is the permutation ordering the vertices, and to $0$ otherwise.
 \end{definition}
 
+\begin{notation}
+	If $\tau = [v_0,\ldots,v_{k-1}]$ and $\tau'=[u_0,\ldots,u_{m}-1]$ are two non-degenerate simplices of $\asimplex^n$, let $\lambda(\tau,\tau')$ be the parity of the permutation that orders the sequence $[v_0,\ldots,v_{k-1},u_0,\ldots,u_{m-1}]$. 
+\end{notation}
+
 \begin{theorem}
-	The join product is a chain map naturally defining on each $\chains(\asimplex^{\bn})$ the structure of a Poincar\'e duality algebra with unit the empty simplex $[-1] \to [n]$ and formal dimension $n+1$.
+	The join product is a chain map naturally defining on each $\chains(\asimplex^{n})$ the structure of a Poincar\'e duality algebra with unit the empty simplex $[-1] \to [n]$ and formal dimension $n+1$.
 \end{theorem}
-We will refer to this duality as \emph{Alexander duality}.
+
 
 \begin{proof}
-	The complex $\chains(\asimplex^{\bn})$ is connected and satisfies \cref{i:pd2,i:pd3} in \cref{d:poincare_duality_algebra} since $\chains(\asimplex^{\bn})_0 \cong \Z\{[-1] \to [n]\}$, $\chains(\asimplex^{n})_{n+1} \cong \Z\{[n] \to [n]\}$, and $\chains(\asimplex^{n})_{n+k} \cong 0$ for $k>1$.
+	The complex $\chains(\asimplex^{n})$ is connected and satisfies \cref{i:pd2,i:pd3} in \cref{d:poincare_duality_algebra} since $\chains(\asimplex^{n})_0 \cong \Z\{[-1] \to [n]\}$, $\chains(\asimplex^{n})_{n+1} \cong \Z\{[n] \to [n]\}$, and $\chains(\asimplex^{n})_{n+k} \cong 0$ for $k>1$.
 
 	That the join product is a natural chain map can be easily verified and a complete proof is presented in \cite[p.19]{medina2020prop1}.
 
@@ -39,15 +44,20 @@ We will refer to this duality as \emph{Alexander duality}.
 	To verify \cref{i:pd3} consider a basis element $x = [v_1,\dots,v_i]$.
 	Let $x^c$ be the ordered complement of $\set{v_1,\dots,v_i}$ in $\{0,\dots,n\}$ and notice that $x \ast x^c = \pm [0,\dots,n]$ as required.
 \end{proof}
+This pairing thus induces an isomorphism
+\begin{equation}\label{eq:iso1}
+	\Lambda\colon \chains(\asimplex^n)\to \susp{n+1}\cochains(\asimplex^n)
+\end{equation}
+ that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
 
-\begin{definition}
-    Let $\Lambda\colon \chains_*(\asimplex^\bn)\to \sus{n+1}\chains^*(\asimplex^\bn)$ be the isomorphism induced by the pairing above. In detail, $\Lambda(\tau) = (-1)^{\lambda(\tau)}\tau^c$, where $\lambda(\tau)$ is the sign of the permutation that orders the vertices of $\tau*\tau^c$.
-\end{definition}
-
-\begin{remark}
-    The sign of the permutation that orders the vertices of $\tau*\tau^c$, for $\tau = [v_1,\ldots,v_m]$ and $\tau^c  = [u_1,\ldots,u_k]$ has the parity of either of the following numbers:
+\begin{remark}\label{remark:alex}
+ If $\tau = [v_0,\ldots,v_k]$ and $\tau^c  = [u_0,\ldots,u_m]$ are the ordered representatives, then
+    %The sign of the permutation that orders the vertices of $\tau*\tau^c$, for  has the parity of either of the following numbers:
     \begin{align*}
-        \sum_{i=1}^m (v_i-i) &= \sum_{i=1}^m v_i - \binom{m+1}{2} \\
-        \sum_{i=1}^m (n-u_i-(m-i)) &\equiv \sum_{i=1}^m u_i +m(n+1)+\binom{m+1}{2}.
+        \lambda(\tau,\tau^c)&\equiv \sum_{i=0}^k (v_i-i) \equiv \sum_{i=0}^k v_i - \binom{k+1}{2} \\
+        \lambda(\tau,\tau^c)&\equiv \sum_{j=0}^m (n-u_j-m+j) \equiv \sum_{j=0}^m u_j +(n-m)(m+1)+\binom{m+1}{2}.
     \end{align*}
 \end{remark}
+
+\begin{notation} We will denote normalised chains between brackets and normalised cochains between parentheses.
+\end{notation}

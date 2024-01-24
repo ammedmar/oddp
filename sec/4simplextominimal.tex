@@ -2,11 +2,11 @@
 
 \section{Maps between resolutions of the cyclic group}\label{s:resolutions}
 
-Except for the last part of this section, we assume that $r$ is odd. In the first part of this section we construct a homomorphism from $\chains_*(\asimplex^{r-1})$ to $\rW_*(r)$ when $r$ is odd. In the second and third parts we further assume that $r$ is prime and we extend this homomorphism to a homomorphism from the whole $\Omega_*(r)$ satisfying the conditions of Lemma \ref{lemma:omegar}. In \cref{ss:milnor} we explain how the above homomorphism yields a chain map from $\chains_*(\EC_r)$ to $W_*(r)$ when $r$ is odd, and in \cref{ss:even} we discuss the case $r=2$.
+Except for the last part of this section, we assume that $r$ is odd. In the first part of this section we construct a homomorphism from $\chains(\asimplex^{r-1})$ to $\rW(r)$. In the second and third parts we extend this homomorphism to a homomorphism $\Omega_*(r)^{\nf}\to \rW(r)$ satisfying the conditions of Lemma \ref{lemma:omegar}, under the assumption that $r$ is prime. In \cref{ss:milnor} we explain how the above homomorphism yields a chain map from $\chains(\EC_r)$ to $\rW(r)$ when $r$ is odd, and in \cref{ss:even} we discuss the case $r=2$. Recall that $\tilde{r} = \lfloor \frac{r-1}{2}\rfloor$.
 
 \subsection{From the simplex to the minimal resolution}
 
-Through the isomorphism $\Cyc_r \cong \{0,1,\ldots,r-1\}$ we endow the latter with a group structure. Given two numbers $a,b\in \{0,1,\ldots,r-1\}$, the cyclic difference $b-a$ is computed using this group structure. Given a sequence $(a_0,\ldots,a_{q-1})\in \{0,1,\ldots,r-1\}$, write $a_0\prec a_1\prec \ldots\prec a_{q-1}$ if there are integers $\bar{a}_1,\ldots,\bar{a}_{q-1}$ that differ from $a_1,\ldots,a_{q-1}$ by a multiple of $r$ such that $a_0<\bar{a}_1<\ldots<\bar{a}_{q-1}<a_0+r$. Define
+Through the isomorphism $\Cyc_r \cong \{0,1,\ldots,r-1\}$ we endow the latter with a group structure. Given two numbers $a,b\in \{0,1,\ldots,r-1\}$, the cyclic difference $b-a$ is computed using this group structure. Given a sequence $(a_0,\ldots,a_{q-1})\subset \{0,1,\ldots,r-1\}$, write $a_0\prec a_1\prec \ldots\prec a_{q-1}$ if there are integers $\bar{a}_1,\ldots,\bar{a}_{q-1}$ that differ from $a_1,\ldots,a_{q-1}$ by a multiple of $r$ such that $a_0<\bar{a}_1<\ldots<\bar{a}_{q-1}<a_0+r$. In that case, we say that the sequence $(a_0,\ldots,a_{q-1})$ is \emph{cyclically ordered}. Define
 \begin{align*}
 	\phi_{e}(a,b) &= \begin{cases}
 		\displaystyle \sum_{i=1}^{\frac{b-a}{2}} \rho^{a+2i} & \text{if $b-a$ is even} \\
@@ -18,10 +18,10 @@ Through the isomorphism $\Cyc_r \cong \{0,1,\ldots,r-1\}$ we endow the latter wi
 		0 & \text{otherwise,}
 	\end{cases}
 \end{align*}
-and note that, if $a\prec b\prec c$, with $b-a$ even, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$, while if $b-a$ is odd, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$. We also have $\phi_e(a,c) = \phi_o(a,b+1)+\phi_o(b,c)$.
+%and note that, if $a\prec b\prec c$, with $b-a$ even, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$, while if $b-a$ is odd, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$. We also have $\phi_e(a,c) = \phi_o(a,b+1)+\phi_o(b,c)$.
 
-Let $a_0\prec a_1\prec\ldots\prec a_{q-1}$ be a cyclically ordered sequence in $\{0,1,\ldots,r-1\}$. Say that $a_i$ is \emph{even (resp. \emph{odd}) in the sequence} if $a_{i+1}-a_i$ is an even number (resp. an odd number).
-Define the following elements of $\rW_*(r)$:
+Let $A= a_0\prec a_1\prec\ldots\prec a_{q-1}$ be a cyclically ordered sequence in $\{0,1,\ldots,r-1\}$. Say that $a_i$ is \emph{even (resp. \emph{odd}) in the sequence} if $a_{i+1}-a_i$ is an even number (resp. an odd number).
+Define the following elements of $\rW(r)$:
 \begin{align*}
 	\Phi_e(a_0,\ldots,a_{q-1}) &= \begin{cases}
 		(-1)^{j+1}\phi_e(a_j,a_{j+1})\cdot e_q & \text{if $A$ has a single even entry $a_j$} \\
@@ -34,14 +34,15 @@ Define the following elements of $\rW_*(r)$:
 	\end{cases}
 \end{align*}
 
-A \emph{cyclic representative} of a generator $[a_0,\ldots,a_{q-1}]\in \chains_q(\partial \asimplex^{r-1})$ is a cyclically ordered sequence $(a_{\sigma(0)},\ldots,a_{\sigma(q-1)})$. Removing an element from the sequence keeps the property of being cyclically ordered. The assignments $\Phi_e(A)$ and $\Phi_o(A)$ induce well defined assigments $\Phi_e[a_0,\ldots,a_{q-1}]$ and $\Phi_o[a_0,\ldots,a_{q-1}]$ on the generators of $\chains_*(\asimplex^{r-1})$. In what follows we work always with these cyclic representatives.
-\begin{theorem} The linear homomorphism with $\bZ[\frac{1}{\tilde{r}}]$-coefficients
+A \emph{cyclic representative} of a generator $[a_0,\ldots,a_{q-1}]\in \chains{q}(\partial \asimplex^{r-1})$ is a cyclically ordered sequence $(a_{\perm(0)},\ldots,a_{\perm(q-1)})$. Removing an element from the sequence keeps the property of being cyclically ordered. The assignments $\Phi_e(A)$ and $\Phi_o(A)$ induce well defined assigments $\Phi_e[a_0,\ldots,a_{q-1}]$ and $\Phi_o[a_0,\ldots,a_{q-1}]$ on the generators of $\chains(\asimplex^{r-1})$. In what follows we work always with these cyclic representatives. Let $\varphi(q) = \lfloor\frac{r-q-1}{2}\rfloor$.
+\begin{theorem} The linear homomorphism with $\bZ[\frac{1}{\tilde{r}!}]$-coefficients
 	\begin{align*}
-		\Phi\colon \chains_*(\partial \asimplex^{r-1})&\lra \rW_*(r)
+		\Phi\colon \chains(\partial \asimplex^{r-1})&\lra \rW(r)
 		&
 		\Phi(A) = \begin{cases}
-			\frac{(\tilde{r}-\tilde{q}-1)!}{\tilde{r}!}\Phi_e(A) & \text{if $q$ is even} \\
-			\frac{(\tilde{r}-\tilde{q}-1)!}{\tilde{r}!}\Phi_o(A) & \text{if $q$ is odd}
+			e_0 & \text{if $q=0$ and $A = \emptyset$}\\
+			\frac{\varphi(q)!}{\tilde{r}!}\Phi_e(A) & \text{if $q$ is even and positive} \\
+			\frac{\varphi(q)!}{\tilde{r}!}\Phi_o(A) & \text{if $q$ is odd}
 		\end{cases}
 	\end{align*}
 	is a chain map.
@@ -52,7 +53,7 @@ A \emph{cyclic representative} of a generator $[a_0,\ldots,a_{q-1}]\in \chains_q
 \end{remark}
 
 \begin{proof} In order to simplify the notation, we will omit the generator $e_q$ in the formulas below.
-	Suppose first that $A = [a_0,\ldots,a_{q-1}]$ has even length, in which case $\tilde{r}-\tilde{q}-1 = \tilde{r}-\widetilde{q-1}-1$. If $A$ has more than one even entry, then all sequences in its boundary have at least two even entries, and therefore $\Phi_o(\partial A) = 0$. If $A$ has a single even entry $a_j$, then
+	Suppose first that $A = [a_0,\ldots,a_{q-1}]$ has even length, in which case $\varphi(q) = \varphi(q-1)$. Since $A$ has even length, it must have at least one even entry. If $A$ has more than one even entry, then all sequences in its boundary have at least one even entry, and therefore $\Phi_o(\partial A) = 0 = \partial\Phi_e(A)$. If $A$ has a single even entry $a_j$, then
 	\begin{align*}
 		\partial \Phi_e(A) &= (-1)^{j+1}\partial \phi_e(a_j,a_{j+1}) = (-1)^{j+1}\left(\rho\phi_e(a_j,a_{j+1}
 		) - \phi_e(a_j,a_{j+1})\right).
@@ -64,15 +65,15 @@ A \emph{cyclic representative} of a generator $[a_0,\ldots,a_{q-1}]\in \chains_q
 	\end{align*}
 	Now, using that $\phi_o(a_{j-1},a_{j+1}) = \phi_o(a_{j-1},a_j) + \phi_e(a_j,a_{j+1})$, the first summand equals
 	\[
-	\phi_o(a_j-1,a_j) + \phi_e(a_j,a_{j+1})+\sum_{i\neq j-1,j} \phi_o(a_i,a_{i+1}).
+	\phi_o(a_{j-1},a_j) + \phi_e(a_j,a_{j+1})+\sum_{i\neq j-1,j} \phi_o(a_i,a_{i+1}).
 	\]
-	Using that $\phi_o(a_{j},a_{j+2}) = \phi_e(a_j,a_{j+1})+\phi_o(a_{j+1},a_{j+2})$, the second summand equals
+	Using that $\phi_o(a_{j},a_{j+2}) = \phi_e(a_j+1,a_{j+1}+1)+\phi_o(a_{j+1},a_{j+2})$, the second summand equals
 	\[
 	\phi_e(a_j+1,a_{j+1}+1) + \phi_o(a_{j+1},a_{j+2})+\sum_{i\neq j,j+1} \phi_o(a_i,a_{i+1}).
 	\]
 	Therefore, most terms cancel and we are left with the value of $\partial \Phi_e[a_0,\ldots,a_{q-1}]$.
 
-	Suppose now that $A$ has odd length, in which case $\tilde{r}-\tilde{q}-1 = \tilde{r}-\widetilde{q-1} $. If $A$ has more than two even entries, then $\Phi_e([a_0,\ldots,\hat{a}_i,\ldots,a_{q-1}]) = 0$ for all $i$, therefore $\Phi_e(\partial A) = 0$. If $A$ has exactly two even entries $a_j,a_k$, then we have two cases: if these entries are not consecutive and $j<k$, then the nontrivial summands in $    \Phi_e(\partial A)$ are
+	Suppose now that $A = [a_0,\ldots,a_{q-1}]$ has odd length, in which case $\tilde{r}-\tilde{q}-1 = \tilde{r}-\widetilde{q-1} $. If $A$ has more than two even entries, then $[a_0,\ldots,\hat{a}_i,\ldots,a_{q-1}]$ has more than one even entry, hence $\Phi_e([a_0,\ldots,\hat{a}_i,\ldots,a_{q-1}]) = 0$ for all $i$, therefore $\Phi_e(\partial A) = 0 = \partial \Phi_o(A)$. If $A$ has exactly two even entries $a_j,a_k$, then we have two cases: if these entries are not consecutive and $j<k$, then the nontrivial summands in $    \Phi_e(\partial A)$ are
 	\begin{align*}
 		(-1)^j\Phi_e[a_0,\ldots,\hat{a}_j,\ldots,a_{q-1}] &= (-1)^j(-1)^{k}\phi_e(a_k,a_{k+1}) \\
 		(-1)^{j+1}\Phi_e[a_0,\ldots,\hat{a}_{j+1},\ldots,a_{q-1}] &=  (-1)^{j+1}(-1)^{k}\phi_e(a_k,a_{k+1})
@@ -86,25 +87,42 @@ A \emph{cyclic representative} of a generator $[a_0,\ldots,a_{q-1}]\in \chains_q
 		(-1)^{j+1}\Phi_e[a_0,\ldots,\hat{a}_{j+1},\ldots,a_{q-1}] &= (-1)^{j+1}(-1)^{j+1}\phi_e(a_j,a_{j+2}) \\
 		(-1)^{j+2}\Phi_e[a_0,\ldots,\hat{a}_{j+2},\ldots,a_{q-1}] &=  (-1)^{j+2}(-1)^{j+1}\phi_e(a_j,a_{j+1})
 	\end{align*}
-	and the middle summand cancels with the other two.
+	and the middle summand cancels with the other two, so $\Phi_e(\partial (A)) = 0 = \partial(\Phi_o(A))$.
 
 	If $A$ has no even entry, then
 	\[
-	\partial \Phi_o[a_0,\ldots,a_{q-1}] = N\left(\sum_{i=0}^{q-1} \phi_o(a_i,a_{i+1})\right) = \frac{r-q}{2}N(e_{q-1})
+	\partial \Phi_o[a_0,\ldots,a_{q-1}] = N\left(\sum_{i=0}^{q-1} \phi_o(a_i,a_{i+1})\right) = \frac{r-q}{2}N
 	\]
 	On the other hand,
 	\[
 	\Phi_e(\partial A)
-	= \sum_{i=0}^{q-1} \phi_e(a_i,a_{i+2}) \\
-	= \sum_{i=0}^{q-1} \phi_o(a_{i},a_{i+1}+1) + \phi_o(a_{i+1},a_{i+2}) \\
-	= N(e_{q-1})
+	= \sum_{i=0}^{q-1} \phi_e(a_i,a_{i+2}) 
+	%= \sum_{i=0}^{q-1} \phi_o(a_{i},a_{i+1}+1) + \phi_o(a_{i+1},a_{i+2}) \\
+	= N
 	\]
-	This completes the proof, since $\frac{r-q}{2} = \tilde{r}-\tilde{q}-1$.
+	This completes the proof, since $\frac{r-q}{2} = \frac{\varphi(q-1)!}{\varphi(q)!}$.
 \end{proof}
 
-\begin{remark}
+\begin{example}\label{example:Phi}
+If $r=3$, we have:
+\begin{align*}
+\Phi([0]) &= e_1
+&
+\Phi([1,2]) &= \rho e_2
+\end{align*}
+If $r=5$, we have:
+\begin{align*}
+\Phi([0,1,2]) &= 2^{-1}e_3
+&
+\Phi([0,1]) &= 2^{-1}(e_2 + \rho^3e_2)
+&
+\Phi([0,3]) &= 2^{-1}e_2.
+\end{align*}
+\end{example}
+
+\begin{remark}\label{remark:phidual}
 	For each $0\leq q<r-1$, let $L_q\subset (\partial \asimplex^{r-1})_q$ be the set of those simplices $[a_0,\ldots, a_{q-1}]$ with increasing entries (in the total order) such that $a_{2i}$ is even and different from $r-1$, and $a_{2i+1}$ is odd. Then the linear dual of $\Phi$ has the following expression
 	\begin{equation}\label{eq:111}
-		\Phi^\vee(e_{q}) = \frac{(\tilde{r}-\tilde{q}-1)!}{\tilde{r}!}\sum_{A\in L_q} A^\vee.
+		\Phi^\vee(e_{-q}) = \frac{\varphi(q)!}{\tilde{r}!}\sum_{A\in L_q} A^\vee.
 	\end{equation}
 \end{remark}

@@ -1,12 +1,20 @@
 % environments
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{question*}{Question}
+
+
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem*{definition*}{Definition}
+\newtheorem{construction}[theorem]{Construction}
+
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{remark*}{Remark}
 \newtheorem{example}[theorem]{Example}
@@ -15,8 +23,6 @@
 \newtheorem*{convention*}{Convention}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem*{notation*}{Notation}
-\newtheorem{question}[theorem]{Question}
-\newtheorem*{question*}{Question}
 
 % hyphenation
 \hyphenation{co-chain}
@@ -30,7 +36,7 @@
 \DeclareMathOperator{\face}{d}
 \DeclareMathOperator{\dege}{s}
 \DeclareMathOperator{\bd}{\partial}
-\DeclareMathOperator{\sign}{sign}
+%\DeclareMathOperator{\sign}{sign}
 \newcommand{\ot}{\otimes}
 \DeclareMathOperator{\EZ}{EZ}
 \DeclareMathOperator{\AW}{AW}
@@ -56,7 +62,7 @@
 \newcommand{\Fun}{\mathsf{Fun}}
 \newcommand{\Set}{\mathsf{Set}}
 \newcommand{\Setp}{\mathsf{Set}_*}
-\newcommand{\NN}{\mathsf{N}}
+%\newcommand{\NN}{\mathsf{N}}
 \newcommand{\Top}{\mathsf{Top}}
 \newcommand{\CW}{\mathsf{CW}}
 \newcommand{\Mod}[1]{\mathsf{Mod}(#1)}
@@ -87,9 +93,41 @@
 \DeclareMathOperator{\incl}{\iota}
 
 % chains
-\DeclareMathOperator{\chains}{N}
-\DeclareMathOperator{\cochains}{N^{\vee}}
-\DeclareMathOperator{\uchains}{C}
+\newcommand{\dd}{\vee}
+\newcommand{\chains}[1][*]{\operatorname{N}_{#1}}
+\newcommand{\cochains}[1][*]{\operatorname{N}^\dd_{#1}}
+\newcommand{\uchains}[1][*]{\operatorname{C}_{#1}}
+\newcommand{\ucochains}[1][*]{\operatorname{C}^\dd_{#1}}
+\newcommand{\rchains}[1][*]{\operatorname{N}^{r}_{#1}}
+\newcommand{\ruchains}[1][*]{\operatorname{C}^{r}_{#1}}
+
+\newcommand{\cadenas}[1][*]{N_{#1}}
+\newcommand{\ucadenas}[1][*]{C_{#1}}
+\newcommand{\cocadenas}[1][*]{N^\dd_{#1}}
+\newcommand{\ucocadenas}[1][*]{C^\dd_{#1}}
+\newcommand{\rcadenas}[1][*]{N^{r}_{#1}}
+\newcommand{\rucadenas}[1][*]{C^{r}_{#1}}
+
+\newcommand{\rA}{\operatorname{L}}
+\renewcommand{\AA}{\operatorname{\mathbf{L}}}
+\newcommand{\abel}{\operatorname{{\it L}}}
+\newcommand{\NN}[1][*]{\operatorname{\mathbf{N}}^\dd_{#1}}
+
+\newcommand{\Omd}[1][*]{\operatorname{\Omega}^{\dd}_{#1}}
+\newcommand{\Om}[1][*]{\operatorname{\Omega}_{#1}}
+\newcommand{\Omhatd}[1][*]{\hat{\operatorname{\Omega}}^{\dd}_{#1}}
+\newcommand{\Omhat}[1][*]{\hat{\operatorname{\Omega}}_{#1}}
+
+%\newcommand{\Omegarm}[1][]{\operatorname{\Omega}_{#1}}
+
+\newcommand{\rW}[1][*]{\operatorname{W}_{#1}}
+\newcommand{\rWd}[1][*]{\operatorname{W}^\dd_{#1}}
+\newcommand{\rWhat}[1][*]{\hat{\operatorname{W}}_{#1}}
+\newcommand{\rWhatd}[1][*]{\hat{\operatorname{W}}^{\dd}_{#1}}
+\newcommand{\W}[1][*]{W_{#1}}
+\newcommand{\Wd}[1][*]{W^\dd_{#1}}
+\newcommand{\Wst}[1][*]{W^{\mathrm{st}}_{#1}}
+
 
 % pair delimiters (mathtools)
 \DeclarePairedDelimiter\bars{\lvert}{\rvert}
@@ -179,4 +217,4 @@
 \newcommand{\rM}{\mathrm{M}}
 \newcommand{\rP}{\mathrm{P}}
 \newcommand{\rT}{\mathrm{T}}
-\newcommand{\rW}{\mathrm{W}}
+%\newcommand{\rW}{\mathrm{W}}
