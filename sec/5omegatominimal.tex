@@ -8,26 +8,26 @@
 
 The join homomorphism $\chains(\asimplex^{r-1}\join \asimplex^{r-1})\to \chains(\asimplex^{r-1})$ of Definition \ref{d:join_product} induces an endomorphism
 \[
-\kappa\colon \Omega_*(r)^{\nf}\lra \Omega_*(r)^{\nf}
+\kappa \colon  \Omega_*(r)^{\nf}\lra \Omega_*(r)^{\nf}
 \]
 that sends a pieced word $A_0\barra \ldots\barra A_k$ with pivotal piece $A_j$ to the pieced word $(-1)^{\lambda(A_{j+1},\ldots,A_k)}A_0\barra \ldots\barra A_j\barra A_{j+1}\join\ldots\join A_k$, where the sign is that of the permutation that orders the entries of $A_{j+1},\ldots,A_k$.
 
 The cyclic group $\Cyc_r$ acts on $\partial \asimplex^{r-1}$ by permuting its vertices forwards. Let $\sigma = [0,1,\ldots,r-1]$ be the top simplex of $\asimplex^{r-1}$ and let
 \begin{align*}
-	\iota_1\colon \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1})\otimes \chains(\partial\simplex^{r-1})\\
-	\iota_2\colon \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1})\otimes \chains(\partial\simplex^{r-1})
+	\iota_1 \colon  \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1}) \ot  \chains(\partial\simplex^{r-1})\\
+	\iota_2 \colon  \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1}) \ot  \chains(\partial\simplex^{r-1})
 \end{align*}
 be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 \begin{align*}
-	\iota_1(\tau) &= \tau\otimes \partial \sigma &
-	\iota_2(\tau) &= \partial \sigma\otimes \tau
+	\iota_1(\tau) &= \tau \ot  \partial \sigma &
+	\iota_2(\tau) &= \partial \sigma \ot  \tau
 \end{align*}
-\begin{construction}\label{cons:1} Let $f\colon \chains(\partial\simplex^{r-1})\otimes\chains(\partial\simplex^{r-1})\to \sus{r-1}\chains(\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain map such that
+\begin{construction}\label{cons:1} Let $f \colon  \chains(\partial\simplex^{r-1}) \ot \chains(\partial\simplex^{r-1})\to \sus{r-1}\chains(\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain map such that
 \renewcommand{\theenumi}{\roman{enumi}}
 \begin{enumerate}
 	\item\label{cond:1} $f\circ \iota_1 = \Id$
 	\item\label{cond:2} $f\circ \iota_2 = \rho$.
-	\item\label{cond:3} if $\tau_1\otimes\tau_2$ has degree $r$, then $ \partial f(\tau_1\otimes\tau_2) =
+	\item\label{cond:3} if $\tau_1 \ot \tau_2$ has degree $r$, then $ \partial f(\tau_1 \ot \tau_2) =
 	\begin{cases}
 		(-1)^{\lambda(\tau_1,\tau_2)}\emptyset & \text{if $\tau_1^c=\tau_2$} \\
 		0 & \text{otherwise},
@@ -38,26 +38,26 @@ be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 \begin{remark}\label{remark:3prime}
 	Condition \eqref{cond:3} is implied by the following condition:
 	\begin{itemize}
-		\item[(iii')] If $\tau_1\otimes\tau_2$ has degree $r$, then $f(\tau_1\otimes \tau_2)$ is $(-1)^{\lambda(\tau_1,\tau_2)} v$ for some vertex of $\partial \asimplex^{r-1}$ if $\tau_1\cup\tau_2$ is non-degenerate and $0$ otherwise.
+		\item[(iii')] If $\tau_1 \ot \tau_2$ has degree $r$, then $f(\tau_1 \ot  \tau_2)$ is $(-1)^{\lambda(\tau_1,\tau_2)} v$ for some vertex of $\partial \asimplex^{r-1}$ if $\tau_1\cup\tau_2$ is non-degenerate and $0$ otherwise.
 	\end{itemize}
 \end{remark}
 
 \begin{proposition} Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Then, there is a chain map
 	\[
-	S\colon \Omega_*(r)^{\nf}\lra \sus{r-1}\Omega_*(r)^{\nf}
+	S \colon  \Omega_*(r)^{\nf}\lra \sus{r-1}\Omega_*(r)^{\nf}
 	\]
-	that sends a pieced word $A = A_0\barra \ldots\barra A_k$ with pivotal piece $A_j$ to the pieced word $ A_0\barra \ldots\barra f(A_j\otimes \kappa(A_{j+1}\barra \ldots\barra A_k))$.
+	that sends a pieced word $A = A_0\barra \ldots\barra A_k$ with pivotal piece $A_j$ to the pieced word $ A_0\barra \ldots\barra f(A_j \ot  \kappa(A_{j+1}\barra \ldots\barra A_k))$.
 \end{proposition}
 \begin{proof}
 	Replacing the word $A$ by $\kappa(A)$, we may assume that $A_{j+1} = A_k$. Let $\bar{A} = A_0\barra \ldots\barra A_{j-1}$ and let $\ell$ be the degree of $\bar{A}$ (i.e., the number of entries of $A$). Then %and recall that $\partial A = \sum_{i} (-1)^{i}\diff_iA$, where $\diff_i$ removes the $i$-th entry of $A$. Then
 	\begin{equation}\label{eq:931}
-		\partial S(A) = \partial \bar{A}\mid f(A_{j}\otimes A_{j+1}) + (-1)^{\ell}\bar{A}\barra \partial f(A_{j}\otimes A_{j+1}).
+		\partial S(A) = \partial \bar{A}\mid f(A_{j} \ot  A_{j+1}) + (-1)^{\ell}\bar{A}\barra \partial f(A_{j} \ot  A_{j+1}).
 	\end{equation}
 	We distinguish two cases: if $A_j\cup A_{j+1}$ has length at least $r+1$,
-	\[S(\partial A) = \partial \bar{A}\barra f(A_j\otimes A_{j+1}) + (-1)^{\ell}\bar{A}\barra f(\partial (A_j\otimes A_{j+1})),\]
+	\[S(\partial A) = \partial \bar{A}\barra f(A_j \ot  A_{j+1}) + (-1)^{\ell}\bar{A}\barra f(\partial (A_j \ot  A_{j+1})),\]
 	which equals the previous sum. If $A_j\cup A_{j+1}$ has length $r$, let $\check{A} = A_0\mid \ldots\mid A_{j-2}$. Then
 	\begin{equation}\label{eq:933}
-		S(\partial A) = \partial \bar{A}\barra f(A_j\otimes A_{j+1}) + (-1)^\ell \check{A}\barra f(A_{j-1}\otimes \partial(A_j*A_{j+1})).
+		S(\partial A) = \partial \bar{A}\barra f(A_j \ot  A_{j+1}) + (-1)^\ell \check{A}\barra f(A_{j-1} \ot  \partial(A_j*A_{j+1})).
 	\end{equation}
 	Let $\pm$ be the sign of the permutation that orders $A_j*A_{j+1}$. By condition \eqref{cond:3}, the last summand of \eqref{eq:931} is zero or $\pm(-1)^\ell\bar{A}$ depending on whether $A_j*A_{j+1}$ is degenerate or not, which by condition \eqref{cond:1} is equivalent to $f(A_{j-1},\partial(A_j*A_{j+1}))$ being $0$ or $\pm(-1)^{\ell}A_{j-1}$, and therefore equivalent to the last summand of \eqref{eq:933} being zero or $\pm(-1)^{\ell}\bar{A}$.
 \end{proof}
@@ -65,7 +65,7 @@ be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 %The inclusion of the augmented $1$-skeleton of $\asimplex^{r-1}$ in $\asimplex^{r-1}$ induces an inclusion $\chains(\EC_r)\to \Omega_*(r)^0$ that sends a word to that same word with all pieces of length $1$.
 
 \begin{definition}\label{def:psiom}
-	Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Define a homomorphism $\Psi\colon \Omega_*(r)^{\nf}\otimes \to \rW(r)\otimes \bZ[\frac{1}{\tilde{r}!}]$ recursively as
+	Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Define a homomorphism $\Psi \colon  \Omega_*(r)^{\nf} \ot  \to \rW(r) \ot  \bZ[\frac{1}{\tilde{r}!}]$ recursively as
 	\[\Psiom_q(A) = \begin{cases} \Phi_q(\kappa(A)) & \text{if $q\leq r-1$} \\
 		\frac{1}{\tilde{r}!}\theta_{r-1}\circ \Psiom_{q-r+1}\circ S(A) & \text{if $q\geq r$,}\end{cases}\]
 \end{definition}
@@ -73,14 +73,14 @@ be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 \begin{example}\label{example:psi3}
 Let $r=3$. We will use the computations of Examples \ref{example:Phi}, \ref{example:f3_1} and \ref{example:f3_2} with the $f$ constructed in Section \ref{s:assembly}. To lighten the notation, we will write each block $A_j = [a_0,\ldots,a_{m-1}]$ as $a_0a_1\ldots a_{m-1}$, so $[0,1]$ is written $01$.
 	\begin{align*}
-		\Psi_6(01\barra 2\barra 0\barra 2\barra 1) 
+		\Psi_6(01\barra 2\barra 0\barra 2\barra 1)
 		&= \theta_2\circ \Psi_4\circ S(01\barra 2\barra 0\barra 2\barra 1)
 		\\
-		&= \theta_2\circ \Psi_4(01\barra 2\barra f([0]\otimes [2,1]))
+		&= \theta_2\circ \Psi_4(01\barra 2\barra f([0] \ot  [2,1]))
 		\\
 		&= -\theta_2\circ \Psi_4\circ S(01\barra 2\barra 0)
 		\\
-		&= -\theta_4\circ \Psi_2(f([0,1]\otimes [2,0]))
+		&= -\theta_4\circ \Psi_2(f([0,1] \ot  [2,0]))
 		\\
 		&= -\theta_4\circ \Psi_2(01)
 		\\
@@ -94,10 +94,10 @@ Let $r=3$. We will use the computations of Examples \ref{example:Phi}, \ref{exam
 \begin{example}\label{example:psi5}
 Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{example:f5_1} with the $f$ constructed in Section \ref{s:assembly}. We use the same ligthened notation as in the previous example
 	\begin{align*}
-		\Psi_7(1\barra 230\barra 413) 
+		\Psi_7(1\barra 230\barra 413)
 		&= 2^{-1}\theta_4\circ \Psi_3\circ S(1\barra 230\barra 413)
 		\\
-		&= 2^{-1}\theta_4\circ \Psi_3(1\barra f([2,3,0]\otimes [4,1,3]))
+		&= 2^{-1}\theta_4\circ \Psi_3(1\barra f([2,3,0] \ot  [4,1,3]))
 		\\
 		&= 2^{-1}\theta_4\circ \Psi_3(1\barra 02)
 		\\
@@ -114,16 +114,16 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 \end{proposition}
 
 \begin{proof}
-	$\Psiom_*$ is already a chain map up to degree $*\leq r-1$. To check that it commutes with the differential in degree $r$, we distinguish two cases: 
-	
-	First, if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two canceling terms, while if it has more repeated entries, it is zero on the nose. 
-	
+	$\Psiom_*$ is already a chain map up to degree $*\leq r-1$. To check that it commutes with the differential in degree $r$, we distinguish two cases:
+
+	First, if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two canceling terms, while if it has more repeated entries, it is zero on the nose.
+
 	Second, if $\Psiom(A)\neq 0$, then $A$ has no repetitions. We may assume, as before, that $A = A_1|A_2$ has only two pieces, and write $A_1*A_2$ for their join and $\diff_iA_1*A_2$ for the result of removing the $i$th entry. Then:
 	\begin{align*}
-		\Psi_{r-1}(\partial A) 
-		&= \sum_i (-1)^i \Phi(\diff_i(A_1*A_2)) 
+		\Psi_{r-1}(\partial A)
+		&= \sum_i (-1)^i \Phi(\diff_i(A_1*A_2))
 		\\
-		&= (-1)^{\lambda(A_1,A_2)}\sum_i (-1)^i(-1)^{i}{\textstyle\frac{1}{\tilde{r}!}}\rho^{i+1} e_{r-1} 
+		&= (-1)^{\lambda(A_1,A_2)}\sum_i (-1)^i(-1)^{i}{\textstyle\frac{1}{\tilde{r}!}}\rho^{i+1} e_{r-1}
 		\\
 		&= (-1)^{\lambda(A_1,A_2)} {\textstyle\frac{1}{\tilde{r}!}} N(e_{r-1}).
 	\end{align*}
@@ -133,7 +133,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		\\
 		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ S(A)
 		\\
-		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ f(A_1\otimes A_2)
+		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ f(A_1 \ot  A_2)
 		\\
 		&= (-1)^{\lambda(A_1,A_2)}{\textstyle\frac{1}{\tilde{r}!}} \theta_{r-1}(e_0)
 		\\
@@ -180,7 +180,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		\tilde{r}!\Psiom_{q-1}(\partial^{\nf} (A)) &=
 		\theta_{r-1} \circ \Psiom_{q-r}\circ S (\partial^{\nf}(A)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}\circ S(\bar{A}\barra A_1\barra \partial A_2) \\
-		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra f(A_1\otimes \partial \sigma)) \\
+		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra f(A_1 \ot  \partial \sigma)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra A_1) \\
 		&= (-1)^q\theta_{r-1}\circ \Psiom_{q-r}\circ\DDD(A).
 	\end{align*}
@@ -189,7 +189,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		\tilde{r}!\Psiom_{q-1}(\partial^{\nf} A) &=
 		\theta_{r-1}\circ \Psiom_{q-r}\circ S(\partial^{\nf}(A)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}\circ S(\bar{A}\barra \partial A_1\barra  A_2) \\
-		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra f(\partial A_1\otimes A_2)) \\
+		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra f(\partial A_1 \ot  A_2)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra \rho(A_2)) \\
 		&= (-1)^q\theta_{r-1}\circ \Psiom_{q-r}\circ \DDD(A).
 	\end{align*}

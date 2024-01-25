@@ -43,24 +43,24 @@ that yields a stable comultiplication on the chain complex of a $\sus{}$-spectru
 %    A natural unstable $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes.
 %    \[
 %    \xymatrix{
-%        W_*\otimes C_*\ar[r] \ar[d]^{\theta_{1-r}\otimes \sus{}} & C_*^{\otimes r} \ar[d]^{\sus{\otimes r}}\\
-%        W_{*-r+1}\otimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\otimes r}.
+%        W_* \ot  C_*\ar[r] \ar[d]^{\theta_{1-r} \ot  \sus{}} & C_*^{ \ot  r} \ar[d]^{\sus{ \ot  r}}\\
+%        W_{*-r+1} \ot  \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{ \ot  r}.
 %    }
 %    \]
 %    A natural connected $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes
 %\[
 %    \xymatrix{
-%        \rW^*\hotimes C_*\ar[r]\ar[d]^{\id\otimes \sus{}} & C_*^{\otimes r} \ar[d]^{\sus{\otimes r}} \\
-%        \rW^*\hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\otimes r}
+%        \rW^*\hotimes C_*\ar[r]\ar[d]^{\id \ot  \sus{}} & C_*^{ \ot  r} \ar[d]^{\sus{ \ot  r}} \\
+%        \rW^*\hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{ \ot  r}
 %    }
 %    \]
 %\end{definition}
 \begin{proposition}\label{prop:suspensionunstable}
     The effect of left and right suspensions on the $r$-cyclic unstable comultiplications of \cite{medina2021may_st} is the following:
     \begin{align*}
-        \mu(e_q\otimes \susp{} \tau) &= (\tilde{r}-1)!\susp{\otimes r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1}\otimes \tau)
+        \mu(e_q \ot  \susp{} \tau) &= (\tilde{r}-1)!\susp{ \ot  r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot  \tau)
         \\
-       \mu(e_q\otimes \sus{}\tau) &= \tilde{r}!\sus{\otimes r}\mu(e_{q-r+1}\otimes \tau)
+       \mu(e_q \ot  \sus{}\tau) &= \tilde{r}!\sus{ \ot  r}\mu(e_{q-r+1} \ot  \tau)
     \end{align*}
 \end{proposition}
 
@@ -73,7 +73,7 @@ that yields a stable comultiplication on the chain complex of a $\sus{}$-spectru
 \begin{corollary}
     If $\mu$ is the unstable comultiplication of \cite{medina2021may_st}, we can define the following stable comultiplication $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$:
     \[
-        \mu_{st}(e_q\otimes \tau) = \frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)})\otimes \tau)
+        \mu_{st}(e_q \ot  \tau) = \frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot  \tau)
     \]
     where $\tau\in \chains[n](E_m)$.
 \end{corollary}
@@ -83,15 +83,15 @@ For the connected comultiplication constructed in this work we have compatibilit
 \begin{proposition}\label{prop:suspensionconnected}
     The effect of left and right suspensions on the $r$-cyclic connected comultiplications defined in Corollary \ref{thm2:mainthm} is the following:
     \begin{align*}
-       \mu(e_q\otimes \susp{}\tau) &= \tilde{r}!\susp{\otimes r}\rho^{-1}(\mu(e_q\otimes \tau) &
-       \mu(e_q\otimes \sus{}\tau) &= \tilde{r}!\sus{\otimes r}\mu(e_q\otimes \tau)
+       \mu(e_q \ot  \susp{}\tau) &= \tilde{r}!\susp{ \ot  r}\rho^{-1}(\mu(e_q \ot  \tau) &
+       \mu(e_q \ot  \sus{}\tau) &= \tilde{r}!\sus{ \ot  r}\mu(e_q \ot  \tau)
     \end{align*}
 \end{proposition}
 
 \begin{proof}
     Let $\tau\in \rA(X)_n$, and observe that the summands in $\alpha\circ\beta\circ\gamma\circ \psi(e_q\hotimes \tau)$ coincide with the summands of $\alpha\circ\beta\circ\gamma\circ \psi(e_q\hotimes \sus{}\tau)$ except for those that are indexed by a $U$ that contains some entry equal to $n+1$. These extra summands are zero because are faces of $d_{n+1}(s{} \tau) = 0$. Hence we have the same summands, with an extra coefficient of $(\tilde{r}!)^{n+2}$ on the left and a coefficient of $(\tilde{r}!)^{n+1}$ on the right.
 
-    Regarding the left suspension, we have the same situation, though now the map $\sus{}\colon \cochains(\asimplex^{n+1})\to \cochains(\asimplex^{n})$ sends a tuple $(u_0,\ldots,u_q)$ to the tuple $(u_0-1,\ldots,u_q-1)$ if $u_0>0$ and to zero otherwise. Additionally, the extra summands that vanish are those with an $U$ that contains some entry equal to $0$.
+    Regarding the left suspension, we have the same situation, though now the map $\sus{} \colon  \cochains(\asimplex^{n+1})\to \cochains(\asimplex^{n})$ sends a tuple $(u_0,\ldots,u_q)$ to the tuple $(u_0-1,\ldots,u_q-1)$ if $u_0>0$ and to zero otherwise. Additionally, the extra summands that vanish are those with an $U$ that contains some entry equal to $0$.
 \end{proof}
 The disparity in the behaviour with respect to suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
 \begin{corollary}

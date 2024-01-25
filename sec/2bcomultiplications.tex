@@ -1,5 +1,5 @@
 % !TEX root = ../oddp.tex
-\section{Cyclic comultiplications and power operations} \label{s:2bcomultiplications}
+\section{Cyclic comultiplications and power operations}\label{s:2bcomultiplications}
 
 Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\ldots,r-1\}$ via $i\mapsto \rho^i$. The symmetric group on $\{0,1,\ldots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$. The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$. The definitions of Section \ref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st}. Chain complexes in this section are assumed to be non-negatively graded.
 
@@ -16,18 +16,18 @@ The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial 
 where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 
 \begin{definition} An \emph{unstable ($r$-cyclic) comultiplication} on a chain complex $(\ucadenas,\partial)$ is a $\Cyc_r$-equivariant chain map
-\[\mu\colon \W(r)\otimes \ucadenas\lra \ucadenas^{\otimes r}.\]
+\[\mu \colon  \W(r) \ot  \ucadenas\lra \ucadenas^{ \ot  r}.\]
 \end{definition}
 
 \begin{definition}
 	An \emph{($r$-cyclic) May structure} on a chain complex $(\ucadenas,\partial)$ is an unstable comultiplication together with
 	\begin{itemize}
-		\item A homotopy associative comultiplication such that $\mu(e_0\otimes x)$ is homotopic to the $r$-fold comultiplication,
+		\item A homotopy associative comultiplication such that $\mu(e_0 \ot  x)$ is homotopic to the $r$-fold comultiplication,
 		\item a factorization
 	\[
-		\mu\colon \W(r)\otimes \ucadenas\lra V_*(r)\otimes \W(r)\lra  \ucadenas^{\otimes r}
+		\mu \colon  \W(r) \ot  \ucadenas\lra V_*(r) \ot  \W(r)\lra  \ucadenas^{ \ot  r}
 	\]
-where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, the first map is of the form $f\otimes \id$ for some $f$ equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
+where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, the first map is of the form $f \ot  \id$ for some $f$ equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
 	\end{itemize}
 \end{definition}
 
@@ -35,11 +35,11 @@ where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, the f
 \begin{proposition}\label{prop:unstable}
 	If $r$ is prime, an unstable comultiplication $\mu$ on a chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
-		\power^{i}\colon H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
+		\power^{i} \colon  H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(x\otimes \overset{r}{\ldots}\otimes x)(\mu(e_{(r-1)n-i}\otimes a))
+	y(a) = \frac{1}{(\tilde{r}!)^n}(x \ot  \overset{r}{\ldots} \ot  x)(\mu(e_{(r-1)n-i} \ot  a))
 	\]
 	These operations satisfy the following equation
 	\begin{itemize}
@@ -49,7 +49,7 @@ where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, the f
 \begin{remark} If $\mu$ is part of a May structure, then $\power^i$ vanishes unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
 \end{remark}
 
-\begin{proof} See \cite{may1970general}.    %The operations are linear because $\mu$ is linear and Fermat's little theorem in $\mathbb{F}_r$ guarantees that $(\lambda\cdot y)^\otimes{r} = \lambda\cdot (y)^{\otimes r}$ for a scalar $\lambda$. That the operations are well-defined follows through the usual argument: if $x$ is a representative of a cohomology class, its coboundary vanishes, and so does the coboundary of $y\otimes\ldots\otimes y$, hence it maps cocycles to cocycles. If $x = \delta y$ is a coboundary, then FILL.
+\begin{proof} See \cite{may1970general}.    %The operations are linear because $\mu$ is linear and Fermat's little theorem in $\mathbb{F}_r$ guarantees that $(\lambda\cdot y)^ \ot {r} = \lambda\cdot (y)^{ \ot  r}$ for a scalar $\lambda$. That the operations are well-defined follows through the usual argument: if $x$ is a representative of a cohomology class, its coboundary vanishes, and so does the coboundary of $y \ot \ldots \ot  y$, hence it maps cocycles to cocycles. If $x = \delta y$ is a coboundary, then FILL.
 	For the last claim, note that if $i>(r-1)n$, then $(r-1)n-i$ is negative, and therefore $\mu(e_{(r-1)n-i},a)$ vanishes.
 \end{proof}
 \begin{example}
@@ -77,7 +77,7 @@ In general, we understand it as the limit of
 \[
 \ldots\lra \sus{4(1-r)}\W(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W(r) \overset{\theta_{2(1-r)}}{\lra} \W(r).
 \]
-where $\theta_{k}\colon \W(r)\to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even. %If $r$ is odd or $r=2$ and $\R=\bF_2$, one can instead use the maps $\theta_{1-r}$ to form the limit.
+where $\theta_{k} \colon  \W(r)\to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even. %If $r$ is odd or $r=2$ and $\R=\bF_2$, one can instead use the maps $\theta_{1-r}$ to form the limit.
  This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fiber sequence
 \[
 	\Wst(r)\lra \W(r)\overset{N}{\lra} \Wd(r)
@@ -88,7 +88,7 @@ where the second map is the norm map that sends $e_q$ to zero unless $q=0$, in w
 
 \begin{definition} A \emph{stable ($r$-cyclic) comultiplication} on a chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 \[
-\mu\colon \Wst(r)\otimes \ucadenas\lra \ucadenas^{\otimes r}
+\mu \colon  \Wst(r) \ot  \ucadenas\lra \ucadenas^{ \ot  r}
 \]
 \end{definition}
 
@@ -100,39 +100,39 @@ where $\theta_{r-1}$ is the operadic suspension of \cite{berger2004combinatorial
 
 \begin{definition} A \emph{stable ($r$-cyclic) May structure} on a chain complex $\ucadenas$ is a stable $r$-cyclic comultiplication $\mu$ that factors, up to homotopy, as
 \[
-\mu\colon \Wst(r)\otimes \ucadenas\lra \ESst_r\otimes \ucadenas\lra  \ucadenas^{\otimes r}
+\mu \colon  \Wst(r) \ot  \ucadenas\lra \ESst_r \ot  \ucadenas\lra  \ucadenas^{ \ot  r}
 \]
-where the first map is of the form $f\otimes \id$ with $f$ equivariant with respect to the inclusion $\Cyc_r\subset \Sym_r$ and the second map is $\Sym_r$-equivariant.
+where the first map is of the form $f \ot  \id$ with $f$ equivariant with respect to the inclusion $\Cyc_r\subset \Sym_r$ and the second map is $\Sym_r$-equivariant.
 \end{definition}
 
-Every unstable comultiplication yields a stable comultiplication by precomposing $\mu$ with the projection $\Wst(r)\to \W(r)$. A stable comultiplication comes from an unstable comultiplication if it vanishes on $\Wst[i](r)\otimes \ucadenas$ for $i<0$.
+Every unstable comultiplication yields a stable comultiplication by precomposing $\mu$ with the projection $\Wst(r)\to \W(r)$. A stable comultiplication comes from an unstable comultiplication if it vanishes on $\Wst[i](r) \ot  \ucadenas$ for $i<0$.
 
 \begin{proposition}
 	If $r$ is prime, a stable $r$-cyclic comultiplication $\mu$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
-		\power^{i}\colon H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
+		\power^{i} \colon  H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(x\otimes \overset{r}{\ldots}\otimes x)(\mu(e_{(r-1)n-i}\otimes a))
+	y(a) = \frac{1}{(\tilde{r}!)^n}(x \ot  \overset{r}{\ldots} \ot  x)(\mu(e_{(r-1)n-i} \ot  a))
 	\]
 \end{proposition}
-\begin{proof} If $\ucadenas$ has a stable comultiplication, then $\sus{} \ucadenas$ has a stable comultiplication as well, defined as $\mu(e_q\otimes \sus{} a) = \sus{\otimes r}\mu(e_{q+r-1}\otimes a)$. Therefore, after enough suspensions, we may assume that the stable comultiplication vanishes in negative degrees and that $q$ is positive. Then a truncation reduces this to the situation of an unstable comultiplication.
+\begin{proof} If $\ucadenas$ has a stable comultiplication, then $\sus{} \ucadenas$ has a stable comultiplication as well, defined as $\mu(e_q \ot  \sus{} a) = \sus{ \ot  r}\mu(e_{q+r-1} \ot  a)$. Therefore, after enough suspensions, we may assume that the stable comultiplication vanishes in negative degrees and that $q$ is positive. Then a truncation reduces this to the situation of an unstable comultiplication.
 \end{proof}
 \begin{example}
-	As we will see in Section \ref{s:suspension}, if $\mu$ is the unstable comultiplication for normalized chains in simplicial sets of the previous example, then $\mu(e_q\otimes \sus{} x) = \frac{1}{\tilde{r}!}\sus{\otimes r} \mu(e_{q+r-1}\otimes x)$, hence it does define a stable comultiplication on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) that is also part of a stable May structure.
+	As we will see in Section \ref{s:suspension}, if $\mu$ is the unstable comultiplication for normalized chains in simplicial sets of the previous example, then $\mu(e_q \ot  \sus{} x) = \frac{1}{\tilde{r}!}\sus{ \ot  r} \mu(e_{q+r-1} \ot  x)$, hence it does define a stable comultiplication on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) that is also part of a stable May structure.
 \end{example}
 
 
 \begin{figure}
 \input{tables/unstable}
-\caption{A depiction of $\Wst(3)\otimes \ucadenas$. A stable comultiplication comes from an unstable comultiplication if it vanishes on the part colored in green. }
+\caption{A depiction of $\Wst(3) \ot  \ucadenas$. A stable comultiplication comes from an unstable comultiplication if it vanishes on the part colored in green. }
 \end{figure}
 
 
 
-\subsection{Connected comultiplications}\label{s:connected} Let $\mu$ be a stable comultiplication. A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i]\otimes \ucadenas$ for $i>(r-1)n$.
-We will now introduce a convenient chain complex $\rWd(r)\hotimes \rucadenas$ such that giving a chain map $\mu\colon \rWd(r)\hotimes \rucadenas\to \ucadenas^{\otimes r}$ is equivalent to give a stable comultiplication that vanishes on $\Wst[i](r)\otimes \ucadenas$ for $i>(r-1)n$.
+\subsection{Connected comultiplications}\label{s:connected} Let $\mu$ be a stable comultiplication. A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i] \ot  \ucadenas$ for $i>(r-1)n$.
+We will now introduce a convenient chain complex $\rWd(r)\hotimes \rucadenas$ such that giving a chain map $\mu \colon  \rWd(r)\hotimes \rucadenas\to \ucadenas^{ \ot  r}$ is equivalent to give a stable comultiplication that vanishes on $\Wst[i](r) \ot  \ucadenas$ for $i>(r-1)n$.
 \begin{figure}
 
 \input{tables/hat}
@@ -162,15 +162,15 @@ R\overset{-N}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{T}{\lra} R[\Cyc_
 \]
 Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{-i}^\dd) = (\rho^{-1} e_i)^{\dd}$. The generator of the copy of $R$ in the left will be denoted as $1$ or as $e_0^\dd$.
 
-Again, there is a suspension map $\theta_k\colon \rWd(r)\to \susp{-k}\rWd(r)$ defined for all even $k$ (or all $k$ in case $r=2$ and $R=\bF_2$) as
+Again, there is a suspension map $\theta_k \colon  \rWd(r)\to \susp{-k}\rWd(r)$ defined for all even $k$ (or all $k$ in case $r=2$ and $R=\bF_2$) as
 \begin{align*}
 	\theta_k(e_{-i}^\dd) &= e_{k-i}^\dd
 	&
 	\theta_k(1) &= \begin{cases} N(e_k^\dd) &\text{if $k<0$} \\ 1 &\text{if $k=0$} \\ 0 &\text{if $k>0$.} \end{cases}
 \end{align*}
-If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, define the chain complex $\rWd(r)\hotimes \rucadenas$ as the graded $R[\Cyc_r]$-module $\rWd(r)\otimes \rucadenas$ with the differential
+If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, define the chain complex $\rWd(r)\hotimes \rucadenas$ as the graded $R[\Cyc_r]$-module $\rWd(r) \ot  \rucadenas$ with the differential
 \[
-\partial(e^\dd_{-q}\otimes \vec{x}) = \partial (e^\dd_{-q})\otimes \vec{x} + (-1)^q \theta_{r-1}(e^\dd_{-q})\otimes \partial (\vec{x}).
+\partial(e^\dd_{-q} \ot  \vec{x}) = \partial (e^\dd_{-q}) \ot  \vec{x} + (-1)^q \theta_{r-1}(e^\dd_{-q}) \ot  \partial (\vec{x}).
 \]
 If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
 \[
@@ -178,44 +178,44 @@ R[\Cyc_r]\langle e_{0}^\dd\rangle / N \overset{-T}{\lra} R[\Cyc_r]\langle e_{-1}
 \]
 This chain complex admits chain maps
 \begin{align*}
-    \hat{\theta}_{r-1}\colon \rWd(r)&\lra \susp{1-r}\rWhat(r)
+    \hat{\theta}_{r-1} \colon  \rWd(r)&\lra \susp{1-r}\rWhat(r)
     &
-    \hat{\theta}_{r-1}\colon \rWhat(r)&\lra \susp{1-r}\rW(r).
+    \hat{\theta}_{r-1} \colon  \rWhat(r)&\lra \susp{1-r}\rW(r).
 \end{align*}
-Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\mathrm{odd}] = \bigoplus_{m}\ucadenas[2m+1]$ and write $\rWd(r)\hotimes \rucadenas$ for the graded $R[\Cyc_r]$-module $\left(\rWd(r)\otimes \rucadenas[\mathrm{odd}]\right)\oplus \left(\rWhatd(r)\otimes \rucadenas[\mathrm{even}]\right)$ with differential
+Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\mathrm{odd}] = \bigoplus_{m}\ucadenas[2m+1]$ and write $\rWd(r)\hotimes \rucadenas$ for the graded $R[\Cyc_r]$-module $\left(\rWd(r) \ot  \rucadenas[\mathrm{odd}]\right)\oplus \left(\rWhatd(r) \ot  \rucadenas[\mathrm{even}]\right)$ with differential
 \[
-\partial(e^\vee_{-q}\otimes \vec{x}) = \partial (e^\vee_{-q})\otimes \vec{x} + (-1)^q \theta_{1-r}(e^\vee_{-q})\otimes \partial (\vec{x}).
+\partial(e^\vee_{-q} \ot  \vec{x}) = \partial (e^\vee_{-q}) \ot  \vec{x} + (-1)^q \theta_{1-r}(e^\vee_{-q}) \ot  \partial (\vec{x}).
 \]
 Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ coincide, and so do both definitions of $\rWd(r)\hotimes \rucadenas$.
 \begin{definition}
 	A \emph{connected ($r$-cyclic) comultiplication} on a non-negatively graded chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
+	\mu \colon  \rWd(r)\hotimes \rucadenas\lra \ucadenas^{ \ot  r}.
 	\]
 \end{definition}
 
-If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k\colon \Wst(r)\to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$. One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fiber of the norm map $N\colon \W(r)\to \Wd(r)$, but it is also the homotopy fiber of the map $\rWd(r)\to \sus{}\W(r)$ that is the identity on $R$ and zero elsewhere. The map $\varphi_k$ is the composition
+If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon  \Wst(r)\to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$. One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fiber of the norm map $N \colon  \W(r)\to \Wd(r)$, but it is also the homotopy fiber of the map $\rWd(r)\to \sus{}\W(r)$ that is the identity on $R$ and zero elsewhere. The map $\varphi_k$ is the composition
 \[
 	\Wst(r)\overset{\theta_k}{\lra} \sus{-k} \Wst(r) \overset{\cong}{\lra} \sus{-k}\hofib(\rWd(r)\to \rW(r)) \lra \susp{-k}\rWd(r).
 \]
-This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$. In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$. If $k$ is odd, let $\varphi_k\colon \Wst(r)\to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
+This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$. In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$. If $k$ is odd, let $\varphi_k \colon  \Wst(r)\to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
 
-Define the chain map $\varphi\colon \Wst(r)\to \rWd(r)\hotimes \rucadenas$ as
+Define the chain map $\varphi \colon  \Wst(r)\to \rWd(r)\hotimes \rucadenas$ as
 \[
-	\varphi(e_q\otimes x) = \varphi_{-n(r-1)}(e_{q})\otimes \vec{x}
+	\varphi(e_q \ot  x) = \varphi_{-n(r-1)}(e_{q}) \ot  \vec{x}
 \]
-if $x$ has degree $n$. This is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i]\otimes \ucadenas[n]$. As a consequence,
+if $x$ has degree $n$. This is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot  \ucadenas[n]$. As a consequence,
 
 
 
 \begin{proposition}
 	If $r$ is prime, a connected $r$-cyclic comultiplication induces operations indexed by the integers
 	\begin{align*}
-		\power^{i}\colon H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
+		\power^{i} \colon  H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(y\otimes \overset{r}{\ldots}\otimes y)(\mu(e_{ri}^\vee\otimes a))
+	y(a) = \frac{1}{(\tilde{r}!)^n}(y \ot  \overset{r}{\ldots} \ot  y)(\mu(e_{ri}^\vee \ot  a))
 	\]
 	These operations satisfy the following equation
 	\begin{itemize}

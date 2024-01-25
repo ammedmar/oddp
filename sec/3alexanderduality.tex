@@ -22,7 +22,7 @@ Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right su
 \end{definition}
 
 \begin{definition}\label{d:join_product}
-	For any $[n] \in \ob\asimplex$ the \textit{join product} $\ast \colon \chains(\asimplex^{n})^{\ot 2} \to \chains(\asimplex^{n})$ is the linear map defined by sending a basis element $[v_0, \dots, v_{p-1}] \ot [v_{p},\dots,v_{m-1}]$ to $(-1)^{\sign{\perm}}[v_{\perm(0)}, \dots, v_{\perm(m-1)}]$	if $v_i \neq v_j$ for all $i \neq j$, where $\perm$ is the permutation ordering the vertices, and to $0$ otherwise.
+	For any $[n] \in \ob\asimplex$ the \textit{join product} $\ast  \colon  \chains(\asimplex^{n})^{\ot 2} \to \chains(\asimplex^{n})$ is the linear map defined by sending a basis element $[v_0, \dots, v_{p-1}] \ot [v_{p},\dots,v_{m-1}]$ to $(-1)^{\sign{\perm}}[v_{\perm(0)}, \dots, v_{\perm(m-1)}]$	if $v_i \neq v_j$ for all $i \neq j$, where $\perm$ is the permutation ordering the vertices, and to $0$ otherwise.
 \end{definition}
 
 \begin{notation}
@@ -46,7 +46,7 @@ Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right su
 \end{proof}
 This pairing thus induces an isomorphism
 \begin{equation}\label{eq:iso1}
-	\Lambda\colon \chains(\asimplex^n)\to \susp{n+1}\cochains(\asimplex^n)
+	\Lambda \colon  \chains(\asimplex^n)\to \susp{n+1}\cochains(\asimplex^n)
 \end{equation}
  that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
 

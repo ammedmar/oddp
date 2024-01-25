@@ -4,18 +4,18 @@
 
 Let $r$ be an odd prime and let $\tau\mapsto g(\tau)$ be a $r$-cyclic asymmetry with duality. Let $\chains(X)$ denote the right suspension of the normalized chain complex $\cadenas(X)$ of $X$. If $x$ is a cochain of dimension $m$ in the cochain complex of an augmented simplicial set $X$, then $\power^i([x]) = [y]$ with
 \[
-	y(\tau) = \frac{1}{(\tilde{r}!)^{m}}x^{\otimes r}(\mu(e_{ri}\hotimes \tau)).
+	y(\tau) = \frac{1}{(\tilde{r}!)^{m}}x^{ \ot  r}(\mu(e_{ri}\hotimes \tau)).
 \]
-The element $\mu(e_{q}\hotimes \sigma)\in \chains(X)^{\otimes r}$ is computed as follows: Let $\cP(r,q)$ be the collection of pairs $(U,A)$ such that
+The element $\mu(e_{q}\hotimes \sigma)\in \chains(X)^{ \ot  r}$ is computed as follows: Let $\cP(r,q)$ be the collection of pairs $(U,A)$ such that
 \renewcommand{\theenumi}{\roman{enumi}}%
 \begin{enumerate}
 	\item $U = (u_0,\ldots,u_{q-1})$ is a non-decreasing sequence with $u_j\in \{0,1,\ldots,n\}$,\anibal{Is $n$ a typo here?}
 	\item $A = (a_0,\ldots,a_{q-1})$ is a sequence with $a_i\in \{0,1,\ldots,r-1\}$, and
 	\item\label{condfor:3} $a_i<a_j$ if $u_i=u_j$.
 \end{enumerate}
-Each pair $(U,A)\in \cP(r,q)$ and each chain $\tau\in \chains(X)$ of dimension $n$ (and degree $n+1$) defines the following generator of $\chains(X)^{\otimes r}$:
+Each pair $(U,A)\in \cP(r,q)$ and each chain $\tau\in \chains(X)$ of dimension $n$ (and degree $n+1$) defines the following generator of $\chains(X)^{ \ot  r}$:
 \[
-	d_{U_A^{r-1}}(\tau)\otimes d_{U_A^{r-2}}(\tau)\otimes \ldots\otimes d_{U_A^{0}}(\tau)\in \chains(X)^{\otimes r}.
+	d_{U_A^{r-1}}(\tau) \ot  d_{U_A^{r-2}}(\tau) \ot  \ldots \ot  d_{U_A^{0}}(\tau)\in \chains(X)^{ \ot  r}.
 \]
 where $U_A^k = \{u_i\mid u_i + a_i \equiv k\mod r\}$ for each $j\in 0,1,\ldots,r-1$. We will now define recursively the coefficient $\nu_{U,A}$ of this generator. Let $A'$ be the sequence $\{a_i+u_i\mod r\mid i=0,\ldots,q-1\}$ and let $q_k$ be the amount of elements of $A'$ that are equal to $k$, so $q=\sum q_k$, and define
 \renewcommand{\theenumi}{\arabic{enumi}}%
@@ -178,7 +178,7 @@ The sign of the map $\alpha$ is the parity of
 \[
 	\sum_{k}\lambda((U_A^{k})^c,U_A^k) + (n+1)\sum_k q_k + (n+1)\sum_kk(r-1-q_k),
 \]
-where the first term is the sign of $\Lambda$, the second is the sign of the functor tensor product and the third is the sign of the reordering of the tensor factors. Notice that we have to reorder $(U^{r-1}_A\otimes \ldots U^0_A)\otimes \tau\otimes\ldots\otimes \tau$, hence the sign is $\sum_k(r-1-q_k)$ instead of $\sum_k q_k$. By Remark \ref{remark:alex}, we can write these signs as:
+where the first term is the sign of $\Lambda$, the second is the sign of the functor tensor product and the third is the sign of the reordering of the tensor factors. Notice that we have to reorder $(U^{r-1}_A \ot  \ldots U^0_A) \ot  \tau \ot \ldots \ot  \tau$, hence the sign is $\sum_k(r-1-q_k)$ instead of $\sum_k q_k$. By Remark \ref{remark:alex}, we can write these signs as:
 \begin{align}
 \label{signo:lambda}	\lambda((U_A^k)^c,U^k_A) &\equiv \sum_i u_i + \sum_k(n+1-q_k)q_k + \binom{q_k}{2}
 \\
@@ -193,13 +193,13 @@ For the map $f$, we have first the sign of turning the right suspension into lef
 
 To check this last statement it suffices to check that
 \begin{align*}
-	f([0]\otimes [1,2]) &= [0]
+	f([0] \ot  [1,2]) &= [0]
 	&
-	f([0,1]\otimes [2,0]) &= [0,1]
+	f([0,1] \ot  [2,0]) &= [0,1]
 	\\
-		f([0,1]\otimes [2]) &= [0]
+		f([0,1] \ot  [2]) &= [0]
 	&
-	f([0,1]\otimes [2,1]) &= 0
+	f([0,1] \ot  [2,1]) &= 0
 \end{align*}
 since all the other cases are permutations of these three.
 
