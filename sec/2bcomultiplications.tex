@@ -1,7 +1,7 @@
 % !TEX root = ../oddp.tex
 \section{Cyclic comultiplications and power operations} \label{s:2bcomultiplications}
 
-Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\ldots,r-1\}$ via $i\mapsto \rho^i$. The symmetric group on $\{0,1,\ldots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$. The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$. The definitions of Section \ref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st} \alert{Do we need to impose that the complexes $\ucadenas$ in this section are bounded below or even non-negatively graded?}
+Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\ldots,r-1\}$ via $i\mapsto \rho^i$. The symmetric group on $\{0,1,\ldots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$. The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$. The definitions of Section \ref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st}. Chain complexes in this section are assumed to be non-negatively graded.
 
 \subsection{Unstable comultiplications}\label{s:unstable}
 
@@ -22,7 +22,7 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 \begin{definition}
 	An \emph{($r$-cyclic) May structure} on a chain complex $(\ucadenas,\partial)$ is an unstable comultiplication together with
 	\begin{itemize}
-		\item An associative comultiplication such that $\mu(e_0\otimes x)$ is the $r$-fold comultiplication,
+		\item A homotopy associative comultiplication such that $\mu(e_0\otimes x)$ is homotopic to the $r$-fold comultiplication,
 		\item a factorization 
 	\[
 		\mu\colon \W(r)\otimes \ucadenas\lra V_*(r)\otimes \W(r)\lra  \ucadenas^{\otimes r}
@@ -108,7 +108,7 @@ where the first map is of the form $f\otimes \id$ with $f$ equivariant with resp
 Every unstable comultiplication yields a stable comultiplication by precomposing $\mu$ with the projection $\Wst(r)\to \W(r)$. A stable comultiplication comes from an unstable comultiplication if it vanishes on $\Wst[i](r)\otimes \ucadenas$ for $i<0$.
 
 \begin{proposition}
-	If $r$ is prime, a stable $r$-cyclic comultiplication $\mu$ on a bounded below chain complex $\ucadenas$ induces operations indexed by the integers
+	If $r$ is prime, a stable $r$-cyclic comultiplication $\mu$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
 		\power^{i}\colon H_{-n}(\ucocadenas;\mathbb{F}_r)&\lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}

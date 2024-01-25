@@ -86,9 +86,11 @@ then the chain maps
 
 \subsection{Categories}\label{s:categories}
 
-Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ be a category with finite coproducts endowed with the following structure:
+Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ be a monoidal category %with finite coproducts 
+endowed with the following structure:
 \begin{itemize}
-	\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $\otimes$ that distributes over the coproduct $\amalg$ and a natural endomorphism of the $r$-fold tensor product
+	%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $\otimes$ that distributes over the coproduct $\amalg$ and 
+    \item a natural transformation between $r$-fold tensor products
 	\[
 	\rho\colon Y_1\otimes  \overset{r}{\ldots}\otimes Y_r\lra Y_r\otimes Y_1\otimes Y_2\otimes \ldots \otimes Y_{r-1}
 	\]
@@ -98,9 +100,11 @@ Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ b
 	\Delta\colon Y\lra Y\otimes \overset{r}{\ldots}\otimes Y
 	\]
 	such that $\rho\circ \Delta = \Delta$.
-	\item a \emph{cyclic linearization functor}, i.e., a coproduct preserving monoidal functor
+	\item a \emph{cyclic linearization functor}, i.e., a %coproduct preserving
+    strong monoidal functor
 	\[
-	\abel\colon (\cC,\amalg,\otimes)\lra (\Mod{R},\oplus,\otimes)
+	%\abel\colon (\cC,\amalg,\otimes)\lra (\Mod{R},\oplus,\otimes)
+    \abel\colon (\cC,\otimes)\lra (\Mod{R},\otimes)
 	\]
 	such that the following diagram commutes
 	\[

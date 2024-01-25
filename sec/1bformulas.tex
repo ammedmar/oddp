@@ -20,13 +20,13 @@ Each pair $(U,A)\in \cP(r,q)$ and each chain $\tau\in \chains(X)$ of dimension $
 where $U_A^k = \{u_i\mid u_i + a_i \equiv k\mod r\}$ for each $j\in 0,1,\ldots,r-1$. We will now define recursively the coefficient $\nu_{U,A}$ of this generator. Let $A'$ be the sequence $\{a_i+u_i\mod r\mid i=0,\ldots,q-1\}$ and let $q_k$ be the amount of elements of $A'$ that are equal to $k$, so $q=\sum q_k$, and define
 \renewcommand{\theenumi}{\arabic{enumi}}%
 \begin{enumerate}
-	\item $ \signo_0 = nq$
+    \item $\signo_0 = nq$,
 	\item $ \signo_1 = \sum_k\binom{q_k}{2}$,
 	\item $ \signo_2$ is the sum of all entries of $U$
 	\item $ \signo_3$ is $(n+1)$ times the sum of all the entries of $A'$,
 	\item $ \signo_4$ is the parity of the permutation that orders $A'$.
 \end{enumerate}
-Define $\signo =\signo_0+\signo_1+\signo_2+\signo_3 + \signo_4$. If there is a subsequence $u_j = u_{j+1} = \ldots = u_{j+r-1}$ of length at least $r$, then $\nu_{U,A}=0$, otherwise:
+Define $\signo =\signo_0+\signo_1+\signo_2+\signo_3+\signo_4$. If there is a subsequence $u_j = u_{j+1} = \ldots = u_{j+r-1}$ of length at least $r$, then $\nu_{U,A}=0$, otherwise:
 \begin{itemize}
 	\item If $q<r$, let $A' = (a'_0,\ldots,a'_{q-1})$ be the result of ordering $A$ with $\signot$ the parity of that permutation. 
 	\begin{itemize}
@@ -122,11 +122,12 @@ The coefficient of $(U,A)$ as $(-1)^{\signo}\nu_{U,A}$.
 \begin{example}
 	If $r=5$, $X= \asimplex^2$, $U = (0,1,1,1,2,2,2), A = (1,2,3,0,1,3,4)$ and $\tau = [0,1,2]$ , we have:
 	\begin{align*}
-		\signo_0 &\equiv 0
+	\signo_0 = 1	
+  \signo_0 &\equiv 0
 		&
-		\signo_1 &\equiv 0
+		\signo_1 %&\equiv 0
 		&
-		\signo_2 &\equiv 1
+		\signo_2 \equiv 1
 		&
 		\signo_3 &\equiv 1
 		&
@@ -175,11 +176,11 @@ If that is the case, define $\signo$ as in the previous section and let $\signot
 
 The sign of the map $\alpha$ is the parity of 
 \[
-	\lambda(U^c,U) + (n+1)\sum_k q_k + (n+1)\sum_kk(r-1-q_k),
+	\sum_{k}\lambda((U_A^{k})^c,U_A^k) + (n+1)\sum_k q_k + (n+1)\sum_kk(r-1-q_k),
 \]
 where the first term is the sign of $\Lambda$, the second is the sign of the functor tensor product and the third is the sign of the reordering of the tensor factors. Notice that we have to reorder $(U^{r-1}_A\otimes \ldots U^0_A)\otimes \tau\otimes\ldots\otimes \tau$, hence the sign is $\sum_k(r-1-q_k)$ instead of $\sum_k q_k$. By Remark \ref{remark:alex}, we can write these signs as:
 \begin{align}
-\label{signo:lambda}	\lambda(U^c,U) &\equiv \sum_i u_i + \sum_k(n+1-q_k)q_k + \binom{q_k}{2}
+\label{signo:lambda}	\lambda((U_A^k)^c,U^k_A) &\equiv \sum_i u_i + \sum_k(n+1-q_k)q_k + \binom{q_k}{2}
 \\
 \label{signo:prod} (n+1)q
 \\
