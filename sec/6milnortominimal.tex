@@ -16,7 +16,7 @@ S(a_0,\ldots,a_k) = \begin{cases}
 where $\pi$ is the permutation that orders $(a_{k-r+1},\ldots,a_{k})$. The image of $e_{-q}^{\vee}$ is the sum of all words $A = (a_0,\ldots,a_{q-1})\in \cochains[-q] \EC_r$ such that
 \begin{itemize}
 \item none of the subwords of the form $(a_{q-1-\ell(r-1)},a_{q-1-(\ell-1)(r-1))}$ of length $r$ contains repeated elements,
-\item the only subword of the form $(a_0,\ldots,a_{q-1-\ell(r-1)})$ of length smaller than $r$ becomes, after having been ordered, an increasing sequence that alternates even and odd entries different from $r-1$, starting with an even entry. 
+\item the only subword of the form $(a_0,\ldots,a_{q-1-\ell(r-1)})$ of length smaller than $r$ becomes, after having been ordered, an increasing sequence that alternates even and odd entries different from $r-1$, starting with an even entry.
 \end{itemize}
 each word has the sign needed to order each of the subwords mentioned above, and the coefficient $\frac{\varphi(m)!}{(\tilde{r}!)^j}$ where $m$ is the length of the last of the subwords mentioned, and $j$ is the total number of subwords and $\varphi(m) = \lfloor\frac{r-m-1}{2}\rfloor$.
 \begin{example} If $r=3$,
@@ -31,9 +31,9 @@ each word has the sign needed to order each of the subwords mentioned above, and
 \end{align*}
 if $r= 5$,
 \begin{align*}
-	\Psi^\vee(e^\vee_{-1}) &= \frac{1}{2}\left((0) + (2)\right) 
+	\Psi^\vee(e^\vee_{-1}) &= \frac{1}{2}\left((0) + (2)\right)
 	\\
-	\Psi^\vee(e^\vee_{-2}) &= \frac{1}{2}\left((0,1) - (1,0) + (0,3) - (3,0) + (2,3) + (3,2)\right) 
+	\Psi^\vee(e^\vee_{-2}) &= \frac{1}{2}\left((0,1) - (1,0) + (0,3) - (3,0) + (2,3) + (3,2)\right)
 	\\
 	\Psi^\vee(e^\vee_{-3}) &= \frac{1}{2}\left((0,1,2) -(0,2,1) + (1,2,0) - (1,0,2) + (2,0,1) - (2,1,0)\right)
 \end{align*}
@@ -44,11 +44,11 @@ This map is different from the one obtained in \cite[Prop.~6.16]{brumfiel2023exp
 
 
 %With this latter description, the homomorphism is well-defined for any odd $r$.
-\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Omega_*(r)^{\nf}$ is isomorphic to the unnormalised chain complex of $\EC_2$, while $\rW(r)$ is isomorphic to the normalised chain complex of $\EC_2$. The quotient map $\uchains(\EC_2)\to \chains(\EC_2)$ induces therefore a map
+\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Omega_*(r)^{\nf}$ is isomorphic to the unnormalized chain complex of $\EC_2$, while $\rW(r)$ is isomorphic to the normalized chain complex of $\EC_2$. The quotient map $\uchains(\EC_2)\to \chains(\EC_2)$ induces therefore a map
 \[
 \Omega_*(r)^{\nf}\to \rW(r)
 \]
 that satisfies the conditions of Lemma \ref{lemma:omegar}.
 \begin{remark}
-	The combinatorics in pages 13 and 14 of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalised chains to the normalised chains is well-defined, i.e., to the fact that the degenerate simplices form a subcomplex of the unnormalised chain complex.
+	The combinatorics in pages 13 and 14 of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalized chains to the normalized chains is well-defined, i.e., to the fact that the degenerate simplices form a subcomplex of the unnormalized chain complex.
 \end{remark}

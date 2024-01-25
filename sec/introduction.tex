@@ -25,11 +25,9 @@ In this article we refer to this structure as an \emph{$r$-cyclic May structure}
 	\power^i\colon H^*(\ucocadenas;\bF_r)&\lra H^{*+i}(\ucocadenas;\bF_r), & i\in \bZ
 \end{align*}
 and the second property assures that they vanish unless $i = 2k(r-1), 2k(r-1)+1$ if $r$ is odd.
-\anibal{Notice that up to this point both $C$ and $C_*$ have been used. I would prefer $C$ as we once discuss but I am happy with either consistent choice.}
-\federico{Fixed. At this point I use a convention as standard as possible, since it is the introduction. In the rest of the paper I use the convention that a chain complex is denoted $C_*$ and its dual $C_*^\dd$ and is negatively graded, as you suggested. I prefer to keep the lower star because it is a symbol that tells the reader immediately that something is a chain complex}
 These operations always satisfy:
 \begin{itemize}
-	\item[(iii)] If $x\in H^*(C^*)$ \anibal{is this a typo? I am not clear yet with your notational conventions.}\federico{Up to here I have not set notational conventions, and I try to use the traditional ones. With the conventions of later in the paper this should be called $H(\ucocadenas)$} has even degree $m$, then $\power^{m(r-1)}(x)$ is the $r$-fold power of the multiplication of $x$ with itself and all higher power operations of $x$ vanish.
+	\item[(iii)] If $x\in H^*(C_*^\dd)$ has even degree $m$, then $\power^{m(r-1)}(x)$ is the $r$-fold power of the multiplication of $x$ with itself and all higher power operations of $x$ vanish.
 \end{itemize}
 Often they also satisfy:
 \begin{enumerate}
@@ -77,9 +75,8 @@ Third, the formula for a power operation $\power^i([x])$ of an unstable comultip
 \end{question}
 %We assume that $r$ is prime from Section \ref{s:assembly} on, and we assume that $r$ is odd from Section \ref{s:mainresult} on.
 \begin{question}
-	Which constructions in this paper can be generalized to composite or even numbers? ($r$ is assumed to be odd from Section \ref{s:mainresult} on, and is assumed to be prime from Section \ref{s:assembly} on)\anibal{These seems like a randomly placed comment.}\federico{Is it better to place it here?}
+	Which constructions in this paper can be generalized to composite or even numbers? ($r$ is assumed to be odd from Section \ref{s:mainresult} on, and is assumed to be prime from Section \ref{s:assembly} on)
 \end{question}
-\anibal{Are these questions for me or left in the paper?}\federico{left in the paper}
 %The main example of a category $\cC$ satisfying the hypotheses are the category of sets, the category of pointed sets. If $\cC$ has a cyclic diagonal for $r= 2$, then simplicial objects in $\cC$ have natural diagonal maps that induce an associative product in cohomology. With some effort we will prove that
 
 %\begin{theorem}
@@ -106,4 +103,4 @@ Third, the formula for a power operation $\power^i([x])$ of an unstable comultip
 
 \subsection{Outline} In Section \ref{s:preliminaries} we set some sign conventions for chain complexes and the conventions for simplicial objects. The notion of connected comultiplication is presented in \cref{s:2bcomultiplications}. The construction of the connected comultiplication for augmented semi-simplicial objects of Theorem \ref{thm:main} has three main ingredients.
 First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{\otimes r}$. Afterwards, a criterion to build a connected comultiplication is given.
-Second, an explicit $\Cyc_r$-equivariant chain map $\Omega^*(r)^{\nf}\to W_*(r)$ between two resolutions of $\Cyc_r$ that fulfills the hypotheses of the criterion. This map is constructed in \cref{s:resolutions} up to the definition of certain map $f$. Third, the construction of this latter map $f$ is pursued using the barycentric and the pair subdivision of the simplex in Section \ref{section:atlast}. In \cref{s:suspension} we show that these operations behave well with respect to suspensions. In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected comultiplications in the chain complex of a Kan spectrum. Finally, in Section \ref{s:formulas} we give an algorithmic presentation of the formulas. These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bcomultiplications}. 
+Second, an explicit $\Cyc_r$-equivariant chain map $\Omega^*(r)^{\nf}\to W_*(r)$ between two resolutions of $\Cyc_r$ that fulfills the hypotheses of the criterion. This map is constructed in \cref{s:resolutions} up to the definition of certain map $f$. Third, the construction of this latter map $f$ is pursued using the barycentric and the pair subdivision of the simplex in Section \ref{section:atlast}. In \cref{s:suspension} we show that these operations behave well with respect to suspensions. In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected comultiplications in the chain complex of a Kan spectrum. Finally, in Section \ref{s:formulas} we give an algorithmic presentation of the formulas. These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bcomultiplications}.

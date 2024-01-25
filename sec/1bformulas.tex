@@ -1,22 +1,22 @@
 % !TEX root = ../oddp.tex
 
-\section{Explicit formulae}\label{s:formulas} 
+\section{Explicit formulae}\label{s:formulas}
 
-Let $r$ be an odd prime and let $\tau\mapsto g(\tau)$ be the $r$-cyclic asymmetry with duality. Let $\chains(X)$ denote the right suspension of the normalised chain complex $\cadenas(X)$ of $X$. If $x$ is a cochain of dimension $m$ in the cochain complex of an augmented simplicial set $X$, then $\power^i([x]) = [y]$ with
-\[	
+Let $r$ be an odd prime and let $\tau\mapsto g(\tau)$ be a $r$-cyclic asymmetry with duality. Let $\chains(X)$ denote the right suspension of the normalized chain complex $\cadenas(X)$ of $X$. If $x$ is a cochain of dimension $m$ in the cochain complex of an augmented simplicial set $X$, then $\power^i([x]) = [y]$ with
+\[
 	y(\tau) = \frac{1}{(\tilde{r}!)^{m}}x^{\otimes r}(\mu(e_{ri}\hotimes \tau)).
 \]
-The element $\mu(e_{q}\hotimes \sigma)\in \chains(X)^{\otimes r}$ is computed as follows: Let $\cP(r,q)$ be the collection of pairs $(U,A)$ such that 
+The element $\mu(e_{q}\hotimes \sigma)\in \chains(X)^{\otimes r}$ is computed as follows: Let $\cP(r,q)$ be the collection of pairs $(U,A)$ such that
 \renewcommand{\theenumi}{\roman{enumi}}%
 \begin{enumerate}
-	\item $U = (u_0,\ldots,u_{q-1})$ is a non-decreasing sequence with $u_j\in \{0,1,\ldots,n\}$,
+	\item $U = (u_0,\ldots,u_{q-1})$ is a non-decreasing sequence with $u_j\in \{0,1,\ldots,n\}$,\anibal{Is $n$ a typo here?}
 	\item $A = (a_0,\ldots,a_{q-1})$ is a sequence with $a_i\in \{0,1,\ldots,r-1\}$, and
 	\item\label{condfor:3} $a_i<a_j$ if $u_i=u_j$.
-\end{enumerate} 
+\end{enumerate}
 Each pair $(U,A)\in \cP(r,q)$ and each chain $\tau\in \chains(X)$ of dimension $n$ (and degree $n+1$) defines the following generator of $\chains(X)^{\otimes r}$:
 \[
 	d_{U_A^{r-1}}(\tau)\otimes d_{U_A^{r-2}}(\tau)\otimes \ldots\otimes d_{U_A^{0}}(\tau)\in \chains(X)^{\otimes r}.
-\] 
+\]
 where $U_A^k = \{u_i\mid u_i + a_i \equiv k\mod r\}$ for each $j\in 0,1,\ldots,r-1$. We will now define recursively the coefficient $\nu_{U,A}$ of this generator. Let $A'$ be the sequence $\{a_i+u_i\mod r\mid i=0,\ldots,q-1\}$ and let $q_k$ be the amount of elements of $A'$ that are equal to $k$, so $q=\sum q_k$, and define
 \renewcommand{\theenumi}{\arabic{enumi}}%
 \begin{enumerate}
@@ -28,9 +28,9 @@ where $U_A^k = \{u_i\mid u_i + a_i \equiv k\mod r\}$ for each $j\in 0,1,\ldots,r
 \end{enumerate}
 Define $\signo =\signo_0+\signo_1+\signo_2+\signo_3+\signo_4$. If there is a subsequence $u_j = u_{j+1} = \ldots = u_{j+r-1}$ of length at least $r$, then $\nu_{U,A}=0$, otherwise:
 \begin{itemize}
-	\item If $q<r$, let $A' = (a'_0,\ldots,a'_{q-1})$ be the result of ordering $A$ with $\signot$ the parity of that permutation. 
+	\item If $q<r$, let $A' = (a'_0,\ldots,a'_{q-1})$ be the result of ordering $A$ with $\signot$ the parity of that permutation.
 	\begin{itemize}
-		\item[$\bullet$] If $a_{2j}'$ is even and different from $r-1$ and $a_{2j+1}'$ is odd, then define $\nu_{U,A} = (-1)^{\signot}\varphi(q)!(\varphi(0)!)^n$, where $\varphi(q) = \lfloor \frac{r-1-q}{2}\rfloor$. 
+		\item[$\bullet$] If $a_{2j}'$ is even and different from $r-1$ and $a_{2j+1}'$ is odd, then define $\nu_{U,A} = (-1)^{\signot}\varphi(q)!(\varphi(0)!)^n$, where $\varphi(q) = \lfloor \frac{r-1-q}{2}\rfloor$.
 		\item[$\bullet$] Otherwise, $\nu_{U,A}=0$.
 	\end{itemize}
 \item  If $q\geq r$, let $\ell$ be the biggest number smaller than $r$ such that $u_{q-\ell-1}<u_{q-\ell}$.  Let $k$ be such that $u_{q-k-1}<u_{q-k} = u_{q-\ell-1}$. Define
@@ -41,7 +41,7 @@ z &= (a_{q-k},\ldots,a_{q-\ell-1})
 \end{align*}
 \begin{itemize}
 	\item[$\bullet$] If $\{0,1,\ldots,r-1\}\not\subset w\cup z$, then $\nu_{U,A} = 0$.
-	\item[$\bullet$] Otherwise, define 
+	\item[$\bullet$] Otherwise, define
 \begin{itemize}
 	\item $x = (x_0,\ldots,x_{r-\ell-1})$, the ordered complement of $w$ in the set $\{0, \ldots ,r-1\}$,
 	\item	$y = (y_0,\ldots,y_{k-r-1})$, the ordered complement of $x$ in $z$,
@@ -49,7 +49,7 @@ z &= (a_{q-k},\ldots,a_{q-\ell-1})
 	\item $\signot_1$ the parity of the permutation that reorders $x\cup y$ to $z$.
 	\item $\signot_2=(|x|-1)|y|$.
 \end{itemize}
-and for each permutation $\pi$ of the entries of $y$, let $\signot_3$ be its parity and define the sequence 
+and for each permutation $\pi$ of the entries of $y$, let $\signot_3$ be its parity and define the sequence
 \[
 \quad\quad \omega_\pi = (g(x),g(x\cup y_{\pi(0)}), g(x \cup y_{\pi(1)}\cup y_{\pi(1)}), \ldots, g(x\cup y)).
 \]
@@ -122,7 +122,7 @@ The coefficient of $(U,A)$ as $(-1)^{\signo}\nu_{U,A}$.
 \begin{example}
 	If $r=5$, $X= \asimplex^2$, $U = (0,1,1,1,2,2,2), A = (1,2,3,0,1,3,4)$ and $\tau = [0,1,2]$ , we have:
 	\begin{align*}
-	\signo_0 = 1	
+	\signo_0 = 1
   \signo_0 &\equiv 0
 		&
 		\signo_1 %&\equiv 0
@@ -165,7 +165,7 @@ Define the \emph{regular blocks} of $A$ as the subsequences $(a_{q-2k-1},a_{q-2k
 	\item if a block $(a_{q-2k-1},a_{q-2k},a_{q-2k+1})$ is descending, then $u_{q-2k-1}<a_{q-2k}<a_{q-2k+1}$,
 	\item if a block $(a_{q-2k-1},a_{q-2k},a_{q-2k+1})$ is ascending, then $u_{q-2k-1}\neq a_{q-2k}$ or $a_{q-2k}\neq a_{q-2k+1}$,
 	\item The exceptional block is either of the following: $(0),(0,1),(1,0)$.
-\end{enumerate} 
+\end{enumerate}
 If that is the case, define $\signo$ as in the previous section and let $\signot$ be the number of descending blocks. Then the coefficient of $(U,A)$ is $\nu_{U,A} = (-1)^{\signo+\signot}$.
 
 \begin{example}
@@ -174,7 +174,7 @@ If that is the case, define $\signo$ as in the previous section and let $\signot
 
 \subsection{Explanation of the formulas for any prime number \texorpdfstring{$r$}{r}} Here we justify the formulas of this section using the main theorem of the paper. A complete read of the paper is necessary to follow this section. Let $\tau\in \chains(X)$ be a chain of dimension $n$ (hence degree $n+1$). Let $(U,A)$ be a generator of $\chains(\asimplex^n\times \EC_r)$, and let $(U',A') = \beta(U,A)$, let $q_k$ be the number of elements of $A'$ that equal $k$ and let $q = \sum_{k}q_k$ the degree of $(U,A)$.
 
-The sign of the map $\alpha$ is the parity of 
+The sign of the map $\alpha$ is the parity of
 \[
 	\sum_{k}\lambda((U_A^{k})^c,U_A^k) + (n+1)\sum_k q_k + (n+1)\sum_kk(r-1-q_k),
 \]
@@ -189,7 +189,7 @@ where the first term is the sign of $\Lambda$, the second is the sign of the fun
 The sign of the map $\beta$ is the sign that orders $A'  = \{a_i+u_i\mid i=0,\ldots,q-1\}$. The map $\gamma$ does not have sign and the map $\lambda$ has the sign $(n+1)q$. After the natural cancellations, we obtain $\signo$.
 
 For the map $f$, we have first the sign of turning the right suspension into left suspension $(-1)^{(|w|+|z|)r}$, which can be written as $(-1)^{|y|+1}$. Then, the sign of $\twist$ is the parity of $(r-|x|)(|x|+|y|) \equiv \signot_2$, the sign of $\Lambda$ is $\signot_0$ and the sign of $s_*^{\Psd}$ is the parity $\signot_0$ of the permutation that arranges $x\cup y$ to $z$ plus $|y|+1$. Altogether yield $\signot_0+\signot_1+\signot_2$. For the map $\Phi$ we follow Remark \ref{remark:phidual}.
-\subsection{Explanation of the formulas for \texorpdfstring{$r=3$}{r = 3}} A pieced word $A = (A_0\barra\ldots\barra A_j)$ admits many underlying words $(a_0,\ldots,a_{q-1})$, because the entries of each piece may be permuted. The formulas for $r=3$ follow from the following observation: each pieced word $A$ has a preferred underlying word $A = (a_0,\ldots,a_{q-1})$ obtained by ordering each piece of size two so that the second element is the cyclic succesor of the first one. Moreover, with this choice we have that the preferred underlying word of $S(A_0\barra\ldots\barra A_{j})$ is always the result of removing the last two elements from $A$, with positive sign unless the last block is descending (this implies that the last two pieces must be singletons). 
+\subsection{Explanation of the formulas for \texorpdfstring{$r=3$}{r = 3}} A pieced word $A = (A_0\barra\ldots\barra A_j)$ admits many underlying words $(a_0,\ldots,a_{q-1})$, because the entries of each piece may be permuted. The formulas for $r=3$ follow from the following observation: each pieced word $A$ has a preferred underlying word $A = (a_0,\ldots,a_{q-1})$ obtained by ordering each piece of size two so that the second element is the cyclic succesor of the first one. Moreover, with this choice we have that the preferred underlying word of $S(A_0\barra\ldots\barra A_{j})$ is always the result of removing the last two elements from $A$, with positive sign unless the last block is descending (this implies that the last two pieces must be singletons).
 
 To check this last statement it suffices to check that
 \begin{align*}
@@ -201,7 +201,7 @@ To check this last statement it suffices to check that
 	&
 	f([0,1]\otimes [2,1]) &= 0
 \end{align*}
-since all the other cases are permutations of these three. 
+since all the other cases are permutations of these three.
 
 
 

@@ -13,13 +13,13 @@ We will denote the dual basis with the same letter as the original basis unless 
 	%(\delta^\dagger f)(\tau) &= (-1)^{|\tau|} f(\partial \tau) \\
 	%(\delta^\dagger f)(\tau) &= f(\partial \tau)
 \end{align*}
-\begin{convention} 
-	If $A$ and $B$ are chain complexes, their tensor product $A\otimes B$ has differential $\partial(a\otimes b) = \partial a\otimes b + (-1)^{|a|}a\otimes \partial b$. 
+\begin{convention}
+	If $A$ and $B$ are chain complexes, their tensor product $A\otimes B$ has differential $\partial(a\otimes b) = \partial a\otimes b + (-1)^{|a|}a\otimes \partial b$.
 \end{convention}
 	There is an isomorphism $A^\dd\otimes B^\dd\to (B\otimes A)^{\dd}$ that sends $f\otimes g$ to $h$ where $h(b\otimes a) = g(b)\cdot f(a)$. There are two suspension functors that we denote by $\sus{}$ (right suspension) and $\susp{}$ (left suspension), defined on a chain complex $(\ucadenas,\partial)$ as
 \begin{align*}
 	\sus{} \ucadenas[i] &= \ucadenas[i-1] & \susp{} \ucadenas[i] &= \ucadenas[i-1] \\
-	\sus{} \partial_i &= \partial_{i-1} & \susp{} \partial_i &= -\partial_{i-1}, 
+	\sus{} \partial_i &= \partial_{i-1} & \susp{} \partial_i &= -\partial_{i-1},
 \end{align*}
 and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$. If $R[1]$ denotes the chain complex that consists of a single copy of $R$ in degree $k$, then there are isomorphisms
 \begin{align*}
@@ -28,7 +28,7 @@ and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$. If 
 that send $a$ to $a\otimes 1$ and to $1\otimes a$ respectively. As a consequence, there is an isomorphism
 \begin{align*}
 (\sus{}\ucadenas )^\dd &\cong \susp{-1}\ucocadenas
-\end{align*} 
+\end{align*}
 that sends a cochain $f$ to the cochain $\susp{}f$ defined as $(\susp{}f)(a) = f(\sus{}a)$.
 Each notion of suspension yields a notion of chain map $A\to B$ of degree $k$: It may be a graded homomorphism $A\to B$ of degree $k$ that commutes with the differential (i.e., a chain map $A\to \sus{-k} B$), or a graded homomorphism $A\to B$ of degree $k$ that commutes with the differential if $k$ is even and anticommutes with the differential if $k$ is odd (i.e., a chain map $A\to \susp{-k}B$). We will mostly work with the second notion, but keep in mind that dualising interchanges both notions. One can switch between them using the isomorphism
 \[
@@ -36,16 +36,16 @@ Each notion of suspension yields a notion of chain map $A\to B$ of degree $k$: I
 \]
 that sends $x$ to $(-1)^{k|x|}x$. It is therefore advisable to write a map $f\colon A\to B$ of degree $k$ with the first notion as $f\colon \sus{k}A\to B$ or $f\colon A\to \sus{-k}B$ and with the second notion as $f\colon \susp{k}A\to B$ or $f\colon A\to \susp{-k}B$.
 
-\subsubsection{Tensor products of chain maps with the right suspension} Given chain maps $f\colon A\to \sus{-|f|}C$ and $g\colon B\to \sus{-|g|}D$, the chain map 
+\subsubsection{Tensor products of chain maps with the right suspension} Given chain maps $f\colon A\to \sus{-|f|}C$ and $g\colon B\to \sus{-|g|}D$, the chain map
 \[
 	f\otimes g\colon A\otimes B\to \sus{-|f|-|g|}C\otimes D
 \]
-is defined as $(f\otimes g)(a\otimes b) = (-1)^{|f||b|} f(a)\otimes g(b)$. Given chain maps 
+is defined as $(f\otimes g)(a\otimes b) = (-1)^{|f||b|} f(a)\otimes g(b)$. Given chain maps
 \begin{align*}
 	A & \overset{f_1}{\lra} \sus{-|f_1|} C \overset{f_2}{\lra} \sus{-|f_1|-|f_2|} E \\
 	B & \overset{g_1}{\lra} \sus{-|g_1|} D \overset{g_2}{\lra} \sus{-|g_1|-|g_2|} F \\
 \end{align*}
-then the chain maps 
+then the chain maps
 \begin{align*}
 (f_2\circ f_1)\otimes (g_2\circ g_1)\colon &A\otimes B\lra \sus{-|f_1|-|f_2|-|g_1|-|g_2|}E\otimes F
 \\
@@ -56,16 +56,16 @@ then the chain maps
 	(f_2\circ f_1)\otimes (g_2\circ g_1) &= (-1)^{|f_2||g_1|}(f_2\otimes g_2)\circ (f_1\otimes g_1)
 \end{align*}
 
-\subsubsection{Tensor products of chain maps with the left suspension} Given chain maps $f\colon A\to \susp{-|f|}C$ and $g\colon B\to \susp{-|g|}D$, the chain map 
+\subsubsection{Tensor products of chain maps with the left suspension} Given chain maps $f\colon A\to \susp{-|f|}C$ and $g\colon B\to \susp{-|g|}D$, the chain map
 \[
 	f\otimes g\colon A\otimes B\to \susp{-|f|-|g|}C\otimes D
 \]
-is defined as $(f\otimes g)(a\otimes b) = (-1)^{|g||a|} f(a)\otimes g(b)$. Given chain maps 
+is defined as $(f\otimes g)(a\otimes b) = (-1)^{|g||a|} f(a)\otimes g(b)$. Given chain maps
 \begin{align*}
 	A & \overset{f_1}{\lra} \susp{-|f_1|} C \overset{f_2}{\lra} \susp{-|f_1|-|f_2|} E \\
 	B & \overset{g_1}{\lra} \susp{-|g_1|} D \overset{g_2}{\lra} \susp{-|g_1|-|g_2|} F \\
 \end{align*}
-then the chain maps 
+then the chain maps
 \begin{align*}
 (f_2\circ f_1)\otimes (g_2\circ g_1)\colon &A\otimes B\lra \susp{-|f_1|-|f_2|-|g_1|-|g_2|}E\otimes F
 \\
@@ -76,7 +76,7 @@ then the chain maps
 	(f_2\circ f_1)\otimes (g_2\circ g_1) &= (-1)^{|f_1||g_2|}(f_2\otimes g_2)\circ (f_1\otimes g_1)
 \end{align*}
 \begin{notation}
-	We will often use an upright symbol (for example, $\uchains$) to denote a variation of a previously built chain complex $\ucadenas$. For example, in Section \ref{s:unstable} we will introduce a chain complex $\W(r)$ while in Section \ref{s:connected} we will introduce a variation $\rW(r)$: the right suspension of the augmented version of $\W(r)$. In Section \ref{s:simplices} we introduce the normalised chain complex $\cadenas(X)$ while in Section \ref{s:alexander} we introduce a variation $\chains(X)$: the right suspension of $\cadenas(X)$. 
+	We will often use an upright symbol (for example, $\uchains$) to denote a variation of a previously built chain complex $\ucadenas$. For example, in Section \ref{s:unstable} we will introduce a chain complex $\W(r)$ while in Section \ref{s:connected} we will introduce a variation $\rW(r)$: the right suspension of the augmented version of $\W(r)$. In Section \ref{s:simplices} we introduce the normalized chain complex $\cadenas(X)$ while in Section \ref{s:alexander} we introduce a variation $\chains(X)$: the right suspension of $\cadenas(X)$.
 \end{notation}
 
 %\begin{notation}
@@ -86,10 +86,10 @@ then the chain maps
 
 \subsection{Categories}\label{s:categories}
 
-Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ be a monoidal category %with finite coproducts 
+Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ be a monoidal category %with finite coproducts
 endowed with the following structure:
 \begin{itemize}
-	%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $\otimes$ that distributes over the coproduct $\amalg$ and 
+	%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $\otimes$ that distributes over the coproduct $\amalg$ and
     \item a natural transformation between $r$-fold tensor products
 	\[
 	\rho\colon Y_1\otimes  \overset{r}{\ldots}\otimes Y_r\lra Y_r\otimes Y_1\otimes Y_2\otimes \ldots \otimes Y_{r-1}
@@ -128,20 +128,20 @@ An injective map $f\colon [n]\to [m]$ is called a \emph{face map}, while a surje
 The category $\asimplex$ has a strict monoidal product called the \emph{join}, that sends a pair of ordinals $[n],[m]$ to the ordinal $[n+m+1]$ and a pair of functions $f\colon [n]\to [q]$, $g\colon [m]\to [p]$ to the function $f*g\colon [n+m+1]\to [q+p+1]$ defined as $f(x) = x$ if $x\leq  n$ and $f(x) = q+1+f(x-n)$ if $x\geq n$. The unit is the empty ordinal $[-1]$.
 
 \begin{definition}
-	An \emph{augmented simplicial object in $\cC$} is a functor $X\colon \asimplex^\mathrm{op}\to \cC$. 
-	%An \emph{augmented semi-simplicial object in $\cC$} is a functor $X\colon \asimplexinj^\mathrm{op}\to \cC$. 
-	An \emph{augmented cosimplicial object in $\cC$} is a functor $X\colon \asimplex\to \cC$. 
+	An \emph{augmented simplicial object in $\cC$} is a functor $X\colon \asimplex^\mathrm{op}\to \cC$.
+	%An \emph{augmented semi-simplicial object in $\cC$} is a functor $X\colon \asimplexinj^\mathrm{op}\to \cC$.
+	An \emph{augmented cosimplicial object in $\cC$} is a functor $X\colon \asimplex\to \cC$.
 	%An \emph{augmented cosemi-simplicial object in $\cC$} is a functor $X\colon \asimplexinj\to \cC$.
 \end{definition}
 
-If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $\d_U$ and $s_i$ respectively. If $X$ is an augmented cosimplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $d^U$ and $s^i$ respectively. 
+If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $\d_U$ and $s_i$ respectively. If $X$ is an augmented cosimplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $d^U$ and $s^i$ respectively.
 
 The inclusion $\simplex\subset \asimplex$ of the non-empty ordinals induces a restriction functor $\cC^{\asimplex^{\op}}\to \cC^{\simplex^{\op}}$ to the category of simplicial objects on $\cC$ that forgets $X_{-1}$. It has a left adjoint that sets $X_{-1}$ to be the colimit of $X$ and a right adjoint that sets $X_{-1}$ to be the terminal object of $\cC$.
 
-If $X$ is an augmented simplicial object, postcomposing with the linearization functor $\abel\colon \cC\to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$. 
+If $X$ is an augmented simplicial object, postcomposing with the linearization functor $\abel\colon \cC\to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$.
 %If we further quotient by the degeneracies, we obtain a semi-simplicial $R$-module $\abel(X)$
 
-Define the \emph{complex of unnormalised chains $\ucadenas(X;R)$ with coefficients in $R$} as
+Define the \emph{complex of unnormalized chains $\ucadenas(X;R)$ with coefficients in $R$} as
 \begin{align*}
 	\ucadenas[n](X;R) &= \abel(X)_n
 	&
@@ -149,7 +149,7 @@ Define the \emph{complex of unnormalised chains $\ucadenas(X;R)$ with coefficien
 \end{align*}
 
 
-If $X$ is an augmented simplicial object, the \emph{complex of normalised chains $\cadenas(X;R)$ with coefficients in $R$} is defined as
+If $X$ is an augmented simplicial object, the \emph{complex of normalized chains $\cadenas(X;R)$ with coefficients in $R$} is defined as
 \begin{align*}
 	\cadenas[n](X;R) &= L'(X)_n
 	&
@@ -161,14 +161,14 @@ where $L'(X)_n$ is obtained from $L(X)_n$ by quotienting the image of the degene
 \end{notation}
 
 \begin{notation}
-	A few times we will be working with normalised chain complexes of simplicial objects that they themselves are part of a cosimplicial or simpicial object. We will denote the ``internal'' face maps that are used to buid the differential as $\diff_i$ and the external face maps that yield the cosimplicial or simplicial structure as $\d_i$. 
+	A few times we will be working with normalized chain complexes of simplicial objects that they themselves are part of a cosimplicial or simpicial object. We will denote the ``internal'' face maps that are used to buid the differential as $\diff_i$ and the external face maps that yield the cosimplicial or simplicial structure as $\d_i$.
 \end{notation}
 
 
 
 
 
-The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m]\to \mathrm{Mor}_{\asimplex}([m],[n])$. The normalised chain complex $\cadenas(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U\colon [m]\to [n]$. The simplex indexed by $\d_U$ is denoted $[v_0,\ldots,v_{m}]$, where $\{v_0,\ldots,v_{m}\}\subset \{0,\ldots,n\}$ is the ordered image of $[m]$ by $\d_U$. As usual, if $\perm$ is a permutation of $0,\ldots,m$, then $[v_{\perm(0),\ldots,v_{\perm(m)}}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\ldots,v_m]$.
+The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m]\to \mathrm{Mor}_{\asimplex}([m],[n])$. The normalized chain complex $\cadenas(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U\colon [m]\to [n]$. The simplex indexed by $\d_U$ is denoted $[v_0,\ldots,v_{m}]$, where $\{v_0,\ldots,v_{m}\}\subset \{0,\ldots,n\}$ is the ordered image of $[m]$ by $\d_U$. As usual, if $\perm$ is a permutation of $0,\ldots,m$, then $[v_{\perm(0),\ldots,v_{\perm(m)}}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\ldots,v_m]$.
 
 %If $\cC$ has a zero object $*$ (for example, $\Setp$), define the left and the right suspensions of two semi-simplicial objects in $\cC$ as {\color{red}KAN SUSPENSIONS}
 %\begin{align*}
@@ -180,7 +180,7 @@ The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simp
 		%\ast & \text{if $i=n-1$}
 	%\end{cases}
 %\end{align*}
-%Taking normalised chains converts each of these suspensions into the left and right suspensions of chain complexes.
+%Taking normalized chains converts each of these suspensions into the left and right suspensions of chain complexes.
 %
 %The product $X\otimes Y$ of two simplicial objects $X,Y$ on $\cC$ is given by $(X\otimes Y)_n = X_n\otimes Y_n$ and $\d_i(\tau,\tau') = (\d_i\tau,\d_i\tau')$ and $s_i(\tau,\tau') = (s_i\tau,s_i\tau')$.
 

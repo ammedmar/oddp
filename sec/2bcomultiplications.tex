@@ -13,7 +13,7 @@ The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial 
 		T(e_{q-1}) & \text{if $q$ is odd,}
 	\end{cases}
 \end{align*}
-where $N = \sum_j \rho^j$ and $T = \rho - \Id$. 
+where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 
 \begin{definition} An \emph{unstable ($r$-cyclic) comultiplication} on a chain complex $(\ucadenas,\partial)$ is a $\Cyc_r$-equivariant chain map
 \[\mu\colon \W(r)\otimes \ucadenas\lra \ucadenas^{\otimes r}.\]
@@ -23,7 +23,7 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 	An \emph{($r$-cyclic) May structure} on a chain complex $(\ucadenas,\partial)$ is an unstable comultiplication together with
 	\begin{itemize}
 		\item A homotopy associative comultiplication such that $\mu(e_0\otimes x)$ is homotopic to the $r$-fold comultiplication,
-		\item a factorization 
+		\item a factorization
 	\[
 		\mu\colon \W(r)\otimes \ucadenas\lra V_*(r)\otimes \W(r)\lra  \ucadenas^{\otimes r}
 	\]
@@ -53,7 +53,7 @@ where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, the f
 	For the last claim, note that if $i>(r-1)n$, then $(r-1)n-i$ is negative, and therefore $\mu(e_{(r-1)n-i},a)$ vanishes.
 \end{proof}
 \begin{example}
-		The operations in \cite{steenrod1947products} yield a natural $2$-cyclic unstable comultiplication on the normalised chains of simplicial sets that is part of a May structure \cite{medina2021may_st} (see also \cite{gonzalez-diaz1999steenrod, medina2021fast_sq}). This extends to a natural $2$-cyclic connected stable comultiplication. A May structure for arbitrary $r$ is constructed in \cite{medina2021may_st} (see also \cite{brumfiel2023explicit}).
+		The operations in \cite{steenrod1947products} yield a natural $2$-cyclic unstable comultiplication on the normalized chains of simplicial sets that is part of a May structure \cite{medina2021may_st} (see also \cite{gonzalez-diaz1999steenrod, medina2021fast_sq}). This extends to a natural $2$-cyclic connected stable comultiplication. A May structure for arbitrary $r$ is constructed in \cite{medina2021may_st} (see also \cite{brumfiel2023explicit}).
 \end{example}
 
 
@@ -82,7 +82,7 @@ where $\theta_{k}\colon \W(r)\to \sus{-k} \W(r)$ is the \emph{suspension homomor
 \[
 	\Wst(r)\lra \W(r)\overset{N}{\lra} \Wd(r)
 \]
-where the second map is the norm map that sends $e_q$ to zero unless $q=0$, in which case it is sent to $N(e_0^\dd)$. Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fiber: in the homotopy fibre we have, for negative $i$, that $\partial(e_i) = -N(e_{i-1})$ or $T(e_{i-1})$ depending on whether $i$ is even or odd. 
+where the second map is the norm map that sends $e_q$ to zero unless $q=0$, in which case it is sent to $N(e_0^\dd)$. Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fiber: in the homotopy fibre we have, for negative $i$, that $\partial(e_i) = -N(e_{i-1})$ or $T(e_{i-1})$ depending on whether $i$ is even or odd.
 
 
 
@@ -120,7 +120,7 @@ Every unstable comultiplication yields a stable comultiplication by precomposing
 \begin{proof} If $\ucadenas$ has a stable comultiplication, then $\sus{} \ucadenas$ has a stable comultiplication as well, defined as $\mu(e_q\otimes \sus{} a) = \sus{\otimes r}\mu(e_{q+r-1}\otimes a)$. Therefore, after enough suspensions, we may assume that the stable comultiplication vanishes in negative degrees and that $q$ is positive. Then a truncation reduces this to the situation of an unstable comultiplication.
 \end{proof}
 \begin{example}
-	As we will see in Section \ref{s:suspension}, if $\mu$ is the unstable comultiplication for normalized chains in simplicial sets of the previous example, then $\mu(e_q\otimes \sus{} x) = \frac{1}{\tilde{r}!}\sus{\otimes r} \mu(e_{q+r-1}\otimes x)$, hence it does define a stable comultiplication on the normalised chains of simplicial spectra (these are defined in \cite{Gill2020}) that is also part of a stable May structure.
+	As we will see in Section \ref{s:suspension}, if $\mu$ is the unstable comultiplication for normalized chains in simplicial sets of the previous example, then $\mu(e_q\otimes \sus{} x) = \frac{1}{\tilde{r}!}\sus{\otimes r} \mu(e_{q+r-1}\otimes x)$, hence it does define a stable comultiplication on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) that is also part of a stable May structure.
 \end{example}
 
 
@@ -147,16 +147,16 @@ We will now introduce a convenient chain complex $\rWd(r)\hotimes \rucadenas$ su
 Let $\rucadenas$ be the chain complex $\bigoplus_m \sus{(r-1)m}\ucadenas[m]$ with the same differential as $\ucadenas$, which now has degree $-r$. An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$. We write $\rW(r)$ for the right suspension of the augmented chain complex $\W(r)\to R$, i.e., the chain complex
 \[
 \ldots
-\overset{T}{\lra} 
-R[\Cyc_r]\langle e_{3}^\dd\rangle 
-\overset{N}{\lra} 
-R[\Cyc_r]\langle e_{2}^\dd\rangle 
-\overset{T}{\lra} 
-R[\Cyc_r]\langle e_{1}^\dd\rangle 
-\overset{N}{\lra} 
+\overset{T}{\lra}
+R[\Cyc_r]\langle e_{3}^\dd\rangle
+\overset{N}{\lra}
+R[\Cyc_r]\langle e_{2}^\dd\rangle
+\overset{T}{\lra}
+R[\Cyc_r]\langle e_{1}^\dd\rangle
+\overset{N}{\lra}
 R
 \]
-(note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual 
+(note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual
 \[
 R\overset{-N}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{T}{\lra} R[\Cyc_r]\langle e_{-2}^\dd\rangle \overset{-N}{\lra} R[\Cyc_r]\langle e_{-3}^\dd\rangle \overset{T}{\lra} \ldots
 \]
@@ -164,7 +164,7 @@ Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\
 
 Again, there is a suspension map $\theta_k\colon \rWd(r)\to \susp{-k}\rWd(r)$ defined for all even $k$ (or all $k$ in case $r=2$ and $R=\bF_2$) as
 \begin{align*}
-	\theta_k(e_{-i}^\dd) &= e_{k-i}^\dd 
+	\theta_k(e_{-i}^\dd) &= e_{k-i}^\dd
 	&
 	\theta_k(1) &= \begin{cases} N(e_k^\dd) &\text{if $k<0$} \\ 1 &\text{if $k=0$} \\ 0 &\text{if $k>0$.} \end{cases}
 \end{align*}
@@ -176,12 +176,12 @@ If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
 \[
 R[\Cyc_r]\langle e_{0}^\dd\rangle / N \overset{-T}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{N}{\lra} R[\Cyc_r]\langle e_{-2}^\dd\rangle \overset{-T}{\lra}\ldots
 \]
-This chain complex admits chain maps 
+This chain complex admits chain maps
 \begin{align*}
     \hat{\theta}_{r-1}\colon \rWd(r)&\lra \susp{1-r}\rWhat(r)
     &
     \hat{\theta}_{r-1}\colon \rWhat(r)&\lra \susp{1-r}\rW(r).
-\end{align*} 
+\end{align*}
 Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\mathrm{odd}] = \bigoplus_{m}\ucadenas[2m+1]$ and write $\rWd(r)\hotimes \rucadenas$ for the graded $R[\Cyc_r]$-module $\left(\rWd(r)\otimes \rucadenas[\mathrm{odd}]\right)\oplus \left(\rWhatd(r)\otimes \rucadenas[\mathrm{even}]\right)$ with differential
 \[
 \partial(e^\vee_{-q}\otimes \vec{x}) = \partial (e^\vee_{-q})\otimes \vec{x} + (-1)^q \theta_{1-r}(e^\vee_{-q})\otimes \partial (\vec{x}).
@@ -198,9 +198,9 @@ If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k\colon \Wst(r)\to \s
 \[
 	\Wst(r)\overset{\theta_k}{\lra} \sus{-k} \Wst(r) \overset{\cong}{\lra} \sus{-k}\hofib(\rWd(r)\to \rW(r)) \lra \susp{-k}\rWd(r).
 \]
-This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$. In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$. If $k$ is odd, let $\varphi_k\colon \Wst(r)\to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$. 
+This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$. In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$. If $k$ is odd, let $\varphi_k\colon \Wst(r)\to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
 
-Define the chain map $\varphi\colon \Wst(r)\to \rWd(r)\hotimes \rucadenas$ as 
+Define the chain map $\varphi\colon \Wst(r)\to \rWd(r)\hotimes \rucadenas$ as
 \[
 	\varphi(e_q\otimes x) = \varphi_{-n(r-1)}(e_{q})\otimes \vec{x}
 \]
@@ -224,7 +224,7 @@ if $x$ has degree $n$. This is an epimorphism with kernel the smallest chain sub
 \end{proposition}
 
 \begin{example}
-As far as we know, the concept of connected comultiplication has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the unstable comultiplication for $r=2$ on the cochain operations on the normalised cochains of a simplicial set of \cite{medina2021fast_sq}. It is also implicit in the construction of the stable comultiplication for $r=2$ of the cochain operations on the cochains of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
+As far as we know, the concept of connected comultiplication has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the unstable comultiplication for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}. It is also implicit in the construction of the stable comultiplication for $r=2$ of the cochain operations on the cochains of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
 \end{example}
 
 \begin{question}
