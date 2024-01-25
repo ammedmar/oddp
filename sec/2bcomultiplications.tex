@@ -117,10 +117,8 @@ Every unstable comultiplication yields a stable comultiplication by precomposing
 	y(a) = \frac{1}{(\tilde{r}!)^n}(x\otimes \overset{r}{\ldots}\otimes x)(\mu(e_{(r-1)n-i}\otimes a))
 	\]
 \end{proposition}
-\alert{
-\begin{proof} If $\ucadenas$ has a stable comultiplication, then $\sus{} \ucadenas$ has a stable comultiplication as well, defined as $\mu(e_q\otimes \sus{} a) = \frac{1}{\tilde{r}!}\sus{\otimes r}\mu(e_{q+r-1}\otimes a)$. Therefore, after enough suspensions, we may assume that $\ucadenas$ vanishes in negative degrees and that $q$ is positive. Then a truncation reduces this to the situation of an unstable comultiplication.
+\begin{proof} If $\ucadenas$ has a stable comultiplication, then $\sus{} \ucadenas$ has a stable comultiplication as well, defined as $\mu(e_q\otimes \sus{} a) = \sus{\otimes r}\mu(e_{q+r-1}\otimes a)$. Therefore, after enough suspensions, we may assume that the stable comultiplication vanishes in negative degrees and that $q$ is positive. Then a truncation reduces this to the situation of an unstable comultiplication.
 \end{proof}
-}
 \begin{example}
 	As we will see in Section \ref{s:suspension}, if $\mu$ is the unstable comultiplication for normalized chains in simplicial sets of the previous example, then $\mu(e_q\otimes \sus{} x) = \frac{1}{\tilde{r}!}\sus{\otimes r} \mu(e_{q+r-1}\otimes x)$, hence it does define a stable comultiplication on the normalised chains of simplicial spectra (these are defined in \cite{Gill2020}) that is also part of a stable May structure.
 \end{example}
@@ -190,7 +188,7 @@ Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\m
 \]
 Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ coincide, and so do both definitions of $\rWd(r)\hotimes \rucadenas$.
 \begin{definition}
-	A \emph{connected ($r$-cyclic) comultiplication} on a \alert{bounded below} chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
+	A \emph{connected ($r$-cyclic) comultiplication} on a non-negatively graded chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
 	\mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
 	\]
