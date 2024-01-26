@@ -1,22 +1,22 @@
 % !TEX root = ../oddp.tex
 
 \subsection{The bar resolution}\label{ss:milnor}
-There is an inclusion $\chains(\EC_r)\to \Omega_*(r)^{\nf}$ that sends a tuple $(a_0,a_1,\ldots,a_k)$ to the pieced word $(a_0|a_1|\ldots|a_k)$. The composition
+There is an inclusion $\chains(\EC_r) \to \Omega_*(r)^{\nf}$ that sends a tuple $(a_0,a_1,\dots,a_k)$ to the pieced word $(a_0|a_1|\dots|a_k)$. The composition
 \[
-\chains(\EC_r)\lra \Omega_*(r)^{\nf}\lra \rW(r)
+\chains(\EC_r) \lra \Omega_*(r)^{\nf} \lra \rW(r)
 \]
 is an equivariant chain map. This composition has a description analogous to the one used to define $\Psiom$, using the following suspension map:
 \[
-S(a_0,\ldots,a_k) = \begin{cases}
-	(-1)^{\sign{\perm}} (a_{0},\ldots,a_{k-r+1}) & \text{ if $k\geq r-1$} \\
+S(a_0,\dots,a_k) = \begin{cases}
+	(-1)^{\sign{\perm}} (a_{0},\dots,a_{k-r+1}) & \text{ if $k \geq r-1$} \\
 	\emptyset & \text{if $k = r-2$ and $a_i\neq a_j$ for all $i,j$} \\
 	0 & \text{otherwise.}
 \end{cases}
 \]
-where $\pi$ is the permutation that orders $(a_{k-r+1},\ldots,a_{k})$. The image of $e_{-q}^{\vee}$ is the sum of all words $A = (a_0,\ldots,a_{q-1})\in \cochains[-q] \EC_r$ such that
+where $\pi$ is the permutation that orders $(a_{k-r+1},\dots,a_{k})$. The image of $e_{-q}^{\vee}$ is the sum of all words $A = (a_0,\dots,a_{q-1})\in \cochains[-q] \EC_r$ such that
 \begin{itemize}
 \item none of the subwords of the form $(a_{q-1-\ell(r-1)},a_{q-1-(\ell-1)(r-1))}$ of length $r$ contains repeated elements,
-\item the only subword of the form $(a_0,\ldots,a_{q-1-\ell(r-1)})$ of length smaller than $r$ becomes, after having been ordered, an increasing sequence that alternates even and odd entries different from $r-1$, starting with an even entry.
+\item the only subword of the form $(a_0,\dots,a_{q-1-\ell(r-1)})$ of length smaller than $r$ becomes, after having been ordered, an increasing sequence that alternates even and odd entries different from $r-1$, starting with an even entry.
 \end{itemize}
 each word has the sign needed to order each of the subwords mentioned above, and the coefficient $\frac{\varphi(m)!}{(\tilde{r}!)^j}$ where $m$ is the length of the last of the subwords mentioned, and $j$ is the total number of subwords and $\varphi(m) = \lfloor\frac{r-m-1}{2}\rfloor$.
 \begin{example} If $r=3$,
@@ -44,9 +44,9 @@ This map is different from the one obtained in \cite[Prop.~6.16]{brumfiel2023exp
 
 
 %With this latter description, the homomorphism is well-defined for any odd $r$.
-\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Omega_*(r)^{\nf}$ is isomorphic to the unnormalized chain complex of $\EC_2$, while $\rW(r)$ is isomorphic to the normalized chain complex of $\EC_2$. The quotient map $\uchains(\EC_2)\to \chains(\EC_2)$ induces therefore a map
+\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Omega_*(r)^{\nf}$ is isomorphic to the unnormalized chain complex of $\EC_2$, while $\rW(r)$ is isomorphic to the normalized chain complex of $\EC_2$. The quotient map $\uchains(\EC_2) \to \chains(\EC_2)$ induces therefore a map
 \[
-\Omega_*(r)^{\nf}\to \rW(r)
+\Omega_*(r)^{\nf} \to \rW(r)
 \]
 that satisfies the conditions of Lemma \ref{lemma:omegar}.
 \begin{remark}

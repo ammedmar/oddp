@@ -1,17 +1,8 @@
 \documentclass{report}
-\usepackage{Easyreview}
-\newcommand{\federico}[1]{\add{fc:#1}}
 
 \begin{document}
 	\begin{enumerate}
-		\item Instead of May structure I would suggest a term that uses $r$.
-		Notice that the associativity plays no role though.
-		Also, May does not require equality with the product, but simply the existence of a homotopy to it. \federico{The official name in Definition 4.2 is ($r$-cyclic) May structure, with $r$-cyclic an adjective to be dropped to lighten the reading. I have added $r$-cyclic in the introduction and added the homotopy to the definition}
-
-		\item I would use property not axiom. I made the changes throughout. \federico{good}
-
-		\item We should try to find a better name instead $r$-cyclic assymmetry with duality. \federico{agreed, any suggestion is welcome. This function chooses an element for each subset, so it is a "choice function" or "selection". If one defines an element of $A\subset \{0,1,\ldots,r-1\}$ to be a "first element of $A$" if its cyclic predecessor is not in $A$, then the condition "with duality" means that we are equivariantly selecting a first element of each subset. Does this suggest a name to you?}
-
-		\item Use \verb|--| instead of \verb|-| for pairs of names like May--Steenrod. \federico{ok}
+		\item Let C be a chain complex with an action of the symmetric group, which induces an action of the cyclic group.
+		Let W $\to$ C be a Cyc equivariant map. Do you know of an example for which there is no factoring of this map through ESym, a resolution of the symmetric group, such that W $\to$ ESym is a Cyc quasi-iso and ESym $\to$ C is Sym equivariant?
 	\end{enumerate}
 \end{document}

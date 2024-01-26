@@ -4,36 +4,36 @@
 
 In 1946, Steenrod was looking for invariants of maps between spheres generalizing the Hopf invariant when he found certain cochain operations on simplicial complexes
 \[
-\smile_i \colon  \ucocadenas[k](X;\bF_2) \ot  \ucocadenas[j](X;\bF_2)\to \ucocadenas[k+j+i](X;\bF_2),\qquad i\geq 0
+\smile_i \colon \ucocadenas[k](X;\bF_2) \ot \ucocadenas[j](X;\bF_2) \to \ucocadenas[k+j+i](X;\bF_2),\qquad i \geq 0
 \]
 which in cohomology gave rise to the celebrated \emph{Steenrod squares}
 \[
-\Sq^{k} \colon  H^j(X;\bF_2)\to H^{j+k}(X;\bF_2).
+\Sq^{k} \colon H^j(X;\bF_2) \to H^{j+k}(X;\bF_2).
 \]
 Shortly after, these cohomology operations were given a more abstract and axiomatic treatment that avoided the explicit chain maps $\smile_i$.
 This viewpoint exhibited new power operations
 \begin{align*}
-	P^{k} \colon  H^j(X;\bF_r)&\to H^{j+2k(r-1)}(X;\bF_r) & k\geq 0 \\
-	\beta P^k \colon  H^j(X;\bF_r)&\to H^{j+2k(r-1)+1}(X;\bF_r) & k\geq 0
+	P^{k} \colon H^j(X;\bF_r)& \to H^{j+2k(r-1)}(X;\bF_r) & k \geq 0 \\
+	\beta P^k \colon H^j(X;\bF_r)& \to H^{j+2k(r-1)+1}(X;\bF_r) & k \geq 0
 \end{align*}
 for $r$ an odd prime.
 
 From now on, we let $R$ be a commutative ring for which $\bF_r$ is an $R$-algebra.
 Chain complexes are taken with coefficients in $R$ unless otherwise specified.
 
-\subsection{Unstable comultiplications}
+\subsection{Unstable diagonals}
 
 In \cite{may1970general}, May gave a general approach at the cochain level to power operations.
-He defined a category whose objects are chain complexes $\ucadenas$ endowed with an associative comultiplication (he actually worked with homotopy associative multiplications) together with an equivariant homomorphism $\mu \colon  W_*(r) \ot  \ucadenas\to \ucadenas^{ \ot  r}$ from the tensor product of the minimal free resolution $W_*(r)$ of the cyclic group $\Cyc_r$ and the chain complex $\ucadenas$ to the $r$-fold tensor product of $\ucadenas$, satisfying two additional properties:
+He defined a category whose objects are chain complexes $\ucadenas$ endowed with an associative coproduct (he actually worked with homotopy associative multiplications) together with an equivariant homomorphism $\mu \colon W_*(r) \ot \ucadenas \to \ucadenas^{\ot r}$ from the tensor product of the minimal free resolution $W_*(r)$ of the cyclic group $\Cyc_r$ and the chain complex $\ucadenas$ to the $r$-fold tensor product of $\ucadenas$, satisfying two additional properties:
 \begin{itemize}
-	\item[(i)] The restriction of $\mu$ to $W_0(r)$ is homotopic to the $r$-fold associative comultiplication.
-	\item[(ii)] The map $\mu$ factors as $W_*(r) \ot  \ucadenas \to V_*(r) \ot  \ucadenas\to \ucadenas^{ \ot  r}$, where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters.
+	\item[(i)] The restriction of $\mu$ to $W_0(r)$ is homotopic to the $r$-fold associative coproduct.
+	\item[(ii)] The map $\mu$ factors as $W_*(r) \ot \ucadenas \to V_*(r) \ot \ucadenas \to \ucadenas^{\ot r}$, where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters.
 \end{itemize}
 In this article we refer to this structure as an \emph{$r$-cyclic May structure} (compare with the notion of \emph{May--Steenrod structure} by the second author \cite{medina2021may_st}).
-In this article we coin the term \emph{$r$-cyclic unstable comultiplication} for an $r$-cyclic May structure without these two extra properties.
+In this article we coin the term \emph{$r$-cyclic unstable diagonal} for an $r$-cyclic May structure without these two extra properties.
 If $r$ is prime, a chain complex $\ucadenas$ with an $r$-cyclic May structure has natural power operations on cohomology (note the re-indexing)
 \begin{align*}
-	\power^i \colon  H^*(\ucocadenas;\bF_r)&\to H^{*+i}(\ucocadenas;\bF_r), & i\in \bZ
+	\power^i \colon H^*(\ucocadenas;\bF_r)& \to H^{*+i}(\ucocadenas;\bF_r), & i\in \bZ
 \end{align*}
 and the second property assures that they vanish unless $i = 2k(r-1), 2k(r-1)+1$ if $r$ is odd.
 These operations always satisfy:
@@ -46,25 +46,25 @@ Often they also satisfy:
 \end{enumerate}
 Showing Property (iv) tends to be hard to prove.
 
-If $r=2$, there is a special $r$-cyclic May structure on simplicial sets that has been described in multiple occasions \cite{steenrod1947products,gonzalez-diaz1999steenrod,medina2021fast_sq}.
-If $r$ is odd, an explicit $r$-cyclic May structure was found by the second author \cite{medina2021may_st} as the composition of a certain map $W_*(r)\to \cE_*(r)$ to the arity $r$ operations in the Barratt-Eccles operad, another map $\cE_*(r)\to \chi_*(r)$ to the arity $r$ operations in the surjection operad \cite{berger2004combinatorial} and a third map $\chi_*(r)\to EZ(r)$ to the arity $r$ operation in the Eilenberg--Zilber operad\cite{mcclure2003multivariable}.
+If $r=2$, there is a special $r$-cyclic May structure on simplicial sets that has been described in multiple occasions \cite{steenrod1947products, gonzalez-diaz1999steenrod, medina2021fast_sq}.
+If $r$ is odd, an explicit $r$-cyclic May structure was found by the second author \cite{medina2021may_st} as the composition of a certain map $W_*(r) \to \cE_*(r)$ to the arity $r$ operations in the Barratt-Eccles operad, another map $\cE_*(r) \to \chi_*(r)$ to the arity $r$ operations in the surjection operad \cite{berger2004combinatorial} and a third map $\chi_*(r) \to EZ(r)$ to the arity $r$ operation in the Eilenberg--Zilber operad\cite{mcclure2003multivariable}.
 
-\subsection{Stable comultiplications}
+\subsection{Stable diagonals}
 
 If $r$ is a prime number, the singular cohomology with coefficients in $\bF_r$ of a spectrum $E$ admits power operations
 \[
-\power^i \colon  H^*(E;\bF_r)\to H^{*+i}(E;\bF_r)
+\power^i \colon H^*(E;\bF_r) \to H^{*+i}(E;\bF_r)
 \]
 that vanish unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$, but it does not admit any associative multiplication.
-If the spectrum $E$ is given as a sequence $\{E_m\}_{n\geq 0}$ of simplicial pointed sets with structural maps $\varepsilon_m \colon  \Sigma E_m\to E_{m+1}$, then its cohomology can be computed as the cohomology of the chain complex
+If the spectrum $E$ is given as a sequence $\{E_m\}_{n \geq 0}$ of simplicial pointed sets with structural maps $\varepsilon_m \colon \Sigma E_m \to E_{m+1}$, then its cohomology can be computed as the cohomology of the chain complex
 \[
-\colim \left(\ucadenas(E_0)\to \dots \to \Sigma^{-m}\ucadenas(E_m)\to \Sigma^{-m-1} \ucadenas(E_{m+1})\to \dots\right)
+\colim \left(\ucadenas(E_0) \to \dots \to \Sigma^{-m}\ucadenas(E_m) \to \Sigma^{-m-1} \ucadenas(E_{m+1}) \to \dots\right)
 \]
-This chain complex admits an action of the stabilization of the $E_{\infty}$-operad \cite{Gill2020}, and in Section \ref{s:suspension} we will show that the $r$-cyclic May structure of \cite{medina2021may_st} on the chain complex of a simplicial set is good enough to endow the chain complex of a spectrum with a stable version of an $r$-cyclic May structure (see Section \ref{s:stable} for the definition).
+This chain complex admits an action of the stabilization of the $E_{\infty}$-operad \cite{Gill2020}, and in \cref{s:suspension} we will show that the $r$-cyclic May structure of \cite{medina2021may_st} on the chain complex of a simplicial set is good enough to endow the chain complex of a spectrum with a stable version of an $r$-cyclic May structure (see \cref{s:stable} for the definition).
 
-Dropping Property (ii) from the stable version of an $r$-cyclic May structure yields the notion of \emph{stable $r$-cyclic comultiplication}, which again defines cohomology operations $\power^i$ that need not to vanish when $i \neq 2(r-1)k, 2(r-1)k+1$.
+Dropping Property (ii) from the stable version of an $r$-cyclic May structure yields the notion of \emph{stable $r$-cyclic diagonal}, which again defines cohomology operations $\power^i$ that need not to vanish when $i \neq 2(r-1)k, 2(r-1)k+1$.
 
-\subsection{Connected comultiplications}
+\subsection{Connected diagonals}
 
 The traditional way to understand the $r$-cyclic May structure on the chain complex of a simplicial set $X$ is to observe that the operad of natural endomorphisms of the chain complexes $\ucadenas(\simplex^n)$ is contractible in each arity.
 Thus, its homology is concentrated in degree $0$, and in that degree one finds the cup product.
@@ -72,9 +72,9 @@ Then, one proceeds to build the cochain operations in higher degrees using the a
 On the other hand, when one tries to produce a stable $r$-cyclic May structure, there is no special operation of degree $0$ to start with (the stable $E_{\infty}$ operad is acyclic, instead of contractible).
 Thus, endowing a family of chain complexes with such structure may be challenging.
 
-In this article we introduce the notion of \emph{$r$-cyclic connected comultiplication} on a chain complex.
-A chain complex endowed with such structure inherits a stable comultiplication as well, but now, there is a special operation from which to start: the operation that induces $P^0$ on cohomology.
-Moreover, the cohomology operations induced by this stable comultiplication have Property (iv), but need not to be compatible with any associative multiplication a priori or have Property (iii).
+In this article we introduce the notion of \emph{$r$-cyclic connected diagonal} on a chain complex.
+A chain complex endowed with such structure inherits a stable diagonal as well, but now, there is a special operation from which to start: the operation that induces $P^0$ on cohomology.
+Moreover, the cohomology operations induced by this stable diagonal have Property (iv), but need not to be compatible with any associative multiplication a priori or have Property (iii).
 %In fact, we prove with some work that in some cases it is compatible with a certain multiplication.
 
 %This new formalism changes the way the cochain level operations are constructed in practice: With the formalism of May, one is given first an associative product that will compute $\power^{(r-1)m}(x)$ if $x$ has degree $m$, and from that builds the rest of the cochain operations downwards towards $\power^0(x)$ ---and possibly beyond, in case $\power^0(x)\neq x$.
@@ -82,41 +82,41 @@ With the new formalism, one builds first the cochain operation that induces $\po
 
 \subsection{Main result}
 
-We then use this new formalism to define cochain level formulas for power operations on simplicial objects as follows: Let $\cC$ be a distributive monoidal category with a natural distributive $r$-cyclic diagonal $\Delta \colon  X\to X^{ \ot  r}$ for each object $X$, and an $r$-cyclic coproduct-preserving monoidal functor $\abel \colon  \cC\to \Mod{R}$ to the category of $R$-modules.
+We then use this new formalism to define cochain level formulas for power operations on simplicial objects as follows: Let $\cC$ be a distributive monoidal category with a natural distributive $r$-cyclic diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and an $r$-cyclic coproduct-preserving monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
 By virtue of $L$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
 The main examples of $\cC$ are the categories $\Set$ and $\Setp$ of sets and pointed sets.
 
-Define an \emph{$r$-cyclic assymmetry with duality} as a $\Cyc_r$-equivariant choice of an element $x_\tau\in \tau$ for every proper non-empty subset $\tau\subset \{0,1,\ldots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
+Define an \emph{$r$-cyclic asymmetry with duality} as a $\Cyc_r$-equivariant choice of an element $x_\tau\in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
 Such a choice exists if and only if $r$ is prime.
 Our main result is the following.
 
 \begin{theorem}\label{thm:main}
-	If $r$ is an odd prime, each $r$-cyclic asymmetry with duality yields a natural $r$-cyclic connected comultiplication on the chain complex of an augmented simplicial object in $\cC$.
+	If $r$ is an odd prime, each $r$-cyclic asymmetry with duality yields a natural $r$-cyclic connected diagonal on the chain complex of an augmented simplicial object in $\cC$.
 \end{theorem}
 
 If $r=2$ the theorem still holds, but only with coefficients in $\bF_2$.
-In that case there is a unique $r$-cyclic asymmetry with duality, and therefore our theorem yields a unique connected comultiplication.
-The induced unstable comultiplication is the same as the one of \cite{medina2021may_st}.
-In fact, the presentation of this $2$-cyclic May structure in \cite{medina2021fast_sq} contains the germ of the notion of a connected comultiplication.
-If $r=3$ there is again a unique $r$-cyclic asymmetry, and we have empirically tested that the $3$-cyclic May structure of \cite{medina2021may_st} coincides with the unstable comultiplication associated to our connected comultiplication.
-If $r= 5$, there are four $r$-cyclic assymetries, which yield four connected comultiplications, but none of them yield the unstable comultiplications obtained in \cite{medina2021may_st}: as we will see in Section \ref{s:suspension}, they behave differently with respect to suspension.
+In that case there is a unique $r$-cyclic asymmetry with duality, and therefore our theorem yields a unique connected diagonal.
+The induced unstable diagonal is the same as the one of \cite{medina2021may_st}.
+In fact, the presentation of this $2$-cyclic May structure in \cite{medina2021fast_sq} contains the germ of the notion of a connected diagonal.
+If $r=3$ there is again a unique $r$-cyclic asymmetry, and we have empirically tested that the $3$-cyclic May structure of \cite{medina2021may_st} coincides with the unstable diagonal associated to our connected diagonal.
+If $r= 5$, there are four $r$-cyclic asymetries, which yield four connected diagonals, but none of them yield the unstable diagonals obtained in \cite{medina2021may_st}: as we will see in \cref{s:suspension}, they behave differently with respect to suspension.
 
-This new viewpoint has some advantages: first, the construction is very explicit: it is manageable to find the coefficient of any given summand.
-%In contrast, most of the summands in the description of the composition of the maps $\cE(r)\to \chi(r)\to EZ(r)$ vanish universally.
-Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable comultiplication in general.
+This new viewpoint has some advantages: first, the construction is very explicit since it is manageable to find the coefficient of any given summand.
+%In contrast, most of the summands in the description of the composition of the maps $\cE(r) \to \chi(r) \to EZ(r)$ vanish universally.
+Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable diagonal in general.
 %Such upgrade in the May--Steenrod structure would involve a replacement of the complex of surjections by a complex of functions.
-%Third, power operations $\power^i$ for $i$ small are simpler to compute with connected comultiplications, while if $i$ is close to $(r-1)m$, then they are simpler to compute with unstable comultiplications.
+%Third, power operations $\power^i$ for $i$ small are simpler to compute with connected diagonals, while if $i$ is close to $(r-1)m$, then they are simpler to compute with unstable diagonals.
 
-Third, the formula for a power operation $\power^i([x])$ of an unstable comultiplication depends heavily on the degree of the class $x$: they are parametrized by overlapping intervals and surjections, and both increase in size as the degree of $x$ increases.
+Third, the formula for a power operation $\power^i([x])$ of an unstable diagonal depends heavily on the degree of the class $x$: they are parametrized by overlapping intervals and surjections, and both increase in size as the degree of $x$ increases.
 On the other hand our formulas are parametrized by pairs $(U,A)$, of which only $U$ changes when the degree of $x$ increases.
-As a consequence, computing $\power^i([x])$ for small $i$'s tends to be simpler for a connected comultiplication than for an unstable comultiplication, while computing them for $i$'s close to $(m-1)r$ is simpler for an unstable comultiplication than for a connected comultiplication.
+As a consequence, computing $\power^i([x])$ for small $i$'s tends to be simpler for a connected diagonal than for an unstable diagonal, while computing them for $i$'s close to $(m-1)r$ is simpler for an unstable diagonal than for a connected diagonal.
 \begin{question}
-	When $\cC$ is the category of pointed sets, these connected comultiplications yield stable comultiplications that compute cohomology operations.
-	Improve this stable comultiplication to a stable $r$-cyclic May structure.
+	When $\cC$ is the category of pointed sets, these connected diagonals yield stable diagonals that compute cohomology operations.
+	Improve this stable diagonal to a stable $r$-cyclic May structure.
 \end{question}
-%We assume that $r$ is prime from Section \ref{s:assembly} on, and we assume that $r$ is odd from Section \ref{s:mainresult} on.
+%We assume that $r$ is prime from \cref{s:assembly} on, and we assume that $r$ is odd from \cref{s:mainresult} on.
 \begin{question}
-	Which constructions in this paper can be generalized to composite or even numbers? ($r$ is assumed to be odd from Section \ref{s:mainresult} on, and is assumed to be prime from Section \ref{s:assembly} on)
+	Which constructions in this paper can be generalized to composite or even numbers? ($r$ is assumed to be odd from \cref{s:mainresult} on, and is assumed to be prime from \cref{s:assembly} on)
 \end{question}
 %The main example of a category $\cC$ satisfying the hypotheses are the category of sets, the category of pointed sets.
 If $\cC$ has a cyclic diagonal for $r= 2$, then simplicial objects in $\cC$ have natural diagonal maps that induce an associative product in cohomology.
@@ -125,8 +125,8 @@ With some effort we will prove that
 %\begin{theorem}
 %	If $X$ is a simplicial object in $\cC$, the power operation $\power^{(r-1)m}(x)$ of a class of degree $m$ is the $m$-fold power of the multiplication of $x$ with itself.
 %\end{theorem}
-%This theorem applies if the category $\cC$ is the category of sets with the cartesian product or the category of pointed sets with the smash product.
-%As a consequence, our connected comultiplications yield natural unstable comultiplications too when $X$ is not augmented.
+%This theorem applies if the category $\cC$ is the category of sets with the Cartesian product or the category of pointed sets with the smash product.
+%As a consequence, our connected diagonals yield natural unstable diagonals too when $X$ is not augmented.
 
 %\begin{question}
 %	The cochain complex of a simplicial object in $\cC$ has always a multiplication.
@@ -144,11 +144,11 @@ If the tensor product in $\cC$ is symmetric monoidal, how clear is it that this 
 \subsection{Kan spectra}
 
 Kan spectra \cite{Kan1963} are models of spectra introduced by Kan, that are not widespread used because of a lack of a convenient smash product, a situation that has been recently treated \cite{CKP2023}.
-Our viewpoint applies in this setting too, and yields natural connected comultiplications on the chain complexes of Kan spectra.
-Again, they do not extend to unstable comultiplications.
+Our viewpoint applies in this setting too, and yields natural connected diagonals on the chain complexes of Kan spectra.
+Again, they do not extend to unstable diagonals.
 
 %{\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas.
-In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
+%In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
 
 %\subsection{Desymmetrisations} The notion of $r$-cyclic desymmetrisation is new to the extend of our knowledge.
 A $2$-cyclic desymmetrisation was implicitly used by the first author in \cite{cantero-moran2020khovanov} to find Steenrod squares in augmented semi-simplicial objects in the Burnside $2$-category.
@@ -157,15 +157,15 @@ For the reader acquainted with the surjection operad we remark that the operatio
 
 \subsection{Outline}
 
-In Section \ref{s:preliminaries} we set some sign conventions for chain complexes and the conventions for simplicial objects.
-The notion of connected comultiplication is presented in \cref{s:2bcomultiplications}.
-The construction of the connected comultiplication for augmented semi-simplicial objects of Theorem \ref{thm:main} has three main ingredients.
-First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{ \ot  r}$.
-Afterwards, a criterion to build a connected comultiplication is given.
-Second, an explicit $\Cyc_r$-equivariant chain map $\Omega^*(r)^{\nf}\to W_*(r)$ between two resolutions of $\Cyc_r$ that fulfills the hypotheses of the criterion.
+In \cref{s:preliminaries} we set some sign conventions for chain complexes and the conventions for simplicial objects.
+The notion of connected diagonal is presented in \cref{s:2bdiagonals}.
+The construction of the connected diagonal for augmented semi-simplicial objects of Theorem \ref{thm:main} has three main ingredients.
+First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{\ot r}$.
+Afterwards, a criterion to build a connected diagonal is given.
+Second, an explicit $\Cyc_r$-equivariant chain map $\Omega^*(r)^{\nf} \to W_*(r)$ between two resolutions of $\Cyc_r$ that fulfills the hypotheses of the criterion.
 This map is constructed in \cref{s:resolutions} up to the definition of certain map $f$.
-Third, the construction of this latter map $f$ is pursued using the barycentric and the pair subdivision of the simplex in Section \ref{section:atlast}.
+Third, the construction of this latter map $f$ is pursued using the barycentric and the pair subdivision of the simplex in \cref{section:atlast}.
 In \cref{s:suspension} we show that these operations behave well with respect to suspensions.
-In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected comultiplications in the chain complex of a Kan spectrum.
-Finally, in Section \ref{s:formulas} we give an algorithmic presentation of the formulas.
-These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bcomultiplications}.
+In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.
+Finally, in \cref{s:formulas} we give an algorithmic presentation of the formulas.
+These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bdiagonals}.

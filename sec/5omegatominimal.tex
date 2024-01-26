@@ -1,28 +1,31 @@
 % !TEX root = ../oddp.tex
 
-\subsection{From \texorpdfstring{$\Omega_*(r)$}{Omega(r)} to the minimal resolution}\label{ss:mapf} The \emph{pivotal piece} of a pieced word $A_0\barra \ldots\barra A_k$ is the leftmost piece $A_j$ such that $A_{j+1}*\ldots*A_k$ has degree smaller than $r$ (i.e., $A_{j+1}\cup\ldots\cup A_k$ has less than $r$ entries).
+\subsection{From \texorpdfstring{$\Omega_*(r)$}{Omega(r)} to the minimal resolution}\label{ss:mapf}
+
+The \emph{pivotal piece} of a pieced word $A_0\barra \dots\barra A_k$ is the leftmost piece $A_j$ such that $A_{j+1}*\dots*A_k$ has degree smaller than $r$ (i.e., $A_{j+1}\cup\dots\cup A_k$ has less than $r$ entries).
 
 \begin{example}
 	If $r=5$, the pivotal piece of the pieced word $A=01|24|013|12|4$ is $A_1 = 013$, while $A_2 = 12|4$ and $\hat{A} = 01|24$. If $r=3$, the pivotal piece of the pieced word $01|20|1|02|1|20|12$ is $20$, while $A_2 = 12$ and $\hat{A} = 01|20|1|02|1$.
 \end{example}
 
-The join homomorphism $\chains(\asimplex^{r-1}\join \asimplex^{r-1})\to \chains(\asimplex^{r-1})$ of Definition \ref{d:join_product} induces an endomorphism
+The join homomorphism $\chains(\asimplex^{r-1}\join \asimplex^{r-1}) \to \chains(\asimplex^{r-1})$ of Definition \ref{d:join_product} induces an endomorphism
 \[
-\kappa \colon  \Omega_*(r)^{\nf}\lra \Omega_*(r)^{\nf}
+\kappa \colon \Omega_*(r)^{\nf} \lra \Omega_*(r)^{\nf}
 \]
-that sends a pieced word $A_0\barra \ldots\barra A_k$ with pivotal piece $A_j$ to the pieced word $(-1)^{\lambda(A_{j+1},\ldots,A_k)}A_0\barra \ldots\barra A_j\barra A_{j+1}\join\ldots\join A_k$, where the sign is that of the permutation that orders the entries of $A_{j+1},\ldots,A_k$.
+that sends a pieced word $A_0\barra \dots\barra A_k$ with pivotal piece $A_j$ to the pieced word $(-1)^{\lambda(A_{j+1},\dots,A_k)}A_0\barra \dots\barra A_j\barra A_{j+1}\join\dots\join A_k$, where the sign is that of the permutation that orders the entries of $A_{j+1},\dots,A_k$.
 
-The cyclic group $\Cyc_r$ acts on $\partial \asimplex^{r-1}$ by permuting its vertices forwards. Let $\sigma = [0,1,\ldots,r-1]$ be the top simplex of $\asimplex^{r-1}$ and let
+The cyclic group $\Cyc_r$ acts on $\partial \asimplex^{r-1}$ by permuting its vertices forwards. Let $\sigma = [0,1,\dots,r-1]$ be the top simplex of $\asimplex^{r-1}$ and let
 \begin{align*}
-	\iota_1 \colon  \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1}) \ot  \chains(\partial\simplex^{r-1})\\
-	\iota_2 \colon  \sus{r-1}\chains(\partial \simplex^{r-1})&\lra \chains(\partial\simplex^{r-1}) \ot  \chains(\partial\simplex^{r-1})
+	\iota_1 \colon \sus{r-1}\chains(\partial \simplex^{r-1})& \lra \chains(\partial\simplex^{r-1}) \ot \chains(\partial\simplex^{r-1})\\
+	\iota_2 \colon \sus{r-1}\chains(\partial \simplex^{r-1})& \lra \chains(\partial\simplex^{r-1}) \ot \chains(\partial\simplex^{r-1})
 \end{align*}
 be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 \begin{align*}
-	\iota_1(\tau) &= \tau \ot  \partial \sigma &
-	\iota_2(\tau) &= \partial \sigma \ot  \tau
+	\iota_1(\tau) &= \tau \ot \partial \sigma &
+	\iota_2(\tau) &= \partial \sigma \ot \tau
 \end{align*}
-\begin{construction}\label{cons:1} Let $f \colon  \chains(\partial\simplex^{r-1}) \ot \chains(\partial\simplex^{r-1})\to \sus{r-1}\chains(\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain map such that
+
+\begin{construction}\label{cons:1} Let $f \colon \chains(\partial\simplex^{r-1}) \ot \chains(\partial\simplex^{r-1}) \to \sus{r-1}\chains(\partial\asimplex^{r-1})$ be a $\Cyc_r$-equivariant chain map such that
 \renewcommand{\theenumi}{\roman{enumi}}
 \begin{enumerate}
 	\item\label{cond:1} $f\circ \iota_1 = \Id$
@@ -35,52 +38,54 @@ be the $\Cyc_r$-equivariant chain maps of degree $r-1$ given by
 	where $\lambda(\tau_1,\tau_2)$ is the sign of the permutation that orders $\tau_1\cup \tau_2$.
 \end{enumerate}
 \end{construction}
+
 \begin{remark}\label{remark:3prime}
 	Condition \eqref{cond:3} is implied by the following condition:
 	\begin{itemize}
-		\item[(iii')] If $\tau_1 \ot \tau_2$ has degree $r$, then $f(\tau_1 \ot  \tau_2)$ is $(-1)^{\lambda(\tau_1,\tau_2)} v$ for some vertex of $\partial \asimplex^{r-1}$ if $\tau_1\cup\tau_2$ is non-degenerate and $0$ otherwise.
+		\item[(iii')] If $\tau_1 \ot \tau_2$ has degree $r$, then $f(\tau_1 \ot \tau_2)$ is $(-1)^{\lambda(\tau_1,\tau_2)} v$ for some vertex of $\partial \asimplex^{r-1}$ if $\tau_1\cup\tau_2$ is non-degenerate and $0$ otherwise.
 	\end{itemize}
 \end{remark}
 
 \begin{proposition} Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Then, there is a chain map
 	\[
-	S \colon  \Omega_*(r)^{\nf}\lra \sus{r-1}\Omega_*(r)^{\nf}
+	S \colon \Omega_*(r)^{\nf} \lra \sus{r-1}\Omega_*(r)^{\nf}
 	\]
-	that sends a pieced word $A = A_0\barra \ldots\barra A_k$ with pivotal piece $A_j$ to the pieced word $ A_0\barra \ldots\barra f(A_j \ot  \kappa(A_{j+1}\barra \ldots\barra A_k))$.
+	that sends a pieced word $A = A_0\barra \dots\barra A_k$ with pivotal piece $A_j$ to the pieced word $ A_0\barra \dots\barra f(A_j \ot \kappa(A_{j+1}\barra \dots\barra A_k))$.
 \end{proposition}
+
 \begin{proof}
-	Replacing the word $A$ by $\kappa(A)$, we may assume that $A_{j+1} = A_k$. Let $\bar{A} = A_0\barra \ldots\barra A_{j-1}$ and let $\ell$ be the degree of $\bar{A}$ (i.e., the number of entries of $A$). Then %and recall that $\partial A = \sum_{i} (-1)^{i}\diff_iA$, where $\diff_i$ removes the $i$-th entry of $A$. Then
+	Replacing the word $A$ by $\kappa(A)$, we may assume that $A_{j+1} = A_k$. Let $\bar{A} = A_0\barra \dots\barra A_{j-1}$ and let $\ell$ be the degree of $\bar{A}$ (i.e., the number of entries of $A$). Then %and recall that $\partial A = \sum_{i} (-1)^{i}\diff_iA$, where $\diff_i$ removes the $i$-th entry of $A$. Then
 	\begin{equation}\label{eq:931}
-		\partial S(A) = \partial \bar{A}\mid f(A_{j} \ot  A_{j+1}) + (-1)^{\ell}\bar{A}\barra \partial f(A_{j} \ot  A_{j+1}).
+		\partial S(A) = \partial \bar{A}\mid f(A_{j} \ot A_{j+1}) + (-1)^{\ell}\bar{A}\barra \partial f(A_{j} \ot A_{j+1}).
 	\end{equation}
 	We distinguish two cases: if $A_j\cup A_{j+1}$ has length at least $r+1$,
-	\[S(\partial A) = \partial \bar{A}\barra f(A_j \ot  A_{j+1}) + (-1)^{\ell}\bar{A}\barra f(\partial (A_j \ot  A_{j+1})),\]
-	which equals the previous sum. If $A_j\cup A_{j+1}$ has length $r$, let $\check{A} = A_0\mid \ldots\mid A_{j-2}$. Then
+	\[S(\partial A) = \partial \bar{A}\barra f(A_j \ot A_{j+1}) + (-1)^{\ell}\bar{A}\barra f(\partial (A_j \ot A_{j+1})),\]
+	which equals the previous sum. If $A_j\cup A_{j+1}$ has length $r$, let $\check{A} = A_0\mid \dots\mid A_{j-2}$. Then
 	\begin{equation}\label{eq:933}
-		S(\partial A) = \partial \bar{A}\barra f(A_j \ot  A_{j+1}) + (-1)^\ell \check{A}\barra f(A_{j-1} \ot  \partial(A_j*A_{j+1})).
+		S(\partial A) = \partial \bar{A}\barra f(A_j \ot A_{j+1}) + (-1)^\ell \check{A}\barra f(A_{j-1} \ot \partial(A_j*A_{j+1})).
 	\end{equation}
 	Let $\pm$ be the sign of the permutation that orders $A_j*A_{j+1}$. By condition \eqref{cond:3}, the last summand of \eqref{eq:931} is zero or $\pm(-1)^\ell\bar{A}$ depending on whether $A_j*A_{j+1}$ is degenerate or not, which by condition \eqref{cond:1} is equivalent to $f(A_{j-1},\partial(A_j*A_{j+1}))$ being $0$ or $\pm(-1)^{\ell}A_{j-1}$, and therefore equivalent to the last summand of \eqref{eq:933} being zero or $\pm(-1)^{\ell}\bar{A}$.
 \end{proof}
 
-%The inclusion of the augmented $1$-skeleton of $\asimplex^{r-1}$ in $\asimplex^{r-1}$ induces an inclusion $\chains(\EC_r)\to \Omega_*(r)^0$ that sends a word to that same word with all pieces of length $1$.
+%The inclusion of the augmented $1$-skeleton of $\asimplex^{r-1}$ in $\asimplex^{r-1}$ induces an inclusion $\chains(\EC_r) \to \Omega_*(r)^0$ that sends a word to that same word with all pieces of length $1$.
 
 \begin{definition}\label{def:psiom}
-	Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Define a homomorphism $\Psi \colon  \Omega_*(r)^{\nf} \ot  \to \rW(r) \ot  \bZ[\frac{1}{\tilde{r}!}]$ recursively as
+	Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1} and \eqref{cond:3}. Define a homomorphism $\Psi \colon \Omega_*(r)^{\nf} \ot \to \rW(r) \ot \bZ[\frac{1}{\tilde{r}!}]$ recursively as
 	\[\Psiom_q(A) = \begin{cases} \Phi_q(\kappa(A)) & \text{if $q\leq r-1$} \\
-		\frac{1}{\tilde{r}!}\theta_{r-1}\circ \Psiom_{q-r+1}\circ S(A) & \text{if $q\geq r$,}\end{cases}\]
+		\frac{1}{\tilde{r}!}\theta_{r-1}\circ \Psiom_{q-r+1}\circ S(A) & \text{if $q \geq r$,}\end{cases}\]
 \end{definition}
 
 \begin{example}\label{example:psi3}
-Let $r=3$. We will use the computations of Examples \ref{example:Phi}, \ref{example:f3_1} and \ref{example:f3_2} with the $f$ constructed in Section \ref{s:assembly}. To lighten the notation, we will write each block $A_j = [a_0,\ldots,a_{m-1}]$ as $a_0a_1\ldots a_{m-1}$, so $[0,1]$ is written $01$.
+Let $r=3$. We will use the computations of Examples \ref{example:Phi}, \ref{example:f3_1} and \ref{example:f3_2} with the $f$ constructed in \cref{s:assembly}. To lighten the notation, we will write each block $A_j = [a_0,\dots,a_{m-1}]$ as $a_0a_1\dots a_{m-1}$, so $[0,1]$ is written $01$.
 	\begin{align*}
 		\Psi_6(01\barra 2\barra 0\barra 2\barra 1)
 		&= \theta_2\circ \Psi_4\circ S(01\barra 2\barra 0\barra 2\barra 1)
 		\\
-		&= \theta_2\circ \Psi_4(01\barra 2\barra f([0] \ot  [2,1]))
+		&= \theta_2\circ \Psi_4(01\barra 2\barra f([0] \ot [2,1]))
 		\\
 		&= -\theta_2\circ \Psi_4\circ S(01\barra 2\barra 0)
 		\\
-		&= -\theta_4\circ \Psi_2(f([0,1] \ot  [2,0]))
+		&= -\theta_4\circ \Psi_2(f([0,1] \ot [2,0]))
 		\\
 		&= -\theta_4\circ \Psi_2(01)
 		\\
@@ -91,13 +96,14 @@ Let $r=3$. We will use the computations of Examples \ref{example:Phi}, \ref{exam
 		&= -e_6 - \rho^3e_6
 	\end{align*}
 \end{example}
+
 \begin{example}\label{example:psi5}
-Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{example:f5_1} with the $f$ constructed in Section \ref{s:assembly}. We use the same ligthened notation as in the previous example
+Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{example:f5_1} with the $f$ constructed in \cref{s:assembly}. We use the same lightened notation as in the previous example
 	\begin{align*}
 		\Psi_7(1\barra 230\barra 413)
 		&= 2^{-1}\theta_4\circ \Psi_3\circ S(1\barra 230\barra 413)
 		\\
-		&= 2^{-1}\theta_4\circ \Psi_3(1\barra f([2,3,0] \ot  [4,1,3]))
+		&= 2^{-1}\theta_4\circ \Psi_3(1\barra f([2,3,0] \ot [4,1,3]))
 		\\
 		&= 2^{-1}\theta_4\circ \Psi_3(1\barra 02)
 		\\
@@ -116,7 +122,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 \begin{proof}
 	$\Psiom_*$ is already a chain map up to degree $*\leq r-1$. To check that it commutes with the differential in degree $r$, we distinguish two cases:
 
-	First, if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two canceling terms, while if it has more repeated entries, it is zero on the nose.
+	First, if $\Psiom(A) = 0$, then $A$ has repeated entries. If it has one repeated entry, then the image by $\Psiom$ of its boundary has two cancelling terms, while if it has more repeated entries, it is zero on the nose.
 
 	Second, if $\Psiom(A)\neq 0$, then $A$ has no repetitions. We may assume, as before, that $A = A_1|A_2$ has only two pieces, and write $A_1*A_2$ for their join and $\diff_iA_1*A_2$ for the result of removing the $i$th entry. Then:
 	\begin{align*}
@@ -133,7 +139,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		\\
 		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ S(A)
 		\\
-		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ f(A_1 \ot  A_2)
+		&= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\circ \Psi_0\circ \partial\circ f(A_1 \ot A_2)
 		\\
 		&= (-1)^{\lambda(A_1,A_2)}{\textstyle\frac{1}{\tilde{r}!}} \theta_{r-1}(e_0)
 		\\
@@ -146,7 +152,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		%		\Psiom_{q-1}\partial(A) &= {\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\Psiom_{q-r}S\partial(A) = {\textstyle\frac{1}{\tilde{r}!}} \theta_{r-1}\Psiom_{q-r}\partial S(A) = \\
 		%		&={\textstyle\frac{1}{\tilde{r}!}}\theta_{r-1}\partial\Psiom_{q-r+1}S(A) = {\textstyle\frac{1}{\tilde{r}!}}\partial\theta_{r-1}\Psiom_{q-r+1}S(A) = \partial \Psiom_{q}(A).
 		%	\end{align*}
-	%	Finally, recall that the map $\Psi_{r-2}$ of the previous section has a factor of $\frac{1}{\tilde{r}!}$ and consists on all permutations of $\{0,1,\ldots,r-1\}$, hence one deduces from \eqref{cond:3} that $\frac{1}{\tilde{r}!}\theta_{r-1}\Psiom_{-1}S(A) = \Psiom_{r-2}(A)$, hence both definitions coincide at their common case.
+	%	Finally, recall that the map $\Psi_{r-2}$ of the previous section has a factor of $\frac{1}{\tilde{r}!}$ and consists on all permutations of $\{0,1,\dots,r-1\}$, hence one deduces from \eqref{cond:3} that $\frac{1}{\tilde{r}!}\theta_{r-1}\Psiom_{-1}S(A) = \Psiom_{r-2}(A)$, hence both definitions coincide at their common case.
 \end{proof}
 
 %\begin{lemma} $\bar{\Psi}_{q-1}((\partial A)^{nf}) = \partial\bar{\Psi}_{q-r}\DDD(A)$ if $A$ has a full piece.
@@ -157,7 +163,7 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 %\item if the full piece is to the right of $w_1$, then let $A_3$ be that full piece, and assume, without loss of generality that is the last piece. Then
 %\[\partial S(A) = \partial \bar{A}*f(A_1,A_2)*A_3 + \bar{A}*\partial f(A_1,A_2)*A_3 + \bar{A}*f(A_1,A_2)*\partial A_3\]
 %\[S\partial(A) = \partial \bar{A}*f(A_1,A_2)*A_3 + \bar{A}*\partial f(A_1,A_2)*A_3 + \bar{A}*A_1*f(A_2,\partial A_3)\]
-%We need to check that the value of $\Psiom$ in the last term coincides. If $q-r+1\geq r-2$, then we have that
+%We need to check that the value of $\Psiom$ in the last term coincides. If $q-r+1 \geq r-2$, then we have that
 %\[\Psiom(\bar{A}*f(A_1,A_2)*\partial A_3) = \PsiomS(\bar{A}*f(A_1,A_2)*\partial A_3) = \Psiom(\bar{A}*f(f(A_1,A_2),\partial A_3)\]
 %\[\Psiom(\bar{A}*A_1*f(A_2,\partial A_3)) = \PsiomS(\bar{A}*A_1*f(A_2,\partial A_3)) = \Psiom(\bar{A}*f(A_1*f(A_2,\partial A_3))\]
 %and both terms equal $f(A_1,A_2)$.
@@ -165,7 +171,8 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 %
 %\end{proof}
 
-\begin{proposition}\label{prop:condition} Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1}, \eqref{cond:2} and \eqref{cond:3}. If $\Psi$ is defined as in Definition \ref{def:psiom}, and $A\in \Omega_*(r)$ has a full piece,
+\begin{proposition}\label{prop:condition}
+	Let $f$ be a chain map as in Construction \ref{cons:1}, satisfying Conditions \eqref{cond:1}, \eqref{cond:2} and \eqref{cond:3}. If $\Psi$ is defined as in Definition \ref{def:psiom}, and $A\in \Omega_*(r)$ has a full piece,
 	\[
 	\tilde{r}!\Psiom_{q-1}(\partial^{\nf} (A)) = (-1)^q\theta_{r-1}\circ \Psiom_{q-r}\circ\DDD(A).
 	\]
@@ -173,14 +180,14 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 \end{proposition}
 
 \begin{proof}
-	We will prove it by induction on the position of the full piece from the right. Since $A$ has one full piece, $q\geq r$. We assume without loss of generality that the full piece is $[0,1,\ldots,r-1]$ (i.e., it is ordered), and we distinguish three cases:
+	We will prove it by induction on the position of the full piece from the right. Since $A$ has one full piece, $q \geq r$. We assume without loss of generality that the full piece is $[0,1,\dots,r-1]$ (i.e., it is ordered), and we distinguish three cases:
 
 	If the full piece is the last piece, write $A=\bar{A}\barra A_1\barra A_2$ with $A_2 = \sigma$ the full piece and $A_1$ the penultimate piece, and let $\ell$ be the length of $\bar{A}*A_1$. Then by Condition \eqref{cond:1}:
 	\begin{align*}
 		\tilde{r}!\Psiom_{q-1}(\partial^{\nf} (A)) &=
 		\theta_{r-1} \circ \Psiom_{q-r}\circ S (\partial^{\nf}(A)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}\circ S(\bar{A}\barra A_1\barra \partial A_2) \\
-		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra f(A_1 \ot  \partial \sigma)) \\
+		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra f(A_1 \ot \partial \sigma)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ\Psiom_{q-r}(\bar{A}\barra A_1) \\
 		&= (-1)^q\theta_{r-1}\circ \Psiom_{q-r}\circ\DDD(A).
 	\end{align*}
@@ -188,12 +195,12 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 	\begin{align*}
 		\tilde{r}!\Psiom_{q-1}(\partial^{\nf} A) &=
 		\theta_{r-1}\circ \Psiom_{q-r}\circ S(\partial^{\nf}(A)) \\
-		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}\circ S(\bar{A}\barra \partial A_1\barra  A_2) \\
-		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra f(\partial A_1 \ot  A_2)) \\
+		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}\circ S(\bar{A}\barra \partial A_1\barra A_2) \\
+		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra f(\partial A_1 \ot A_2)) \\
 		&= (-1)^{\ell} \theta_{r-1}\circ \Psiom_{q-r}(\bar{A}\barra \rho(A_2)) \\
 		&= (-1)^q\theta_{r-1}\circ \Psiom_{q-r}\circ \DDD(A).
 	\end{align*}
-	Otherwise, $q\geq 2r$, and we reason by induction as follows: %write $A=\bar{A}_1*\bar{A}*\bar{A}_2*A_1*A_2$ with $A_1$ the piece that contains the last pivot and $A_2$ the word to the right of $A_1$. Assume by induction that the lemma holds for words of smaller length. Then
+	Otherwise, $q \geq 2r$, and we reason by induction as follows: %write $A=\bar{A}_1*\bar{A}*\bar{A}_2*A_1*A_2$ with $A_1$ the piece that contains the last pivot and $A_2$ the word to the right of $A_1$. Assume by induction that the lemma holds for words of smaller length. Then
 	\begin{align*}
 		(\tilde{r}!)^2\Psiom_{q-1}(\partial^{\nf} A)
 		&= (-1)^q\tilde{r}!\theta_{r-1}\circ \Psiom_{q-r}\circ S(\partial^{\nf} A) \\
@@ -203,11 +210,3 @@ Let $r=5$. We will use the computations of Examples \ref{example:Phi} and \ref{e
 		&= (-1)^{q}\tilde{r}!\theta_{r-1}\circ \Psiom_{q-r}\circ \DDD (A)\qedhere
 	\end{align*}
 \end{proof}
-
-
-
-
-
-
-
-

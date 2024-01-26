@@ -3,95 +3,95 @@
 \section{Suspension}\label{s:suspension}
 
 
-In this section, we show that our connected comultiplications yield nice connected comultiplications on the chain complex of a simplicial $\susp{}$-spectrum or a simplicial $\sus{}$-spectrum. The unstable comultiplications of \cite{medina2021may_st} yield nice stable comultiplications on the chain complex of a simplicial $\sus{}$-spectrum. At the end we give some comments on other stable categories. We have chosen to work with semi-simplicial pointed sets, but one may very well work with simplicial pointed sets using the Kan suspension instead.
+In this section, we show that our connected diagonals yield nice connected diagonals on the chain complex of a simplicial $\susp{}$-spectrum or a simplicial $\sus{}$-spectrum. The unstable diagonals of \cite{medina2021may_st} yield nice stable diagonals on the chain complex of a simplicial $\sus{}$-spectrum. At the end we give some comments on other stable categories. We have chosen to work with semi-simplicial pointed sets, but one may very well work with simplicial pointed sets using the Kan suspension instead.
 
 %Let us assume that the category $\cC$ has a zero object. Otherwise, since $\Mod{R}$ has a zero object, we can replace $\cC$ by the category $\cC_*$ of pointed objects in $\cC$, which then inherits the coproducts and the tensor product and the diagonal, and the linearization functor factors through $\cC_*$.
 
 \subsection{Compatibility with suspension} The \emph{left suspension functor} sends an augmented simplicial pointed set $X_\bullet$ to a simplicial pointed set $(\Sigma X)_\bullet$ that satisfies the following (as before, we denote by $L'(X)$ the semi-simplicial object that is obtained from $L(X)$ by quotienting by the degeneracies):
 \begin{align*}
-    \abel'(\susp{} X)_n &\cong \abel'(X)_{n-1},& \d_i(\susp{}\sigma) &= \susp{} \d_{i+1}(\sigma),& d_{0}(\susp{}\sigma) &= *.
+ \abel'(\susp{} X)_n &\cong \abel'(X)_{n-1},& \d_i(\susp{}\sigma) &= \susp{} \d_{i+1}(\sigma),& d_{0}(\susp{}\sigma) &= *.
 \end{align*}
 There is also a \emph{right suspension functor} satisfying the following:
 \begin{align*}
-    \abel'(\sus{} X)_n &= \abel'(X)_{n-1}, &\d_i(\sus{}\sigma) &= \sus{} \d_i(\sigma),& d_{n+1}(\sus{} \sigma) &= *.
+ \abel'(\sus{} X)_n &= \abel'(X)_{n-1}, &\d_i(\sus{}\sigma) &= \sus{} \d_i(\sigma),& d_{n+1}(\sus{} \sigma) &= *.
 \end{align*}
 We also have that, for an augmented semi-simplicial pointed set $X_\bullet$ in $\cC$,
 \begin{align*}
-    \cadenas(\Sigma X)&\cong \susp{} \cadenas(X) & \cadenas(\sus{}X) &\cong \sus{}\cadenas(X)
+ \cadenas(\Sigma X)&\cong \susp{} \cadenas(X) & \cadenas(\sus{}X) &\cong \sus{}\cadenas(X)
 \end{align*}
 
-An $\susp{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $E = \{E_m\}_{m\geq 0}$ with structural maps $\susp{} E_m\to E_{m+1}$. An $\sus{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $\{E_m\}_{m\geq 0}$ with structural maps $\sus{} E_m\to E_{m+1}$.
+An $\susp{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $E = \{E_m\}_{m \geq 0}$ with structural maps $\susp{} E_m \to E_{m+1}$. An $\sus{}$-spectrum is a sequence of (augmented) semi-simplicial pointed sets $\{E_m\}_{m \geq 0}$ with structural maps $\sus{} E_m \to E_{m+1}$.
 
 The chain complex of a $\susp{}$-spectrum is the colimit
 \[
-    \chains(E) = \colim_m \susp{-m} \chains(E_m)\to \susp{-m-1} \chains(E_{m+1})
+ \chains(E) = \colim_m \susp{-m} \chains(E_m) \to \susp{-m-1} \chains(E_{m+1})
 \]
 The chain complex of a $\sus{}$-spectrum is the colimit
 \[
-    \chains(E) = \colim_m \sus{-m} \chains(E_m)\to \sus{-m-1} \chains(E_{m+1})
+ \chains(E) = \colim_m \sus{-m} \chains(E_m) \to \sus{-m-1} \chains(E_{m+1})
 \]
 These chain complexes compute the ordinary homology of the spectrum $E$ and come equipped with a stable $\mathbb{E}_\infty$ structure \cite{Gill2020}. The stable $\mathbb{E}_\infty$ operad has two well-known models \cite[Appendix]{berger2004combinatorial}: the stable Barratt-Eccles operad or the stable surjection operad, and are defined as the limit of the suspension endomorphism of the Barratt Eccles operad $\cE$ or the surjection operad $\chi$. In arity $r$:
-\[\cE_{st} = \lim(  \Sigma^2\cE(r)[2-2r] \lra \Sigma \cE(r)[1-r]\lra \cE(r).\]
-\[\chi_{st} = \lim(  \Sigma^2\chi(r)[2-2r] \lra \Sigma \chi(r)[1-r]\lra \chi(r).\]
-Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite. In the next proposition we observe that the homomorphism $W_*(r)\to \cE(r)$ constructed in \cite{medina2021may_st} is compatible with the right suspension, and therefore gives a nice map
+\[\cE_{st} = \lim( \Sigma^2\cE(r)[2-2r] \lra \Sigma \cE(r)[1-r] \lra \cE(r).\]
+\[\chi_{st} = \lim( \Sigma^2\chi(r)[2-2r] \lra \Sigma \chi(r)[1-r] \lra \chi(r).\]
+Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite. In the next proposition we observe that the homomorphism $W_*(r) \to \cE(r)$ constructed in \cite{medina2021may_st} is compatible with the right suspension, and therefore gives a nice map
 \[
-    W_*(r)_{st}\lra \cE_{st}
+ W_*(r)_{st} \lra \cE_{st}
 \]
-that yields a stable comultiplication on the chain complex of a $\sus{}$-spectrum.
+that yields a stable diagonal on the chain complex of a $\sus{}$-spectrum.
 
 %\begin{definition}
-%    A natural unstable $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes.
-%    \[
-%    \xymatrix{
-%        W_* \ot  C_*\ar[r] \ar[d]^{\theta_{1-r} \ot  \sus{}} & C_*^{ \ot  r} \ar[d]^{\sus{ \ot  r}}\\
-%        W_{*-r+1} \ot  \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{ \ot  r}.
-%    }
-%    \]
-%    A natural connected $r$-cyclic comultiplication is \emph{compatible with suspension} if the following diagram commutes
+% A natural unstable $r$-cyclic diagonal is \emph{compatible with suspension} if the following diagram commutes.
+% \[
+% \xymatrix{
+% W_* \ot C_*\ar[r] \ar[d]^{\theta_{1-r} \ot \sus{}} & C_*^{\ot r} \ar[d]^{\sus{\ot r}}\\
+% W_{*-r+1} \ot \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\ot r}.
+% }
+% \]
+% A natural connected $r$-cyclic diagonal is \emph{compatible with suspension} if the following diagram commutes
 %\[
-%    \xymatrix{
-%        \rW^*\hotimes C_*\ar[r]\ar[d]^{\id \ot  \sus{}} & C_*^{ \ot  r} \ar[d]^{\sus{ \ot  r}} \\
-%        \rW^*\hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{ \ot  r}
-%    }
-%    \]
+% \xymatrix{
+% \rW^* \hotimes C_*\ar[r]\ar[d]^{\id \ot \sus{}} & C_*^{\ot r} \ar[d]^{\sus{\ot r}} \\
+% \rW^* \hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\ot r}
+% }
+% \]
 %\end{definition}
 \begin{proposition}\label{prop:suspensionunstable}
-    The effect of left and right suspensions on the $r$-cyclic unstable comultiplications of \cite{medina2021may_st} is the following:
-    \begin{align*}
-        \mu(e_q \ot  \susp{} \tau) &= (\tilde{r}-1)!\susp{ \ot  r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot  \tau)
-        \\
-       \mu(e_q \ot  \sus{}\tau) &= \tilde{r}!\sus{ \ot  r}\mu(e_{q-r+1} \ot  \tau)
-    \end{align*}
+ The effect of left and right suspensions on the $r$-cyclic unstable diagonals of \cite{medina2021may_st} is the following:
+ \begin{align*}
+ \mu(e_q \ot \susp{} \tau) &= (\tilde{r}-1)!\susp{\ot r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot \tau)
+ \\
+ \mu(e_q \ot \sus{}\tau) &= \tilde{r}!\sus{\ot r}\mu(e_{q-r+1} \ot \tau)
+ \end{align*}
 \end{proposition}
 
 \begin{proof}
-    The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\ldots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct, in which case they contribute always with a plus sign. A count yields the result.
+ The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\dots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct, in which case they contribute always with a plus sign. A count yields the result.
 
-    For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
+ For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
 \end{proof}
 
 \begin{corollary}
-    If $\mu$ is the unstable comultiplication of \cite{medina2021may_st}, we can define the following stable comultiplication $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$:
-    \[
-        \mu_{st}(e_q \ot  \tau) = \frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot  \tau)
-    \]
-    where $\tau\in \chains[n](E_m)$.
+ If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, we can define the following stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$:
+ \[
+ \mu_{st}(e_q \ot \tau) = \frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
+ \]
+ where $\tau\in \chains[n](E_m)$.
 \end{corollary}
 
-For the connected comultiplication constructed in this work we have compatibility both with the left and the right suspension, as we see in the next proposition.
+For the connected diagonal constructed in this work we have compatibility both with the left and the right suspension, as we see in the next proposition.
 
 \begin{proposition}\label{prop:suspensionconnected}
-    The effect of left and right suspensions on the $r$-cyclic connected comultiplications defined in Corollary \ref{thm2:mainthm} is the following:
-    \begin{align*}
-       \mu(e_q \ot  \susp{}\tau) &= \tilde{r}!\susp{ \ot  r}\rho^{-1}(\mu(e_q \ot  \tau) &
-       \mu(e_q \ot  \sus{}\tau) &= \tilde{r}!\sus{ \ot  r}\mu(e_q \ot  \tau)
-    \end{align*}
+ The effect of left and right suspensions on the $r$-cyclic connected diagonals defined in Corollary \ref{thm2:mainthm} is the following:
+ \begin{align*}
+ \mu(e_q \ot \susp{}\tau) &= \tilde{r}!\susp{\ot r}\rho^{-1}(\mu(e_q \ot \tau) &
+ \mu(e_q \ot \sus{}\tau) &= \tilde{r}!\sus{\ot r}\mu(e_q \ot \tau)
+ \end{align*}
 \end{proposition}
 
 \begin{proof}
-    Let $\tau\in \rA(X)_n$, and observe that the summands in $\alpha\circ\beta\circ\gamma\circ \psi(e_q\hotimes \tau)$ coincide with the summands of $\alpha\circ\beta\circ\gamma\circ \psi(e_q\hotimes \sus{}\tau)$ except for those that are indexed by a $U$ that contains some entry equal to $n+1$. These extra summands are zero because are faces of $d_{n+1}(s{} \tau) = 0$. Hence we have the same summands, with an extra coefficient of $(\tilde{r}!)^{n+2}$ on the left and a coefficient of $(\tilde{r}!)^{n+1}$ on the right.
+ Let $\tau\in \rA(X)_n$, and observe that the summands in $\alpha\circ\beta\circ\gamma\circ \psi(e_q \hotimes \tau)$ coincide with the summands of $\alpha\circ\beta\circ\gamma\circ \psi(e_q \hotimes \sus{}\tau)$ except for those that are indexed by a $U$ that contains some entry equal to $n+1$. These extra summands are zero because are faces of $d_{n+1}(s{} \tau) = 0$. Hence we have the same summands, with an extra coefficient of $(\tilde{r}!)^{n+2}$ on the left and a coefficient of $(\tilde{r}!)^{n+1}$ on the right.
 
-    Regarding the left suspension, we have the same situation, though now the map $\sus{} \colon  \cochains(\asimplex^{n+1})\to \cochains(\asimplex^{n})$ sends a tuple $(u_0,\ldots,u_q)$ to the tuple $(u_0-1,\ldots,u_q-1)$ if $u_0>0$ and to zero otherwise. Additionally, the extra summands that vanish are those with an $U$ that contains some entry equal to $0$.
+ Regarding the left suspension, we have the same situation, though now the map $\sus{} \colon \cochains(\asimplex^{n+1}) \to \cochains(\asimplex^{n})$ sends a tuple $(u_0,\dots,u_q)$ to the tuple $(u_0-1,\dots,u_q-1)$ if $u_0>0$ and to zero otherwise. Additionally, the extra summands that vanish are those with an $U$ that contains some entry equal to $0$.
 \end{proof}
 The disparity in the behaviour with respect to suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
 \begin{corollary}
@@ -99,22 +99,22 @@ The disparity in the behaviour with respect to suspension of the operations in t
 \end{corollary}
 
 \begin{corollary}
-    On the stable chains of a $\susp{}$-spectrum $\{E_m\}_{m\geq 0}$ we can define the following connected comultiplication $\mu_{st}$ (which restricts to a stable comultiplication)
-    \[
-        \mu_{st}(e_{-q}^\dd\hotimes \tau) = \frac{1}{(\tilde{r}!)^{m}}\rho^m \mu(e_{-q}^\dd\hotimes \tau)
-    \]
-    where $\tau\in \chains(E_m)$.
+ On the stable chains of a $\susp{}$-spectrum $\{E_m\}_{m \geq 0}$ we can define the following connected diagonal $\mu_{st}$ (which restricts to a stable diagonal)
+ \[
+ \mu_{st}(e_{-q}^\dd \hotimes \tau) = \frac{1}{(\tilde{r}!)^{m}}\rho^m \mu(e_{-q}^\dd \hotimes \tau)
+ \]
+ where $\tau\in \chains(E_m)$.
 \end{corollary}
 
 \begin{corollary}
-    On the stable chains of a $\sus{}$-spectrum $\{E_m\}_{m\geq 0}$ we can define the following connected comultiplication $\mu_{st}$ (which restricts to a stable comultiplication):
-    \[
-        \mu_{st}(e_{-q}^\dd\hotimes \tau) = \frac{1}{(\tilde{r}!)^m}\mu(e_{-q}^\dd\hotimes \tau)]
-    \]
-    where $\tau\in\chains(E_m)$.
+ On the stable chains of a $\sus{}$-spectrum $\{E_m\}_{m \geq 0}$ we can define the following connected diagonal $\mu_{st}$ (which restricts to a stable diagonal):
+ \[
+ \mu_{st}(e_{-q}^\dd \hotimes \tau) = \frac{1}{(\tilde{r}!)^m}\mu(e_{-q}^\dd \hotimes \tau)]
+ \]
+ where $\tau\in\chains(E_m)$.
 \end{corollary}
-Observe that we had to introduce a coefficient of $\tilde{r}!$ in Proposition \ref{lemma:omegar}. After this corollary, we can interpret our construction (without the extra coefficient) as computing the stable comultiplication on $\tau$ as if $\tau$ had degree $0$.
+Observe that we had to introduce a coefficient of $\tilde{r}!$ in Proposition \ref{lemma:omegar}. After this corollary, we can interpret our construction (without the extra coefficient) as computing the stable diagonal on $\tau$ as if $\tau$ had degree $0$.
 
 \subsection{Other simplicial stable categories}
 
-If the category $\cC$ has a zero object we can define the left and right Kan suspensions of augmented simplicial objects in $\cC$ as we did before for $\cC = \Setp$. This yields a notion of $\susp{}$-spectrum and $\sus{}$-spectrum with their stable chain complexes. These stable chain complexes have comultiplications as described in the preceeding corollaries.
+If the category $\cC$ has a zero object we can define the left and right Kan suspensions of augmented simplicial objects in $\cC$ as we did before for $\cC = \Setp$. This yields a notion of $\susp{}$-spectrum and $\sus{}$-spectrum with their stable chain complexes. These stable chain complexes have diagonals as described in the preceeding corollaries.
