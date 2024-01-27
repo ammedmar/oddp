@@ -207,15 +207,15 @@ The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subse
 Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r-1}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime.
 
 \begin{definition}
-	An \emph{$r$-asymmetry} is a choice, for each non-empty proper subset $\tau$ of $\{0,1,\dots,r-1\}$, of an element $x_\tau\in \tau$. An \emph{$r$-cyclic asymmetry} is an asymmetry that is equivariant with respect to the action of the cyclic group $\Cyc_r$. An \emph{$r$-cyclic asymmetry with duality} is an $r$-cyclic asymmetry such that the cyclic predecessor of $x_\tau$ is not an element of $\tau$.
+	An \emph{$r$-straightening} is a choice, for each non-empty proper subset $\tau$ of $\{0,1,\dots,r-1\}$, of an element $x_\tau\in \tau$. An \emph{$r$-cyclic straightening} is an straightening that is equivariant with respect to the action of the cyclic group $\Cyc_r$. An \emph{$r$-cyclic straightening with duality} is an $r$-cyclic straightening such that the cyclic predecessor of $x_\tau$ is not an element of $\tau$.
 \end{definition}
 
-\begin{lemma}\label{lemma:asymmetry}
+\begin{lemma}\label{lemma:straightening}
 	Assemblage maps are in bijection with $r$-asymmetries, $r$-cyclic assemblage maps are in bijection with $r$-cyclic asymmetries, and $r$-cyclic assemblage maps with duality are in bijection with $r$-cyclic asymmetries with duality.
 \end{lemma}
 
 \begin{proof}
-	An $r$-cyclic asymmetry $\tau\mapsto x_{\tau}\in \tau$ determines the image of $g$ on vertices, thus
+	An $r$-cyclic straightening $\tau\mapsto x_{\tau}\in \tau$ determines the image of $g$ on vertices, thus
 	\[
 	g(\tau_0\subset\dots\subset\tau_{k-1}) = (x_{\tau_0},\dots,x_{\tau_{k-1}})
 	\]
@@ -346,7 +346,7 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 \end{example}
 
 \begin{example}\label{example:f5_1}
-	For $r=5$ and the first $r$-cyclic asymmetry of Example \ref{example:asymmetries5}, if $a \ot b = [2,3,0] \ot [4,1,3]$, we have:
+	For $r=5$ and the first $r$-cyclic straightening of Example \ref{example:asymmetries5}, if $a \ot b = [2,3,0] \ot [4,1,3]$, we have:
 	\begin{align*}
 		f([2,3,0] \ot [4,1,3]) &= (-1)^{5\cdot 6}g_*\circ s_*^{\Psd}\circ h_*\circ \twist([2,3,0] \ot [4,1,3])
 		\\
@@ -363,7 +363,7 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 \end{example}
 
 \begin{example}\label{example:f5_2}
-	For $r=5$ and the first $r$-cyclic asymmetry of Example \ref{example:asymmetries5}, if $a \ot b = [1,2,3,4] \ot [0,1,2]$ we have:
+	For $r=5$ and the first $r$-cyclic straightening of Example \ref{example:asymmetries5}, if $a \ot b = [1,2,3,4] \ot [0,1,2]$ we have:
 	\begin{align*}
 		f([1,2,3,4] \ot [0,1,2])
 		&= (-1)^{5\cdot 7}g_*\circ s_*^{\Psd}\circ h_*\circ \twist([1,2,3,4] \ot [0,1,2])
