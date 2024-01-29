@@ -34,7 +34,7 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a)).
+	y(a) = (-1)^{\binom{n}{2} \tilde{r}}(\tilde{r}!)^n(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a)).
 	\]
 	Furthermore, these operations satisfy the following equation
 	\begin{itemize}
@@ -137,7 +137,7 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a))
+	y(a) = (-1)^{\binom{n}{2} \tilde{r}}(\tilde{r}!)^n(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a))
 	\]
 \end{proposition}
 
@@ -159,8 +159,8 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 \subsection{Connected diagonals}\label{s:connected}
 
 Let $\mu$ be a stable diagonal on $\ucadenas$.
-A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i] \ot \ucadenas$ for $i>(r-1)n$.
-We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ such that giving a chain map $\mu \colon \rWd(r)  \hotimes \rucadenas \to \ucadenas^{\ot r}$ is equivalent to give a stable diagonal that vanishes on $\Wst[i](r) \ot \ucadenas$ for $i>(r-1)n$.\anibal{What is $n$?}
+A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i] \ot \ucadenas[n]$ for $i>(r-1)n$.
+We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ such that giving a chain map $\mu \colon \rWd(r)  \hotimes \rucadenas \to \ucadenas^{\ot r}$ is equivalent to give a stable diagonal that vanishes on $\Wst[i](r) \ot \ucadenas[n]$ for $i>(r-1)n$.\anibal{What is $n$?}\federico{fixed}
 
 \begin{figure}
 	\input{tables/hat}
@@ -179,14 +179,15 @@ We write $\rW(r)$ for the right suspension of the augmented chain complex $\W(r)
 \[
 \dotsb
 \overset{T}{\lra}
-R[\Cyc_r]\langle e_{3}^\dd\rangle
+R[\Cyc_r]\langle e_{3}\rangle
 \overset{N}{\lra}
-R[\Cyc_r]\langle e_{2}^\dd\rangle
+R[\Cyc_r]\langle e_{2}\rangle
 \overset{T}{\lra}
-R[\Cyc_r]\langle e_{1}^\dd\rangle
+R[\Cyc_r]\langle e_{1}\rangle
 \overset{N}{\lra}
 R\anibal{I don't think there should be dual basis here.}
 \]
+\federico{corrected}
 (note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual:
 \[
 R\overset{-N}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{T}{\lra} R[\Cyc_r]\langle e_{-2}^\dd\rangle \overset{-N}{\lra} R[\Cyc_r]\langle e_{-3}^\dd\rangle \overset{T}{\lra} \dotsb.
@@ -252,7 +253,7 @@ As a consequence,
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with
 	\[
-	y(a) = \frac{1}{(\tilde{r}!)^n}(y \ot \overset{r}{\dots} \ot y)(\mu(e_{ri}^\vee \ot a))
+	y(a) = (-1)^{\binom{n(r-1)-q}{2} + \binom{n}{2}\tilde{r}}(\tilde{r}!)^n(y \ot \overset{r}{\dots} \ot y)(\mu(e_{ri}^\vee \ot a))
 	\]
 	These operations satisfy the following equation
 	\begin{itemize}

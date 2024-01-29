@@ -136,7 +136,7 @@ where $\rWd(r) \hotimes \rucadenas$ is certain chain complex isomorphic as $\Cyc
 
 \subsection{Main result}
 
-Let $\cC$ be a distributive monoidal category with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and a coproduct-preserving monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
+Let $\cC$ be a monoidal category with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and a strong monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
 By virtue of $L$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
 The main examples of $\cC$ are the categories $\Set$ and $\Setp$ of sets and pointed sets.
 Our main result is an effective construction of connected $r$-diagonals from the following combinatorial structure.
@@ -209,20 +209,25 @@ Again, they do not extend to unstable diagonals.
 %In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
 
 %\subsection{Desymmetrisations} The notion of $r$-cyclic desymmetrisation is new to the extend of our knowledge.
-A $2$-cyclic desymmetrisation was implicitly used by the first author in \cite{cantero-moran2020khovanov} to find Steenrod squares in augmented semi-simplicial objects in the Burnside $2$-category.
+A connected $2$-cyclic diagonal was implicitly used by the first author in \cite{cantero-moran2020khovanov} to find Steenrod squares in augmented semi-simplicial objects in the Burnside $2$-category.
 In a future work we expect to find such structures for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
-For the reader acquainted with the surjection operad we remark that the operations that are involved in these desymmetrisations would correspond to summands indexed by non-overlapping intervals.
+For the reader acquainted with the surjection operad we remark that the operations that are involved in these connected $r$-cyclic diagonals would correspond to summands indexed by non-overlapping intervals.
 
 \subsection{Outline}
 
 In \cref{s:preliminaries} we set some sign conventions for chain complexes and the conventions for simplicial objects.
 The notion of connected diagonal is presented in \cref{s:2bdiagonals}.
 The construction of the connected diagonal for augmented semi-simplicial objects of Theorem \ref{thm:main} has three main ingredients.
+
+
 First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{\ot r}$.
-Afterwards, a criterion to build a connected diagonal is given.
-Second, an explicit $\Cyc_r$-equivariant chain map $\Omega^*(r)^{\nf} \to W_*(r)$ between two resolutions of $\Cyc_r$ that fulfills the hypotheses of the criterion.
-This map is constructed in \cref{s:resolutions} up to the definition of certain map $f$.
-Third, the construction of this latter map $f$ is pursued using the barycentric and the pair subdivision of the simplex in \cref{section:atlast}.
+As an application of this first ingredient, we obtain a criterion to build a connected diagonal on the normalized chains of a simplicial object.
+
+
+Second, in Section \ref{s:resolutions} we give a recipy to construct an explicit $\Cyc_r$-equivariant chain map $\Omega_*(r)^{\nf} \to W_*(r)$ between two resolutions of the cyclic group $\Cyc_r$. This chain map is enough to fulfil the hypotheses of the criterion.
+
+Third, the latter recipy requires the construction of another chain map $f$, which is pursued using the barycentric and the pair subdivision of the simplex in \cref{section:atlast}. This completes the proof of Theorem \ref{thm:main}
+
 In \cref{s:suspension} we show that these operations behave well with respect to suspensions.
 In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.
 Finally, in \cref{s:formulas} we give an algorithmic presentation of the formulas.

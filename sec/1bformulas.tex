@@ -2,14 +2,14 @@
 
 \section{Explicit formulae}\label{s:formulas}
 
-Let $r$ be an odd prime and let $\tau\mapsto g(\tau)$ be a $r$-cyclic straightening with duality. Let $\chains(X)$ denote the right suspension of the normalized chain complex $\cadenas(X)$ of $X$. If $x$ is a cochain of dimension $m$ in the cochain complex of an augmented simplicial set $X$, then $\power^i([x]) = [y]$ with
+Let $r$ be an odd prime and let $\tau\mapsto g(\tau)$ be a $r$-cyclic straightening with duality. Let $\chains(X)$ denote the right suspension of the normalized chain complex $\cadenas(X)$ of $X$. If $x$ is a cochain of dimension $n$ in the cochain complex of an augmented simplicial set $X$, then $\power^i([x]) = [y]$ is a cochain of dimension $n = m+i$ with
 \[
 	y(\tau) = \frac{1}{(\tilde{r}!)^{m}}x^{\ot r}(\mu(e_{ri} \hotimes \tau)).
 \]
 The element $\mu(e_{q} \hotimes \sigma)\in \chains(X)^{\ot r}$ is computed as follows: Let $\cP(r,q)$ be the collection of pairs $(U,A)$ such that
 \renewcommand{\theenumi}{\roman{enumi}}%
 \begin{enumerate}
-	\item $U = (u_0,\dots,u_{q-1})$ is a non-decreasing sequence with $u_j\in \{0,1,\dots,n\}$,\anibal{Is $n$ a typo here?}
+	\item $U = (u_0,\dots,u_{q-1})$ is a non-decreasing sequence with $u_j\in \{0,1,\dots,n\}$,\anibal{Is $n$ a typo here?}\federico{I have introduced the $n$ above}
 	\item $A = (a_0,\dots,a_{q-1})$ is a sequence with $a_i\in \{0,1,\dots,r-1\}$, and
 	\item\label{condfor:3} $a_i<a_j$ if $u_i=u_j$.
 \end{enumerate}
