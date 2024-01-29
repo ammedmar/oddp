@@ -80,11 +80,16 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 
 Let $\Wst(r)$ be the unbounded chain complex
 \[
-\dotsb \lra \Cyc_r\langle e_2\rangle \overset{N}{\lra}
-\Cyc_r\langle e_1\rangle \overset{T}{\lra}
-\Cyc_r\langle e_0\rangle \overset{N}{\lra}
-\Cyc_r\langle e_{-1}\rangle \overset{T}{\lra}
-\Cyc_r\langle e_{-2}\rangle \overset{N}{\lra}
+\dotsb \lra \Cyc_r\langle e_2\rangle 
+\overset{T}{\lla}
+\Cyc_r\langle e_1\rangle 
+\overset{N}{\lla}
+\Cyc_r\langle e_0\rangle 
+\overset{T}{\lla}
+\Cyc_r\langle e_{-1}\rangle 
+\overset{N}{\lla}
+\Cyc_r\langle e_{-2}\rangle 
+\overset{T}{\lla}
 \dots
 \]
 If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
@@ -95,7 +100,7 @@ In general, we understand it as the limit of
 \[
 \dotsb \lra \sus{4(1-r)}\W(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W(r) \overset{\theta_{2(1-r)}}{\lra} \W(r).
 \]
-where $\theta_{k} \colon \W(r) \to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even.
+where $\theta_{k} \colon \W(r) \to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even and non-positive.
 %If $r$ is odd or $r=2$ and $\R=\bF_2$, one can instead use the maps $\theta_{1-r}$ to form the limit.
 This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
 \[
@@ -160,7 +165,7 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 
 Let $\mu$ be a stable diagonal on $\ucadenas$.
 A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i] \ot \ucadenas[n]$ for $i>(r-1)n$.
-We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ such that giving a chain map $\mu \colon \rWd(r)  \hotimes \rucadenas \to \ucadenas^{\ot r}$ is equivalent to give a stable diagonal that vanishes on $\Wst[i](r) \ot \ucadenas[n]$ for $i>(r-1)n$.\anibal{What is $n$?}\federico{fixed}
+We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ such that giving a chain map $\mu \colon \rWd(r)  \hotimes \rucadenas \to \ucadenas^{\ot r}$ is equivalent to give a stable diagonal that vanishes on $\Wst[i](r) \ot \ucadenas[n]$ for $i>(r-1)n$ (see Figures \ref{figure:2} and \ref{figure:3}).
 
 \begin{figure}
 	\input{tables/hat}
@@ -177,23 +182,30 @@ Let $\rucadenas$ be the chain complex $\bigoplus_m \sus{(r-1)m}\ucadenas[m]$ wit
 An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$.
 We write $\rW(r)$ for the right suspension of the augmented chain complex $\W(r) \to R$, i.e., the chain complex
 \[
-\dotsb
-\overset{T}{\lra}
-R[\Cyc_r]\langle e_{3}\rangle
-\overset{N}{\lra}
-R[\Cyc_r]\langle e_{2}\rangle
-\overset{T}{\lra}
+R
+\overset{N}{\lla}
 R[\Cyc_r]\langle e_{1}\rangle
-\overset{N}{\lra}
-R\anibal{I don't think there should be dual basis here.}
+\overset{T}{\lla}
+R[\Cyc_r]\langle e_{2}\rangle
+\overset{N}{\lla}
+R[\Cyc_r]\langle e_{3}\rangle
+\overset{T}{\lla}
+\dotsb
 \]
-\federico{corrected}
 (note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual:
 \[
-R\overset{-N}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{T}{\lra} R[\Cyc_r]\langle e_{-2}^\dd\rangle \overset{-N}{\lra} R[\Cyc_r]\langle e_{-3}^\dd\rangle \overset{T}{\lra} \dotsb.
+\dotsb
+\overset{T}{\lla} 
+R[\Cyc_r]\langle e_{-3}^\dd\rangle 
+\overset{-N}{\lla}
+R[\Cyc_r]\langle e_{-2}^\dd\rangle 
+\overset{T}{\lla} 
+R[\Cyc_r]\langle e_{-1}^\dd\rangle 
+\overset{-N}{\lla} 
+R.
 \]
 Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{-i}^\dd) = (\rho^{-1} e_i)^{\dd}$.
-The generator of the copy of $R$ in the left will be denoted as $1$ or as $e_0^\dd$.
+The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
 
 Again, there is a suspension map $\theta_k \colon \rWd(r) \to \susp{-k}\rWd(r)$ defined for all even $k$ (or all $k$ in case $r=2$ and $R=\bF_2$) as
 \begin{align*}
@@ -229,7 +241,7 @@ Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ co
 \end{definition}
 
 If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
-One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W(r) \to \Wd(r)$, but it is also the homotopy fibre of the map $\rWd(r) \to \sus{}\W(r)$ that is the identity on $R$ and zero elsewhere.
+One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W(r) \to \Wd(r)$, but it is also the homotopy fibre of the map $\rWd(r) \to \sus{}\rW(r)$ that is the identity on $R$ and zero elsewhere.
 The map $\varphi_k$ is the composition
 \[
 \Wst(r)\overset{\theta_k}{\lra} \sus{-k} \Wst(r) \overset{\cong}{\lra} \sus{-k}\hofib(\rWd(r) \to \rW(r)) \lra \susp{-k}\rWd(r).
@@ -260,6 +272,13 @@ As a consequence,
 		\item $\power^i(x) = 0$ for $i<0$.
 	\end{itemize}
 \end{proposition}
+\add{
+Observe that the operation $\power^0$ is computed as $y^{\otimes r}(\mu(1\hotimes a))$. Assume additionally that for each $n\geq 0$ the $R$-module $\ucadenas[n]$ has a counital coalgebra structure and that $\mu(1\otimes a)$ equals the $r$-fold diagonal $\Delta^r(a)$. In that case, if $x,y$ and $a$ are as in the proposition, then 
+\[
+y(a) = x^{\otimes r}(\mu(1\hotimes a)) = x^{\otimes r}(a^{\otimes r}) = (-1)^{n\binom{r}{2}} x(a)^r = x(a).
+\]
+I AM NOT SURE HOW TO JUSTIFY THE SECOND EQUALITY. As a consequence, $\power^0 = \id$. The operations constructed in the main theorem do satisfy that $\mu(1\hotimes a)$ is the linearization of an $r$-fold diagonal map. Thus, in the case of simplicial objects in counital commutative coassociative coalgebras, our main theorem yields connected $r$-diagonals with $\power^0=\id$.
+}
 
 \begin{example}
 	As far as we know, the concept of connected diagonal has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the unstable diagonal for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.

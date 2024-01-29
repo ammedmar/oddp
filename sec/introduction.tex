@@ -52,12 +52,15 @@ The basic structure used in \cite{may1970general} for the construction of power 
 \[
 \mu \colon W_*(r) \ot \ucadenas \to \ucadenas^{\ot r}
 \]
-where $W_*(r)$ is the minimal free resolution of the ground ring as a module over the group ring of $\Cyc_r$:
+where $W_*(r)$ is the minimal free resolution of the ground ring $R$ as a module over the group ring of $\Cyc_r$:
 \[
-\dotsb \lra \Cyc_r\langle e_2\rangle \overset{N}{\lra}
-\Cyc_r\langle e_1\rangle \overset{T}{\lra}
-\Cyc_r\langle e_0\rangle \overset{N}{\lra}
-R.
+\Cyc_r\langle e_0\rangle
+\overset{T}{\lla}
+\Cyc_r\langle e_1\rangle 
+\overset{N}{\lla}
+\Cyc_r\langle e_2\rangle 
+\overset{T}{\lla}
+\ldots
 \]
 We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas$, or simply an \textit{unstable $r$-diagonal}, saying that it is \textit{May--Steenrod} if it factors as
 \[
@@ -66,7 +69,7 @@ We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas
 with $f$ and $\nu$ a $\Cyc_r$- and a $\Sym_r$-equivariant map respectively.
 We denote the maps $\mu(e_i \ot -) \colon \ucadenas \to \ucadenas^{\ot r}$ by $\Delta_{r,i}$ and refer to them as \textit{cup-$(r,i)$ coproducts}.
 
-Generalizing the definition of $Sq^i$ in \cref{eq:intro Sq} to a general prime $r$, a chain complex $\ucadenas$ with an unstable $r$-diagonal has power operations on its cohomology defined by
+Generalizing the definition of $\Sq^i$ in \cref{eq:intro Sq} to a general prime $r$, a chain complex $\ucadenas$ with an unstable $r$-diagonal has power operations on its cohomology defined by
 \begin{equation}\label{eq:intro P}
 	\begin{tikzcd}[column sep=tiny, row sep=0]
 		\power^i \colon &[-15pt] H^*(\ucadenas;\bF_r) \arrow[r] & H^{*+i}(\ucadenas;\bF_r) \\
@@ -92,24 +95,34 @@ An effective construction of cup-$(r,i)$ coproducts for simplicial sets dependin
 \subsection{Stable diagonals}
 
 Similarly to how Steenrod power operations on the cohomology of spaces motivated the definition of an unstable $r$-diagonal on a chain complex, we can consider spectra to motivate the definition of stable $r$-diagonals.
+
 Let $E = \{E_m\}_{m \geq 0}$ be a spectrum. Its chains are given by
 \[
 \ucadenas(E) = \colim \left(\ucadenas(E_0) \to \dots \to \Sigma^{-m}\ucadenas(E_m) \to \Sigma^{-m-1} \ucadenas(E_{m+1}) \to \dotsb\right).
 \]
-If $\Wst(r)$ denotes the unbounded chain complex
+The homotopy fibre of the norm map
 \[
-\dotsb \lra \Cyc_r\langle e_2\rangle \overset{N}{\lra}
-\Cyc_r\langle e_1\rangle \overset{T}{\lra}
-\Cyc_r\langle e_0\rangle \overset{N}{\lra}
-\Cyc_r\langle e_{-1}\rangle \overset{T}{\lra}
-\Cyc_r\langle e_{-2}\rangle \overset{N}{\lra}
+\W(r) \overset{N}{\lra} \Wd(r)
+\]
+is isomorphic to the unbounded chain complex $\Wst(r)$ defined as
+\[
+\dotsb \lla \Cyc_r\langle e_{-2}\rangle 
+\overset{T}{\lla}
+\Cyc_r\langle e_{-1}\rangle 
+\overset{N}{\lla}
+\Cyc_r\langle e_0\rangle 
+\overset{T}{\lla}
+\Cyc_r\langle e_{1}\rangle 
+\overset{N}{\lla}
+\Cyc_r\langle e_{2}\rangle 
+\overset{T}{\lla}
 \dotsb,
 \]
-we can stabilize the unstable $r$-diagonals defined by the acyclic carrier theorem to obtain an $\Cyc_r$-equivariant chain map
+Any unstable diagonal suitably compatible with suspensions gives rise to an $\Cyc_r$-equivariant chain map
 \[
 \Wst(r) \ot \ucadenas(E) \lra \ucadenas(E)^{\ot r},
 \]
-which factors through a stable version $V_*^\mathrm{st}(r)$ of $V_*(r)$.
+which factors through a stable version $V_*^\mathrm{st}(r)$ of $V_*(r)$. We will see in Section \ref{s:suspension} that the effective construction of \cite{medina2021may_st} is indeed compatible with right suspension.
 %If $r$ is a prime number, the singular cohomology with coefficients in $\bF_r$ of a spectrum $E$ admits power operations that vanish unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
 
 Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or simply a \textit{stable $r$-diagonal} on $\ucadenas$, as a $\Cyc_r$-equivariant chain map
@@ -118,7 +131,7 @@ Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chai
 \]
 We say $\mu$ is \textit{May--Steenrod} if it factors through $V_*^\mathrm{st}$ as in the previous section.
 
-The same definition of power operations given in \cref{eq:intro P} applies in this context.
+The same definition of power operations given in \cref{eq:intro P} applies in this context. 
 
 %If the spectrum $E$ is given as a sequence $\{E_m\}_{n \geq 0}$ of simplicial pointed sets with structural maps $\varepsilon_m \colon \Sigma E_m \to E_{m+1}$, then its cohomology can be computed as the cohomology of the chain complex
 %\[
@@ -130,30 +143,44 @@ The same definition of power operations given in \cref{eq:intro P} applies in th
 
 \subsection{Connected diagonals}
 
+The negative power operations of a stable $r$-diagonal $\mu$ are supported on a certain graded chain subcomplex $A$ of the bicomplex $\Wst\otimes \ucadenas$. We introduce the notion of \emph{connected $r$-cyclic diagonal}, or connected $r$-diagonal for short, as a stable $r$-diagonal that vanishes on that subcomplex. In particular, its power operations satisfy that $\power^i = 0$ for $i<0$.
+
+Let $\rWd(r)$ be the augmented dual of the right suspension of $\W(r)$:
+\[
+\dotsb
+\Cyc_r\langle e_{-3}^\dd\rangle
+\overset{-N}{\lla}
+\Cyc_r\langle e_{-2}^\dd\rangle
+\overset{T}{\lla}
+\Cyc_r\langle e_{-1}^{\dd}\rangle
+\overset{-N}{\lla}
+R
+\]
+We will define a certain chain complex $\rWd(r)\hotimes \rucadenas$ isomorphic as a $\Cyc_r$-module to $\rWd(r)\otimes \ucadenas$, and isomorphic as a bigraded $\Cyc_r$-module to the quotient of $\Wst(r)\otimes \ucadenas$ by the subcomplex $A$, so that a connected $r$-diagonal is the same as a chain map
+\[
+    \mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
+\]
 %The traditional way to understand the unstable $r$-diagonal structure on the chain complex of a simplicial set $X$ is to observe that the operad of natural endomorphisms of the chain complexes $\ucadenas(\simplex^n)$ is contractible in each arity.
 %Thus, its homology is concentrated in degree $0$, and in that degree one finds the cup product.
 %Then, one proceeds to build the cochain operations in higher degrees using the acyclicity of the rest of the complex.
 %On the other hand,
 %When one tries to produce a stable $r$-diagonal, there is no special operation of degree $0$ to start an inductive process.
 %Thus, endowing a family of chain complexes with such structure is challenging in practice.
-We introduce the notion of \emph{connected $r$-cyclic diagonal} on a chain complex, or connected $r$-diagonal for short, and describe an effective construction naturally defining it on a general class of augmented simplicial objects.
-A chain complex endowed with a connected $r$-diagonal inherits a stable $r$-diagonal and its power operations satisfy $P^0 = \id$ and $P^i = 0$ for negative $i$.
+%We introduce the notion of \emph{connected $r$-cyclic diagonal} on a chain complex, or connected $r$-diagonal for short, and describe an effective construction naturally defining it on a general class of augmented simplicial objects.
+%A chain complex endowed with a connected $r$-diagonal inherits a stable $r$-diagonal and its power operations satisfy $P^0 = \id$ and $P^i = 0$ for negative $i$.
 
-To motivate this structure we consider the homotopy fibre sequence
-\[
-\Wst(r) \to \W(r) \xra{N} \Wd(r)
-\]
-and define a connected $r$-diagonal to be a $\Cyc_r$-equivariant chain map
-\[
-\mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r},
-\]
-where $\rWd(r) \hotimes \rucadenas$ is certain chain complex isomorphic as $\Cyc_r$-module to $\Wd(r) \ot \ucadenas$.
-\anibal{I think that one could define a single (bi?) functor from (pairs) of chain complexes to chain complexes. i.e. include the $()^r$ construction into the $\hotimes$.}
+
+%and define a connected $r$-diagonal to be a $\Cyc_r$-equivariant chain map
+%\[
+%\mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r},
+%\]
+%where $\rWd(r) \hotimes \rucadenas$ is certain chain complex isomorphic as $\Cyc_r$-module to $\Wd(r) \ot \ucadenas$.
+%\anibal{I think that one could define a single (bi?) functor from (pairs) of chain complexes to chain complexes. i.e. include the $()^r$ construction into the $\hotimes$.}
 
 %Moreover, the cohomology operations induced by this stable diagonal have Property (iv), but need not to be compatible with any associative multiplication a priori or have Property (iii).
 %With the new formalism, one builds first the cochain operation that induces $\power^0$, and then proceeds to build the higher operations upwards.
 
-\subsection{Main result}
+\subsection{Connected diagonals for simplicial objects}
 
 Let $\cC$ be a monoidal category with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and a strong monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
 By virtue of $L$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
@@ -216,18 +243,22 @@ Third, computing $\power^i([x])$ for small $i$'s tends to be simpler for a conne
 %	Can one replace in this article the requirement that $L$ goes to $R$-modules by the requirement that $L$ goes to chain complexes?
 %\end{question}
 
-\subsection{Kan spectra}
-
-Kan spectra \cite{Kan1963} are models of spectra introduced by Kan, that are not widespread used because of a lack of a convenient smash product, a situation that has been recently treated \cite{CKP2023}.
-Our viewpoint applies in this setting too, and yields natural connected diagonals on the chain complexes of Kan spectra.
-Again, they do not extend to unstable diagonals. \anibal{Let's talk about this. Can it be moved to the stable subsection?}
+%\subsection{Kan spectra} Kan spectra \cite{Kan1963} are models of spectra introduced by Kan, that are not widespread used because of a lack of a convenient smash product, a situation that has been recently treated \cite{CKP2023}.
+%Our viewpoint applies in this setting too, and yields natural connected diagonals on the chain complexes of Kan spectra.
+%Again, they do not extend to unstable diagonals. \anibal{Let's talk about this. Can it be moved to the stable subsection?}
 
 %{\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas.
 %In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
 
 %\subsection{Desymmetrisations} The notion of $r$-cyclic desymmetrisation is new to the extend of our knowledge.
-A connected $2$-cyclic diagonal was implicitly used by the first author in \cite{cantero-moran2020khovanov} to find Steenrod squares in augmented semi-simplicial objects in the Burnside $2$-category.
-In a future work we expect to find such structures for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
+
+\subsection{Other connected diagonals}
+We will see in Section \ref{s:suspension} that the connected diagonals of our main theorem are compatible both with right and left suspension of simplicial sets. As a consequence, they yield also connected diagonals for suspension spectra.
+
+As we have seen, unstable diagonals and connected diagonals on the normalised chain complex of a pointed simplicial set that are compatible with suspension yield stable diagonals in suspension spectra. This is no longer true for other models of spectra. 
+
+One of these models of spectra are the cubes in the Burnside $2$-category of Lawson, Lipshitz and Sarkar \cite{LLS20} which model Khovanov spectra \cite{LS14}. A connected $2$-cyclic diagonal for these objects was found by the first author in \cite{cantero-moran2020khovanov}, thus giving rise to explicit formulas to compute Steenrod squares in Khovanov homology. In a future work we expect to find connected $r$-cyclic diagonals for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
+
 For the reader acquainted with the surjection operad we remark that the operations that are involved in these connected $r$-cyclic diagonals would correspond to summands indexed by non-overlapping intervals.
 
 \subsection{Outline}

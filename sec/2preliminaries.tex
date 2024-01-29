@@ -21,7 +21,7 @@ We will denote the dual basis with the same letter as the original basis unless 
 	\sus{} \ucadenas[i] &= \ucadenas[i-1] & \susp{} \ucadenas[i] &= \ucadenas[i-1] \\
 	\sus{} \partial_i &= \partial_{i-1} & \susp{} \partial_i &= -\partial_{i-1},
 \end{align*}
-and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$. If $R[1]$ denotes the chain complex that consists of a single copy of $R$ in degree $k$, then there are isomorphisms
+and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$. If $R[k]$ denotes the chain complex that consists of a single copy of $R$ in degree $k$, then there are isomorphisms
 \begin{align*}
 	\sus{k} \ucadenas &\cong \ucadenas \ot R[k] & \susp{k} \ucadenas \cong R[k] \ot \ucadenas.
 \end{align*}
@@ -90,7 +90,8 @@ then the chain maps
 
 \subsection{Categories}\label{s:categories}
 
-Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$ and let $\cC$ be a monoidal category %with finite coproducts
+Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
+\begin{definition} A linearized category with $r$-fold diagonals is a monoidal category $\cC$ %with finite coproducts
 endowed with the following structure:
 \begin{itemize}
 	%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $ \ot $ that distributes over the coproduct $\amalg$ and
@@ -117,7 +118,18 @@ endowed with the following structure:
 		L(Y_{r} \ot \overset{r}{\dots} \ot Y_{r-1}) \ar[r] & \abel(Y_r) \ot \overset{r}{\dots} \ot \abel(Y_{r-1}) }
 	\]
 \end{itemize}
+\end{definition}
 The main example of this work will be the symmetric monoidal category $\Setp$ of pointed sets with the smash product or its subcategory $\Set$ of sets with the Cartesian product. The functor $\abel$ takes a set to the free module on it, and a pointed set to the quotient of its free module by the base point.
+
+\add{A coalgebra in a monoidal category $(\cD,\otimes)$ is an object $Y$ of $\cD$ together with a diagonal map $\Delta\colon Y\to Y\otimes Y$. The coalgebra is coassociative if $\Delta\circ (\Delta\otimes \id) = (\Delta\circ (\id \otimes \Delta))$.
+
+If the monoidal category is symmetric, then a coalgebra $(Y,\Delta)$ is cocommutative if $\Delta\circ \twist = \Delta$. If the monoidal category has a unit $I$, one defines a counital coalgebra as a coalgebra $(Y,\Delta)$ together with a morphism $u\colon Y\to I$ such that $\Delta\circ (u\otimes \id) = \Delta\circ (\id\otimes u) = \id$.  
+
+\begin{definition}
+    A \emph{linearized category of coalgebras} is a category of coalgebras in a monoidal category with  a strong monoidal functor $L$ to the category of $R$-modules. If the functor is symmetric monoidal or unital, then one can consider linearized categories of cocommutative or counital coalgebras.
+\end{definition}
+A cocommutative coassociative coalgebra $Y$ has a well-defined $r$-fold diagonal $\Delta^r\colon Y\lra Y^{\otimes r}$, which is invariant under the action of $\Cyc_r$.
+}
 
 \subsection{Augmented simplicial objects}\label{s:simplices}
 
@@ -142,7 +154,7 @@ If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morp
 
 The inclusion $\simplex \subset \asimplex$ of the non-empty ordinals induces a restriction functor $\cC^{\asimplex^{\op}} \to \cC^{\simplex^{\op}}$ to the category of simplicial objects on $\cC$ that forgets $X_{-1}$. It has a left adjoint that sets $X_{-1}$ to be the colimit of $X$ and a right adjoint that sets $X_{-1}$ to be the terminal object of $\cC$.
 
-If $X$ is an augmented simplicial object, postcomposing with the linearization functor $\abel \colon \cC \to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$.
+If $X$ is an augmented simplicial object in one of the categories of Section \ref{s:categories}, postcomposing with the linearization functor $\abel \colon \cC \to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$.
 %If we further quotient by the degeneracies, we obtain a semi-simplicial $R$-module $\abel(X)$
 
 Define the \emph{complex of unnormalized chains $\ucadenas(X;R)$ with coefficients in $R$} as

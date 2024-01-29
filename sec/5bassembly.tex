@@ -1,6 +1,6 @@
 % !TEX root = ../oddp.tex
 
-\section{Cyclic asymmetries and subdivisions of simplices}\label{section:atlast}
+\section{Cyclic straightenings and subdivisions of simplices}\label{section:atlast}
 
 \subsection{Barycentric subdivisions}\label{s:assembly}
 
@@ -117,7 +117,7 @@ The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subse
 	we may replace $\lambda(b,c)+\lambda(a,c) + \lambda(x,c) + \lambda(y,b)$ by $\ell(n+1-k)+m(n+1-m)$. Using that $k=m+\ell$, we get that the total sign is $(-1)^{n}$. Together with the $-1$ sign obtained in \eqref{eq:lastsign} we obtain that the second square also commutes up to $(-1)^{n+1}$.
 \end{proof}
 
-\subsection{Cyclic asymmetries and the construction of the map \texorpdfstring{$f$}{f}}
+\subsection{Cyclic straightenings and the construction of the map \texorpdfstring{$f$}{f}}
 
 \begin{definition}
 	An \emph{assemblage map} is a simplicial map $g \colon \sd \partial \simplex^n \to \partial \simplex^n$ such that the composition of chain maps $g_*\circ s_*$ is the identity.
@@ -211,7 +211,7 @@ Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, 
 \end{definition}
 
 \begin{lemma}\label{lemma:straightening}
-	Assemblage maps are in bijection with $r$-asymmetries, $r$-cyclic assemblage maps are in bijection with $r$-cyclic asymmetries, and $r$-cyclic assemblage maps with duality are in bijection with $r$-cyclic asymmetries with duality.
+	Assemblage maps are in bijection with $r$-straightenings, $r$-cyclic assemblage maps are in bijection with $r$-cyclic straightenings, and $r$-cyclic assemblage maps with duality are in bijection with $r$-cyclic straightenings with duality.
 \end{lemma}
 
 \begin{proof}
@@ -270,34 +270,32 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 	\caption{The $r$-cyclic assemblage map with duality for $\partial \simplex^2$.}
 \end{figure}
 
-\begin{figure}
-	\begin{tikzpicture}[line join = round, line cap = round]
-		\pgfmathsetmacro{\factor}{1/sqrt(2)};
-		\coordinate [label=left:A] (A) at (-2,0,0);
-		\coordinate [label=below:B] (B) at (.4,-1,0);
-		\coordinate [label=right:2] (C) at (2,0,0);
-		\coordinate [label=above:3] (D) at (0,2.8,.2);
+%\begin{figure}
+%	\begin{tikzpicture}[line join = round, line cap = round]
+%		\pgfmathsetmacro{\factor}{1/sqrt(2)};
+%		\coordinate [label=left:A] (A) at (-2,0,0);
+%		\coordinate [label=below:B] (B) at (.4,-1,0);
+%		\coordinate [label=right:2] (C) at (2,0,0);
+%		\coordinate [label=above:3] (D) at (0,2.8,.2);
 
-		path (B) -- (C) node[midway] (BC) {BC}
+%		path (B) -- (C) node[midway] (BC) {BC}
 
-		\coordinate (AB) at ($ (A)!0.5!(C) $); % Anibal: I modified this line to get rid of an error
-		\coordinate (AC) at (0,0,0);
-		\coordinate (AD) at (2,0,0);
-		\coordinate (D) at (0,2.8,.2);
-
+%		\coordinate (AB) at ($ (A)!0.5!(C) $); % Anibal: I modified this line to get rid of an error
+%		\coordinate (AC) at (0,0,0);
+%		\coordinate (D) at (0,2.8,.2);
 		%\draw[->] (0,0) -- (3,0,0) node[right] {$x$};
 		%\draw[->] (0,0) -- (0,3,0) node[above] {$y$};
 		%\draw[->] (0,0) -- (0,0,3) node[below left] {$z$};
-		\foreach \i in {A,B,C,D}
-		\draw[dashed] (\i) -- (AB);
-		\draw[-, fill=red!30, opacity=.5] (A)--(D)--(B)--cycle;
-		\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
-		\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
-	\end{tikzpicture}
-	\caption{The cyclic subdivision map for $\partial \simplex^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face).}
-	\label{fig:my_label}
+%		\foreach \i in {A,B,C,D}
+%		\draw[dashed] (\i) -- (AB);
+%		\draw[-, fill=red!30, opacity=.5] (A)--(D)--(B)--cycle;
+%		\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
+%		\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
+%	\end{tikzpicture}
+%	\caption{The cyclic subdivision map for $\partial \simplex^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face).}
+%	\label{fig:my_label}
 	%\federico{to be discarded if it is too complicated}
-\end{figure}
+%\end{figure}
 
 \begin{example}\label{example:f3_1}
 	For $r=3$, and $a \ot b = [0] \ot [2,1]$ we have:
