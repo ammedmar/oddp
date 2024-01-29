@@ -4,36 +4,46 @@
 
 \subsection{Steenrod power operations}
 
-In 1946, Steenrod was looking for generalizations of the Hopf invariant, when he found for $i \geq 0$ certain natural linear maps
+In 1946, Steenrod was looking for generalizations of the Hopf invariant when he found for $i \geq 0$ certain natural linear maps
 \[
 \Delta_i \colon \ucadenas(X) \to \ucadenas(X) \ot \ucadenas(X)
 \]
-on the singular chains of a space $X$ extending the Alexander--Whitney diagonal $\Delta_0$.
-These new maps satisfy $\bd\Delta_i + \Delta_i\bd = (1+T)\Delta_{i-1}$ for $i > 0$ and give rise in mod 2 cohomology to the celebrated \emph{Steenrod squares}
-\[
-\begin{tikzcd}[column sep=small, row sep=0]
-	\Sq^{k} \colon &[-15pt] H^j(X;\mathbb{F}_2) \arrow[r] & H^{j+k}(X;\mathbb{F}_2) \\
-	& {[\alpha]} \arrow[r, mapsto] & {[(\alpha \otimes \alpha)\Delta_{k-j}]}.
-\end{tikzcd}
-\]
-The maps $\Delta_i$ can be reinterpreted as a single $\Sym_2$-equivariant chain map
+on the singular chains of a space $X$, which extended the Alexander--Whitney diagonal $\Delta_0$.
+These so-called \textit{cup-$i$ coproducts} satisfy $\bd\Delta_i + \Delta_i\bd = (1+\rho)\Delta_{i-1}$ for $i > 0$, where $\rho$ is the transposition of tensor factors, and give rise in mod~2 cohomology to the celebrated \emph{Steenrod squares}
+\begin{equation}\label{eq:intro Sq}
+	\begin{tikzcd}[column sep=small, row sep=0]
+		\Sq^{k} \colon &[-15pt] H^*(X;\mathbb{F}_2) \arrow[r] & H^{*+k}(X;\mathbb{F}_2) \\
+		& {[\alpha]} \arrow[r, mapsto] & {\big[(\alpha \otimes \alpha)\Delta_{k-\bars{\alpha}}\big]}.
+	\end{tikzcd}
+\end{equation}
+The maps $\Delta_i$ effectively introduced by Steenrod in \cite{steenrod1947products} have been given alternative formulas in \cite{real1996computability,medina2021fast_sq} and are axiomatically characterized \cite{medina2022axiomatic}.
+They can be reinterpreted as a single $\Sym_2$-equivariant chain map
 \[
 \mu \colon W_*(2) \ot \ucadenas(X) \to \ucadenas(X)^{\ot 2},
 \]
-where $W_*(2)$ is the minimal free resolution of the ground ring as a module over the group ring of $\Sym_2$.
+where $W_*(2)$ is the minimal free resolution of the ground ring as a module over the group ring of $\Sym_2$, the symmetric group in two letter.
 
-Using the acyclic carrier theorem, Steenrod showed in \cite{steenrod1952reduced} the existence of a $\Sym_r$-equivariant chain map
+Using the acyclic carrier theorem, Steenrod showed in \cite{steenrod1952reduced} the existence for each $r$ of an $\Sym_r$-equivariant chain map
 \[
 \mu \colon V_\ast(r) \ot \ucadenas(X) \to \ucadenas(X)^{\ot r}
 \]
-where $V_\ast(r)$ is a free resolution of the base ring as module over the group ring of $\Sym_r$, and used it to define a cohomology operation for each class in the group homology of $\Sym_r$.
+where $V_\ast(r)$ is a free resolution of the base ring as module over the group ring of $\Sym_r$, and used it to define a cohomology operation for each class in the homology of $\Sym_r$.
+
 In \cite{steenrod1953cyclic}, Steenrod concentrated in those operations coming from classes induced by an inclusion $\Cyc_r \leq \Sym_r$ of the cyclic group of order $r$, with $r$ assumed to be a prime.
-In this case, with mod $r$ coefficients, the inclusion is surjective in group homology.
-The resulting operations are known as \textit{Steenrod power operations}.
+In this case, the inclusion is surjective in homology with mod~$r$ coefficients and the resulting operations in the mod~$r$ cohomology of a space are known as \textit{Steenrod power operations}.
+%\[
+%\power^i \colon H^*(X;\bF_r) \to H^{*+i}(X;\bF_r)
+%\]
 %\begin{align*}
 %	P^{k} \colon H^j(X;\bF_r)& \to H^{j+2k(r-1)}(X;\bF_r) & k \geq 0, \\
-%	\beta P^k \colon H^j(X;\bF_r)& \to H^{j+2k(r-1)+1}(X;\bF_r) & k \geq 0.
+%	\beta P^k \colon H^j(X;\bF_r)& \to H^{j+2k(r-1)+1}(X;\bF_r) & k \geq 0,
 %\end{align*}
+%\[
+%\begin{tikzcd}[column sep=tiny, row sep=0]
+%	\power^i \colon &[-15pt] H^*(X;\bF_r) \arrow[r] & H^{*+i}(X;\bF_r) \\
+%	& {[\alpha]} \arrow[r, mapsto] & (\alpha \ot \overset{r}{\dots} \ot \alpha)\Delta_{(r-1)\bars{x}-i}
+%\end{tikzcd}
+%\]
 
 \subsection{Unstable diagonals}
 
@@ -42,23 +52,31 @@ The basic structure used in \cite{may1970general} for the construction of power 
 \[
 \mu \colon W_*(r) \ot \ucadenas \to \ucadenas^{\ot r}
 \]
-where $W_*(r)$ is the minimal free resolution of the ground ring as a module over the group ring of $\Cyc_r$.
+where $W_*(r)$ is the minimal free resolution of the ground ring as a module over the group ring of $\Cyc_r$:
 \[
 \dotsb \lra \Cyc_r\langle e_2\rangle \overset{N}{\lra}
 \Cyc_r\langle e_1\rangle \overset{T}{\lra}
 \Cyc_r\langle e_0\rangle \overset{N}{\lra}
 R.
 \]
-We will refer to $\mu$ as an \textit{unstable $r$-diagonal} on $\ucadenas$, saying that it is \textit{May--Steenrod} if it factors as
+We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas$, or simply an \textit{unstable $r$-diagonal}, saying that it is \textit{May--Steenrod} if it factors as
 \[
 \mu \colon W_*(r) \ot \ucadenas \xra{f \ot \id} V_*(r) \ot \ucadenas \xra{\nu} \ucadenas^{\ot r}
 \]
 with $f$ and $\nu$ a $\Cyc_r$- and a $\Sym_r$-equivariant map respectively.
-If $r$ is prime, a chain complex $\ucadenas$ with an unstable $r$-diagonal has power operations on its cohomology:
-\[
-\power^i \colon H^*(\ucadenas;\bF_r) \to H^{*+i}(\ucadenas;\bF_r).
-\]
-If $r$ is odd and $\mu$ is May--Steenrod then
+We denote the maps $\mu(e_i \ot -) \colon \ucadenas \to \ucadenas^{\ot r}$ by $\Delta_{r,i}$ and refer to them as \textit{cup-$(r,i)$ coproducts}.
+
+Generalizing the definition of $Sq^i$ in \cref{eq:intro Sq} to a general prime $r$, a chain complex $\ucadenas$ with an unstable $r$-diagonal has power operations on its cohomology defined by
+\begin{equation}\label{eq:intro P}
+	\begin{tikzcd}[column sep=tiny, row sep=0]
+		\power^i \colon &[-15pt] H^*(\ucadenas;\bF_r) \arrow[r] & H^{*+i}(\ucadenas;\bF_r) \\
+		& {[\alpha]} \arrow[r, mapsto] & \big{[}(\alpha \ot \overset{r}{\dots} \ot \alpha)\Delta_{(r-1)\bars{\alpha}-i}\big{]},
+	\end{tikzcd}
+\end{equation}
+where we have suppressed certain invertible coefficient.
+We remark that the grading of this operations is different from the one used by Steenrod and May.
+
+If the prime $r$ is odd and $\mu$ is May--Steenrod then
 \[
 \power^i = 0 \text{ unless } i = 2k(r-1) \text{ or }i = 2k(r-1)+1.
 \]
@@ -66,16 +84,14 @@ Additionally, these operations often satisfy
 \[
 \power^0(x) = x \text{ and }\power^i(x) = 0 \text{ for negative } i.
 \]
-This is the case for spaces, for example.
-Generally, this property is not easily verified in practice.
+For instance, this is the case with spaces.
+Generally, verifying this property in practice is not straightforward.
 
-%\subsection{The $E_\infty$ perspective}
-%
-%Given an coalgebra $\ucadenas$ over an $E_\infty$ operad $\cE$, i.e., a operad morphisms $\cE \to \coEnd(\ucadenas) = \{\Hom(\ucadenas, \ucadenas^{\ot r})\}$
+An effective construction of cup-$(r,i)$ coproducts for simplicial sets depending solely on the combinatorics of simplices was introduced in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
 
 \subsection{Stable diagonals}
 
-Similarly to how Steenrod power operations on the cohomology of spaces motivated the definition of unstable $r$-diagonal on a chain complex, we can consider spectra to motivate the definition of stable $r$-diagonals.
+Similarly to how Steenrod power operations on the cohomology of spaces motivated the definition of an unstable $r$-diagonal on a chain complex, we can consider spectra to motivate the definition of stable $r$-diagonals.
 Let $E = \{E_m\}_{m \geq 0}$ be a spectrum. Its chains are given by
 \[
 \ucadenas(E) = \colim \left(\ucadenas(E_0) \to \dots \to \Sigma^{-m}\ucadenas(E_m) \to \Sigma^{-m-1} \ucadenas(E_{m+1}) \to \dotsb\right).
@@ -93,7 +109,7 @@ we can stabilize the unstable $r$-diagonals defined by the acyclic carrier theor
 \[
 \Wst(r) \ot \ucadenas(E) \lra \ucadenas(E)^{\ot r},
 \]
-which factors through a stable version $V_*^\mathrm{st}$ of a resolution of the ground ring as a module over the group ring of $\Sym_r$.
+which factors through a stable version $V_*^\mathrm{st}(r)$ of $V_*(r)$.
 %If $r$ is a prime number, the singular cohomology with coefficients in $\bF_r$ of a spectrum $E$ admits power operations that vanish unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
 
 Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or simply a \textit{stable $r$-diagonal} on $\ucadenas$, as a $\Cyc_r$-equivariant chain map
@@ -101,6 +117,8 @@ Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chai
 \mu \colon \Wst(r) \ot \ucadenas \lra \ucadenas^{\ot r}.
 \]
 We say $\mu$ is \textit{May--Steenrod} if it factors through $V_*^\mathrm{st}$ as in the previous section.
+
+The same definition of power operations given in \cref{eq:intro P} applies in this context.
 
 %If the spectrum $E$ is given as a sequence $\{E_m\}_{n \geq 0}$ of simplicial pointed sets with structural maps $\varepsilon_m \colon \Sigma E_m \to E_{m+1}$, then its cohomology can be computed as the cohomology of the chain complex
 %\[
@@ -130,6 +148,7 @@ and define a connected $r$-diagonal to be a $\Cyc_r$-equivariant chain map
 \mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r},
 \]
 where $\rWd(r) \hotimes \rucadenas$ is certain chain complex isomorphic as $\Cyc_r$-module to $\Wd(r) \ot \ucadenas$.
+\anibal{I think that one could define a single (bi?) functor from (pairs) of chain complexes to chain complexes. i.e. include the $()^r$ construction into the $\hotimes$.}
 
 %Moreover, the cohomology operations induced by this stable diagonal have Property (iv), but need not to be compatible with any associative multiplication a priori or have Property (iii).
 %With the new formalism, one builds first the cochain operation that induces $\power^0$, and then proceeds to build the higher operations upwards.
@@ -142,7 +161,7 @@ The main examples of $\cC$ are the categories $\Set$ and $\Setp$ of sets and poi
 Our main result is an effective construction of connected $r$-diagonals from the following combinatorial structure.
 
 \begin{definition}
-	An \emph{$r$-cyclic straightening with duality} as a $\Cyc_r$-equivariant choice of an element $x_\tau\in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
+	An \emph{$r$-cyclic straightening with duality} is a $\Cyc_r$-equivariant choice of element $x_\tau\in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
 \end{definition}
 
 We mention that this structure can exist only if $r$ is prime.
@@ -161,7 +180,7 @@ If $r = 5$, there are four $r$-cyclic straightening, which yield four connected 
 This new viewpoint has some advantages:
 First, the construction is very explicit since it is manageable to find the coefficient of any given summand.
 %In contrast, most of the summands in the description of the composition of the maps $\cE(r) \to \chi(r) \to EZ(r)$ vanish universally.
-Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable diagonal in general.
+Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable diagonal in general.\anibal{This sounds like a very important motivation}
 %Such upgrade in the May--Steenrod structure would involve a replacement of the complex of surjections by a complex of functions.
 %Third, power operations $\power^i$ for $i$ small are simpler to compute with connected diagonals, while if $i$ is close to $(r-1)m$, then they are simpler to compute with unstable diagonals.
 %Third, the formula for a power operation $\power^i([x])$ of an unstable diagonal depends heavily on the degree of the class $x$: they are parametrized by overlapping intervals and surjections, and both increase in size as the degree of $x$ increases.
@@ -188,22 +207,20 @@ Third, computing $\power^i([x])$ for small $i$'s tends to be simpler for a conne
 
 %\begin{question}
 %	The cochain complex of a simplicial object in $\cC$ has always a multiplication.
-If the tensor product in $\cC$ is symmetric monoidal, how clear is it that this multiplication extends to an $E_{\infty}$-structure? \federico{I believe that the answer is yes, since all the machinery of McClure-Smith et al will work fine.
-	Even if it is not symmetric monoidal, the machinery works the same, the only difference being that the endomorphism operad will have an action of the cyclic group, instead of the full symmetric group.
-}
+%If the tensor product in $\cC$ is symmetric monoidal, how clear is it that this multiplication extends to an $E_{\infty}$-structure? \federico{I believe that the answer is yes, since all the machinery of McClure-Smith et al will work fine.
+%	Even if it is not symmetric monoidal, the machinery works the same, the only difference being that the endomorphism operad will have an action of the cyclic group, instead of the full symmetric group.
+%}
 %\end{question}
 
 %\begin{question}
 %	Can one replace in this article the requirement that $L$ goes to $R$-modules by the requirement that $L$ goes to chain complexes?
 %\end{question}
 
-%\subsection{Simplicial sets}
-
 \subsection{Kan spectra}
 
 Kan spectra \cite{Kan1963} are models of spectra introduced by Kan, that are not widespread used because of a lack of a convenient smash product, a situation that has been recently treated \cite{CKP2023}.
 Our viewpoint applies in this setting too, and yields natural connected diagonals on the chain complexes of Kan spectra.
-Again, they do not extend to unstable diagonals.
+Again, they do not extend to unstable diagonals. \anibal{Let's talk about this. Can it be moved to the stable subsection?}
 
 %{\bf Stabilization:} The cochain operations are not compatible with suspension: the suspension should send the $i$th cochain operation to the $i+r-1$ cochain operation in the suspension, but these two operations have different formulas.
 %In [Gill20] these cochain operations in the cochain complex of a $\Sigma$-spectrum are studied, and they have the handicap that the formulas are indexed over infinite dimensional objects (the stable commutative operad is not of finite type)...
