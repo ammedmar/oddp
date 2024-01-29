@@ -89,8 +89,8 @@ Consider the following diagram, where the vertical maps are chain maps of degree
 	\Wd\hotimes \rchains(\sus{} X)\ar[r]^{\mu} & \chains(\sus{}X)^{\otimes r}	
 }
 \]
-The left vertical map sends $e_{-q}^\dd\hotimes \tau$ to $(-1)^{\binom{r}{2}(n+1)}e_{-q}^\dd\hotimes \sus{}\tau$, and notice that $\binom{r}{2}(n+1) \equiv \sum_s s(n+1)$. The right vertical map sends $\tau_0\otimes \ldots\otimes \tau_{r-1}$ to $\sus{}\tau_0\otimes \ldots\otimes \sus{}\tau_{r-1}$ with the sign $(-1)^{\sum_s s|\tau_{s}|}$. 
-\begin{lemma} The lower composition equals $(-1)^q\tilde{r}!$ times the upper composition.
+The left vertical map sends $e_{-q}^\dd\hotimes \tau$ to $e_{-q}^\dd\hotimes \sus{}\tau$, and notice that $\binom{r}{2}(n+1) \equiv \sum_s s(n+1)$. The right vertical map sends $\tau_0\otimes \ldots\otimes \tau_{r-1}$ to $\sus{}\tau_0\otimes \ldots\otimes \sus{}\tau_{r-1}$ with the sign $(-1)^{\sum_s s|\tau_{s}|}$. 
+\begin{lemma} The lower composition equals $(-1)^{q+\binom{r}{2}(n+1)}\tilde{r}!$ times the upper composition.
 \end{lemma}
 \begin{proof}
 The summands in the image of both horizontal maps are obtained from the same pairs $(U,A)$, and the signs associated to this pair are all independent of the dimension of $\tau$ except for:
@@ -100,7 +100,7 @@ The summands in the image of both horizontal maps are obtained from the same pai
 	\item the sign of $\eta$ given in equation \ref{eq:eta},
 	\item the factor $(\tilde{r}!)^{n+1}$ of Lemma \ref{lemma:omegar}.
 \end{enumerate}
-The sign of Lemma \ref{lemma:3} equals the product of the signs of the two vertical maps. The sign of Lemma \ref{lemma:2} together with the sign of $\eta$ simplifies to the sign $\lambda(U^c,U)$. The difference between the two horizontal arrows is then that the complement $U^c$ in the upper arrow is computed in $\{0,1,\ldots,n\}$ while in the lower arrow is computed in $\{0,1,\ldots,n+1\}$. The difference yields that the diagram commutes up to $(-1)^q(\tilde{r}!)$. 
+The sign of Lemma \ref{lemma:3} equals the product of the sign of the right vertical maps and $(-1)^{\binom{r}{2}(n+1)}$. The sign of Lemma \ref{lemma:2} together with the sign of $\eta$ simplifies to the sign $\lambda(U^c,U)$. The difference between the two horizontal arrows is then that the complement $U^c$ in the upper arrow is computed in $\{0,1,\ldots,n\}$ while in the lower arrow is computed in $\{0,1,\ldots,n+1\}$. The difference yields that the diagram commutes up to $(-1)^q(\tilde{r}!)$. 
 \end{proof}
 
 Consider now the following diagram, where the vertical maps are chain maps of degree $r$ with respect to the left suspension (i.e., they anticommute with the differential)
@@ -111,9 +111,9 @@ Consider now the following diagram, where the vertical maps are chain maps of de
 	\Wd\hotimes \rchains(\susp{} X)\ar[r]^{\mu} & \chains(\susp{}X)^{\otimes r}	
 }
 \]
-The left vertical map sends $e_{-q}^\dd\hotimes \tau$ to $(-1)^{q+\binom{r}{2}(n+1)}e_{-q}^\dd\hotimes \susp{}\tau$. The right vertical map sends $\tau_0\otimes \ldots\otimes \tau_{r-1}$ to $\susp{}\tau_{r-1}\otimes \susp{}\tau_0\ldots\otimes \susp{}\tau_{r-2}$ with the sign needed to reorder the $\tau$'s and to move an operator of degree $1$ from the left to each factor. 
+The left vertical map sends $e_{-q}^\dd\hotimes \tau$ to $(-1)^{q}e_{-q}^\dd\hotimes \susp{}\tau$. The right vertical map sends $\tau_0\otimes \ldots\otimes \tau_{r-1}$ to $\susp{}\tau_{r-1}\otimes \susp{}\tau_0\ldots\otimes \susp{}\tau_{r-2}$ with the sign needed to reorder the $\tau$'s and to move an operator of degree $1$ from the left to each factor. 
 \begin{lemma}
-	The lower composition equals $\tilde{r}!$ times the upper composition.
+	The lower composition equals $(-1)^{\binom{r}{2}(n+1)}\tilde{r}!$ times the upper composition.
 \end{lemma}
 \begin{proof}
 	The argument is as before, but observing that there is a bijection between the terms labeled by $(U,A) = ((u_0,\ldots,u_{q-1}),(a_0,\ldots,a_{q-1}))$ above and those labeled by $(U',A) = ((u_0+1,\ldots,u_{q-1}+1),(a_0,\ldots,a_{q-1}))$ below. Again, the two vertical signs account for the difference of the signs obtained in the upper and lower horizontal arrows for Lemma \ref{lemma:3}. In this case, $\lambda(U^c,U) \equiv \lambda((U')^c,U')$, hence the diagram commutes. 
