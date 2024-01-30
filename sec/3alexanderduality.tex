@@ -5,6 +5,7 @@
 In this section we present a duality on the normalized chains of the augmented simplex, and use it to build manageable models of the $r$-fold tensor product of the normalized chain complex of an augmented simplicial object in $\cC$. In Proposition \ref{prop:omegarm} and Lemma \ref{lemma:omegar} we reduce the construction of a connected diagonal to the construction of a map between two resolutions of the cyclic group $\Cyc_r$ satisfying an additional hypothesis. This latter map is constructed in \cref{s:resolutions}.
 
 \subsection{Alexander duality on the augmented standard simplex}\label{s:alexander}
+
 Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right suspension of the normalized chains of $X$.
 
 \anibal{What is the structure on $\sSet_+$?}
@@ -33,7 +34,6 @@ Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right su
 	The join product is a chain map naturally defining on each $\chains(\asimplex^{n})$ the structure of a Poincar\'e duality algebra with unit the empty simplex $[-1] \to [n]$ and formal dimension $n+1$.
 \end{theorem}
 
-
 \begin{proof}
 	The complex $\chains(\asimplex^{n})$ is connected and satisfies \cref{i:pd2,i:pd3} in \cref{d:poincare_duality_algebra} since $\chains(\asimplex^{n})_0 \cong \Z\{[-1] \to [n]\}$, $\chains(\asimplex^{n})_{n+1} \cong \Z\{[n] \to [n]\}$, and $\chains(\asimplex^{n})_{n+k} \cong 0$ for $k>1$.
 
@@ -44,20 +44,22 @@ Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right su
 	To verify \cref{i:pd3} consider a basis element $x = [v_1,\dots,v_i]$.
 	Let $x^c$ be the ordered complement of $\set{v_1,\dots,v_i}$ in $\{0,\dots,n\}$ and notice that $x \ast x^c = \pm [0,\dots,n]$ as required.
 \end{proof}
+
 This pairing thus induces an isomorphism
 \begin{equation}\label{eq:iso1}
 	\Lambda \colon \chains(\asimplex^n) \to \susp{n+1}\cochains(\asimplex^n)
 \end{equation}
- that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
+that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
 
 \begin{remark}\label{remark:alex}
- If $\tau = [v_0,\dots,v_k]$ and $\tau^c = [u_0,\dots,u_m]$ are the ordered representatives, then
- %The sign of the permutation that orders the vertices of $\tau*\tau^c$, for has the parity of either of the following numbers:
- \begin{align*}
- \lambda(\tau,\tau^c)&\equiv \sum_{i=0}^k (v_i-i) \equiv \sum_{i=0}^k v_i - \binom{k+1}{2} \\
- \lambda(\tau,\tau^c)&\equiv \sum_{j=0}^m (n-u_j-m+j) \equiv \sum_{j=0}^m u_j +(n-m)(m+1)+\binom{m+1}{2}.
- \end{align*}
+	If $\tau = [v_0,\dots,v_k]$ and $\tau^c = [u_0,\dots,u_m]$ are the ordered representatives, then
+	%The sign of the permutation that orders the vertices of $\tau*\tau^c$, for has the parity of either of the following numbers:
+	\begin{align*}
+		\lambda(\tau,\tau^c)&\equiv \sum_{i=0}^k (v_i-i) \equiv \sum_{i=0}^k v_i - \binom{k+1}{2} \\
+		\lambda(\tau,\tau^c)&\equiv \sum_{j=0}^m (n-u_j-m+j) \equiv \sum_{j=0}^m u_j +(n-m)(m+1)+\binom{m+1}{2}.
+	\end{align*}
 \end{remark}
 
-\begin{notation} We will denote normalized chains between brackets and normalized cochains between parentheses.
+\begin{notation}
+	We will denote normalized chains between brackets and normalized cochains between parentheses.
 \end{notation}

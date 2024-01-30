@@ -54,13 +54,9 @@ The basic structure used in \cite{may1970general} for the construction of power 
 \]
 where $W_*(r)$ is the minimal free resolution of the ground ring $R$ as a module over the group ring of $\Cyc_r$:
 \[
-\Cyc_r\langle e_0\rangle
-\overset{T}{\lla}
-\Cyc_r\langle e_1\rangle 
-\overset{N}{\lla}
-\Cyc_r\langle e_2\rangle 
-\overset{T}{\lla}
-\ldots
+\dotsb \overset{T}{\lra} \Cyc_r\langle e_2\rangle \overset{N}{\lra}
+\Cyc_r\langle e_1\rangle \overset{T}{\lra}
+\Cyc_r\langle e_0\rangle.
 \]
 We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas$, or simply an \textit{unstable $r$-diagonal}, saying that it is \textit{May--Steenrod} if it factors as
 \[
@@ -85,7 +81,7 @@ If the prime $r$ is odd and $\mu$ is May--Steenrod then
 \]
 Additionally, these operations often satisfy
 \[
-\power^0(x) = x \text{ and }\power^i(x) = 0 \text{ for negative } i.
+\power^i(x) = 0 \text{ for negative } i.
 \]
 For instance, this is the case with spaces.
 Generally, verifying this property in practice is not straightforward.
@@ -106,15 +102,15 @@ The homotopy fibre of the norm map
 \]
 is isomorphic to the unbounded chain complex $\Wst(r)$ defined as
 \[
-\dotsb \lla \Cyc_r\langle e_{-2}\rangle 
+\dotsb \lla \Cyc_r\langle e_{-2}\rangle
 \overset{T}{\lla}
-\Cyc_r\langle e_{-1}\rangle 
+\Cyc_r\langle e_{-1}\rangle
 \overset{N}{\lla}
-\Cyc_r\langle e_0\rangle 
+\Cyc_r\langle e_0\rangle
 \overset{T}{\lla}
-\Cyc_r\langle e_{1}\rangle 
+\Cyc_r\langle e_{1}\rangle
 \overset{N}{\lla}
-\Cyc_r\langle e_{2}\rangle 
+\Cyc_r\langle e_{2}\rangle
 \overset{T}{\lla}
 \dotsb,
 \]
@@ -131,7 +127,7 @@ Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chai
 \]
 We say $\mu$ is \textit{May--Steenrod} if it factors through $V_*^\mathrm{st}$ as in the previous section.
 
-The same definition of power operations given in \cref{eq:intro P} applies in this context. 
+The same definition of power operations given in \cref{eq:intro P} applies in this context.
 
 %If the spectrum $E$ is given as a sequence $\{E_m\}_{n \geq 0}$ of simplicial pointed sets with structural maps $\varepsilon_m \colon \Sigma E_m \to E_{m+1}$, then its cohomology can be computed as the cohomology of the chain complex
 %\[
@@ -143,7 +139,7 @@ The same definition of power operations given in \cref{eq:intro P} applies in th
 
 \subsection{Connected diagonals}
 
-The negative power operations of a stable $r$-diagonal $\mu$ are supported on a certain graded chain subcomplex $A$ of the bicomplex $\Wst\otimes \ucadenas$. We introduce the notion of \emph{connected $r$-cyclic diagonal}, or connected $r$-diagonal for short, as a stable $r$-diagonal that vanishes on that subcomplex. In particular, its power operations satisfy that $\power^i = 0$ for $i<0$.
+The negative power operations of a stable $r$-diagonal $\mu$ are supported on a certain graded chain subcomplex $A$ of the bicomplex $\Wst \otimes \ucadenas$. We introduce the notion of \emph{connected $r$-cyclic diagonal}, or \textit{connected $r$-diagonal} for short, as a stable $r$-diagonal that vanishes on that subcomplex. In particular, its power operations satisfy are such that $\power^i = 0$ for $i<0$.
 
 Let $\rWd(r)$ be the augmented dual of the right suspension of $\W(r)$:
 \[
@@ -158,7 +154,7 @@ R
 \]
 We will define a certain chain complex $\rWd(r)\hotimes \rucadenas$ isomorphic as a $\Cyc_r$-module to $\rWd(r)\otimes \ucadenas$, and isomorphic as a bigraded $\Cyc_r$-module to the quotient of $\Wst(r)\otimes \ucadenas$ by the subcomplex $A$, so that a connected $r$-diagonal is the same as a chain map
 \[
-    \mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
+\mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
 \]
 %The traditional way to understand the unstable $r$-diagonal structure on the chain complex of a simplicial set $X$ is to observe that the operad of natural endomorphisms of the chain complexes $\ucadenas(\simplex^n)$ is contractible in each arity.
 %Thus, its homology is concentrated in degree $0$, and in that degree one finds the cup product.
@@ -253,13 +249,23 @@ Third, computing $\power^i([x])$ for small $i$'s tends to be simpler for a conne
 %\subsection{Desymmetrisations} The notion of $r$-cyclic desymmetrisation is new to the extend of our knowledge.
 
 \subsection{Other connected diagonals}
-We will see in Section \ref{s:suspension} that the connected diagonals of our main theorem are compatible both with right and left suspension of simplicial sets. As a consequence, they yield also connected diagonals for suspension spectra.
 
-As we have seen, unstable diagonals and connected diagonals on the normalised chain complex of a pointed simplicial set that are compatible with suspension yield stable diagonals in suspension spectra. This is no longer true for other models of spectra. 
+We will see in Section \ref{s:suspension} that the connected diagonals of our main theorem are compatible both with right and left suspension of simplicial sets.
+As a consequence, they yield also connected diagonals for suspension spectra.
+
+As we have seen, unstable diagonals and connected diagonals on the normalized chain complex of a pointed simplicial set that are compatible with suspension yield stable diagonals in suspension spectra. This is no longer true for other models of spectra.
 
 One of these models of spectra are the cubes in the Burnside $2$-category of Lawson, Lipshitz and Sarkar \cite{LLS20} which model Khovanov spectra \cite{LS14}. A connected $2$-cyclic diagonal for these objects was found by the first author in \cite{cantero-moran2020khovanov}, thus giving rise to explicit formulas to compute Steenrod squares in Khovanov homology. In a future work we expect to find connected $r$-cyclic diagonals for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
 
 For the reader acquainted with the surjection operad we remark that the operations that are involved in these connected $r$-cyclic diagonals would correspond to summands indexed by non-overlapping intervals.
+
+\subsection{Augmented simplex duality}
+
+A key observation facilitating our construction, which we deem interesting in its own right, is the following structure on the normalized chains of the standard augmented simplices:
+
+\begin{theorem}
+	The join product defines on $\chains(\asimplex^{n})$ the structure of a Poincar\'e duality algebra with unit the empty simplex and formal dimension $n+1$.
+\end{theorem}
 
 \subsection{Outline}
 

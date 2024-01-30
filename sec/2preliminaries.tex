@@ -2,10 +2,12 @@
 
 \section{Preliminaries}\label{s:preliminaries}
 
+Let $r$ be a positive integer, and let $R$ be a commutative ring such that $\bF_r$ is a $R$-algebra.
+Let $\Mod{R}$ be the category of $R$-modules and let $\Ch{R}$ be the category of chain complexes over $R$.
 
-Let $r$ be a positive integer, and let $R$ be a commutative ring such that $\bF_r$ is a $R$-algebra. Let $\Mod{R}$ be the category of $R$-modules and let $\Ch{R}$ be the category of chain complexes over $R$.
+\subsection{Chain complexes and sign conventions}
 
-\subsection{Chain complexes and sign conventions} Most of the chain complexes in this work will be finitely generated free complexes with a prescribed basis. The linear dual of a complex $\ucadenas$ is denoted $\ucocadenas$ and the linear dual of a chain map $f$ will be denoted $f^\dd$. Cochain complexes will be considered as negatively graded chain complexes. This allows to define chain maps and tensor products between chain complexes and cochain complexes.
+Most of the chain complexes in this work will be finitely generated free complexes with a prescribed basis. The linear dual of a complex $\ucadenas$ is denoted $\ucocadenas$ and the linear dual of a chain map $f$ will be denoted $f^\dd$. Cochain complexes will be considered as negatively graded chain complexes. This allows to define chain maps and tensor products between chain complexes and cochain complexes.
 
 We will denote the dual basis with the same letter as the original basis unless we want to emphasize the duality, in which case we will denote the dual of $u$ by $u^\dd$. The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
 \begin{align*}
@@ -13,10 +15,11 @@ We will denote the dual basis with the same letter as the original basis unless 
 	%(\delta^\dagger f)(\tau) &= (-1)^{|\tau|} f(\partial \tau) \\
 	%(\delta^\dagger f)(\tau) &= f(\partial \tau)
 \end{align*}
+
 \begin{convention}
 	If $A$ and $B$ are chain complexes, their tensor product $A \ot B$ has differential $\partial(a \ot b) = \partial a \ot b + (-1)^{|a|}a \ot \partial b$.
 \end{convention}
-	There is an isomorphism $A^\dd \ot B^\dd \to (B \ot A)^{\dd}$ that sends $f \ot g$ to $h$ where $h(b \ot a) = g(b)\cdot f(a)$. There are two suspension functors that we denote by $\sus{}$ (right suspension) and $\susp{}$ (left suspension), defined on a chain complex $(\ucadenas,\partial)$ as
+There is an isomorphism $A^\dd \ot B^\dd \to (B \ot A)^{\dd}$ that sends $f \ot g$ to $h$ where $h(b \ot a) = g(b)\cdot f(a)$. There are two suspension functors that we denote by $\sus{}$ (right suspension) and $\susp{}$ (left suspension), defined on a chain complex $(\ucadenas,\partial)$ as
 \begin{align*}
 	\sus{} \ucadenas[i] &= \ucadenas[i-1] & \susp{} \ucadenas[i] &= \ucadenas[i-1] \\
 	\sus{} \partial_i &= \partial_{i-1} & \susp{} \partial_i &= -\partial_{i-1},
@@ -27,7 +30,7 @@ and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$. If 
 \end{align*}
 that send $a$ to $a \ot 1$ and to $1 \ot a$ respectively. As a consequence, there is an isomorphism
 \begin{align*}
-(\sus{}\ucadenas )^\dd &\cong \susp{-1}\ucocadenas
+	(\sus{}\ucadenas )^\dd &\cong \susp{-1}\ucocadenas
 \end{align*}
 that sends a cochain $f$ to the cochain $\susp{}f$ defined as $(\susp{}f)(a) = f(\sus{}a)$.
 Each notion of suspension yields a notion of chain map $A \to B$ of degree $k$: It may be a graded homomorphism $A \to B$ of degree $k$ that commutes with the differential (i.e., a chain map $A \to \sus{-k} B$), or a graded homomorphism $A \to B$ of degree $k$ that commutes with the differential if $k$ is even and anticommutes with the differential if $k$ is odd (i.e., a chain map $A \to \susp{-k}B$). We will mostly work with the second notion, but keep in mind that dualizing interchanges both notions. One can switch between them using the isomorphism
@@ -40,7 +43,7 @@ that sends $x$ to $(-1)^{k|x|}x$. It is therefore advisable to write a map $f \c
 
 Given chain maps $f \colon A \to \sus{-|f|}C$ and $g \colon B \to \sus{-|g|}D$, the chain map
 \[
-	f \ot g \colon A \ot B \to \sus{-|f|-|g|}C \ot D
+f \ot g \colon A \ot B \to \sus{-|f|-|g|}C \ot D
 \]
 is defined as $(f \ot g)(a \ot b) = (-1)^{|f||b|} f(a) \ot g(b)$. Given chain maps
 \begin{align*}
@@ -49,11 +52,11 @@ is defined as $(f \ot g)(a \ot b) = (-1)^{|f||b|} f(a) \ot g(b)$. Given chain ma
 \end{align*}
 then the chain maps
 \begin{align*}
-(f_2\circ f_1) \ot (g_2\circ g_1) \colon &A \ot B \lra \sus{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
-\\
-(f_2 \ot g_2)\circ (f_1 \ot g_1) \colon &A \ot B \lra \sus{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
+	(f_2\circ f_1) \ot (g_2\circ g_1) \colon &A \ot B \lra \sus{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
+	\\
+	(f_2 \ot g_2)\circ (f_1 \ot g_1) \colon &A \ot B \lra \sus{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
 \end{align*}
- are related by
+are related by
 \begin{align*}
 	(f_2\circ f_1) \ot (g_2\circ g_1) &= (-1)^{|f_2||g_1|}(f_2 \ot g_2)\circ (f_1 \ot g_1)
 \end{align*}
@@ -71,11 +74,11 @@ is defined as $(f \ot g)(a \ot b) = (-1)^{|g||a|} f(a) \ot g(b)$. Given chain ma
 \end{align*}
 then the chain maps
 \begin{align*}
-(f_2\circ f_1) \ot (g_2\circ g_1) \colon &A \ot B \lra \susp{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
-\\
-(f_2 \ot g_2)\circ (f_1 \ot g_1) \colon &A \ot B \lra \susp{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
+	(f_2\circ f_1) \ot (g_2\circ g_1) \colon &A \ot B \lra \susp{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
+	\\
+	(f_2 \ot g_2)\circ (f_1 \ot g_1) \colon &A \ot B \lra \susp{-|f_1|-|f_2|-|g_1|-|g_2|}E \ot F
 \end{align*}
- are related by
+are related by
 \begin{align*}
 	(f_2\circ f_1) \ot (g_2\circ g_1) &= (-1)^{|f_1||g_2|}(f_2 \ot g_2)\circ (f_1 \ot g_1)
 \end{align*}
@@ -85,50 +88,52 @@ then the chain maps
 \end{notation}
 
 %\begin{notation}
-	%The chain complexes with their natural grading will be denoted with italic letters $\ucadenas$. Often it will be convenient to work with their suspension $\sus{}\ucadenas$, that will be denoted with an upright symbol $\uchains$. The notation $\ucochains$ stands for the dual of $\uchains$.
+%The chain complexes with their natural grading will be denoted with italic letters $\ucadenas$. Often it will be convenient to work with their suspension $\sus{}\ucadenas$, that will be denoted with an upright symbol $\uchains$. The notation $\ucochains$ stands for the dual of $\uchains$.
 %\end{notation}
 
 \subsection{Categories}\label{s:categories}
 
 Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
-\begin{definition} A linearized category with $r$-fold diagonals is a monoidal category $\cC$ %with finite coproducts
-endowed with the following structure:
-\begin{itemize}
-	%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $ \ot $ that distributes over the coproduct $\amalg$ and
-	\item a natural transformation between $r$-fold tensor products
-	\[
-	\rho \colon Y_1 \ot \overset{r}{\dots} \ot Y_r \lra Y_r \ot Y_1 \ot Y_2 \ot \dots \ot Y_{r-1}
-	\]
-	such that $\rho^r$ is the identity.
-	\item A \emph{natural cyclic diagonal}, i.e., a natural transformation from the identity to the $r$-fold tensor product
-	\[
-	\Delta \colon Y \lra Y \ot \overset{r}{\dots} \ot Y
-	\]
-	such that $\rho\circ \Delta = \Delta$.
-	\item a \emph{cyclic linearization functor}, i.e., a %coproduct preserving
- strong monoidal functor
-	\[
-	%\abel \colon (\cC,\amalg, \ot ) \lra (\Mod{R},\oplus, \ot )
-	\abel \colon (\cC, \ot ) \lra (\Mod{R}, \ot )
-	\]
-	such that the following diagram commutes
-	\[
-	\xymatrix{
-		L(Y_1 \ot \overset{r}{\dots} \ot Y_r) \ar[r]\ar[d]^{\rho} & \abel(Y_1) \ot \overset{r}{\dots} \ot \abel(Y_r)\ar[d]^{\rho} \\
-		L(Y_{r} \ot \overset{r}{\dots} \ot Y_{r-1}) \ar[r] & \abel(Y_r) \ot \overset{r}{\dots} \ot \abel(Y_{r-1}) }
-	\]
-\end{itemize}
+\begin{definition}
+	A linearized category with $r$-fold diagonals is a monoidal category $\cC$ %with finite coproducts
+	endowed with the following structure:
+	\begin{itemize}
+		%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $ \ot $ that distributes over the coproduct $\amalg$ and
+		\item a natural transformation between $r$-fold tensor products
+		\[
+		\rho \colon Y_1 \ot \overset{r}{\dots} \ot Y_r \lra Y_r \ot Y_1 \ot Y_2 \ot \dots \ot Y_{r-1}
+		\]
+		such that $\rho^r$ is the identity.
+		\item A \emph{natural cyclic diagonal}, i.e., a natural transformation from the identity to the $r$-fold tensor product
+		\[
+		\Delta \colon Y \lra Y \ot \overset{r}{\dots} \ot Y
+		\]
+		such that $\rho\circ \Delta = \Delta$.
+		\item a \emph{cyclic linearization functor}, i.e., a %coproduct preserving
+		strong monoidal functor
+		\[
+		%\abel \colon (\cC,\amalg, \ot ) \lra (\Mod{R},\oplus, \ot )
+		\abel \colon (\cC, \ot ) \lra (\Mod{R}, \ot )
+		\]
+		such that the following diagram commutes
+		\[
+		\xymatrix{
+			L(Y_1 \ot \overset{r}{\dots} \ot Y_r) \ar[r]\ar[d]^{\rho} & \abel(Y_1) \ot \overset{r}{\dots} \ot 	\abel(Y_r)\ar[d]^{\rho} \\
+			L(Y_{r} \ot \overset{r}{\dots} \ot Y_{r-1}) \ar[r] & \abel(Y_r) \ot \overset{r}{\dots} \ot \abel(Y_{r-1}) }
+		\]
+	\end{itemize}
 \end{definition}
 The main example of this work will be the symmetric monoidal category $\Setp$ of pointed sets with the smash product or its subcategory $\Set$ of sets with the Cartesian product. The functor $\abel$ takes a set to the free module on it, and a pointed set to the quotient of its free module by the base point.
 
 \add{A coalgebra in a monoidal category $(\cD,\otimes)$ is an object $Y$ of $\cD$ together with a diagonal map $\Delta\colon Y\to Y\otimes Y$. The coalgebra is coassociative if $\Delta\circ (\Delta\otimes \id) = (\Delta\circ (\id \otimes \Delta))$.
 
-If the monoidal category is symmetric, then a coalgebra $(Y,\Delta)$ is cocommutative if $\Delta\circ \twist = \Delta$. If the monoidal category has a unit $I$, one defines a counital coalgebra as a coalgebra $(Y,\Delta)$ together with a morphism $u\colon Y\to I$ such that $\Delta\circ (u\otimes \id) = \Delta\circ (\id\otimes u) = \id$.  
+	If the monoidal category is symmetric, then a coalgebra $(Y,\Delta)$ is cocommutative if $\Delta\circ \twist = \Delta$. If the monoidal category has a unit $I$, one defines a counital coalgebra as a coalgebra $(Y,\Delta)$ together with a morphism $u\colon Y\to I$ such that $\Delta\circ (u\otimes \id) = \Delta\circ (\id\otimes u) = \id$.
 
-\begin{definition}
-    A \emph{linearized category of coalgebras} is a category of coalgebras in a monoidal category with  a strong monoidal functor $L$ to the category of $R$-modules. If the functor is symmetric monoidal or unital, then one can consider linearized categories of cocommutative or counital coalgebras.
-\end{definition}
-A cocommutative coassociative coalgebra $Y$ has a well-defined $r$-fold diagonal $\Delta^r\colon Y\lra Y^{\otimes r}$, which is invariant under the action of $\Cyc_r$.
+	\begin{definition}
+		A \emph{linearized category of coalgebras} is a category of coalgebras in a monoidal category with  a strong monoidal functor $L$ to the category of $R$-modules. If the functor is symmetric monoidal or unital, then one can consider linearized categories of cocommutative or counital coalgebras.
+	\end{definition}
+
+	A cocommutative coassociative coalgebra $Y$ has a well-defined $r$-fold diagonal $\Delta^r\colon Y\lra Y^{\otimes r}$, which is invariant under the action of $\Cyc_r$.
 }
 
 \subsection{Augmented simplicial objects}\label{s:simplices}
@@ -184,17 +189,17 @@ The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simp
 
 %If $\cC$ has a zero object $*$ (for example, $\Setp$), define the left and the right suspensions of two semi-simplicial objects in $\cC$ as {\color{red}KAN SUSPENSIONS}
 %\begin{align*}
-	%\susp{} X_n &= X_n & \susp{}\d_i &= \begin{cases} \d_{i-1} & \text{if $1\leq i<n$} \\
-		%\ast & \text{if $i=0$}
+%\susp{} X_n &= X_n & \susp{}\d_i &= \begin{cases} \d_{i-1} & \text{if $1\leq i<n$} \\
+	%\ast & \text{if $i=0$}
 	%\end{cases}
 	%\\
 	%\sus{} X_n &= X_n & \sus{}\d_i &= \begin{cases} \d_i & \text{if $0\leq i<n-1$} \\
 		%\ast & \text{if $i=n-1$}
-	%\end{cases}
-%\end{align*}
-%Taking normalized chains converts each of these suspensions into the left and right suspensions of chain complexes.
-%
-%The product $X \ot Y$ of two simplicial objects $X,Y$ on $\cC$ is given by $(X \ot Y)_n = X_n \ot Y_n$ and $\d_i(\tau,\tau') = (\d_i\tau,\d_i\tau')$ and $s_i(\tau,\tau') = (s_i\tau,s_i\tau')$.
+		%\end{cases}
+		%\end{align*}
+		%Taking normalized chains converts each of these suspensions into the left and right suspensions of chain complexes.
+		%
+		%The product $X \ot Y$ of two simplicial objects $X,Y$ on $\cC$ is given by $(X \ot Y)_n = X_n \ot Y_n$ and $\d_i(\tau,\tau') = (\d_i\tau,\d_i\tau')$ and $s_i(\tau,\tau') = (s_i\tau,s_i\tau')$.
 
 \subsection{The Milgram resolution of a group \texorpdfstring{$G$}{G}}
 

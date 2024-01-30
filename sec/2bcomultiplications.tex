@@ -71,24 +71,23 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 \end{remark}
 
 \begin{example}
-	The cup-$i$ coproducts of Steenrod \cite{steenrod1947products, medina2022axiomatic} yield a natural unstable $2$-diagonal on the normalized chains of simplicial sets.
-	With the Alexander--Whitney coproduct, this unstable diagonal is May--Steenrod.
-	For general $r$, a similar unstable $r$-diagonal was constructed in \cite{medina2021may_st}.
+	The cup-$i$ coproducts of Steenrod \cite{steenrod1947products, medina2022axiomatic} yield a natural unstable $2$-diagonal on the normalized chains of simplicial sets which is May--Steenrod.
+	For general $r$, a similar May--Steenrod unstable $r$-diagonal was constructed in \cite{medina2021may_st}.
 \end{example}
 
 \subsection{Stable diagonals}\label{s:stable}
 
 Let $\Wst(r)$ be the unbounded chain complex
 \[
-\dotsb \lra \Cyc_r\langle e_2\rangle 
+\dotsb \lra \Cyc_r\langle e_{-2}\rangle
 \overset{T}{\lla}
-\Cyc_r\langle e_1\rangle 
+\Cyc_r\langle e_{-1}\rangle
 \overset{N}{\lla}
-\Cyc_r\langle e_0\rangle 
+\Cyc_r\langle e_0\rangle
 \overset{T}{\lla}
-\Cyc_r\langle e_{-1}\rangle 
+\Cyc_r\langle e_{1}\rangle
 \overset{N}{\lla}
-\Cyc_r\langle e_{-2}\rangle 
+\Cyc_r\langle e_{2}\rangle
 \overset{T}{\lla}
 \dots
 \]
@@ -195,13 +194,13 @@ R[\Cyc_r]\langle e_{3}\rangle
 (note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual:
 \[
 \dotsb
-\overset{T}{\lla} 
-R[\Cyc_r]\langle e_{-3}^\dd\rangle 
+\overset{T}{\lla}
+R[\Cyc_r]\langle e_{-3}^\dd\rangle
 \overset{-N}{\lla}
-R[\Cyc_r]\langle e_{-2}^\dd\rangle 
-\overset{T}{\lla} 
-R[\Cyc_r]\langle e_{-1}^\dd\rangle 
-\overset{-N}{\lla} 
+R[\Cyc_r]\langle e_{-2}^\dd\rangle
+\overset{T}{\lla}
+R[\Cyc_r]\langle e_{-1}^\dd\rangle
+\overset{-N}{\lla}
 R.
 \]
 Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{-i}^\dd) = (\rho^{-1} e_i)^{\dd}$.
@@ -273,7 +272,7 @@ As a consequence,
 	\end{itemize}
 \end{proposition}
 \add{
-Observe that the operation $\power^0$ is computed as $y^{\otimes r}(\mu(1\hotimes a))$. Assume additionally that for each $n\geq 0$ the $R$-module $\ucadenas[n]$ has a counital coalgebra structure and that $\mu(1\otimes a)$ equals the $r$-fold diagonal $\Delta^r(a)$. In that case, if $x,y$ and $a$ are as in the proposition, then 
+Observe that the operation $\power^0$ is computed as $y^{\otimes r}(\mu(1\hotimes a))$. Assume additionally that for each $n\geq 0$ the $R$-module $\ucadenas[n]$ has a counital coalgebra structure and that $\mu(1\otimes a)$ equals the $r$-fold diagonal $\Delta^r(a)$. In that case, if $x,y$ and $a$ are as in the proposition, then
 \[
 y(a) = x^{\otimes r}(\mu(1\hotimes a)) = x^{\otimes r}(a^{\otimes r}) = (-1)^{n\binom{r}{2}} x(a)^r = x(a).
 \]
