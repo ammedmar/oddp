@@ -10,9 +10,7 @@ Recall that the barycentric subdivision $\sd \partial\simplex^n$ of the boundary
 \]
 
 The \emph{pair barycentric subdivision} $\Psd \partial\simplex^n$ of $\partial \simplex^n$ is a cubulation of $\partial \simplex^n$ with the same vertices as $\sd \partial \simplex^n$ and one face for each pair $(b,a)$ of faces of $\partial\simplex^n$ such that $b \subset a$ (cf. \cite{Rounds2010}). Geometrically, that face is the union of all the faces of dimension $|a|-|b|$ of the barycentric subdivision that correspond to ascending chains $b = \tau_0 \subset \dots \subset \tau_k= a$. Interpreting $b$ as a dual cochain, its chain complex $\cadenas(\Psd \partial\simplex^n)$ is isomorphic to the tensor product $\cochains(\partial\simplex^n) \ot \chains(\partial\simplex^n)$ modulo the pairs $b \ot a$ such that the support of $b$ is not contained in $a$.
-%It has the following differential:
-%\[\partial(b \ot a) = (-1)^{|b|}(\delta b \ot a + b \ot \partial a)\]
-%\[\partial(a \ot b) = \partial a + (-1)^{|a|-|b|} \delta b\]
+
 
 There are chain maps
 \[
@@ -195,14 +193,7 @@ The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subse
 	and $g_*(\tau_1)$ is a vertex. If $\tau_1*\tau_2$ is degenerate, then $h(\tau_2 \ot \tau_1) = 0$, and therefore $f(\tau_1 \ot \tau_2)=0$.
 \end{proof}
 
-%\begin{proposition} If $f \colon C_*(\partial \simplex^n) \ot C_*(\partial \simplex^n) \lra C_*(\Sigma^n\partial \simplex^n)$ is a homomorphism satisfying the conditions, then $f$ factors as
-%\[f = g\circ s_*^{\Psd}\circ m\]
-%for some cyclic assemblage map with duality $g$.
-%\end{proposition}
-%\begin{proof}
-%The map $m$ is universal among maps that annihilate pairs of faces that do not span the whole simplex, therefore $f$ does factor %through $m$. Secondly, any map from the pair subdivision of $\partial \simplex^n$ to a simplicial complex factors through the barycentric subdivision. Condition \eqref{cond:3} guarantees that the resulting map $g$ is simplicial.The proof on the previous proposition can be followed to show that Conditions \eqref{cond:1} and \eqref{cond:2} for $f$ translate into $g$ being a assemblage map with duality.
-%\end{proof}
-%}
+
 
 Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r-1}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime.
 
@@ -229,7 +220,6 @@ Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, 
 		&
 		\omega_{i} &= \omega_{i+1}\smallsetminus \{g(\omega_{i+1})\}.
 	\end{align*}
-	%It is clear that $g$ does not vanish on this summand, because $\omega_{i+1}$ is always different from $\omega_i$. On the other hand, if we depart from this rule at the $i$th stage defining $\omega_i = \omega_{i+1}\smallsetminus \{v\}$ with $v\in \omega_{i+1}$ but $v\neq g(\omega_{i+1})$, then the image by $g$ will not contain the vertex $v$, and therefore will be degenerate.
 	The second assertion is evident. For the last one, if $\tau$ is a face of $\sd \partial \simplex^{r-1}$, then $\rho^{-1}(g(\Lambda(\tau))) = \rho^{-1}(x_{\tau^c})$ is the cyclic predecessor of $x_{\tau^c}$, which does not belong to $\tau^c$, and therefore belongs to $\tau$.
 \end{proof}
 
@@ -269,33 +259,6 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 	\end{tikzpicture}
 	\caption{The $r$-cyclic assemblage map with duality for $\partial \simplex^2$.}
 \end{figure}
-
-%\begin{figure}
-%	\begin{tikzpicture}[line join = round, line cap = round]
-%		\pgfmathsetmacro{\factor}{1/sqrt(2)};
-%		\coordinate [label=left:A] (A) at (-2,0,0);
-%		\coordinate [label=below:B] (B) at (.4,-1,0);
-%		\coordinate [label=right:2] (C) at (2,0,0);
-%		\coordinate [label=above:3] (D) at (0,2.8,.2);
-
-%		path (B) -- (C) node[midway] (BC) {BC}
-
-%		\coordinate (AB) at ($ (A)!0.5!(C) $); % Anibal: I modified this line to get rid of an error
-%		\coordinate (AC) at (0,0,0);
-%		\coordinate (D) at (0,2.8,.2);
-		%\draw[->] (0,0) -- (3,0,0) node[right] {$x$};
-		%\draw[->] (0,0) -- (0,3,0) node[above] {$y$};
-		%\draw[->] (0,0) -- (0,0,3) node[below left] {$z$};
-%		\foreach \i in {A,B,C,D}
-%		\draw[dashed] (\i) -- (AB);
-%		\draw[-, fill=red!30, opacity=.5] (A)--(D)--(B)--cycle;
-%		\draw[-, fill=green!30, opacity=.5] (A) --(D)--(C)--cycle;
-%		\draw[-, fill=purple!30, opacity=.5] (B)--(D)--(C)--cycle;
-%	\end{tikzpicture}
-%	\caption{The cyclic subdivision map for $\partial \simplex^4$ on the face $[0,1,2,3]$ (the other faces are in the $C_r$-orbit of this face).}
-%	\label{fig:my_label}
-	%\federico{to be discarded if it is too complicated}
-%\end{figure}
 
 \begin{example}\label{example:f3_1}
 	For $r=3$, and $a \ot b = [0] \ot [2,1]$ we have:

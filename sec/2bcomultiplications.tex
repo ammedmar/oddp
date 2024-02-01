@@ -30,24 +30,20 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 \begin{proposition}\label{prop:unstable}
 	If $r$ is prime, an unstable diagonal $\mu$ on a chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
-		\power^{i} \colon H_{-n}(\ucocadenas;\mathbb{F}_r)& \lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
+		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
-	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
+	that send a cohomology class $[x]$ in degree $-m$ to the cohomology class $[y]$ with
 	\[
-	y(a) = (-1)^{\binom{n}{2} \tilde{r}}(\tilde{r}!)^n(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a)).
+	y(a) = (-1)^{\binom{m}{2} \tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)m-i} \ot a)).
 	\]
 	Furthermore, these operations satisfy the following equation
 	\begin{itemize}
-		\item $\power^i(x) = 0$ if $i>(r-1)n$ and $x$ has degree $-n$.
+		\item $\power^i(x) = 0$ if $i>(r-1)m$ and $x$ has degree $-m$.
 	\end{itemize}
 \end{proposition}
 
 \begin{proof}
-	See \cite{may1970general}.
-	%The operations are linear because $\mu$ is linear and Fermat's little theorem in $\mathbb{F}_r$ guarantees that $(\lambda\cdot y)^ \ot {r} = \lambda\cdot (y)^{\ot r}$ for a scalar $\lambda$.
-%	That the operations are well-defined follows through the usual argument: if $x$ is a representative of a cohomology class, its coboundary vanishes, and so does the coboundary of $y \ot \dots \ot y$, hence it maps cocycles to cocycles.
-%	If $x = \delta y$ is a coboundary, then FILL.
-	For the last claim, note that if $i>(r-1)n$, then $(r-1)n-i$ is negative, and therefore $\mu(e_{(r-1)n-i},a)$ vanishes.
+	See \cite{may1970general}. For the last claim, note that if $i>(r-1)m$, then $(r-1)m-i$ is negative, and therefore $\mu(e_{(r-1)m-i},a)$ vanishes.
 \end{proof}
 
 \begin{definition}
@@ -56,14 +52,6 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 	\W(r) \ot \ucadenas \xra{f \ot \id} V_*(r) \ot \ucadenas \lra \ucadenas^{\ot r}
 	\]
 	where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, $f$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
-%	\begin{itemize}
-%		\item $\mu(e_0 \ot x)$ is homotopic to the $r$-fold coproduct,
-%		\item $\mu$ factors as
-%		\[
-%		\W(r) \ot \ucadenas \xra{f \ot \id} V_*(r) \ot \ucadenas \lra \ucadenas^{\ot r}
-%		\]
-%		where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, $f$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
-%	\end{itemize}
 \end{definition}
 
 \begin{remark}
@@ -99,9 +87,7 @@ In general, we understand it as the limit of
 \[
 \dotsb \lra \sus{4(1-r)}\W(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W(r) \overset{\theta_{2(1-r)}}{\lra} \W(r).
 \]
-where $\theta_{k} \colon \W(r) \to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even and non-positive.
-%If $r$ is odd or $r=2$ and $\R=\bF_2$, one can instead use the maps $\theta_{1-r}$ to form the limit.
-This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
+where $\theta_{k} \colon \W(r) \to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even and non-positive. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
 \[
 \Wst(r) \lra \W(r)\overset{N}{\lra} \Wd(r)
 \]
@@ -139,9 +125,9 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 	\begin{align*}
 		\power^{i} \colon H_{-n}(\ucocadenas;\mathbb{F}_r)& \lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
-	that send a cohomology class $[x]$ in degree $-n$ to the cohomology class $[y]$ with
+	that send a cohomology class $[x]$ in degree $-m$ to the cohomology class $[y]$ with
 	\[
-	y(a) = (-1)^{\binom{n}{2} \tilde{r}}(\tilde{r}!)^n(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)n-i} \ot a))
+	y(a) = (-1)^{\binom{m}{2} \tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)m-i} \ot a))
 	\]
 \end{proposition}
 
@@ -152,7 +138,7 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 \end{proof}
 
 \begin{example}
-	As we will see in \cref{s:suspension}, if $\mu$ is the unstable diagonal for normalized chains in simplicial sets of the previous example, then $\mu(e_q \ot \sus{} x) = \frac{1}{\tilde{r}!}\sus{\ot r} \mu(e_{q+r-1} \ot x)$, hence it does define a stable diagonal on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) which is May--Steenrod.
+	As we will see in \cref{s:suspension}, the unstable diagonal for normalized chains in simplicial sets of the previous example, defines a stable diagonal on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) which is May--Steenrod.
 \end{example}
 
 \begin{figure}
@@ -171,9 +157,11 @@ We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ s
 	\caption{If a stable diagonal for $r=3$ vanishes on the part coloured in green, then $\power^i$ vanishes for $i<0$.}
 	\label{figure:2}
 
+ \vspace{2cm}
+
 	\input{tables/hat_alone}
 	\caption{The complex $\rWd(r) \hotimes \rucadenas$ for $r=3$ and $R=\bF_3$.
-		The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part.}
+		The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\hotimes C^3_n$.}
 	\label{figure:3}
 \end{figure}
 
@@ -218,7 +206,13 @@ If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, define the chain complex $\r
 \]
 If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
 \[
-R[\Cyc_r]\langle e_{0}^\dd\rangle / N \overset{-T}{\lra} R[\Cyc_r]\langle e_{-1}^\dd\rangle \overset{N}{\lra} R[\Cyc_r]\langle e_{-2}^\dd\rangle \overset{-T}{\lra}\dots
+\dotsb
+\overset{-T}{\lla} 
+R[\Cyc_r]\langle e_{-2}^\dd\rangle 
+\overset{N}{\lla}
+R[\Cyc_r]\langle e_{-1}^\dd\rangle
+\overset{-T}{\lla} 
+R[\Cyc_r]\langle e_{0}^\dd\rangle / N 
 \]
 This chain complex admits chain maps
 \begin{align*}
@@ -260,24 +254,17 @@ As a consequence,
 \begin{proposition}
 	If $r$ is prime, a connected $r$-cyclic diagonal induces operations indexed by the integers
 	\begin{align*}
-		\power^{i} \colon H_{-n}(\ucocadenas;\mathbb{F}_r)& \lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
+		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
-	that send a cohomology class $[x]$ in degree $n$ to the cohomology class $[y]$ with
+	that send a cohomology class $[x]$ in degree $m$ to the cohomology class $[y]$ with
 	\[
-	y(a) = (-1)^{\binom{n(r-1)-q}{2} + \binom{n}{2}\tilde{r}}(\tilde{r}!)^n(y \ot \overset{r}{\dots} \ot y)(\mu(e_{ri}^\vee \ot a))
+	y(a) = (-1)^{\binom{ir}{2} + \binom{m}{2}\tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{ri}^\vee \ot a))
 	\]
 	These operations satisfy the following equation
 	\begin{itemize}
 		\item $\power^i(x) = 0$ for $i<0$.
 	\end{itemize}
 \end{proposition}
-\add{
-Observe that the operation $\power^0$ is computed as $y^{\otimes r}(\mu(1\hotimes a))$. Assume additionally that for each $n\geq 0$ the $R$-module $\ucadenas[n]$ has a counital coalgebra structure and that $\mu(1\otimes a)$ equals the $r$-fold diagonal $\Delta^r(a)$. In that case, if $x,y$ and $a$ are as in the proposition, then
-\[
-y(a) = x^{\otimes r}(\mu(1\hotimes a)) = x^{\otimes r}(a^{\otimes r}) = (-1)^{n\binom{r}{2}} x(a)^r = x(a).
-\]
-I AM NOT SURE HOW TO JUSTIFY THE SECOND EQUALITY. As a consequence, $\power^0 = \id$. The operations constructed in the main theorem do satisfy that $\mu(1\hotimes a)$ is the linearization of an $r$-fold diagonal map. Thus, in the case of simplicial objects in counital commutative coassociative coalgebras, our main theorem yields connected $r$-diagonals with $\power^0=\id$.
-}
 
 \begin{example}
 	As far as we know, the concept of connected diagonal has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the unstable diagonal for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.

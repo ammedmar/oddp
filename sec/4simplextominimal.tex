@@ -18,8 +18,6 @@ Through the isomorphism $\Cyc_r \cong \{0,1,\dots,r-1\}$ we endow the latter wit
 		0 & \text{otherwise,}
 	\end{cases}
 \end{align*}
-%and note that, if $a\prec b\prec c$, with $b-a$ even, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$, while if $b-a$ is odd, then $\phi_o(a,c) = \phi_e(a,b) + \phi_o(b,c)$. We also have $\phi_e(a,c) = \phi_o(a,b+1)+\phi_o(b,c)$.
-
 Let $A= a_0\prec a_1\prec\dots\prec a_{q-1}$ be a cyclically ordered sequence in $\{0,1,\dots,r-1\}$. Say that $a_i$ is \emph{even (resp. \emph{odd}) in the sequence} if $a_{i+1}-a_i$ is an even number (resp. an odd number).
 Define the following elements of $\rW(r)$:
 \begin{align*}
@@ -97,7 +95,6 @@ A \emph{cyclic representative} of a generator $[a_0,\dots,a_{q-1}]\in \chains{q}
 	\[
 	\Phi_e(\partial A)
 	= \sum_{i=0}^{q-1} \phi_e(a_i,a_{i+2})
-	%= \sum_{i=0}^{q-1} \phi_o(a_{i},a_{i+1}+1) + \phi_o(a_{i+1},a_{i+2}) \\
 	= N
 	\]
 	This completes the proof, since $\frac{r-q}{2} = \frac{\varphi(q-1)!}{\varphi(q)!}$.

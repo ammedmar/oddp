@@ -5,7 +5,6 @@
 
 In this section, we show that our connected diagonals yield nice connected diagonals on the chain complex of a simplicial $\susp{}$-spectrum or a simplicial $\sus{}$-spectrum. The unstable diagonals of \cite{medina2021may_st} yield nice stable diagonals on the chain complex of a simplicial $\sus{}$-spectrum. At the end we give some comments on other stable categories. We have chosen to work with semi-simplicial pointed sets, but one may very well work with simplicial pointed sets using the Kan suspension instead.
 
-%Let us assume that the category $\cC$ has a zero object. Otherwise, since $\Mod{R}$ has a zero object, we can replace $\cC$ by the category $\cC_*$ of pointed objects in $\cC$, which then inherits the coproducts and the tensor product and the diagonal, and the linearization functor factors through $\cC_*$.
 
 \subsection{Suspension and spectra} The \emph{left suspension functor} sends an augmented simplicial pointed set $X_\bullet$ to a simplicial pointed set $(\Sigma X)_\bullet$ that satisfies the following (as before, we denote by $L'(X)$ the semi-simplicial object that is obtained from $L(X)$ by quotienting by the degeneracies):
 \begin{align*}
@@ -35,50 +34,8 @@ These chain complexes compute the ordinary homology of the spectrum $E$ and come
 \[\chi_{st} = \lim( \Sigma^2\chi(r)[2-2r] \lra \Sigma \chi(r)[1-r] \lra \chi(r).\]
 Now, these models are clearly not finitely generated (nor free, nor of finite type), so even if the spectrum of which we are taking spectral chains is finite, the model of the action is not finite. 
 
-\subsection{A stable $r$-cyclic diagonal for right spectra} In the next proposition we observe that the homomorphism $W_*(r) \to \cE(r)$ constructed in \cite{medina2021may_st} is compatible, up to a sign to be determined, with the right suspension, and therefore gives a nice map
-\[
- W_*(r)_{st} \lra \cE_{st}
-\]
-that yields a stable diagonal on the chain complex of a $\sus{}$-spectrum.
 
-%\begin{definition}
-% A natural unstable $r$-cyclic diagonal is \emph{compatible with suspension} if the following diagram commutes.
-% \[
-% \xymatrix{
-% W_* \ot C_*\ar[r] \ar[d]^{\theta_{1-r} \ot \sus{}} & C_*^{\ot r} \ar[d]^{\sus{\ot r}}\\
-% W_{*-r+1} \ot \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\ot r}.
-% }
-% \]
-% A natural connected $r$-cyclic diagonal is \emph{compatible with suspension} if the following diagram commutes
-%\[
-% \xymatrix{
-% \rW^* \hotimes C_*\ar[r]\ar[d]^{\id \ot \sus{}} & C_*^{\ot r} \ar[d]^{\sus{\ot r}} \\
-% \rW^* \hotimes \sus{} C_*\ar[r]^{\tilde{r}!} & (\sus{} C_*)^{\ot r}
-% }
-% \]
-%\end{definition}
-\begin{proposition}\label{prop:suspensionunstable}
- The effect of left and right suspensions on the $r$-cyclic unstable diagonals of \cite{medina2021may_st} is the following:
- \begin{align*}
- \mu(e_q \ot \susp{} \tau) &= \pm (\tilde{r}-1)!\susp{\ot r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot \tau)
- \\
- \mu(e_q \ot \sus{}\tau) &= \pm \tilde{r}!\sus{\ot r}\mu(e_{q-r+1} \ot \tau)
- \end{align*}
-\end{proposition}
-
-\begin{proof}
- The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\dots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct. A count yields the result.
-
- For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
-\end{proof}
-
- If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, there is a stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$ defined as
- \[
- \mu_{st}(e_q \ot \tau) = v(q,n,m)\frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
- \]
- where $\tau\in \chains[n](E_m)$ and $v(q,n,m)$ is a unit of $\bZ[\frac{1}{\tilde{r}!}]$.
-
-\subsection{A connected $r$-cyclic diagonal for left and right spectra}
+\subsection{A connected $r$-cyclic diagonal for spectra}
 
 
 Consider the following diagram, where the vertical maps are chain maps of degree $r$ with respect to the right suspension (i.e., they commute with the differential)
@@ -129,10 +86,8 @@ From these two lemmas we deduce:
 \end{proposition}
 
 
-The disparity in the behaviour with respect to left suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
-\begin{corollary}
-	The chain level operations of \cite{medina2021may_st} are not the same as the ones of this work if $r\geq 5$.
-\end{corollary}
+
+
 
 
 \begin{corollary}
@@ -151,8 +106,38 @@ The disparity in the behaviour with respect to left suspension of the operations
  where $\tau\in \chains(E_m)$.
 \end{corollary}
 
-%Observe that we had to introduce a coefficient of $\tilde{r}!$ in Proposition \ref{lemma:omegar}. After this corollary, we can interpret our construction (without the extra coefficient) as computing the stable diagonal on $\tau$ as if $\tau$ had degree $0$.
 
-%\subsection{Other simplicial stable categories}
+\subsection{A stable $r$-cyclic diagonal for right spectra} In the next proposition we observe that the homomorphism $W_*(r) \to \cE(r)$ constructed in \cite{medina2021may_st} is compatible, up to a sign to be determined, with the right suspension, and therefore gives a nice map
+\[
+ W_*(r)_{st} \lra \cE_{st}
+\]
+that yields a stable diagonal on the chain complex of a $\sus{}$-spectrum.
 
-%If the category $\cC$ has a zero object we can define the left and right Kan suspensions of augmented simplicial objects in $\cC$ as we did before for $\cC = \Setp$. This yields a notion of $\susp{}$-spectrum and $\sus{}$-spectrum with their stable chain complexes. These stable chain complexes have diagonals as described in the preceeding corollaries.
+\begin{proposition}\label{prop:suspensionunstable}
+ The effect of left and right suspensions on the $r$-cyclic unstable diagonals of \cite{medina2021may_st} is the following:
+ \begin{align*}
+ \mu(e_q \ot \susp{} \tau) &= (-1)^{q+\binom{r}{2}n}(\tilde{r}-1)!\susp{\ot r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot \tau)
+ \\
+ \mu(e_q \ot \sus{}\tau) &= (-1)^{q+\binom{r}{2}n}\tilde{r}!\sus{\ot r}\mu(e_{q-r+1} \ot \tau)
+ \end{align*}
+\end{proposition}
+
+\begin{proof}
+ The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\dots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct. A count yields the result.
+
+ For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
+\end{proof}
+
+ If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, there is a stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$ defined as
+ \[
+ \mu_{st}(e_q \ot \tau) = (-1)^{mq+\binom{r}{2}\left(m(m+n-1) + \binom{m+1}{2}\right)}\frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
+ \]
+ where $\tau\in \chains[n](E_m)$. Since $\sum_{i=1}^{\tilde{r}} \rho^{2i}$ is invertible, we have can derive a formula for the left suspension too.
+
+ The disparity in the behaviour with respect to left suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
+
+ \begin{corollary}
+	The chain level operations of \cite{medina2021may_st} are not the same as the ones of this work if $r\geq 5$.
+\end{corollary}
+
+

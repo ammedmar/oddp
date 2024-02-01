@@ -11,9 +11,7 @@ Most of the chain complexes in this work will be finitely generated free complex
 
 We will denote the dual basis with the same letter as the original basis unless we want to emphasize the duality, in which case we will denote the dual of $u$ by $u^\dd$. The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
 \begin{align*}
-	(\partial^\dd f)(\tau) &= (-1)^{|f|+1} f(\partial \tau). %\\
-	%(\delta^\dagger f)(\tau) &= (-1)^{|\tau|} f(\partial \tau) \\
-	%(\delta^\dagger f)(\tau) &= f(\partial \tau)
+	(\partial^\dd f)(\tau) &= (-1)^{|f|+1} f(\partial \tau). 
 \end{align*}
 
 \begin{convention}
@@ -87,18 +85,13 @@ are related by
 	We will often use an upright symbol (for example, $\uchains$) to denote a variation of a previously built chain complex $\ucadenas$. For example, in \cref{s:unstable} we will introduce a chain complex $\W(r)$ while in \cref{s:connected} we will introduce a variation $\rW(r)$: the right suspension of the augmented version of $\W(r)$. In \cref{s:simplices} we introduce the normalized chain complex $\cadenas(X)$ while in \cref{s:alexander} we introduce a variation $\chains(X)$: the right suspension of $\cadenas(X)$.
 \end{notation}
 
-%\begin{notation}
-%The chain complexes with their natural grading will be denoted with italic letters $\ucadenas$. Often it will be convenient to work with their suspension $\sus{}\ucadenas$, that will be denoted with an upright symbol $\uchains$. The notation $\ucochains$ stands for the dual of $\uchains$.
-%\end{notation}
 
 \subsection{Categories}\label{s:categories}
 
 Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
 \begin{definition}
-	A linearized category with $r$-fold diagonals is a monoidal category $\cC$ %with finite coproducts
-	endowed with the following structure:
+	A \emph{linearized category with $r$-fold diagonals} is a monoidal category $\cC$ endowed with the following structure:
 	\begin{itemize}
-		%\item A \emph{$r$-cyclic distributive monoidal product}, i.e., an associative monoidal product $ \ot $ that distributes over the coproduct $\amalg$ and
 		\item a natural transformation between $r$-fold tensor products
 		\[
 		\rho \colon Y_1 \ot \overset{r}{\dots} \ot Y_r \lra Y_r \ot Y_1 \ot Y_2 \ot \dots \ot Y_{r-1}
@@ -109,10 +102,8 @@ Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
 		\Delta \colon Y \lra Y \ot \overset{r}{\dots} \ot Y
 		\]
 		such that $\rho\circ \Delta = \Delta$.
-		\item a \emph{cyclic linearization functor}, i.e., a %coproduct preserving
-		strong monoidal functor
+		\item a \emph{cyclic linearization functor}, i.e., a strong monoidal functor
 		\[
-		%\abel \colon (\cC,\amalg, \ot ) \lra (\Mod{R},\oplus, \ot )
 		\abel \colon (\cC, \ot ) \lra (\Mod{R}, \ot )
 		\]
 		such that the following diagram commutes
@@ -125,23 +116,13 @@ Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
 \end{definition}
 The main example of this work will be the symmetric monoidal category $\Setp$ of pointed sets with the smash product or its subcategory $\Set$ of sets with the Cartesian product. The functor $\abel$ takes a set to the free module on it, and a pointed set to the quotient of its free module by the base point.
 
-\add{A coalgebra in a monoidal category $(\cD,\otimes)$ is an object $Y$ of $\cD$ together with a diagonal map $\Delta\colon Y\to Y\otimes Y$. The coalgebra is coassociative if $\Delta\circ (\Delta\otimes \id) = (\Delta\circ (\id \otimes \Delta))$.
-
-	If the monoidal category is symmetric, then a coalgebra $(Y,\Delta)$ is cocommutative if $\Delta\circ \twist = \Delta$. If the monoidal category has a unit $I$, one defines a counital coalgebra as a coalgebra $(Y,\Delta)$ together with a morphism $u\colon Y\to I$ such that $\Delta\circ (u\otimes \id) = \Delta\circ (\id\otimes u) = \id$.
-
-	\begin{definition}
-		A \emph{linearized category of coalgebras} is a category of coalgebras in a monoidal category with  a strong monoidal functor $L$ to the category of $R$-modules. If the functor is symmetric monoidal or unital, then one can consider linearized categories of cocommutative or counital coalgebras.
-	\end{definition}
-
-	A cocommutative coassociative coalgebra $Y$ has a well-defined $r$-fold diagonal $\Delta^r\colon Y\lra Y^{\otimes r}$, which is invariant under the action of $\Cyc_r$.
-}
 
 \subsection{Augmented simplicial objects}\label{s:simplices}
 
 For each integer $n \geq -1$, let $[n] = \{0,\dots,n\}$ denote the $n$th ordinal, with $[-1]$ denoting the empty ordinal.
 
 \begin{definition}
-	The \emph{augmented simplex category} $\asimplex$ is the category of finite ordinals and order-preserving maps between them. %The \emph{augmented semi-simplex category} $\asimplexinj$ is the category of finite ordinals and injective order-preserving maps.
+	The \emph{augmented simplex category} $\asimplex$ is the category of finite ordinals and order-preserving maps between them. 
 \end{definition}
 
 An injective map $f \colon [n] \to [m]$ is called a \emph{face map}, while a surjective map is called a \emph{degeneracy}. A face map $f$ is determined by the subset $U = [m]\smallsetminus f([n])$, and is denoted $d^U$. If $U$ has a single element $i$, we will write $d^i$ instead of $d^{\{i\}}$. There are $n+1$ surjections $s^i \colon [n+1] \to [n]$, $i = 0\dots n$ characterized by $s^i(i) = s^i(i+1)$. Every map in this category factors as an injection followed by a surjection.
@@ -150,9 +131,7 @@ The category $\asimplex$ has a strict monoidal product called the \emph{join}, t
 
 \begin{definition}
 	An \emph{augmented simplicial object in $\cC$} is a functor $X \colon \asimplex^\mathrm{op} \to \cC$.
-	%An \emph{augmented semi-simplicial object in $\cC$} is a functor $X \colon \asimplexinj^\mathrm{op} \to \cC$.
 	An \emph{augmented cosimplicial object in $\cC$} is a functor $X \colon \asimplex \to \cC$.
-	%An \emph{augmented cosemi-simplicial object in $\cC$} is a functor $X \colon \asimplexinj \to \cC$.
 \end{definition}
 
 If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $\d_U$ and $s_i$ respectively. If $X$ is an augmented cosimplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $d^U$ and $s^i$ respectively.
@@ -160,7 +139,6 @@ If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morp
 The inclusion $\simplex \subset \asimplex$ of the non-empty ordinals induces a restriction functor $\cC^{\asimplex^{\op}} \to \cC^{\simplex^{\op}}$ to the category of simplicial objects on $\cC$ that forgets $X_{-1}$. It has a left adjoint that sets $X_{-1}$ to be the colimit of $X$ and a right adjoint that sets $X_{-1}$ to be the terminal object of $\cC$.
 
 If $X$ is an augmented simplicial object in one of the categories of Section \ref{s:categories}, postcomposing with the linearization functor $\abel \colon \cC \to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$.
-%If we further quotient by the degeneracies, we obtain a semi-simplicial $R$-module $\abel(X)$
 
 Define the \emph{complex of unnormalized chains $\ucadenas(X;R)$ with coefficients in $R$} as
 \begin{align*}
@@ -185,21 +163,8 @@ where $L'(X)_n$ is obtained from $L(X)_n$ by quotienting the image of the degene
 	A few times we will be working with normalized chain complexes of simplicial objects that they themselves are part of a cosimplicial or simplicial object. We will denote the ``internal'' face maps that are used to build the differential as $\diff_i$ and the external face maps that yield the cosimplicial or simplicial structure as $\d_i$.
 \end{notation}
 
-The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m] \to \mathrm{Mor}_{\asimplex}([m],[n])$. The normalized chain complex $\cadenas(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U \colon [m] \to [n]$. The simplex indexed by $\d_U$ is denoted $[v_0,\dots,v_{m}]$, where $\{v_0,\dots,v_{m}\} \subset \{0,\dots,n\}$ is the ordered image of $[m]$ by $\d_U$. As usual, if $\perm$ is a permutation of $0,\dots,m$, then $[v_{\perm(0),\dots,v_{\perm(m)}}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\dots,v_m]$.
+The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m] \to \mathrm{Mor}_{\asimplex}([m],[n])$. The normalized chain complex $\cadenas(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U \colon [m] \to [n]$. The simplex indexed by $\d_U$ is denoted $[v_0,\dots,v_{m}]$, where $\{v_0,\dots,v_{m}\} \subset \{0,\dots,n\}$ is the ordered image of $[m]$ by $\d_U$. As usual, if $\perm$ is a permutation of $0,\dots,m$, then $[v_{\perm(0)},\dots,v_{\perm(m)}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\dots,v_m]$.
 
-%If $\cC$ has a zero object $*$ (for example, $\Setp$), define the left and the right suspensions of two semi-simplicial objects in $\cC$ as {\color{red}KAN SUSPENSIONS}
-%\begin{align*}
-%\susp{} X_n &= X_n & \susp{}\d_i &= \begin{cases} \d_{i-1} & \text{if $1\leq i<n$} \\
-	%\ast & \text{if $i=0$}
-	%\end{cases}
-	%\\
-	%\sus{} X_n &= X_n & \sus{}\d_i &= \begin{cases} \d_i & \text{if $0\leq i<n-1$} \\
-		%\ast & \text{if $i=n-1$}
-		%\end{cases}
-		%\end{align*}
-		%Taking normalized chains converts each of these suspensions into the left and right suspensions of chain complexes.
-		%
-		%The product $X \ot Y$ of two simplicial objects $X,Y$ on $\cC$ is given by $(X \ot Y)_n = X_n \ot Y_n$ and $\d_i(\tau,\tau') = (\d_i\tau,\d_i\tau')$ and $s_i(\tau,\tau') = (s_i\tau,s_i\tau')$.
 
 \subsection{The Milgram resolution of a group \texorpdfstring{$G$}{G}}
 
