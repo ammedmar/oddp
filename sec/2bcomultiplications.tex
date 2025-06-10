@@ -207,12 +207,12 @@ If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, define the chain complex $\r
 If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
 \[
 \dotsb
-\overset{-T}{\lla} 
-R[\Cyc_r]\langle e_{-2}^\dd\rangle 
+\overset{-T}{\lla}
+R[\Cyc_r]\langle e_{-2}^\dd\rangle
 \overset{N}{\lla}
 R[\Cyc_r]\langle e_{-1}^\dd\rangle
-\overset{-T}{\lla} 
-R[\Cyc_r]\langle e_{0}^\dd\rangle / N 
+\overset{-T}{\lla}
+R[\Cyc_r]\langle e_{0}^\dd\rangle / N
 \]
 This chain complex admits chain maps
 \begin{align*}
@@ -229,11 +229,11 @@ Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ co
 \begin{definition}
 	A \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r}.
+	\mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r}.\anibal{I think this should be a theorem, not a definition. Also, notice that the word chain map is used, but we talked that it is not.}
 	\]
 \end{definition}
 
-If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
+If either $k$ is even \anibal{What is \( k \)? For me, and if is folloed by a then. You mean, let \( k \)...} or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
 One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W(r) \to \Wd(r)$, but it is also the homotopy fibre of the map $\rWd(r) \to \sus{}\rW(r)$ that is the identity on $R$ and zero elsewhere.
 The map $\varphi_k$ is the composition
 \[
@@ -249,7 +249,7 @@ Define the chain map $\varphi \colon \Wst(r) \to \rWd(r) \hotimes \rucadenas$ as
 \]
 if $x$ has degree $n$.
 This is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
-As a consequence,
+As a consequence, we have the following.
 
 \begin{proposition}
 	If $r$ is prime, a connected $r$-cyclic diagonal induces operations indexed by the integers
