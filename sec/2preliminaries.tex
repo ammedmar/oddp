@@ -2,61 +2,53 @@
 
 \section{Preliminaries}\label{s:preliminaries}
 
-Let $r$ be a positive integer, and let $R$ be a commutative ring such that $\bF_r$ is an $R$-algebra.
-Let $\Mod{R}$ be the category of $R$-modules and let $\Ch{R}$ be the category of chain complexes over $R$.
+Let $r$ be a positive integer, and let $R$ be a commutative ring such that $\bF_r$ is a $R$-algebra. Let $\Mod{R}$ be the category of $R$-modules.
+
+
+
 
 \subsection{Chain complexes and sign conventions}
 
-Most of the chain complexes in this work will be finitely generated free complexes with a prescribed basis.
-The linear dual of a complex $\ucadenas$ is denoted $\ucocadenas$, and the linear dual of a chain map $f$ will be denoted $f^\dd$.
-Cochain complexes will be considered as negatively graded chain complexes.
-This allows us to define chain maps and tensor products between chain complexes and cochain complexes.
+A \emph{chain complex} is a graded $R$-module $C$ with a graded endomorphism $\partial \colon C\to C$ such that $\partial\circ \partial =0$. This graded homomorphism will usually have degree $-1$, but not necessarily (we will stress it when it is not the case).  
 
-We will denote the dual basis with the same letter as the original basis, unless we wish to emphasize the duality, in which case the dual of $u$ will be denoted by $u^\dd$.
-The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
-\begin{align*}
-	(\partial^\dd f)(\tau) &= (-1)^{|f|+1} f(\partial \tau).
-\end{align*}
+If $(C,\partial)$ and $(D,\partial)$ are chain complexes, then a \emph{left chain map of degree $j$} is a graded map $f\colon C\to D$ of degree $|f|=j$ such that $f\circ \partial = (-1)^{|\partial|\cdot |f|}\partial \circ f$. A \emph{right chain map of degree $j$} is a graded map $f\colon C\to D$ of degree $j$ such that $f\circ \partial = \partial \circ f$. Chain maps will usually have degree $0$, but not necessarily (we will stress it when it is not the case). Let $\Ch{R}$ be the category of chain complexes over $R$ and chain maps between them.
 
-\begin{convention}
-	If $A$ and $B$ are chain complexes, their tensor product $A \ot B$ has differential $\partial(a \ot b) = \partial a \ot b + (-1)^{|a|}a \ot \partial b$.
-\end{convention}
 
-There is an isomorphism $A^\dd \ot B^\dd \to (B \ot A)^{\dd}$ that sends $f \ot g$ to $h$ where $h(b \ot a) = g(b)\cdot f(a)$.
-There are two suspension functors that we denote by $\sus{}$ (right suspension) and $\susp{}$ (left suspension), defined on a chain complex $(\ucadenas,\partial)$ as
+\subsubsection{Tensor products}	If $A$ and $B$ are chain complexes whose differentials have the same degree, their tensor product $A \ot B$ is the graded tensor product of $A$ and $B$ with differential $\partial(a \ot b) = \partial a \ot b + (-1)^{|a|}a \ot \partial b$.
+
+If $(C,\partial)$ is a chain complex, its left suspension $\susp{}C$ is the chain complex with differential $\susp{}\partial = -\partial$. Its right suspension $\sus{}C$ is the chain complex with differential $\sus{}\partial = \partial$. If $R[k]$ denotes the chain complex that consists of a single copy of $R$ in degree $k$, there are isomorphisms 
+\begin{align}\label{eq:401}
+	\sus{k} \ucadenas &\cong \ucadenas \ot R[k] & \susp{k} \ucadenas \cong R[k] \ot \ucadenas.
+\end{align}
+that send $a$ to $a \ot 1$ and to $1 \ot a$ respectively. Left and right suspensions are functors that act on a chain map $f$ as $(\sus{}f)(a\ot 1) = f(a)\ot 1$ and $(\susp{} f)(1\ot a) = 1\ot f(a)$.
+
+Each notion of suspension yields a notion of chain map $A \to B$ of degree $k$: A right (left) chain map is related to a chain map $A \to \sus{-k} B$ ($A \to \susp{-k} B$) or degree $0$.% but keep in mind that dualizing interchanges both notions. One can switch between them using the isomorphism
+%\[
+%\sus{k}\ucadenas \lra \susp{k}\ucadenas
+%\]
+%that sends $x$ to $(-1)^{k|x|}x$. %It is therefore advisable to write a map $f \colon A \to B$ of degree $k$ with the first notion as $f \colon \sus{k}A \to B$ or $f \colon A \to \sus{-k}B$ and with the second notion as $f \colon \susp{k}A \to B$ or $f \colon A \to \susp{-k}B$.
+
+\subsubsection{Linear dual} The linear dual of a complex $\ucadenas$ is denoted $\ucocadenas$. The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
 \begin{align*}
-	\sus{} \ucadenas[i] &= \ucadenas[i-1] & \susp{} \ucadenas[i] &= \ucadenas[i-1] \\
-	\sus{} \partial_i &= \partial_{i-1} & \susp{} \partial_i &= -\partial_{i-1},
-\end{align*}
-and on a chain map $f$ as $(\sus{}f)(a) = f(a)$ and $(\susp{} f)(a) = f(a)$.
-If $R[k]$ denotes the chain complex that consists of a single copy of $R$ in degree $k$, then there are isomorphisms
-\begin{align*}
-	\sus{k} \ucadenas &\cong \ucadenas \ot R[k] & \susp{k} \ucadenas \cong R[k] \ot \ucadenas
-\end{align*}
-that send $a$ to $a \ot 1$ and to $1 \ot a$ respectively.
-As a consequence, there is an isomorphism
+	(\partial^\dd f)(\tau) &= (-1)^{|f|+1} f(\partial \tau). 
+\end{align*}Cochain complexes will be considered as negatively graded chain complexes. This allows to define chain maps and tensor products between chain complexes and cochain complexes.
+
+Most of the chain complexes in this work will be finitely generated free complexes with a prescribed basis. We will denote the dual of a basis element $u$ by $u^\dd$. 
+
+
+The linear dual of a chain map $f$ will be denoted $f^{\dd}$.  
+There is an isomorphism $A^\dd \ot B^\dd \to (B \ot A)^{\dd}$ that sends $f \ot g$ to $h$ where $h(b \ot a) = g(b)\cdot f(a)$. As a consequence of this and \eqref{eq:401}, there is an isomorphism
 \begin{align*}
 	(\sus{}\ucadenas )^\dd &\cong \susp{-1}\ucocadenas
 \end{align*}
-that sends a cochain $f$ to the cochain $\susp{}f$ defined as $(\susp{}f)(a) = f(\sus{}a)$.
-
-Each notion of suspension yields a notion of chain map $A \to B$ of degree $k$: it may be a graded homomorphism $A \to B$ of degree $k$ that commutes with the differential (i.e., a chain map $A \to \sus{-k} B$), or a graded homomorphism $A \to B$ of degree $k$ that commutes with the differential if $k$ is even and anticommutes with the differential if $k$ is odd (i.e., a chain map $A \to \susp{-k}B$).
-We will mostly work with the second notion, but keep in mind that dualizing interchanges both notions.
-One can switch between them using the isomorphism
-\[
-\sus{k}\ucadenas \lra \susp{k}\ucadenas
-\]
-that sends $x$ to $(-1)^{k|x|}x$.
-It is therefore advisable to write a map $f \colon A \to B$ of degree $k$ with the first notion as $f \colon \sus{k}A \to B$ or $f \colon A \to \sus{-k}B$, and with the second notion as $f \colon \susp{k}A \to B$ or $f \colon A \to \susp{-k}B$.
-
+that sends a cochain $f$ to the cochain $\susp{}f$ defined as $(\susp{}f)(a) = f(a\ot 1)$.
 \subsubsection{Tensor products of chain maps with the right suspension}
 
 Given chain maps $f \colon A \to \sus{-|f|}C$ and $g \colon B \to \sus{-|g|}D$, the chain map
 \[
 f \ot g \colon A \ot B \to \sus{-|f|-|g|}C \ot D
 \]
-is defined as $(f \ot g)(a \ot b) = (-1)^{|f||b|} f(a) \ot g(b)$.
-Given chain maps
+is defined as $(f \ot g)(a \ot b) = (-1)^{|f||b|} f(a) \ot g(b)$. Given chain maps
 \begin{align*}
 	A & \overset{f_1}{\lra} \sus{-|f_1|} C \overset{f_2}{\lra} \sus{-|f_1|-|f_2|} E \\
 	B & \overset{g_1}{\lra} \sus{-|g_1|} D \overset{g_2}{\lra} \sus{-|g_1|-|g_2|} F \\
@@ -78,8 +70,7 @@ Given chain maps $f \colon A \to \susp{-|f|}C$ and $g \colon B \to \susp{-|g|}D$
 \[
 f \ot g \colon A \ot B \to \susp{-|f|-|g|}C \ot D
 \]
-is defined as $(f \ot g)(a \ot b) = (-1)^{|g||a|} f(a) \ot g(b)$.
-Given chain maps
+is defined as $(f \ot g)(a \ot b) = (-1)^{|g||a|} f(a) \ot g(b)$. Given chain maps
 \begin{align*}
 	A & \overset{f_1}{\lra} \susp{-|f_1|} C \overset{f_2}{\lra} \susp{-|f_1|-|f_2|} E \\
 	B & \overset{g_1}{\lra} \susp{-|g_1|} D \overset{g_2}{\lra} \susp{-|g_1|-|g_2|} F \\
@@ -95,11 +86,9 @@ are related by
 	(f_2\circ f_1) \ot (g_2\circ g_1) &= (-1)^{|f_1||g_2|}(f_2 \ot g_2)\circ (f_1 \ot g_1)
 \end{align*}
 
-\begin{notation}
-	We will often use an upright symbol (for example, $\uchains$) to denote a variation of a previously built chain complex $\ucadenas$.
-	For example, in \cref{s:unstable} we will introduce a chain complex $\W(r)$ while in \cref{s:connected} we will introduce a variation $\rW(r)$: the right suspension of the augmented version of $\W(r)$.
-	In \cref{s:simplices} we introduce the normalized chain complex $\cadenas(X)$ while in \cref{s:alexander} we introduce a variation $\chains(X)$: the right suspension of $\cadenas(X)$.
-\end{notation}
+%\begin{notation}
+	%We will often use an upright symbol (for example, $\uchains$) to denote a variation of a previously built chain complex $\ucadenas$. For example, in \cref{s:unstable} we will introduce a chain complex $\W(r)$ while in \cref{s:connected} we will introduce a variation $\rW(r)$: the right suspension of the augmented version of $\W(r)$. In \cref{s:simplices} we introduce the normalized chain complex $\cadenas(X)$ while in \cref{s:alexander} we introduce a variation $\chains(X)$: the right suspension of $\cadenas(X)$.
+%\end{notation}
 
 \subsection{Categories}\label{s:categories}
 
@@ -129,74 +118,92 @@ Let $\Cyc_r$ be the cyclic group $\langle\rho\mid \rho^r\rangle$.
 		\]
 	\end{itemize}
 \end{definition}
+The main example of this work will be the symmetric monoidal category $\Setp$ of pointed sets with the smash product or its subcategory $\Set$ of sets with the Cartesian product. The functor $\abel$ takes a set to the free module on it, and a pointed set to the quotient of its free module by the base point. The following is an example of a category that has only odd diagonals.
 
-The main example of this work will be the symmetric monoidal category $\Setp$ of pointed sets with the smash product, or its subcategory $\Set$ of sets with the Cartesian product.
-The functor $\abel$ takes a set to the free module on it, and a pointed set to the quotient of its free module by the base point.
+%The category of pointed sets and signed maps $\Setp^\pm$ has as objects pointed sets, and a morphism from $A$ to $B$ is a pair $(f,f_0)$ where $f\colon A\to B$ is a function of pointed sets and $f_0\colon A\to \{0,1\}$ is a function. The composition of $(f,f_0)$ and $(g,g_0)$ is the pair $(h,h_0)$ where $h = g\circ f$ and $h_0(a) = f_0(a) + g_0(a)$. 
 
+\begin{example} The category of pointed sets and signed maps $\Setp^\pm$ has as objects pointed sets, and a morphism from $X$ to $Y$ is a map $f\colon X\times \{+,-\}\to Y\times \{+,-\}$ that is equivariant with respect to the involution that interchanges $+$ and $-$. Maps compose as expected.
+
+The tensor product is the smash product of pointed sets $X\wedge Y = X\times Y / (x_0\times Y\cup X\times y_0)$. If $f\colon X\to A$ and $g\colon Y\to B$ are maps, their tensor product is the composition
+\[
+	X\times Y \times \{+,-\} \to X\times \{+,-\}\times Y\times \{+,-\} \overset{f\times g}{\to}
+	A\times \{+,-\}\times B\times \{+,-\} \to A\times B \times \{+,-\}
+\] 
+where the first map sends a triple $(x,y,\pm)$ to the quadruple $(x,+,y,\pm)$ and the last map sends a quadruple $(a,+,b,\pm)$ to $(a,b,\pm)$, and extends equivariantly.
+
+
+If $r$ is odd, then every object $X$ has a natural diagonal $\Delta^r\colon X\to X\wedge \ldots \wedge X$ given by $\Delta^r(x,+) = (x,\ldots,x,+)$. The delicate point is naturality: if $f\colon X\to Y$ is a signed map, then $\Delta^r\circ f(x) = f^{\otimes r}\circ \Delta^r(x)$ if and only ir either $f(x)$ has positive sign, or $f(x)$ has negative sign and $r$ is odd. Thus, diagonal maps are well-defined only for odd $r$.
+
+Finally, there is a linearization functor $\abel\colon \Setp^\pm\to \Mod{R}$ that sends a set $X$ to the quotient $R\langle X\rangle/\langle x_0\rangle$ and a map $f$ to the map $g$ given on generators by $g(x) = f_2(x)\cdot f_1(x)$, where $f_1(x)\in Y$ is the first component of $f$ and $f_2(x)\in \{+,-\}$ is the second component.
+\end{example}
 \subsection{Augmented simplicial objects}\label{s:simplices}
 
-For each integer $n \geq -1$, let $[n] = \{0,\dots,n\}$ denote the $n$th ordinal, with $[-1]$ denoting the empty ordinal.
+For each integer $n \geq 0$, denote the $n$th ordinal by $[n] = \{0,\dots,n-1\}$ , with $[0]$ denoting the empty ordinal. 
+
+\begin{warning}
+	This is not the standard notation, but is very convenient for the join product.
+\end{warning}
 
 \begin{definition}
-	The \emph{augmented simplex category} $\asimplex$ is the category of finite ordinals and order-preserving maps between them.
+	The \emph{augmented simplex category} $\asimplex$ is the category of finite ordinals and order-preserving maps between them. 
 \end{definition}
 
-An injective map $f \colon [n] \to [m]$ is called a \emph{face map}, while a surjective map is called a \emph{degeneracy}.
-A face map $f$ is determined by the subset $U = [m]\smallsetminus f([n])$, and is denoted $d^U$.
-If $U$ has a single element $i$, we will write $d^i$ instead of $d^{\{i\}}$.
-There are $n+1$ surjections $s^i \colon [n+1] \to [n]$, $i = 0,\dots, n$, characterized by $s^i(i) = s^i(i+1)$.
-Every map in this category factors as an injection followed by a surjection.
+An injective map $f \colon [n] \to [m]$ is called a \emph{face map}, while a surjective map is called a \emph{degeneracy}. A face map $f$ is determined by the subset $U = [m]\smallsetminus f([n])$, and is denoted $d^U$. If $U$ has a single element $i$, we will write $d^i$ instead of $d^{\{i\}}$. There are $n$ surjections $s^i \colon [n+1] \to [n]$, $i = 0\dots n-1$ characterized by $s^i(i) = s^i(i+1)$. Every map in this category factors as an injection followed by a surjection.
 
-The category $\asimplex$ has a strict monoidal product called the \emph{join}, that sends a pair of ordinals $[n],[m]$ to the ordinal $[n+m+1]$, and a pair of functions $f \colon [n] \to [q]$, $g \colon [m] \to [p]$ to the function $f * g \colon [n+m+1] \to [q+p+1]$ defined by $f * g(x) = f(x)$ if $x \leq n$, and $f * g(x) = q + 1 + g(x - n - 1)$ if $x > n$.
-The unit is the empty ordinal $[-1]$.
+The category $\asimplex$ has a strict monoidal product called the \emph{join}, that sends a pair of ordinals $[n],[m]$ to the ordinal $[n+m]$ and a pair of functions $f \colon [n] \to [q]$, $g \colon [m] \to [p]$ to the function $f*g \colon [n+m] \to [q+p]$ defined as $f(x) = x$ if $x< n$ and $f(x) = q+f(x-n)$ if $x \geq n$. The unit is the empty ordinal $[0]$.
 
 \begin{definition}
 	An \emph{augmented simplicial object in $\cC$} is a functor $X \colon \asimplex^\mathrm{op} \to \cC$.
 	An \emph{augmented cosimplicial object in $\cC$} is a functor $X \colon \asimplex \to \cC$.
 \end{definition}
 
-If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $\d_U$ and $s_i$ respectively.
-If $X$ is an augmented cosimplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $d^U$ and $s^i$ respectively.
+If $X$ is an augmented simplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $\d_U$ and $s_i$ respectively. If $X$ is an augmented cosimplicial object, $X([n])$ is denoted $X_n$ and the morphisms $X(d^U)$ and $X(s^i)$ are denoted $d^U$ and $s^i$ respectively.
 
-The inclusion $\simplex \subset \asimplex$ of the non-empty ordinals induces a restriction functor $\cC^{\asimplex^{\op}} \to \cC^{\simplex^{\op}}$ to the category of simplicial objects on $\cC$ that forgets $X_{-1}$.
-It has a left adjoint that sets $X_{-1}$ to be the colimit of $X$ and a right adjoint that sets $X_{-1}$ to be the terminal object of $\cC$.
+The inclusion $\simplex \subset \asimplex$ of the non-empty ordinals induces a restriction functor $\cC^{\asimplex^{\op}} \to \cC^{\simplex^{\op}}$ to the category of simplicial objects on $\cC$ that forgets $X_{0}$. It has a left adjoint that sets $X_{0}$ to be the colimit of $X$ and a right adjoint that sets $X_{0}$ to be the terminal object of $\cC$.
 
-If $X$ is an augmented simplicial object in one of the categories of Section \ref{s:categories}, postcomposing with the linearization functor $\abel \colon \cC \to \Mod{R}$ yields a simplicial $R$-module $\abel(X)$.
+If $X$ is an augmented simplicial object in one of the categories of Section \ref{s:categories}, postcomposing with the linearization functor $\abel \colon \cC \to \Mod{R}$ yields an augmented simplicial $R$-module $\abel(X)$.
 
-Define the \emph{complex of unnormalized chains $\ucadenas(X;R)$ with coefficients in $R$} as
+Define the 
+%\emph{complex of unnormalized chains $\ucadenas(X;R)$ with coefficients in $R$} as
+%\begin{align*}
+	%\ucadenas[n](X;R) &= \abel(X)_n
+	%&
+	%\partial(x) &= \sum_{j=0}^{n} (-1)^jd_j(x)
+%\end{align*}
+%
+%If $X$ is an augmented simplicial object, the 
+\emph{complex of normalized chains $\chains(X;R)$ with coefficients in $R$} is defined as
 \begin{align*}
-	\ucadenas[n](X;R) &= \abel(X)_n
+	\chains[n](X;R) &= L'(X)_n
 	&
-	\partial(x) &= \sum_{j=0}^{n} (-1)^j d_j(x)
-\end{align*}
-
-If $X$ is an augmented simplicial object, the \emph{complex of normalized chains $\cadenas(X;R)$ with coefficients in $R$} is defined as
-\begin{align*}
-	\cadenas[n](X;R) &= L'(X)_n
-	&
-	\partial(x) &= \sum_{j=0}^{n} (-1)^j d_j(x)
+	\partial(x) &= \sum_{j=0}^{n} (-1)^j \d_j(x)
 \end{align*}
 where $L'(X)_n$ is obtained from $L(X)_n$ by quotienting the image of the degeneracies.
 
-\begin{notation}\label{notation:chains}
-	We denote $\chains(X)$ as the right suspension of $\cadenas(X)$.
-\end{notation}
+%\begin{notation}\label{notation:chains}
+	%We will denote by $\chains(X)$ the right suspension of $\cadenas(X)$.
+%\end{notation}
 
 \begin{notation}
-	A few times we will be working with normalized chain complexes of simplicial objects that themselves are part of a cosimplicial or simplicial object.
-	We will denote the ``internal'' face maps that are used to build the differential as $\diff_i$, and the external face maps that yield the cosimplicial or simplicial structure as $\d_i$.
+	A few times we will be working with normalized chain complexes of simplicial objects that they themselves are part of a cosimplicial or simplicial object. We will denote the ``internal'' face maps that are used to build the differential as $\diff_i$ and the external face maps that yield the cosimplicial or simplicial structure as $\d_i$.\footnote{ver donde se usa eso}
 \end{notation}
 
-The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m] \mapsto \mathrm{Mor}_{\asimplex}([m],[n])$.
-The normalized chain complex $\cadenas(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U \colon [m] \to [n]$.
-The simplex indexed by $\d_U$ is denoted $[v_0,\dots,v_m]$, where $\{v_0,\dots,v_m\} \subset \{0,\dots,n\}$ is the ordered image of $[m]$ by $\d_U$.
-As usual, if $\perm$ is a permutation of $0,\dots,m$, then $[v_{\perm(0)},\dots,v_{\perm(m)}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\dots,v_m]$.
+The \emph{standard augmented $n$-simplex} is the augmented simplicial set $\simplex^n_+$ given by $[m] \to \mathrm{Mor}_{\asimplex}([m],[n+1])$. The normalized chain complex $\chains(\asimplex^n)$ is generated by the non-degenerate simplices, which are indexed by the inclusions $\d_U \colon [m] \to [n+1]$. The simplex indexed by $\d_U$ is denoted $[v_0,\dots,v_{m-1}]$, where $\{v_0,\dots,v_{m-1}\} \subset \{0,\dots,n\}$ is the ordered image of $[m]$ by $\d_U$. If $\perm$ is a permutation of $0,\dots,m-1$, then $[v_{\perm(0)},\dots,v_{\perm(m-1)}]$ will denote the generator $(-1)^{\sign{\perm}}[v_0,\dots,v_{m-1}]$.
 
-\subsection{The Milgram resolution of a group \texorpdfstring{$G$}{G}}
+\begin{warning}
+	It would have been more coherent with our notation to name this augmented simplicial set the $(n+1)$-simplex, but this might be too confusing for the reader. 
+\end{warning}
 
-Recall that the Milgram construction applied to a group $G$ yields a contractible augmented simplicial set $\EG$ with a free $G$-action:
-\begin{align*}
-	(\EG)_k &= G^{k+1}\\
-	\partial_i(g_0, \dots, g_k) &= (g_0, \dots, \hat{g}_i, \dots, g_k) \\
-	s_i(g_0, \dots, g_k) &= (g_0, \dots, g_i, g_i, \dots, g_k)
-\end{align*}
+%\subsubsection{Other tensor products} If $(A^\bullet,\partial_A)$ is a cosimplicial chain complex, and $(B_\bullet,\partial_B)$ is a simplicial chain complex, then define the following chain complex:
+%
+%
+%
+%are two chain complexes with differentials of different degree, their tensor product is not well-defined. Suppose that the differential in $B$ decomposes as $\partial_B = \partial_1+\ldots+\partial_k$ and that there are chain endomorphisms $\eta_1,\ldots,\eta_k\colon A\to A$ of degree $|\partial_A|-|\partial_B|$. Then one can define a differential of degree $|\partial_A|$ on the graded module $A\otimes B$ as
+%\[
+	%\partial(a\otimes b) = \partial_A(a)\otimes b + (-1)^{|a||\partial_B|} \sum_j \eta_j(a)\otimes \partial_j(b).
+%\]
+%We will denote this chain complex by $A\otimes_\eta B$.
+%
+%
+%
+

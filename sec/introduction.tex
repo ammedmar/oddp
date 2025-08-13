@@ -1,7 +1,5 @@
 % !TEX root = ../oddp.tex
 
-\anibal{Some ideas to improve readability: 1) Construct the \( p = 2 \) case as the guiding example of the general theory that would be explained after. Pointing out the parts that will become more complicated. 2) Use a big diagram to organize the maps which would be referred back when from sub/sections devoted to each of the maps. 3) Not a concrete suggestion but a general principle: Introduce definitions as close to where they are used as possible. 4) Remove the stars from chain and cochain complexes? :-) }
-
 \section{Introduction}\label{s:introduction}
 
 \subsection{Steenrod power operations}
@@ -10,7 +8,7 @@ In 1946, Steenrod was looking for generalizations of the Hopf invariant when he 
 \[
 \Delta_i \colon \ucadenas(X) \to \ucadenas(X) \ot \ucadenas(X)
 \]
-on the singular chains of a space $X$, which extend the Alexander--Whitney diagonal $\Delta_0$.
+on the singular chains of a space $X$, which extended the Alexander--Whitney diagonal $\Delta_0$.
 These so-called \textit{cup-$i$ coproducts} satisfy $\bd\Delta_i + \Delta_i\bd = (1+\rho)\Delta_{i-1}$ for $i > 0$, where $\rho$ is the transposition of tensor factors, and give rise in mod~2 cohomology to the celebrated \emph{Steenrod squares}
 \begin{equation}\label{eq:intro Sq}
 	\begin{tikzcd}[column sep=small, row sep=0]
@@ -29,9 +27,9 @@ Using the acyclic carrier theorem, Steenrod showed in \cite{steenrod1952reduced}
 \[
 \mu \colon V_\ast(r) \ot \ucadenas(X) \to \ucadenas(X)^{\ot r}
 \]
-where $V_\ast(r)$ is a free resolution of the base ring as a module over the group ring of the symmetric group $\Sym_r$, and used it to define a cohomology operation for each class in the homology of $\Sym_r$.
+where $V_\ast(r)$ is a free resolution of the base ring as module over the group ring of the symmetric group $\Sym_r$, and used it to define a cohomology operation for each class in the homology of $\Sym_r$.
 
-In \cite{steenrod1953cyclic}, Steenrod focused on those operations coming from classes induced by an inclusion $\Cyc_r \leq \Sym_r$ of the cyclic group of order $r$, with $r$ assumed to be a prime.
+In \cite{steenrod1953cyclic}, Steenrod concentrated in those operations coming from classes induced by an inclusion $\Cyc_r \leq \Sym_r$ of the cyclic group of order $r$, with $r$ assumed to be a prime.
 In this case, the inclusion is surjective in homology with mod~$r$ coefficients and the resulting operations in the mod~$r$ cohomology of a space are known as \textit{Steenrod power operations}.
 
 \subsection{Unstable diagonals}
@@ -45,14 +43,12 @@ where $W_*(r)$ is the minimal free resolution of the ground ring $R$ as a module
 \[
 \Cyc_r\langle e_0\rangle
 \overset{T}{\lla}
-\Cyc_r\langle e_1\rangle
+\Cyc_r\langle e_1\rangle 
 \overset{N}{\lla}
-\Cyc_r\langle e_2\rangle \overset{T}{\lla}
-\dotsb
+\Cyc_r\langle e_2\rangle \overset{T}{\lla} 
+\dotsb 
 \]
-We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas$, or simply an \textit{unstable $r$-diagonal}.
-We say that it is \textit{May--Steenrod} if it factors as
-
+We will refer to $\mu$ as an \textit{unstable $r$-cyclic diagonal} on $\ucadenas$, or simply an \textit{unstable $r$-diagonal}, saying that it is \textit{May--Steenrod} if it factors as
 \[
 \mu \colon W_*(r) \ot \ucadenas \xra{f \ot \id} V_*(r) \ot \ucadenas \xra{\nu} \ucadenas^{\ot r}
 \]
@@ -66,15 +62,21 @@ Generalizing the definition of $\Sq^i$ in \cref{eq:intro Sq} to a general prime 
 		& {[\alpha]} \arrow[r, mapsto] & \big{[}(\alpha \ot \overset{r}{\dots} \ot \alpha)\Delta_{(r-1)\bars{\alpha}-i}\big{]},
 	\end{tikzcd}
 \end{equation}
-where we have suppressed certain invertible coefficients.
+where we have suppressed certain invertible coefficient.
 We remark that the grading of this operations is different from the one used by Steenrod and May.
 
 If the prime $r$ is odd and $\mu$ is May--Steenrod then
 \[
 \power^i = 0 \text{ unless } i = 2k(r-1) \text{ or }i = 2k(r-1)+1.
 \]
+Additionally, these operations often satisfy
+\[
+\power^i(x) = 0 \text{ for negative } i.
+\]
+For instance, this is the case with spaces.
+Generally, verifying this property in practice is not straightforward.
 
-%An effective construction of cup-$(r,i)$ coproducts for simplicial sets depending solely on the combinatorics of simplices was introduced in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
+An effective construction of cup-$(r,i)$ coproducts for simplicial sets depending solely on the combinatorics of simplices was introduced in \cite{medina2021may_st} and implemented in \cite{medina2021comch}.
 
 \subsection{Stable diagonals}
 
@@ -82,8 +84,11 @@ Similarly to how Steenrod power operations on the cohomology of spaces motivated
 \[
 \ucadenas(E) = \colim \left(\ucadenas(E_0) \to \dots \to \Sigma^{-m}\ucadenas(E_m) \to \Sigma^{-m-1} \ucadenas(E_{m+1}) \to \dotsb\right).
 \]
-
-The acyclic unbounded chain complex $\Wst(r)$ defined as
+The homotopy fibre of the norm map
+\[
+\W(r) \overset{N}{\lra} \Wd(r)
+\]
+is isomorphic to the acyclic unbounded chain complex $\Wst(r)$ defined as
 \[
 \dotsb \lla \Cyc_r\langle e_{-2}\rangle
 \overset{T}{\lla}
@@ -95,19 +100,14 @@ The acyclic unbounded chain complex $\Wst(r)$ defined as
 \overset{N}{\lla}
 \Cyc_r\langle e_{2}\rangle
 \overset{T}{\lla}
-\dotsb
+\dotsb,
 \]
-is a model for the homotopy fiber of the norm map
+Any unstable diagonal suitably compatible with suspensions gives rise to an $\Cyc_r$-equivariant chain map
 \[
-\W(r) \overset{N}{\lra} \Wd(r).
+\Wst(r) \ot \ucadenas(E) \lra \ucadenas(E)^{\ot r},
 \]
-We mention that this complex is used to compute the so-called \textit{Tate cohomology} of the cyclic group.
+which factors through a stable version $V_*^\mathrm{st}(r)$ of $V_*(r)$. We will see in Section \ref{s:suspension} that the effective construction of \cite{medina2021may_st} is indeed compatible with suspension.
 
-Any unstable diagonal on spaces that is compatible with suspensions gives rise to an $\Cyc_r$-equivariant chain map
-\[
-\Wst(r) \ot \ucadenas(E) \lra \ucadenas(E)^{\ot r}.
-\]
-We will see in \cref{s:suspension} that the effective construction of \cite{medina2021may_st} is indeed compatible with suspension.
 
 Abstracting this example we define a \emph{stable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or simply a \textit{stable $r$-diagonal} on $\ucadenas$, as a $\Cyc_r$-equivariant chain map
 \[
@@ -117,21 +117,12 @@ We say $\mu$ is \textit{May--Steenrod} if it factors through $V_*^\mathrm{st}$ a
 
 The same definition of power operations given in \cref{eq:intro P} applies in this context.
 
+
 \subsection{Connected diagonals}
 
-Power operations often satisfy
-\[
-\power^i(x) = 0 \text{ for negative } i.
-\]
-For instance, this is the case with spaces and spectra.
-Generally, verifying this property in practice is not straightforward.
+The negative power operations of a stable $r$-diagonal $\mu$ are supported on a certain graded chain subcomplex $A$ of the bicomplex $\Wst \otimes \ucadenas$. We introduce the notion of \emph{connected $r$-cyclic diagonal}, or \textit{connected $r$-diagonal} for short, as a stable $r$-diagonal that vanishes on that subcomplex. In particular, its power operations are such that $\power^i = 0$ for $i<0$.
 
-%Let $\rWd(r)$ be the augmented dual of the right suspension of $\W(r)$: OLD
-
-The negative power operations of a stable $r$-diagonal $\mu^{\st}$ are supported on a certain graded chain subcomplex $A$ of the bicomplex $\Wst \otimes \ucadenas$.\anibal{Maybe a more descritive notation instead of \( A \)}
-We introduce the notion of \emph{connected $r$-cyclic diagonal}, or \textit{connected $r$-diagonal} for short, as a stable $r$-diagonal that vanishes on that subcomplex. In particular, its power operations are such that $\power^i = 0$ for $i<0$.
-
-To express the support of negative power operations on a complex $C$ provided with a stable or unstable $r$-diagonal, it is convenient to consider a model for the fiber of the norm map $N \colon R \to W(r)^\vee$:
+Let $\rWd(r)$ be the augmented dual of the right suspension of $\W(r)$:
 \[
 \dotsb
 \Cyc_r\langle e_{-3}^\dd\rangle
@@ -140,33 +131,28 @@ To express the support of negative power operations on a complex $C$ provided wi
 \overset{T}{\lla}
 \Cyc_r\langle e_{-1}^{\dd}\rangle
 \overset{-N}{\lla}
-R,
+R
 \]
-which we denote $W^\vee_+(r)$.
+We will define a certain chain complex $\rWd(r)\hotimes \rucadenas$ isomorphic as a $\Cyc_r$-module to $\rWd(r)\otimes \ucadenas$, and isomorphic as a bigraded $\Cyc_r$-module to the quotient of $\Wst(r)\otimes \ucadenas$ by the subcomplex $A$, so that a connected $r$-diagonal is the same as a chain map
+\[
+\mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
+\]
 
-As we will see in \cref{s:2bdiagonals}, a connected \( r \)-diagonal on \( C \) is equivalent to an \( r \)-cyclic chain map from a subtle reindexing of the tensor product \( W^\vee_+(r) \otimes C \).\anibal{Maybe say something about the reindexing connected to P vs cup}
+\subsection{Connected diagonals for simplicial objects}
 
-% NOT SURE IF WE NEED THE CODE BELOW
-%We will define a certain chain complex $\rWd(r) \hotimes \rucadenas$, which is isomorphic as a $\Cyc_r$-module to $\rWd(r) \otimes \ucadenas$, and isomorphic as a bigraded $\Cyc_r$-module to the quotient of $\Wst(r)\otimes \ucadenas$ by the subcomplex $A$, so that a connected $r$-diagonal is the same as a chain map
-%\[
-%\mu\colon \rWd(r)\hotimes \rucadenas\lra \ucadenas^{\otimes r}.
-%\]
-
-\subsection{Connected diagonals for simplicial coalgebras}
-
-%Let $\cC$ be a monoidal category with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and a strong monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
-%By virtue of $\abel$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
-%The main examples of $\cC$ are the categories $\Set$ and $\Setp$ of sets and pointed sets.
-Our main result is an effective construction of connected $r$-diagonals for simplicial coalgebras from the following combinatorial structure.\anibal{Maybe define coalgebra}
+Let $\cC$ be a monoidal category with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and a strong monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules.
+By virtue of $L$, every simplicial object in $\cC$ has an associated simplicial $R$-module, from which one gets a chain complex.
+The main examples of $\cC$ are the categories $\Set$ and $\Setp$ of sets and pointed sets.
+Our main result is an effective construction of connected $r$-diagonals from the following combinatorial structure.
 
 \begin{definition}
-	An \emph{$r$-cyclic straightening with duality} is a $\Cyc_r$-equivariant choice of element $x_\tau \in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
+	An \emph{$r$-cyclic straightening with duality} is a $\Cyc_r$-equivariant choice of element $x_\tau\in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
 \end{definition}
 
 We mention that this structure can exist only if $r$ is prime.
 
 \begin{theorem}\label{thm:main}
-	If $r$ is an odd prime, each $r$-cyclic straightening with duality yields a natural connected $r$-diagonal on the chain complex of an augmented simplicial coalgebra.
+	If $r$ is an odd prime, each $r$-cyclic straightening with duality yields a natural connected $r$-diagonal on the chain complex of an augmented simplicial object in $\cC$.
 \end{theorem}
 
 If $r=2$ the theorem still holds, but only with coefficients in $\bF_2$.
@@ -186,13 +172,11 @@ Third, computing $\power^i([x])$ for small $i$'s tends to be simpler for a conne
 
 As we have seen, unstable diagonals and connected diagonals on the chain complex of a pointed simplicial set that are compatible with suspension yield stable diagonals in the chain complex of a suspension spectrum. This is no longer true for other models of spectra.
 
-One of these models of spectra is given by the cubes in the Burnside $2$-category of Lawson, Lipshitz and Sarkar \cite{LLS20} which model Khovanov spectra \cite{LS14}. A connected $2$-cyclic diagonal for these objects was found by the first author in \cite{cantero-moran2020khovanov}, thus giving rise to explicit formulas for computing Steenrod squares in Khovanov homology. In a future work we expect to use the formulas of Theorem \ref{thm:main} to find connected $r$-cyclic diagonals for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
+One of these models of spectra are the cubes in the Burnside $2$-category of Lawson, Lipshitz and Sarkar \cite{LLS20} which model Khovanov spectra \cite{LS14}. A connected $2$-cyclic diagonal for these objects was found by the first author in \cite{cantero-moran2020khovanov}, thus giving rise to explicit formulas to compute Steenrod squares in Khovanov homology. In a future work we expect to use the formulas of Theorem \ref{thm:main} to find connected $r$-cyclic diagonals for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
 
 For the reader acquainted with the surjection operad we remark that the operations that are involved in these connected $r$-cyclic diagonals would correspond to summands indexed by non-overlapping intervals.
 
 \subsection{Poincar\'e duality on the augmented simplex}
-
-\anibal{Maybe enlarge with the 3 points}
 
 A key observation facilitating our construction, which we deem interesting in its own right, is the following structure on the normalized chains of the standard augmented simplices:
 
@@ -206,12 +190,14 @@ In \cref{s:preliminaries} we set some sign conventions for chain complexes and t
 The notion of connected diagonal is presented in \cref{s:2bdiagonals}.
 The construction of the connected diagonal for augmented semi-simplicial objects of Theorem \ref{thm:main} has three main ingredients.
 
-First, First, we develop an algebra structure on the chain complex of the standard augmented simplex, which induces a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{\ot r}$.
+
+First, an algebra structure on the chain complex of the standard augmented simplex inducing a duality theorem on normalized chains, that is used in \cref{s:3complexes} to build a convenient chain subcomplex of the tensor product $\chains(X)^{\ot r}$.
 As an application of this first ingredient, we obtain a criterion to build a connected diagonal on the normalized chains of a simplicial object.
 
-Second, in Section \ref{s:resolutions} we give a recipe to construct an explicit $\Cyc_r$-equivariant chain map $\Omega_*(r)^{\nf} \to W_*(r)$ between two resolutions of the cyclic group $\Cyc_r$. This chain map is enough to fulfil the hypotheses of the criterion.
 
-Third, the latter recipe requires the construction of another chain map $f$, which is pursued using the barycentric and the pair subdivision of the simplex in \cref{section:atlast}. This completes the proof of Theorem \ref{thm:main}
+Second, in Section \ref{s:resolutions} we give a recipy to construct an explicit $\Cyc_r$-equivariant chain map $\Omega_*(r)^{\nf} \to W_*(r)$ between two resolutions of the cyclic group $\Cyc_r$. This chain map is enough to fulfil the hypotheses of the criterion.
+
+Third, the latter recipy requires the construction of another chain map $f$, which is pursued using the barycentric and the pair subdivision of the simplex in \cref{section:atlast}. This completes the proof of Theorem \ref{thm:main}
 
 In \cref{s:suspension} we show that these operations behave well with respect to suspensions.
 In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.

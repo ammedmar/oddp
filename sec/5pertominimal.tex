@@ -1,8 +1,8 @@
 % !TEX root = ../oddp.tex
 
-\section{Maps between resolutions of the cyclic group}\label{s:resolutions}
+\section{The periodic and the minimal resolutions}\label{s:per_to_minimal}
 
-Except for the last part of this section, we assume that $r$ is odd. In the first part of this section we construct a homomorphism from $\chains(\asimplex^{r-1})$ to $\rW(r)$. In the second and third parts we extend this homomorphism to a homomorphism $\Omega_*(r)^{\nf} \to \rW(r)$ satisfying the conditions of Lemma \ref{lemma:omegar}, under the assumption that $r$ is prime. In \cref{ss:milnor} we explain how the above homomorphism yields a chain map from $\chains(\EC_r)$ to $\rW(r)$ when $r$ is odd, and in \cref{ss:even} we discuss the case $r=2$. Recall that $\tilde{r} = \lfloor \frac{r-1}{2}\rfloor$.
+Except for the last part of this section, we assume that $r$ is odd. In \cref{prop:chains_to_minimal} we construct a chain map from $\chains(\asimplex^{r-1})$ to $\Waug{r}$. In \cref{prop:per_to_minimal} we extend it to a chain map from $\Per{r}$ to $\Waug{r}$ that intertwines the endomorphisms $\theta$ of each of these chain complexes. In \cref{ss:milnor} we explain how the above chain map yields a chain map from the Milgram resolution $\chains(\EC_r)$ to $\Waug{r}$, and in \cref{ss:even} we discuss the case $r=2$. Recall that $\tilde{r} = \lfloor \frac{r-1}{2}\rfloor$.
 
 \subsection{From the simplex to the minimal resolution}
 
@@ -32,19 +32,20 @@ Define the following elements of $\rW(r)$:
 	\end{cases}
 \end{align*}
 
-A \emph{cyclic representative} of a generator $[a_0,\dots,a_{q-1}]\in \chains{q}(\partial \asimplex^{r-1})$ is a cyclically ordered sequence $(a_{\perm(0)},\dots,a_{\perm(q-1)})$. Removing an element from the sequence keeps the property of being cyclically ordered. The assignments $\Phi_e(A)$ and $\Phi_o(A)$ induce well defined assigments $\Phi_e[a_0,\dots,a_{q-1}]$ and $\Phi_o[a_0,\dots,a_{q-1}]$ on the generators of $\chains(\asimplex^{r-1})$. In what follows we work always with these cyclic representatives. Let $\varphi(q) = \lfloor\frac{r-q-1}{2}\rfloor$.
-\begin{theorem} The linear homomorphism with $\bZ[\frac{1}{\tilde{r}!}]$-coefficients
+A \emph{cyclic representative} of a generator $[a_0,\dots,a_{q-1}]\in \chains(\partial \asimplex^{r-1})$ is a cyclically ordered sequence $(a_{\perm(0)},\dots,a_{\perm(q-1)})$. Removing an element from the sequence keeps the property of being cyclically ordered. The assignments $\Phi_e(A)$ and $\Phi_o(A)$ induce well defined assigments $\Phi_e[a_0,\dots,a_{q-1}]$ and $\Phi_o[a_0,\dots,a_{q-1}]$ on the generators of $\chains(\asimplex^{r-1})$. In what follows we work always with these cyclic representatives. Let $\varphi(q) = \lfloor\frac{r-q-1}{2}\rfloor$ if $q<r-1$ and $\varphi(r-1) =1$.
+
+\begin{proposition}\label{prop:chains_to_minimal} The linear homomorphism with $\bZ[\frac{1}{\tilde{r}!}]$-coefficients
 	\begin{align*}
-		\Phi \colon \chains(\partial \asimplex^{r-1})& \lra \rW(r)
+		\Phi \colon \chains(\partial \asimplex^{r-1})& \lra \Waug{r}
 		&
 		\Phi(A) = \begin{cases}
-			e_0 & \text{if $q=0$ and $A = \emptyset$}\\
+			e_0 & \text{if $q=0$ and $A = \varnothing$}\\
 			\frac{\varphi(q)!}{\tilde{r}!}\Phi_e(A) & \text{if $q$ is even and positive} \\
 			\frac{\varphi(q)!}{\tilde{r}!}\Phi_o(A) & \text{if $q$ is odd}
 		\end{cases}
 	\end{align*}
 	is a chain map.
-\end{theorem}
+\end{proposition}
 
 \begin{remark}
 	If $r=3$, then $\bZ[\frac{1}{\tilde{r}!}] = \bZ$ and if $r$ is prime, then $\mathbb{F}_r$ is a $\bZ[\frac{1}{\tilde{r}!}]$-algebra, hence these coefficients are also allowed.
@@ -120,6 +121,29 @@ If $r=5$, we have:
 \begin{remark}\label{remark:phidual}
 	For each $0\leq q<r-1$, let $L_q \subset (\partial \asimplex^{r-1})_q$ be the set of those simplices $[a_0,\dots, a_{q-1}]$ with increasing entries (in the total order) such that $a_{2i}$ is even and different from $r-1$, and $a_{2i+1}$ is odd. Then the linear dual of $\Phi$ has the following expression
 	\begin{equation}\label{eq:111}
-		\Phi^\vee(e_{-q}) = \frac{\varphi(q)!}{\tilde{r}!}\sum_{A\in L_q} A^\vee.
+		\Phi^\vee(e_{q}^\dd) = \frac{\varphi(q)!}{\tilde{r}!}\sum_{A\in L_q} A^\vee.
 	\end{equation}
 \end{remark}
+
+\begin{proposition}\label{prop:per_to_minimal}
+	The chain map $\Phi$ extends to a chain map $\Phi\colon \Per{r}\to \Waug{r}$ defining $\Phi(\sus{(r-1)m}\tau) = (\tilde{r}!)^{-m}\theta^{m}\Phi(\tau)$. As a consequence, $\theta\circ \Phi = (\tilde{r}!)\Phi\circ \theta$.	
+\end{proposition}
+\begin{proof}                                                                          
+	Let $v = (i)$ be a vertex of $\asimplex^{r-1}$. We need to prove that $\Phi\circ \partial(\sus{r-1}v) = \partial\circ \Phi(\sus{r-1}(v))$. The right hand-side is 
+	\begin{align*}
+		\frac{1}{\tilde{r}!}\circ \partial\circ \theta \circ \Phi(v) &= 
+		\frac{1}{\tilde{r}!} \partial\circ \theta (\frac{1}{\tilde{r}}\phi_e(i)) \\
+		&= \frac{1}{\tilde{r}!} \partial\circ \theta \left(\frac{1}{\tilde{r}}\sum_{i=1}^{\frac{r-1}{2}}\rho^{j+2i+1} e_{1}\right) \\
+		&= \frac{1}{\tilde{r}!} \theta\circ\partial \left(\frac{1}{\tilde{r}}\sum_{i=1}^{\frac{r-1}{2}}\rho^{j+2i+1} e_{1}\right) \\
+		&= \frac{1}{\tilde{r}!} \theta\circ N(e_0) \\
+		&= \frac{1}{\tilde{r}!} N(e_{r-1}) \\
+		%&= \frac{1}{\tilde{r}!} \circ \theta (\sum_{i=1}^{\frac{r-1}{2}})\rho^{j+2i+1} \\
+		\end{align*}
+	The left hand-side is
+	\begin{align*}
+		\Phi(\partial\sigma) &= \sum_j (-1)^j\Phi\left(0,\ldots,\hat{j},\ldots,r-1\right) \\
+		&= \frac{1}{\tilde{r}!}\sum_j (-1)^j(-1)^{j}\phi_e(j-1,j+1)\cdot e_{r-1} \\
+		&= \frac{1}{\tilde{r}!}\sum_j (-1)^j(-1)^{j} \rho^{j+1} e_{r-1} \\
+		&= \frac{1}{\tilde{r}!}N(e_{r-1}).
+	\end{align*}
+\end{proof}

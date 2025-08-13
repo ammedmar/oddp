@@ -1,0 +1,119 @@
+% !TEX root = ../oddp.tex
+
+\section{Introduction}\label{s:introduction}
+
+Let $R$ be a commutative ring and $r$ a natural number. A \emph{linearized $r$-cyclic monoidal category with diagonals} is an $r$-cyclic monoidal category $\cC$ with a natural diagonal $\Delta \colon X \to X^{\ot r}$ for each object $X$, and an $r$-cyclic strong monoidal functor $\abel \colon \cC \to \Mod{R}$ to the category of $R$-modules. The category sets and the category of pointed sets are the prototypical examples. A less typical example is the category of signed sets, described in \cref{s:categories}.
+If $X$ is an augmented simplicial object in $\cC$, the normalized chain complex of the simplicial $R$-module $\abel\circ X$ is denoted $\chains(X_\bullet;R)$.
+Our main result is an effective chain-level construction of operations
+\[
+	\power^i\colon H^*(X_\bullet;\bF_p)\to H^{*+i}(X_\bullet;\bF_p)
+\]
+parametrized by the dual $\Wdualaug{r}$ of the augmented resolution of the cyclic group of order $r$
+from the following combinatorial structure.
+
+\begin{definition}
+	An \emph{$r$-cyclic straightening with duality} is a $\Cyc_r$-equivariant choice of element $x_\tau\in \tau$ for every proper non-empty subset $\tau \subset \{0,1,\dots,r-1\}$ such that the predecessor of $x_\tau$ is not in $\tau$.
+\end{definition}
+
+We mention that this structure can exist only if $r$ is prime.
+
+\begin{theorem}\label{thm:main}
+	If $r$ is an odd prime, each $r$-cyclic straightening with duality yields an effective construction of chain-level power operations parametrized by $\Wdualaug{r}$ on the cohomology of an augmented simplicial object in $\cC$ .
+\end{theorem}
+
+
+If $r=2$ the theorem still holds, but only if chains are taken with coefficients in $\bF_2$.
+In that case there is a unique $r$-cyclic straightening with duality, and therefore our theorem yields a unique family of chain-level operations. 
+
+In Section \cref{Kan} we will explain that our operations fit well with Kan spectra.
+
+\subsection{Other chain-level operations} Chain-level operations for power operations on the cohomology of a (non-augmented) simplicial set were described by \cite{mcclure2003multivariable} and \cite{berger2004combinatorial}. The latter where parametrized by the Barratt-Eccles operad, while the former were parametrized by the surjection operad. In \cite{medina2021may_st} a map from the minimal resolution $W(r)$ of the cyclic group of order $r$ to the Barratt-Eccles operad was constructed, yielding chain-level operations parametrized by the minimal resolution $W(r)$ of the cyclic group of order $r$. 
+
+There is an important difference between these constructions and ours: theirs yield a well-defined product in cohomology, while ours do not in general. On the other hand, our construction satisfies that $\power^0([x]) = [x]$ almost by definition, while that property in their construction is not straightforward\footnote{FC: Does it always hold for an arbitrary symmetric monoidal category $\cC$ with diagonals?}. As a consequence of these different viewpoints, our formulas for $\power^i$ are simpler when $i$ is smaller, while their formulas as simpler when $i$ is large.
+
+In Section \cref{s:diagonals} we will show that Medina's operations parametrized by $W(r)$ and our operations parametrized by $\Wdualaug{r}$ are both special cases of a more general construction that we call \emph{stable $r$-comultiplication}. From this unifying perspective, our operations when $r=2$ and $R=\bF_2$ coincide with the chain-level operations axiomatized in \cite{medina2022axiomatic}. If $r = 3$ there is a unique $r$-cyclic straightening with duality, and we have empirically tested that our operations coincide with those of \cite{medina2021may_st}. When $r\geq 5$, this is no longer true: as we will see in \cref{s:suspension}, our constructions behave differently from Medina's with respect to suspension.
+
+
+
+
+%We will see in Section \ref{s:suspension} that the connected diagonals of our main theorem are compatible with suspension.
+%As a consequence, they yield also connected diagonals for the chain complex of a suspension spectra.
+
+%As we have seen, unstable diagonals and connected diagonals on the chain complex of a pointed simplicial set that are compatible with suspension yield stable diagonals in the chain complex of a suspension spectrum. This is no longer true for other models of spectra.
+%
+%One of these models of spectra are the cubes in the Burnside $2$-category of Lawson, Lipshitz and Sarkar \cite{LLS20} which model Khovanov spectra \cite{LS14}. A connected $2$-cyclic diagonal for these objects was found by the first author in \cite{cantero-moran2020khovanov}, thus giving rise to explicit formulas to compute Steenrod squares in Khovanov homology. In a future work we expect to use the formulas of Theorem \ref{thm:main} to find connected $r$-cyclic diagonals for $r$ an odd prime, thus yielding explicit formulas for the odd power operations in Khovanov homology.
+%
+%For the reader acquainted with the surjection operad we remark that the operations that are involved in these connected $r$-cyclic diagonals would correspond to summands indexed by non-overlapping intervals.
+%
+%This new viewpoint has some advantages:
+%First, the construction is very explicit since it is manageable to find the coefficient of any given summand. Second, our formulas hold for the chain complexes of augmented simplicial objects too ---these do not admit an unstable diagonal in general.
+%Third, computing $\power^i([x])$ for small $i$'s tends to be simpler for a connected diagonal than for an unstable diagonal, while computing them for $i$'s close to $(\bars{x}-1)r$ is simpler for an unstable diagonal than for a connected diagonal.
+%
+%
+%
+
+\subsection{An account of the construction} The construction of these operations is as follows (see \cref{s:preliminaries} for the degree conventions on the chain complexes):
+\subsubsection*{Step 1} Let $\Wdualaug{r}$ be the dual of the augmented minimal resolution of the cyclic group of order $r$:
+	\[
+		R \lra R\langle e_1^{\vee}\rangle \lra R\langle e_2^{\vee}\rangle 
+		\lra R\langle e_3^{\vee}\rangle \lra \ldots
+	\]There is a chain endomorphism $\theta^\dd\colon \Wdualaug{r}\to \Wdualaug{r}$ of degree $r-1$ that is an isomorphism in degrees $\geq r$.  Let $\asimplex^n$ be the augmented simplex of dimension $n$, and let $\rchains(\asimplex^{\bullet})$ be the cosimplicial chain complex whose $n$-simplices of degree $q$ form the free $R$-module generated by the $m$-simplices of $\asimplex^n$ if $q=rm$ (and the trivial $R$-module otherwise). The usual formula $\partial(\tau) = \sum_{j}(-1)^j \d_j\tau$ endows it with a differential of degree $-r$. We then can construct the tensor product of these two chain complexes, with a differential twisted by the chain map $\theta$:
+	\[
+		\partial(e_q^\dd\otimes \tau) = \partial(e_q^\dd)\otimes \tau + (-1)^q \sum_j (-1)^j\theta^\dd(e_q^\dd)\otimes \d_j(\tau)
+	\]
+	obtaining a cosimplicial chain complex with a differential of degree $-1$ and face maps of degree $-r$ that we denote by
+	\[
+			\Wdualaug{r}\otimes_{\theta} \rchains(\asimplex^{\bullet})
+	\]
+	We will show that any cosimplicial equivariant chain map
+		\[
+	\Wdualaug{r}\otimes_{\theta} \rchains(\asimplex^{\bullet}) \lra \chains(\asimplex^{\bullet})^{\otimes r}
+	\]
+	yields chain-level operations for power operations. This perspective is related to May's \cite{may1970general}, as will be explained in \cref{s:2bdiagonals}. Such map will be called ``connected $r$-comultiplication''.
+	
+\subsubsection*{Step 2} We then use that there is a Poincaré duality isomorphism between the cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and its linear dual $\cochains(\asimplex^{\bullet})$, which therefore is also a cosimplicial chain complex (concentrated in non-positive degrees). Similarly, there is an isomorphism between $\rchains(\asimplex^\bullet)$ and its linear dual $\chains^{r,\vee}(\asimplex^\bullet)$.
+\subsubsection*{Step 3} We then observe that there is an isomorphism between $\cochains(\asimplex^{\bullet})^{\otimes r}$ and $\cochains(\asimplex^{r-1})^{\otimes \bullet}$, thus we need to build a cosimplicial map 
+	\[
+		\Wdualaug{r}\otimes_{\theta} \chains^{r,\vee}(\asimplex^{\bullet})\lra \cochains(\asimplex^{r-1})^{\otimes \bullet}.
+	\]
+	Taking linear duals, we need to build a simplicial map
+	\begin{equation}\label{eq:330}
+		\chains(\asimplex^{r-1})^{\otimes \bullet} \lra \Waug{r}\otimes_{\theta} \chains^r(\asimplex^\bullet).
+	\end{equation}
+\subsubsection*{Step 4} Now, for each $n$, we can isolate the top simplices of $\chains(\asimplex^{r-1})^{\otimes n}$, obtaining an additive isomorphism
+	\begin{equation}\label{eq:331}	
+		\chains(\asimplex^{r-1})^{\otimes n} \cong \bigoplus_{p+q=n} \chains(\partial \asimplex^{r-1})^{\otimes q}\otimes \rchains(\asimplex^n)_p.
+	\end{equation}
+		There is a map $\theta_{j}\colon \chains(\partial \asimplex^{r-1})^{\otimes q}\to \chains(\partial \asimplex^{r-1})^{\otimes q+1}$ of degree $r-1$ that inserts the oriented generator of the top homology group of $\chains(\partial \asimplex^{r-1})$ in a certain position. Under the isomorphism \eqref{eq:331}, the differential on the left hand-side takes the form
+		\[
+			\partial(a\otimes \tau) = \partial(a)\otimes \tau + (-1)^{|a|} \sum_{j}(-1)^j\theta_{j}(a)\otimes \d_j (\tau).
+		\]
+\subsubsection*{Step 5} On the other hand, the chain complex $\chains(\partial\simplex^{r-1})$ can be glued to itself to obtain a $(r-1)$-periodic augmented resolution $\Per{r}$ of the cyclic group of order $r$. %The periodic isomorphism endows $\Lambda(r)_+$ with an augmented  simplicial structure, and 
+	We will show that every $r$-cyclic straightening with duality gives rise to a map
+	\begin{equation}\label{eq:499}
+		\chains(\partial \asimplex^{r-1})\otimes \chains(\partial \asimplex^{r-1}) \lra \Per{r}
+	\end{equation}
+that is later used to obtain a chain map
+	\[
+		\phi\colon \chains(\partial \asimplex^{r-1})^{\otimes n} \lra \Per{r}.
+	\]
+Although we do not use it here, we remark the following: The complex $\Per{r}$ with the degree conventions of the article corresponds to the negative part of the Tate resolution of the cyclic group on $r$ elements associated to the periodic resolution. From this perspective, the map \eqref{eq:499} yields a chain level lift of the cup product on Tate cohomology of the cyclic group, in non-positive degrees.
+\subsubsection*{Step 6} We then construct a map $\chains(\partial \asimplex^{r-1})\to \Waug{r}$. Using the $(r-1)$-periodicity of $\Per{r}$ and $\Waug{r}$, we then obtain a chain map
+	\[
+		\psi\colon \Per{r}\to \Waug{r}
+	\]
+\subsubsection*{Step 7} Finally, using the isomorphism \eqref{eq:331}, we define a map as in \eqref{eq:330} by the formula $(\phi\circ \psi)\otimes \id$. We also check that it intertwines the maps $\theta_j$ and $\theta$.
+
+\subsection{Proof of the theorem} The theorem is obtained from \cref{def:connected_diagonal}, \cref{prop:cosimplicial}, \cref{prop:milnor_to_minimal}, \cref{prop:milnor_to_per} (where one uses \cref{prop:construction_xi} and \cref{{prop:straightenings}}) and \cref{prop:per_to_minimal}. 
+
+\subsection{Outline}
+
+In \cref{s:preliminaries} we set some sign and degree conventions for chain complexes and the conventions for augemented simplicial objects.
+In \cref{s:2bdiagonals} we develop Step 1, introducing the notions of unstable $r$-comultiplication, stable $r$-comultiplication and connected $r$-comultiplication. 
+In \cref{s:3complexes} we carry on Steps 2, 3 and 4.
+In \cref{s:milnor_to_per} we continue with Step 5, and in \cref{s:per_to_minimal} we finish with Step 6.
+
+In \cref{s:suspension} we show that these operations behave well with respect to suspensions.
+In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.
+Finally, in \cref{s:formulas} we give an algorithmic presentation of the formulas.
+These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bdiagonals}.

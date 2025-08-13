@@ -62,6 +62,7 @@
 \newcommand{\Fun}{\mathsf{Fun}}
 \newcommand{\Set}{\mathsf{Set}}
 \newcommand{\Setp}{\mathsf{Set}_*}
+\newcommand{\SignedSet}{\mathsf{Set}_\pm}
 %\newcommand{\NN}{\mathsf{N}}
 \newcommand{\Top}{\mathsf{Top}}
 \newcommand{\CW}{\mathsf{CW}}
@@ -94,19 +95,19 @@
 
 % chains
 \newcommand{\dd}{\vee}
-\newcommand{\chains}[1][*]{\operatorname{N}_{#1}}
-\newcommand{\cochains}[1][*]{\operatorname{N}^\dd_{#1}}
-\newcommand{\uchains}[1][*]{\operatorname{C}_{#1}}
-\newcommand{\ucochains}[1][*]{\operatorname{C}^\dd_{#1}}
-\newcommand{\rchains}[1][*]{\operatorname{N}^{r}_{#1}}
-\newcommand{\ruchains}[1][*]{\operatorname{C}^{r}_{#1}}
+\newcommand{\chains}[1][]{\operatorname{N}_{#1}}
+\newcommand{\cochains}[1][]{\operatorname{N}^\dd_{#1}}
+\newcommand{\uchains}[1][]{\operatorname{C}_{#1}}
+\newcommand{\ucochains}[1][]{\operatorname{C}^\dd_{#1}}
+\newcommand{\rchains}[1][]{\operatorname{N}^{r}_{#1}}
+\newcommand{\ruchains}[1][]{\operatorname{C}^{r}_{#1}}
 
-\newcommand{\cadenas}[1][*]{N_{#1}}
-\newcommand{\ucadenas}[1][*]{C_{#1}}
-\newcommand{\cocadenas}[1][*]{N^\dd_{#1}}
-\newcommand{\ucocadenas}[1][*]{C^\dd_{#1}}
-\newcommand{\rcadenas}[1][*]{N^{r}_{#1}}
-\newcommand{\rucadenas}[1][*]{C^{r}_{#1}}
+\newcommand{\cadenas}[1][]{N_{#1}} %el [] es para poner el valor por defecto.
+\newcommand{\ucadenas}[1][]{C_{#1}}
+\newcommand{\cocadenas}[1][]{N^\dd_{#1}}
+\newcommand{\ucocadenas}[1][]{C^\dd_{#1}}
+\newcommand{\rcadenas}[1][]{N^{r}_{#1}}
+\newcommand{\rucadenas}[1][]{C^{r}_{#1}}
 
 \newcommand{\rA}{\operatorname{L}}
 \renewcommand{\AA}{\operatorname{\mathbf{L}}}
@@ -120,13 +121,20 @@
 
 %\newcommand{\Omegarm}[1][]{\operatorname{\Omega}_{#1}}
 
-\newcommand{\rW}[1][*]{\operatorname{W}_{#1}}
-\newcommand{\rWd}[1][*]{\operatorname{W}^\dd_{#1}}
-\newcommand{\rWhat}[1][*]{\hat{\operatorname{W}}_{#1}}
-\newcommand{\rWhatd}[1][*]{\hat{\operatorname{W}}^{\dd}_{#1}}
-\newcommand{\W}[1][*]{W_{#1}}
-\newcommand{\Wd}[1][*]{W^\dd_{#1}}
-\newcommand{\Wst}[1][*]{W^{\mathrm{st}}_{#1}}
+\newcommand{\rW}[1][]{\operatorname{W}_{#1}}
+\newcommand{\rWd}[1][]{\operatorname{W}^\dd_{#1}}
+\newcommand{\rWhat}[1][]{\hat{\operatorname{W}}_{#1}}
+\newcommand{\rWhatd}[1][]{\hat{\operatorname{W}}^{\dd}_{#1}}
+%\newcommand{\W}[1][]{W_{#1}}
+\newcommand{\Wd}[1][]{W^\dd_{#1}}
+\newcommand{\Wst}[1][]{W^{\mathrm{st}}_{#1}}
+
+
+\newcommand{\Wdualaug}[1]{W^\vee_+(#1)}
+\newcommand{\Waug}[1]{W_+(#1)}
+\newcommand{\Wdual}[1]{W^\vee(#1)}
+\newcommand{\W}[1]{W(#1)}
+\newcommand{\Per}[1]{\Lambda_+(#1)}
 
 
 % pair delimiters (mathtools)

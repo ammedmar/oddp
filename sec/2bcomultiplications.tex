@@ -6,13 +6,13 @@ Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ ele
 The symmetric group on $\{0,1,\dots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$.
 The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$.
 The definitions of \cref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st}.
-Chain complexes in this section are assumed to be non-negatively graded.
+{\color{red} Chain complexes in this section are assumed to be non-negatively graded.}
 
 \subsection{Unstable diagonals}\label{s:unstable}
 
-The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial action is the chain complex $\W(r) = \bigoplus_{q \geq 0} \W[q](r)$ defined as follows:
+The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial action is the chain complex $\W{r} = \bigoplus_{q \geq 0} \W{r}_q$ defined as follows:
 \begin{align*}
-	\W[q](r) &= R[\Cyc_r]\langle e_q\rangle &
+	\W{r}_q &= R[\Cyc_r]\langle e_q\rangle &
 	\partial(e_q) &= \begin{cases}
 		N(e_{q-1}) & \text{if $q$ is even} \\
 		T(e_{q-1}) & \text{if $q$ is odd,}
@@ -23,7 +23,7 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 \begin{definition}
 	An \emph{unstable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or \emph{unstable $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \W(r) \ot \ucadenas \lra \ucadenas^{\ot r}.
+	\mu \colon \W{r} \ot \ucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
@@ -49,9 +49,9 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 \begin{definition}
 	An unstable $r$-diagonal $\mu$ on a chain complex $\ucadenas$ is said to be \emph{May--Steenrod} if $\mu$ factors as
 	\[
-	\W(r) \ot \ucadenas \xra{f \ot \id} V_*(r) \ot \ucadenas \lra \ucadenas^{\ot r}
+	\W{r} \ot \ucadenas \xra{f \ot \id} V(r) \ot \ucadenas \lra \ucadenas^{\ot r}
 	\]
-	where $V_*(r)$ is a free resolution of the symmetric group on $r$ letters, $f$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
+	where $V(r)$ is a free resolution of the symmetric group on $r$ letters, $f$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
 \end{definition}
 
 \begin{remark}
@@ -81,15 +81,15 @@ Let $\Wst(r)$ be the unbounded chain complex
 \]
 If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
 \[
-\dotsb \lra \sus{2(1-r)}\W(r) \xra{\theta_{1-r}} \sus{1-r} \W(r) \xra{\theta_{1-r}} \W(r).
+\dotsb \xra{\theta} \susp{2(1-r)}\W{r} \xra{\theta} \susp{1-r} \W{r} \xra{\theta} \W{r}.
 \]
-In general, we understand it as the limit of
+%In general, we understand it as the limit of
+%\[
+%\dotsb \lra \sus{4(1-r)}\W{r}\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W{r} \overset{\theta_{2(1-r)}}{\lra} \W{r}.
+%\]
+where $\theta \colon \susp{1-r}\W{r} \to \W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
 \[
-\dotsb \lra \sus{4(1-r)}\W(r)\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W(r) \overset{\theta_{2(1-r)}}{\lra} \W(r).
-\]
-where $\theta_{k} \colon \W(r) \to \sus{-k} \W(r)$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+k}$, which only exists if $k$ is even and non-positive. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
-\[
-\Wst(r) \lra \W(r)\overset{N}{\lra} \Wd(r)
+\Wst(r) \lra \W{r}\overset{N}{\lra} \Wd(r)
 \]
 where the second map is the norm map that sends $e_q$ to zero unless $q=0$, in which case it is sent to $N(e_0^\dd)$.
 Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fibre: in the homotopy fibre we have, for negative $i$, that $\partial(e_i) = -N(e_{i-1})$ or $T(e_{i-1})$ depending on whether $i$ is even or odd.
@@ -104,21 +104,27 @@ Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fibre: 
 \begin{definition}
 	Let $\ESst_r$ be the inverse limit of
 	\[
-	\dotsb \lra \sus{2(1-r)} \ES_r\overset{\theta_{r-1}}{\lra}\sus{1-r} \ES_r\overset{\theta_{r-1}}{\lra} \ES_r
+	\dotsb \lra \susp{2(1-r)} \ES_r\overset{\theta}{\lra}\susp{1-r} \ES_r\overset{\theta}{\lra} \ES_r
 	\]
-	where $\theta_{r-1}$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.
+	where $\theta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.
 \end{definition}
 
 \begin{definition}
-	A stable $r$-diagonal $\mu$ on a chain complex $\ucadenas$ is said to be $\emph{May--Steenrod}$ if it factors as
+	A stable $r$-cyclic diagonal $\mu$ on a chain complex $\ucadenas$ is said to be $\emph{May--Steenrod}$ if it factors as
 	\[
 	\mu \colon \Wst(r) \ot \ucadenas \xra{f \ot \id} \ESst_r \ot \ucadenas \lra \ucadenas^{\ot r}
 	\]
 	with $f$ equivariant with respect to the inclusion $\Cyc_r \subset \Sym_r$ and the second map is $\Sym_r$-equivariant.
 \end{definition}
 
-Every unstable diagonal yields a stable diagonal by precomposing $\mu$ with the projection $\Wst(r) \to \W(r)$.
-A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) \ot \ucadenas$ for $i<0$.
+\begin{figure}
+	\input{tables/unstable}
+	\caption{A depiction of $\Wst(3) \ot \ucadenas$. A stable diagonal comes from an unstable diagonal if it vanishes on the part coloured in green.}
+	\label{figure:1}
+\end{figure}
+
+Every unstable diagonal yields a stable diagonal by precomposing $\mu$ with the projection $\Wst(r) \to \W{r}$.
+A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) \ot \ucadenas$ for $i<0$ (See \cref{figure:1}).
 
 \begin{proposition}
 	If $r$ is prime, a stable $r$-cyclic diagonal $\mu$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
@@ -132,7 +138,7 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 \end{proposition}
 
 \begin{proof}
-	If $\ucadenas$ has a stable diagonal, then $\sus{} \ucadenas$ has a stable diagonal as well, defined as $\mu(e_q \ot \sus{} a) = \sus{\ot r}\mu(e_{q+r-1} \ot a)$.
+	If $\ucadenas$ has a stable diagonal, then $\susp{} \ucadenas$ has a stable diagonal as well, defined as $\mu(e_q \ot \susp{} a) = \susp{\ot r}\mu(e_{q+r-1} \ot a)$.
 	Therefore, after enough suspensions, we may assume that the stable diagonal vanishes in negative degrees and that $q$ is positive.
 	Then a truncation reduces this to the situation of an unstable diagonal.
 \end{proof}
@@ -141,16 +147,13 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 	As we will see in \cref{s:suspension}, the unstable diagonal for normalized chains in simplicial sets of the previous example, defines a stable diagonal on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) which is May--Steenrod.
 \end{example}
 
-\begin{figure}
-	\input{tables/unstable}
-	\caption{A depiction of $\Wst(3) \ot \ucadenas$. A stable diagonal comes from an unstable diagonal if it vanishes on the part coloured in green.}
-\end{figure}
+
 
 \subsection{Connected diagonals}\label{s:connected}
 
 Let $\mu$ be a stable diagonal on $\ucadenas$.
-A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $\Wst[i] \ot \ucadenas[n]$ for $i>(r-1)n$.
-We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ such that giving a chain map $\mu \colon \rWd(r)  \hotimes \rucadenas \to \ucadenas^{\ot r}$ is equivalent to give a stable diagonal that vanishes on $\Wst[i](r) \ot \ucadenas[n]$ for $i>(r-1)n$ (see Figures \ref{figure:2} and \ref{figure:3}).
+A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on $$\bigoplus_n\bigoplus_{i>(r-1)n}\Wst[i] \ot \ucadenas[n].$$
+We will now show that if $r$ is odd or $r=2$ and $R=\bF_2$, the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule is isomorphic to a tensor product $\Wdualaug{r}\otimes_\theta \rucadenas$ (see Figures \ref{figure:2} and \ref{figure:3}). We then define a connected diagonal as a map from this tensor product to $\ucadenas^{\otimes r}$.
 
 \begin{figure}
 	\input{tables/hat}
@@ -160,14 +163,16 @@ We will now introduce a convenient chain complex $\rWd(r) \hotimes \rucadenas$ s
  \vspace{2cm}
 
 	\input{tables/hat_alone}
-	\caption{The complex $\rWd(r) \hotimes \rucadenas$ for $r=3$ and $R=\bF_3$.
-		The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\hotimes C^3_n$.}
+	\caption{The complex $\Wdualaug{r} \ot_\theta \rucadenas$ for $r=3$ and $R=\bF_3$.
+		The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot_\theta C^3_n$.}
 	\label{figure:3}
 \end{figure}
 
-Let $\rucadenas$ be the chain complex $\bigoplus_m \sus{(r-1)m}\ucadenas[m]$ with the same differential as $\ucadenas$, which now has degree $-r$.
+\begin{definition} 
+If $\ucadenas$ is a chain complex with a differential of degree $-1$, we define $\rucadenas$ as the chain complex that in degree $rm$ is equal to $\ucadenas[m]$ and is trivial otherwise. We endow it with the same differential as $\ucadenas$, which now has degree $-r$.
 An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$.
-We write $\rW(r)$ for the right suspension of the augmented chain complex $\W(r) \to R$, i.e., the chain complex
+\end{definition}
+Let $\Waug{r}$ be the augmented minimal resolution of $\Cyc_r$, i.e., the chain complex
 \[
 R
 \overset{N}{\lla}
@@ -179,77 +184,80 @@ R[\Cyc_r]\langle e_{3}\rangle
 \overset{T}{\lla}
 \dotsb
 \]
-(note the reindexing, so that $e_i$ has degree $i$) and $\rWd(r)$ for its dual:
+(note the reindexing, so that $e_i$ has degree $i$) and $\Wdualaug{r}$ for its dual:
 \[
 \dotsb
 \overset{T}{\lla}
-R[\Cyc_r]\langle e_{-3}^\dd\rangle
+R[\Cyc_r]\langle e_{3}^\dd\rangle
 \overset{-N}{\lla}
-R[\Cyc_r]\langle e_{-2}^\dd\rangle
+R[\Cyc_r]\langle e_{2}^\dd\rangle
 \overset{T}{\lla}
-R[\Cyc_r]\langle e_{-1}^\dd\rangle
+R[\Cyc_r]\langle e_{1}^\dd\rangle
 \overset{-N}{\lla}
 R.
 \]
-Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{-i}^\dd) = (\rho^{-1} e_i)^{\dd}$.
+Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$.
 The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
-
-Again, there is a suspension map $\theta_k \colon \rWd(r) \to \susp{-k}\rWd(r)$ defined for all even $k$ (or all $k$ in case $r=2$ and $R=\bF_2$) as
+If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \susp{r-1}\Waug{r}$ defined as
 \begin{align*}
-	\theta_k(e_{-i}^\dd) &= e_{k-i}^\dd
+	\theta(e_0) &= N(e_{r-1}),
 	&
-	\theta_k(1) &= \begin{cases} N(e_k^\dd) &\text{if $k<0$} \\ 1 &\text{if $k=0$} \\ 0 &\text{if $k>0$.} \end{cases}
+	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r.	
 \end{align*}
-If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, define the chain complex $\rWd(r) \hotimes \rucadenas$ as the graded $R[\Cyc_r]$-module $\rWd(r) \ot \rucadenas$ with the differential
+If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, 
+Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\Cyc_r]$-module $\Wdualaug{r} \ot \rucadenas$ with the differential
 \[
-\partial(e^\dd_{-q} \ot \vec{x}) = \partial (e^\dd_{-q}) \ot \vec{x} + (-1)^q \theta_{r-1}(e^\dd_{-q}) \ot \partial (\vec{x}).
+\partial(e^\dd_{-q} \ot \vec{x}) = \partial (e^\dd_{-q}) \ot \vec{x} + (-1)^q \theta^\dd(e^\dd_{-q}) \ot \partial (\vec{x}).
 \]
-If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
-\[
-\dotsb
-\overset{-T}{\lla}
-R[\Cyc_r]\langle e_{-2}^\dd\rangle
-\overset{N}{\lla}
-R[\Cyc_r]\langle e_{-1}^\dd\rangle
-\overset{-T}{\lla}
-R[\Cyc_r]\langle e_{0}^\dd\rangle / N
-\]
-This chain complex admits chain maps
-\begin{align*}
-	\hat{\theta}_{r-1} \colon \rWd(r)& \lra \susp{1-r}\rWhat(r)
-	&
-	\hat{\theta}_{r-1} \colon \rWhat(r)& \lra \susp{1-r}\rW(r).
-\end{align*}
-Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\mathrm{odd}] = \bigoplus_{m}\ucadenas[2m+1]$ and write $\rWd(r) \hotimes \rucadenas$ for the graded $R[\Cyc_r]$-module $\left(\rWd(r) \ot \rucadenas[\mathrm{odd}]\right)\oplus \left(\rWhatd(r) \ot \rucadenas[\mathrm{even}]\right)$ with differential
-\[
-\partial(e^\vee_{-q} \ot \vec{x}) = \partial (e^\vee_{-q}) \ot \vec{x} + (-1)^q \theta_{1-r}(e^\vee_{-q}) \ot \partial (\vec{x}).
-\]
-Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ coincide, and so do both definitions of $\rWd(r) \hotimes \rucadenas$.
 
-\begin{definition}
-	A \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
+\federico{Aquí está comentado el caso $r$ par, que no se usa en el paper}
+%If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
+%\[
+%\dotsb
+%\overset{-T}{\lla} 
+%R[\Cyc_r]\langle e_{-2}^\dd\rangle 
+%\overset{N}{\lla}
+%R[\Cyc_r]\langle e_{-1}^\dd\rangle
+%\overset{-T}{\lla} 
+%R[\Cyc_r]\langle e_{0}^\dd\rangle / N 
+%\]
+%This chain complex admits chain maps
+%\begin{align*}
+	%\hat{\theta}_{r-1} \colon \rWd(r)& \lra \susp{1-r}\rWhat(r)
+	%&
+	%\hat{\theta}_{r-1} \colon \rWhat(r)& \lra \susp{1-r}\rW(r).
+%\end{align*}
+%Define $\ucadenas[\mathrm{even}] = \bigoplus_{m}\ucadenas[2m]$ and $\ucadenas[\mathrm{odd}] = \bigoplus_{m}\ucadenas[2m+1]$ and write $\rWd(r) \hotimes \rucadenas$ for the graded $R[\Cyc_r]$-module $\left(\rWd(r) \ot \rucadenas[\mathrm{odd}]\right)\oplus \left(\rWhatd(r) \ot \rucadenas[\mathrm{even}]\right)$ with differential
+%\[
+%\partial(e^\vee_{-q} \ot \vec{x}) = \partial (e^\vee_{-q}) \ot \vec{x} + (-1)^q \theta_{1-r}(e^\vee_{-q}) \ot \partial (\vec{x}).
+%\]
+%Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ coincide, and so do both definitions of $\rWd(r) \hotimes \rucadenas$.
+
+\begin{definition}\label{def:connected_diagonal}
+If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \rWd(r) \hotimes \rucadenas \lra \ucadenas^{\ot r}.\anibal{I think this should be a theorem, not a definition. Also, notice that the word chain map is used, but we talked that it is not.}
+	\mu \colon \Wdualaug{r} \ot_{\theta} \rucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
-If either $k$ is even \anibal{What is \( k \)? For me, and if is folloed by a then. You mean, let \( k \)...} or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
-One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W(r) \to \Wd(r)$, but it is also the homotopy fibre of the map $\rWd(r) \to \sus{}\rW(r)$ that is the identity on $R$ and zero elsewhere.
-The map $\varphi_k$ is the composition
-\[
-\Wst(r)\overset{\theta_k}{\lra} \sus{-k} \Wst(r) \overset{\cong}{\lra} \sus{-k}\hofib(\rWd(r) \to \rW(r)) \lra \susp{-k}\rWd(r).
-\]
-This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$.
-In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$.
-If $k$ is odd, let $\varphi_k \colon \Wst(r) \to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
+\federico{He comentado una explicación no concluyente de cómo se obtiene esta aplicación}
+%If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
+%One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W{r} \to \Wdual{r}$, but it is also the homotopy fibre of the map $\Wdualaug{r} \to \Waug{r}$ that is the identity on $R$ and zero elsewhere.
+%The map $\varphi_k$ is the composition
+%\[
+%\Wst(r)\overset{\theta_k}{\lra} \sus{-k} \Wst(r) \overset{\cong}{\lra} \sus{-k}\hofib(\rWd(r) \to \rW(r)) \lra \susp{-k}\rWd(r).
+%\]
+%This composition is an epimorphism with kernel the smallest chain subcomplex that contains $\Wst[>k]$.
+%In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$.
+%%If $k$ is odd, let $\varphi_k \colon \Wst(r) \to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
 
-Define the chain map $\varphi \colon \Wst(r) \to \rWd(r) \hotimes \rucadenas$ as
+Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \rWd(r) \hotimes \rucadenas$ as
 \[
-\varphi(e_q \ot x) = \varphi_{-n(r-1)}(e_{q}) \ot \vec{x}
+\varphi(e_q \ot x) = (-1)^{\binom{n(r-1)-q+1}{2}}e_{q-(r-1)n}^\dd \ot \vec{x}
 \]
 if $x$ has degree $n$.
-This is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
-As a consequence, we have the following.
+It has degree $0$ and is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
+As a consequence,
 
 \begin{proposition}
 	If $r$ is prime, a connected $r$-cyclic diagonal induces operations indexed by the integers
