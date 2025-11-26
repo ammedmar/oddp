@@ -91,7 +91,7 @@ This sends a simplex $[k] \to [n]$ and a simplex $[n] \to X$ to the composition 
 	\[
 		\Wdualaug{r}\ot_\theta \rchains(\asimplex^n)\lra \chains(\asimplex^n)^{\ot r}
 	\]
-	gives rise to a connected comultiplication.
+	gives rise to a connected comultiplication.\martin{This term is only mentioned in the introduction, it would be better to state the difference between this and a connected diagonal.}
 \end{proposition}
 \begin{proof}
 	The tensor product of this map and the map $L(X)\to L(X)^{\ot r}$ induced by the diagonal yields an equivariant map 
@@ -118,8 +118,9 @@ given on a generator $U=(u_0,\dots,u_{m-1})$ by
 	\\
 	0 & \text{otherwise.}
 	\end{cases}
-\end{align*}
+\end{align*} %Why is the next statement important? It wasn't stated for $\chains(\asimplex^\bullet)$.
 The face maps of this cosimplicial structure have degree $1$ while degeneracies have degree $-1$. %Let $\rA(X)$ be the augmented simplicial graded $R$-module with $\rA(X)_n = \susp{n+1}\abel(X)_{n}$, and face maps and degeneracies are induced by those of $\abel(X)$ and have degree $-1$ and $+1$ respectively.
+\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.}
 
 \subsection{Another presentation of $\chains(\asimplex^n)^{\ot r}$}\label{s:join} The duality maps
 \begin{align*}
@@ -128,28 +129,28 @@ The face maps of this cosimplicial structure have degree $1$ while degeneracies 
 	\Lambda^{\ot r}\colon \chains(\asimplex^n)^{\ot r} & \lra \Sigma^{r(n+1)}\cochains(\asimplex^n)^{\ot r}
 \end{align*}
 have both degree $r(n+1)$, thus building a cosimplicial map (of degree $0$)
-\[
+	\[
 	\Wdualaug{r}\ot_\theta \rchains(\asimplex^\bullet)  \lra \chains(\asimplex^\bullet)^{\ot r}
-\]
+	\]
 is equivalent to build a cosimplicial map (of degree $0$)
-\[
+	\[
 	\Wdualaug{r}\ot_\theta \chains^{r,\vee}(\asimplex^\bullet) \lra \cochains(\asimplex^\bullet)^{\ot r}
-\]
+	\]
 and, taking linear duals, equivalent to build a simplicial map (of degree $0$)
-\[
+	\[
 	\chains(\asimplex^\bullet)^{\ot r}  \lra \Waug{r}\ot_\theta \rchains(\asimplex^\bullet)
-\]
+	\]
 %The explicit simplicial structure on the simplicial chain complex of the last equation is the following:
 
 %RELLENAR
 
-The tensor product $\chains(\asimplex^n)^{\otimes r}$ is isomorphic to the chain complex $\chains(\asimplex^n*\overset{r}{\cdots}*\asimplex^n)$, which in turn is isomorphic to the chain complex $\chains(\asimplex^{r-1}*\overset{n+1}{\cdots}*\asimplex^{r-1})$, which is isomorphic to $\chains(\asimplex^{r-1})^{\otimes n+1}$. The cyclic group $\Cyc_{r}$ acts on $\chains(\asimplex^n)^{\otimes r}$ permuting the factors and on $\asimplex^{r-1}$ permuting the vertices. These isomorphisms are equivariant with respect to these actions, and we denote their composition by $\alpha$. Let $\beta$ be the endomorphism of $\chains(\asimplex^{r-1})^{\otimes n+1}$ given by $\rho^0\otimes \rho^{-1}\otimes \ldots \otimes \rho^{-n}$. Then, via the isomorphism
+The tensor product $\chains(\asimplex^n)^{\otimes r}$ is isomorphic to the chain complex $\chains(\asimplex^n*\overset{r}{\cdots}*\asimplex^n)$, which in turn is isomorphic to the chain complex $\chains(\asimplex^{r-1}*\overset{n+1}{\cdots}*\asimplex^{r-1})$, which is isomorphic to $\chains(\asimplex^{r-1})^{\otimes n+1}$. The cyclic group $\Cyc_{r}$ acts on $\chains(\asimplex^n)^{\otimes r}$ permuting the factors and on $\asimplex^{r-1}$ permuting the vertices. These isomorphisms are equivariant with respect to these actions, and we denote their composition by $\alpha$. Let $\beta$ be the endomorphism of $\chains(\asimplex^{r-1})^{\otimes n+1}$ given by $\rho^0\otimes \rho^{-1}\otimes \ldots \otimes \rho^{-n}$. Then, via the isomorphism %definir \alpha explicitamente
 \[
 	\chains(\asimplex^n)^{\otimes r} \overset{\alpha}{\lra}
 	\chains(\asimplex^{r-1})^{\otimes n+1} \overset{\beta}{\lra}
 	\chains(\asimplex^{r-1})^{\otimes n+1}   
 \]
-$\chains(\asimplex^{r-1})^{\otimes \bullet}$ becomes a simplicial chain complex with the following explicit face maps of degree $r$.
+$\chains(\asimplex^{r-1})^{\otimes \bullet}$ becomes a simplicial chain complex with the following explicit face maps of degree $r$.%no deg?
 \begin{align*}
 	\d_i\colon \chains(\asimplex^{r-1})^{\ot (n+1)} & \lra \sus{r}\chains(\asimplex^{r-1})^{\ot n} \\
 	\tau_0\ot \ldots \ot \tau_n &\longmapsto 
@@ -157,12 +158,14 @@ $\chains(\asimplex^{r-1})^{\otimes \bullet}$ becomes a simplicial chain complex 
 	(-1)^{i+\sum_{j>i} |\tau_j| + n+1}\tau_0\ot \ldots \ot \tau_{i-1}\ot \rho(\tau_{i+1})\ot \ldots \ot \rho(\tau_n) %& \text{ } %\\
 	%0 & \text{ if $|\tau_i|<r$.}
 	%\end{cases}
-\end{align*}
-if $\tau_i = \sigma$ and $0$ otherwise. Define the chain map $\theta_j\colon \sus{r-1}\chains(\partial\asimplex^{r-1})^{\ot m}\to \chains(\partial\asimplex^{r-1})^{\ot (m+1)}$ as 
+\end{align*} 
+if $\tau_i = \sigma$, the top generator, and $0$ otherwise. \martin{We are missing the degeneracies.}
+
+Define the chain map $\theta_j\colon \sus{r-1}\chains(\partial\asimplex^{r-1})^{\ot m}\to \chains(\partial\asimplex^{r-1})^{\ot (m+1)}$ as 
 \[
-	\theta_j(\tau_0\ot \ldots \ot \tau_m) = (\tau_0\ot \ldots \tau_{j}\ot \partial\sigma \ot \rho^{-1}(\tau_{j+1})\ot \ldots \ot \rho^{-1}(\tau_{m})).
+	\theta_j(\tau_0\ot \ldots \ot \tau_{m-1}) = (\tau_0\ot \ldots \tau_{j-1}\ot \partial\sigma \ot \rho^{-1}(\tau_{j})\ot \ldots \ot \rho^{-1}(\tau_{m-1})).
 \]
-If $b = [b_0,\ldots,b_{n-1}]\in \rchains(\asimplex^n)$, let $\varphi(j,b) = j-b_j$.
+If $b = [b_0,\ldots,b_{n-1}]\in \rchains(\asimplex^n)$, let $\varphi(j,b) = b_j - j$.
 \federico{Let $\mathbf{2^n}$ be the ordered poset of subsets of $\{0,1,\ldots,n-1\}$. There is a contravariant automorphism $\Lambda$ of this category that sends a subset to its complement. If $F,G\colon \mathbf{2^n}\to \Mod{R}$ are two functors with the same variance, define their tensor product $F\ot G\colon \mathbf{2^n}\to \Mod{R}$ levelwise. There is a functor $\mathbf{2^n}\to \asimplex$, and taking Kan extension along it produces a functor that takes presheaves on $\mathbf{2^n}$ to presheaves on $\asimplex$. 
 
 The poset of subsets of $\{0,1,\ldots,n-1\}$ is in bijection with the poset of faces of $\asimplex^n$. Thus, we define $\bar{\simplex}_+^n\colon \mathbf{2^n}\to \Mod{R}$ as the constant functor with value a singleton. Define now $F\colon \mathbf{2^n}\to \Mod{R}$ as $F(A) = \bigotimes_{a\in A} \chains(\asimplex^{r-1})$. If $A\subset B$ and they only differ on the $j$th element of $B$, then define $F(A\subset B) = \theta_j$.
@@ -171,18 +174,18 @@ The poset of subsets of $\{0,1,\ldots,n-1\}$ is in bijection with the poset of f
 
 There is an isomorphism of graded modules
 \[
-	\gamma\colon \chains(\asimplex^{r-1})^{\ot (n+1)}\lra \bigoplus_{p+q=n}\chains(\partial \asimplex^{r-1})^{\ot p}\ot \rchains(\asimplex^{n})_{rq}
+	\gamma\colon \chains(\asimplex^{r-1})^{\ot (n+1)}\lra \bigoplus_{p+q=n+1}\chains(\partial \asimplex^{r-1})^{\ot p}\ot \rchains(\asimplex^{n})_{rq}
 \]
-that sends a generator $(\tau_0\ot \ldots \ot \tau_n)$ whose top simplices are $\tau_{i_1}\ldots \tau_{i_q}$ to the pair $\pm \tau'\ot \tau''$ where $\tau'$ is the result of removing the top simplicies from $\tau$ and $\tau'' = [i_1,\dots,i_q]$ is the list of positions of these simplices and $\pm$ is the Koszul sign of this rearrangement.
+that sends a generator $(\tau_0\ot \ldots \ot \tau_n)$ whose top simplices are $\tau_{i_1}\ldots \tau_{i_q}$ to the pair $\pm \tau'\ot \tau''$ where $\tau'$ is the result of removing the top simplicies from $\tau$ and $\tau'' = [i_1,\dots,i_q]$ is the list of positions of these simplices and $\pm$ is the Koszul sign of this rearrangement. \martin{Right now this $\gamma$ is inconsistent with the definition of $\theta_j$. There are some ways of fixing it and we are discussing which one is better.}
 
 Under this isomorphism, the differential on the right hand-side becomes
 \[
 	\partial(a\ot b) = \partial(a)\ot b + (-1)^{|a|}\sum_j (-1)^j \theta_{\varphi(j,b)}(a)\ot \d_j(b).
 \]
-We denote this chain complex by
+We denote this chain complex by %simplicial chain complex??
 \[
-%	\chains(\asimplex^{r-1})^{\ot (n+1)}\cong 
-\chains(\partial\asimplex^{r-1})^{\ot \bullet}\ot_\theta \rchains(\asimplex^n).
+%	\chains(\asimplex^{r-1})^{\ot (\bullet+1)}\cong 
+\chains(\partial\asimplex^{r-1})^{\ot \bullet}\ot_\theta \rchains(\asimplex^n)_{r(n+1-\bullet)}. \martin{I think the bullets are still wrong. What do we want them to mean?}
 \]
 We summarize these reflections in the following proposition.
 \begin{proposition}\label{prop:milnor_to_minimal}
@@ -193,7 +196,7 @@ simplicial chain map
 \]
 given by 
 \[
-	\mu(e_q^\dd\ot \vec{\tau}) = c^{n+1}(\alex^{-1})^{\ot r}\circ(\alpha\circ \beta\circ \gamma)^\dd (\Psi_n^\dd(e_q^\dd)\ot \alex^r(\vec{\tau})).
+	\mu(e_q^\dd\ot \vec{\tau}) = c^{n+1}(\alex^{\ot r})^{-1}\circ(\gamma\circ \beta\circ \alpha)^\dd (\Psi_n^\dd(e_q^\dd)\ot \alex^r(\vec{\tau})).
 \]
 \end{proposition}
 \begin{remark}\label{remark:many_coefficients}
