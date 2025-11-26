@@ -174,30 +174,31 @@ The poset of subsets of $\{0,1,\ldots,n-1\}$ is in bijection with the poset of f
 
 There is an isomorphism of graded modules
 \[
-	\gamma\colon \chains(\asimplex^{r-1})^{\ot (n+1)}\lra \bigoplus_{p+q=n+1}\chains(\partial \asimplex^{r-1})^{\ot p}\ot \rchains(\asimplex^{n})_{rq}
+	\gamma\colon \chains(\asimplex^{r-1})^{\ot (n+1)}\lra \bigoplus_{p+k=n+1}\chains(\partial \asimplex^{r-1})^{\ot p}\ot \rchains(\asimplex^{n})_{rk}
 \]
-that sends a generator $(\tau_0\ot \ldots \ot \tau_n)$ whose top simplices are $\tau_{i_1}\ldots \tau_{i_q}$ to the pair $\pm \tau'\ot \tau''$ where $\tau'$ is the result of removing the top simplicies from $\tau$ and $\tau'' = [i_1,\dots,i_q]$ is the list of positions of these simplices and $\pm$ is the Koszul sign of this rearrangement. \martin{Right now this $\gamma$ is inconsistent with the definition of $\theta_j$. There are some ways of fixing it and we are discussing which one is better.}
+that sends a generator $(\tau_0\ot \ldots \ot \tau_n)$ whose top simplices are $\tau_{i_1}\ldots \tau_{i_k}$ to the pair $\pm \tau'\ot \tau''$ where $\tau'$ is the result of removing the top simplicies from $\tau$ and $\tau'' = [i_1,\dots,i_k]$ is the list of positions of these simplices and $\pm$ is the Koszul sign of this rearrangement. \martin{Right now this $\gamma$ is inconsistent with the definition of $\theta_j$. There are some ways of fixing it and we are discussing which one is better.}
 
 Under this isomorphism, the differential on the right hand-side becomes
 \[
 	\partial(a\ot b) = \partial(a)\ot b + (-1)^{|a|}\sum_j (-1)^j \theta_{\varphi(j,b)}(a)\ot \d_j(b).
 \]
-We denote this chain complex by %simplicial chain complex??
+We denote this simplicial chain complex by %should we made an explicit description of simplicial structure?
 \[
 %	\chains(\asimplex^{r-1})^{\ot (\bullet+1)}\cong 
-\chains(\partial\asimplex^{r-1})^{\ot \bullet}\ot_\theta \rchains(\asimplex^n)_{r(n+1-\bullet)}. \martin{I think the bullets are still wrong. What do we want them to mean?}
+\bigoplus_{p+k=\bullet+1}\chains(\partial\asimplex^{r-1})^{\ot p}\ot_\theta \rchains(\asimplex^\bullet)_{rk}.
 \]
 We summarize these reflections in the following proposition.
 \begin{proposition}\label{prop:milnor_to_minimal}
-	A family of chain maps $\Psi_n\colon \chains(\partial \asimplex^{r-1})^{\ot n}\to \Waug{r}$ such that $ \theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \theta_j$ for each $j$ and for some constant $c$ yields a 
+	A family of chain maps $\Psi_p\colon \chains(\partial \asimplex^{r-1})^{\ot p}\to \Waug{r}$ such that $ \theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \theta_j$ for each $j$ and for some constant $c$ yields a 
 simplicial chain map 
 \[
 	\mu_\bullet\colon \Wdualaug{r}\ot_\theta \rchains(\asimplex^\bullet)\to \chains(\asimplex^\bullet)^{\ot r}
 \]
 given by 
 \[
-	\mu(e_q^\dd\ot \vec{\tau}) = c^{n+1}(\alex^{\ot r})^{-1}\circ(\gamma\circ \beta\circ \alpha)^\dd (\Psi_n^\dd(e_q^\dd)\ot \alex^r(\vec{\tau})).
+	\mu_n(e_q^\dd\ot \vec{\tau}) = c^{n+1}(\alex^{\ot r})^{-1}\circ(\gamma\circ \beta\circ \alpha)^\dd (\Psi_{n+1-k}^\dd(e_q^\dd)\ot \alex^r(\vec{\tau})), %con bullets en lugar de n?
 \]
+for an ordered representative $\tau=[v_0,\dots,v_{k-1}]\in \chains(\asimplex^n)$.
 \end{proposition}
 \begin{remark}\label{remark:many_coefficients}
 	In our use of the proposition, the constant will be $c= \tilde{r}!$, where $\tilde{r} = \frac{r-1}{2}$. A careful look at the definition of the map of \cref{prop:chains_to_minimal} shows that after multiplying by $\tilde{r}^{n+1}$, one may take arbitrary coefficients (instead of $R[\frac{1}{\tilde{r}!}]$ coefficients).
