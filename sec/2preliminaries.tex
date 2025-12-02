@@ -150,7 +150,7 @@ For each integer $n \geq 0$, denote the $n$th ordinal by $[n] = \{0,\dots,n-1\}$
 
 An injective map $f \colon [n] \to [m]$ is called a \emph{face map}, while a surjective map is called a \emph{degeneracy}. A face map $f$ is determined by the subset $U = [m]\smallsetminus f([n])$, and is denoted $d^U$. If $U$ has a single element $i$, we will write $d^i$ instead of $d^{\{i\}}$. There are $n$ surjections $s^i \colon [n+1] \to [n]$, $i = 0\dots n-1$ characterized by $s^i(i) = s^i(i+1)$. Every map in this category factors as an injection followed by a surjection.
 
-The category $\asimplex$ has a strict monoidal product called the \emph{join}, that sends a pair of ordinals $[n],[m]$ to the ordinal $[n+m]$ and a pair of functions $f \colon [n] \to [q]$, $g \colon [m] \to [p]$ to the function $f*g \colon [n+m] \to [q+p]$ defined as $f(x) = x$ if $x< n$ and $f(x) = q+f(x-n)$ if $x \geq n$. The unit is the empty ordinal $[0]$.
+The category $\asimplex$ has a strict monoidal product called the \emph{join}, that sends a pair of ordinals $[n],[m]$ to the ordinal $[n+m]$ and a pair of functions $f \colon [n] \to [q]$, $g \colon [m] \to [p]$ to the function $f*g \colon [n+m] \to [q+p]$ defined as $(f*g)(x) = f(x)$ if $x< n$ and $(f*g)(x) = q+g(x-n)$ if $x \geq n$. The unit is the empty ordinal $[0]$.
 
 \begin{definition}
 	An \emph{augmented simplicial object in $\cC$} is a functor $X \colon \asimplex^\mathrm{op} \to \cC$.

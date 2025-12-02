@@ -1,18 +1,18 @@
 % !TEX root = ../oddp.tex
 
 \section{The Milnor resolution and the periodic resolution}\label{s:milnor_to_per}
+In this section we will construct a map $\chains(\partial\asimplex^{r-1})^{\ot n+1}\to \Per{r}$ that intertwines $\theta_j$ and $\theta$ (\cref{prop:milnor_to_per}), with $r$ an odd number.
+This construction depends on building a \emph{weak codegeneracy}, something that is attained in \cref{prop:construction_xi}. Finally, in \cref{prop:straightenings} we will show that each $r$-cyclic straightening with duality yields a weak codegeneracy.  
 
-In this section we will construct a map $\chains(\asimplex^{r-1})^{\ot n+1}\to \Per{r}$ that intertwines $\theta_j$ and $\theta$ (\cref{prop:milnor_to_per}), with $r$ an odd number. This construction depends on building a \emph{weak codegeneracy}, something that is attained in \cref{prop:construction_xi}. Finally, in \cref{prop:straightenings} we will show that each $r$-cyclic straightening with duality yields a weak codegeneracy.  
-
-\subsection{From the Milnor resolution to the periodic resolution} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r-1}$, with $r$ an odd number. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r-1})\to \chains(\asimplex^{r-1})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$.
+\subsection{From the Milnor resolution to the periodic resolution} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r-1}$, with $r$ an odd number. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r-1})\to \chains(\asimplex^{r-1})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$. %I understand that $[v]$ has deg 1 before suspension, but maybe should be written differently.
 \begin{definition}
-	The \emph{augmented periodic resolution of $\Cyc_r$} is the graded $R$-module $\Per{r} = \chains(\partial\asimplex^{r-1})\oplus \bigoplus_{m>0} \sus{(r-1)m} \chains(\partial \simplex^{r-1})$ with the following differential: if $[v]$ is an element of degree $1$, then 
+	The \emph{augmented periodic resolution of $\Cyc_r$} is the graded $R$-module $\Per{r} = \chains(\partial\asimplex^{r-1})\oplus \bigoplus_{m>0} \sus{(r-1)m} \chains(\partial \simplex^{r-1})$ with the following differential: if $[v]$ is an element of degree $1$, then
 	\[
 		\partial(\sus{(r-1)m}[v]) = \sus{(r-1)(m-1)}h\circ \partial([v]) = \sus{(r-1)(m-1)}\partial\circ h([v]),
 	\]
-	on other degrees, we take the differential of the tensor product.
+	on other degrees, we take the differential of the tensor product. %What tensor product?
 \end{definition}
-Define the \emph{periodicity map} $\theta \colon \sus{r-1}\Per{r}\to \Per{r}$ as 
+Define the \emph{periodicity map} $\theta \colon \sus{r-1}\Per{r}\to \Per{r}$ as %Aren''t there too many \thetas already?
 \[
 	\theta(\sus{(r-1)m}\tau) = \sus{(r-1)(m+1)}\tau
 \]
@@ -48,12 +48,12 @@ in degrees $>0$ and by $\theta(\varnothing) = \partial \sigma$. Recall the maps 
 %			\psi(\tau_0\otimes \ldots \otimes  \tau_n) &= \sus{(r-1)} \psi(\tau_0\otimes \ldots\otimes  \xi(\tau_{n-1}\otimes \tau_n)) & \text{if $|\tau_{n-1}| + |\tau_n| \geq r$}
 	\end{align*}
 	In addition, $\psi\circ \theta_j = \theta\circ \psi$ for each $j=0\ldots n$.
-\end{proposition}
+\end{proposition} %No proof? 
 
 
 \subsection{Barycentric subdivisions}\label{s:assembly}
 
-Recall that the barycentric subdivision $\sd \partial\simplex^{r-1}$ of the boundary of the standard simplex $\simplex^{r-1}$ is the simplicial complex that has one vertex for each non-empty face of $\simplex^{r-1}$ and one face $(\tau_0,\dots,\tau_k)$ of dimension $k$ for every ascending chain $\tau_0 \subset \tau_1\subset\dots \subset \tau_k$ of simplices of $\partial \simplex^{r-1}$. We will denote the face $\tau_0 \subset \dots \subset \tau_k)$ as $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_k]$, where $\bar{\tau}_i = \tau_i\smallsetminus \tau_{i-1}$ is the face such that the geometric join $\bar{\tau}_i\star \tau_{i-1}$ is the face $\tau_i$. With this notation, the differential on $\chains(\sd \partial \simplex^{r-1})$ becomes
+Recall that the barycentric subdivision $\sd \partial\simplex^{r-1}$ of the boundary of the standard simplex $\simplex^{r-1}$ is the simplicial complex that has one vertex for each non-empty face of $\simplex^{r-1}$ and one face $(\tau_0,\dots,\tau_k)$ of dimension $k$ for every ascending chain $\tau_0 \subset \tau_1\subset\dots \subset \tau_k$ of simplices of $\partial \simplex^{r-1}$. We will denote the face $(\tau_0 \subset \dots \subset \tau_k)$ as $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_k]$, where $\bar{\tau}_i = \tau_i\smallsetminus \tau_{i-1}$ is the face such that the geometric join $\bar{\tau}_i\star \tau_{i-1}$ is the face $\tau_i$. With this notation, the differential on $\chains(\sd \partial \simplex^{r-1})$ becomes
 \[
 \partial([\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_k]) = \sum_{i=0}^{k-1} (-1)^i[\bar{\tau}_0|\dots|\bar{\tau}_i\star \bar{\tau}_{i+1}|\dots |\bar{\tau}_k] + (-1)^k [\bar{\tau}_0|\dots|\bar{\tau}_{k-1}].
 \]
@@ -85,7 +85,8 @@ Consider the following endomorphisms of the chain complexes of the barycentric a
 	&
 	\alex \colon \chains(\Psd \partial\simplex^{r-1})& \lra \chains(\Psd \partial\simplex^{r-1}).
 \end{align*}
-The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subset \tau_{k-1}$ to the ascending chain of their complementary simplices $(-1)^{\binom{k}{2}} \tau_{k-1}^c \subset \dots\subset\tau_0^c$, which in our notation becomes $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_{k-1}]\mapsto (-1)^{\binom{k}{2}}[\tau_{k-1}^c|\bar{\tau}_{k-1}|\dots|\bar{\tau}_1]$. The second one sends $b \ot a$ to $\twist\circ \left(\alex^{-1} \ot \alex\right)(b \ot a)$, where $\twist\colon C\ot D\to D\ot C$ is the chain map $\twist(x\ot y) = (-1)^{|x||y|}y\ot x$.
+The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subset \tau_{k-1}$ to the ascending chain of their complementary simplices $(-1)^{\binom{k}{2}} \tau_{k-1}^c \subset \dots\subset\tau_0^c$, which in our notation becomes $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_{k-1}]\mapsto (-1)^{\binom{k}{2}}[\tau_{k-1}^c|\bar{\tau}_{k-1}|\dots|\bar{\tau}_1]$.
+The second one sends $a \ot b$ to $\twist\circ \left(\alex \ot \alex^{-1}\right)(a \ot b)$, where $\twist\colon C\ot D\to D\ot C$ is the chain map $\twist(x\ot y) = (-1)^{|x||y|}y\ot x$. \martin{I would change a bit the notation of this duality maps. Right now it says $\Lambda=\twist\circ(\alex\ot\alex^{-1})$. Maybe $\alex_{P}$ and $\alex_{\sd}$.}
 \begin{lemma}\label{lemma:diag_alex_twist} The following diagram commutes.
 	\begin{equation*}\label{diag:newdiag}
 		\xymatrix{
@@ -176,7 +177,17 @@ Since the sign of \eqref{eq:lastsign} was $(-1)^{k}$, the second square commutes
 \end{definition}
 
 \begin{proposition}\label{prop:construction_xi}
-	If $g$ is an $r$-cyclic assemblage map with duality, then there is a weak codegeneracy $\xi\colon \chains(\asimplex^{r-1})\ot \chains(\asimplex^{r-1})\to \Per{r}$ given by $\xi(a\ot b) = a*b$ if $|a|+|b|<r$ and by the following composition otherwise:
+	If $g$ is an $r$-cyclic assemblage map with duality, then there is a weak codegeneracy $\xi\colon \chains(\asimplex^{r-1})\ot \chains(\asimplex^{r-1})\to \Per{r}$ given by $\xi(a\ot b) = a*b$ if $|a|+|b|<r$ and by the following composition otherwise: \martin{I would change the places for the suspensions so it matches the target:{\small
+	\[
+		\chains(\partial \simplex^{r-1})\otimes \chains(\partial \simplex^{r-1})
+		\overset{\id\otimes \alex}{\lra}
+		\susp{r}\chains(\Psd\partial\simplex^{r-1})
+		\overset{s_*^{\Psd}}{\lra}
+		\susp{r-1}\chains(\sd\partial\simplex^{r-1})
+		\overset{g_*}{\lra}
+		\susp{r-1}\chains(\partial\simplex^{r-1}).
+	\]
+	}}
 	{\small
 	\[
 		\susp{-r}\chains(\partial \simplex^{r-1})\otimes \chains(\partial \simplex^{r-1})
@@ -201,7 +212,7 @@ Regarding the left hand-side of \eqref{eq:771},
 \[
 	\partial\circ \xi(a\ot b) 
 	= \partial\circ g_*\circ s^{\Psd}\circ (\id \ot \alex)(a\otimes b) 
-	= (-1)^{k}\partial\circ g_*\circ s^{\Psd}(a\otimes \Lambda(b))
+	= (-1)^{k}\partial\circ g_*\circ s^{\Psd}(a\otimes \Lambda(b))%why (-1)^k?
 \]
 which is zero unless $a\star b = \sigma$, in which case it equals
 \[
@@ -240,7 +251,7 @@ In $(1)$ we use that $\partial\sigma$ is fixed by the action of $\rho$, in $(2)$
 \end{proof}
 
 
-Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r-1}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime.
+Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r-1}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime. %proposition?
 
 
 
@@ -253,7 +264,7 @@ Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, 
 \end{proposition}
 
 \begin{proof}
-	If $\tau\mapsto x_{\tau}\in \tau$ is an $r$-cyclic straightening, we can define an assemblage map $g$ as
+	If $\tau\mapsto x_{\tau}\in \tau$ is an $r$-straightening, we can define an assemblage map $g$ as
 	\[
 	g(\tau_0\subset\dots\subset\tau_{k-1}) = [x_{\tau_0},\dots,x_{\tau_{k-1}}]
 	\]
