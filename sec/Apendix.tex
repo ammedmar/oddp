@@ -1,0 +1,93 @@
+\appendix
+\section{}
+\subsection{Building a chain complex from a simplicial chain complex}
+
+Let $Z_\bullet$ be a simplicial chain complex. Its face and degeneracy maps are chain homomorphisms that we denote $d^Z_j$ and $s^Z_i$ and allow to have degree $-l$ and $l$ respectively.  Each $Z_m$ is a chain complex with chain modules $Z_{q,m}$ and differential $\partial^Z$ of degree $-1$. 
+
+We can turn this simplicial chain complex into the bicomplex $(Z_{q,m}, \partial^Z,\delta^Z)$, where $\partial^Z$ becomes a \emph{horizontal} differential of bidegree $(-1,0)$, and $\delta^Z$ is a \emph{tilted} differential of bidegree $(-l,-1)$ defined as
+\[
+\delta^Z(z):=\sum_{j=0}^m (-1)^j d^Z_j(z)
+\] 
+for $z\in Z_{q,m}$. Observe that if $l=0$ we then obtain a usual bicomplex with horizontal and vertical differentials.
+
+The total complex of this bicomplex is a chain complex that we denote $\chains (Z_\bullet)$ and is given by
+\[
+\chains (Z_\bullet)_k:=\bigoplus_{q+m=k} Z_{q,m}
+\]
+with differential
+\[
+\partial (z)=\partial^Z(z)+ (-1)^q\delta^Z(z)=\partial^Z(z)+(-1)^m\sum_{j=0}^q(-1)^jd^Z_j(z)
+\]
+for $z\in Z_{q,m}$.\martin{WARNING. This is not a chain complex unless $l=0$, the differential has two summands: one with degree $-1$ and another with degree $-l-1$.} 
+The notation is inspired by the fact that applying this construction to a simplicial graded $R$-module seen as a simplicial chain complex with zero differential at each simplicial level is the same as taking the complex of normalized chains of that simplicial graded $R$-module.
+
+\begin{example}
+Recall that we denote by $\asimplex^n(r)_\bullet$ the simplicial graded $R$-module defined as
+\[
+\asimplex^n(r)_m=\sus{(r-1)m} R\langle (\asimplex^n)_m\rangle = \sus{(r-1)m}\chains(\asimplex^n)_m
+\]
+with face and degeneracy maps $d^\Delta_j$ aand $s^\Delta_i$  induced by those of $\asimplex^n$, which now become homomorphisms of degree $1-r$ and $r-1$ respectively. 
+
+If we regard it as a simplicial chain complex with differential $\partial^\Delta=0$, we can construct the bicomplex $(\asimplex^n(r)_{q,m}, 0, \delta^\Delta)$, where $\asimplex^n(r)_{q,m}$ is nonzero only when $q=(r-1)m$, and $\delta^\Delta$ has bidegree $(1-r,-1)$. Totalizing it gives us the chain complex 
+\begin{align*}
+\chains(\asimplex^n(r)_\bullet)_k = \begin{cases} \chains(\asimplex^n)_{m} & \text{if $k = rm$} \\ 0 & \text{otherwise} \end{cases}
+\end{align*}
+with differential of degree $-r$
+\[
+\partial (\vec\tau) =(-1)^q\delta^\Delta(\vec\tau)= (-1)^q\sum_{j=0}^m(-1)^jd^\Delta_j(\vec\tau), 
+\]
+which is precisely the complex of normalized chains of $\asimplex^n(r)_\bullet$. Note that if r is an odd prime, $q=(r-1)m$ will always be even and so $\partial=\delta^\Delta$.
+
+
+\end{example}
+
+\begin{example}\label{Chains_tensor}
+Let $Y_\bullet$ be a simplicial chain complex with face and degeneracy maps of degrees $r-1$ and $1-r$ respectively. In this example we will construct the chain complex $\chains(Y_\bullet \otimes \asimplex^n(r)_\bullet)$.
+
+The simplicial chain complex $Z_\bullet:=Y_\bullet \otimes \asimplex^n(r)_\bullet$ is given by 
+\[
+Z_m=Y_m \otimes \asimplex^n(r)_m,
+\]
+with face and degeneracy maps $d^Z_j=d^Y_j\otimes d^\Delta_j$ and $s^Z_i=s^Y_i\otimes s^\Delta_i$ of degree $0$, since $\deg d^Y_j=-\deg d^\Delta_j$ and $\deg s^Y_j=-\deg s^\Delta_j$ by asumption. 
+For each $m$, $Z_m$ is the chain complex with
+\[
+Z_{q,m}=\bigoplus_{q=p+t}Y_{p,m}\otimes\asimplex^n(r)_{t,m}.
+\]
+But $\asimplex^n(r)_{m,t}$ is nonzero only if $t=(r-1)m$, and 
+\[
+\asimplex^n(r)_{(r-1)m,m}= \chains(\asimplex^n)_m=\chains(\asimplex^n(r)_\bullet)_{rm}
+\]
+thus, 
+\[
+Z_{q,m}=Y_{q-(r-1)m,m}\otimes\chains(\asimplex^n(r)_\bullet)_{rm}
+\]
+and its differential is $\partial^Z=\partial^Y\otimes \mathrm{Id}$.
+Therefore, the totalization of the bicomplex $(Z_{q,m},\partial^Z,\delta^Z)$, where $\partial^Z$ has bidegree $(-1,0)$ and $\delta^Z$ has bidegree $(0,-1)$ is the chain complex
+\[
+\chains(Y_\bullet\otimes\asimplex^n(r)_\bullet)_k=\bigoplus_{q+m=k}Y_{q-(r-1)m,m}\otimes\chains(\asimplex^n(r)_\bullet)_{rm},
+\]
+whose differential, applied to an element $y\otimes\vec{\tau}\in Y_{q-(r-1)m,m}\otimes\chains(\asimplex^n(r)_\bullet)_{rm}$, gives
+\[
+\partial(y\otimes \vec{\tau}) = \partial^Y(y)\otimes \vec{\tau} + (-1)^q\sum_{j=0}^m(-1)^j\left (d^Y_j(y)\otimes d^\Delta_j(\vec{\tau})\right ).
+\]
+\end{example}
+
+\begin{example}
+Let $\Wdualaug{r}_\bullet$ denote the constant simplicial chain complex with value $\Wdualaug{r}$, face maps $\theta^\dd$ and degeneracy maps BLABLABLA. Recall that $\theta\colon \Waug{r}\to\Waug{r}$ is the homomorphism of degree $1-r$ given by
+\begin{align*}
+\theta(e_i) = \begin{cases} e_{i+1-r} & \text{if $i\geq r-1$} \\ 0 & \text{otherwise} \end{cases}.%maybe with some coefficient.
+\end{align*}
+Observe that $\theta^\dd$ is then a homomorphism of degree $r-1$, so we are in the situation of Example \ref{Chains_tensor}. Therefore, the chain complex $\chains(\Wdualaug{r}_\bullet\ot\asimplex^n(r)_\bullet)$ is given by
+\[
+\chains(\Wdualaug{r}_\bullet\otimes\asimplex^n(r)_\bullet)_k=\bigoplus_{q+m=k}\Wdualaug{r}_{q-(r-1)m}\otimes\chains(\asimplex^n(r)_\bullet)_{rm},
+\]
+and its differential, for $i=q-(r-1)m$ and $\deg \vec\tau=rm$ is
+\[
+\partial(e_i^\dd\otimes \vec{\tau}) = \partial(e_i^\dd)\otimes \vec{\tau} + (-1)^q\theta^\dd(e_i)\otimes \delta^\Delta(\vec{\tau}).
+\]
+
+\end{example}
+
+
+
+
