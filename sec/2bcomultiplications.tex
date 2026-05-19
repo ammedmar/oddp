@@ -87,7 +87,7 @@ If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
 %\[
 %\dotsb \lra \sus{4(1-r)}\W{r}\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W{r} \overset{\theta_{2(1-r)}}{\lra} \W{r}.
 %\]
-where $\theta \colon \susp{1-r}\W{r} \to \W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence
+where $\theta \colon \susp{1-r}\W{r} \to \W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence %Cohomology, not homology
 \[
 \Wst(r) \lra \W{r}\overset{N}{\lra} \Wd(r)
 \]
@@ -177,7 +177,7 @@ An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$.
 Let $\Waug{r}$ be the augmented minimal resolution of $\Cyc_r$, i.e., the chain complex
 \[
 R
-\overset{N}{\lla} %what is N here? Since we are passing through quotienting by $\rho=1$ then this map sends $e_1$ to r?
+\overset{\varepsilon}{\lla} 
 R[\Cyc_r]\langle e_{1}\rangle
 \overset{T}{\lla}
 R[\Cyc_r]\langle e_{2}\rangle
@@ -185,7 +185,7 @@ R[\Cyc_r]\langle e_{2}\rangle
 R[\Cyc_r]\langle e_{3}\rangle
 \overset{T}{\lla}
 \dotsb
-\]\martin{The augmentation map $N$ sends $e_1\mapsto r$, shouldn't it be $e_1\mapsto 1$? Same with $-N$ in the dual. Note that this influences the definition of $\theta(e_i)$ below.} 
+\]
 (note the reindexing, so that $e_i$ has degree $i$) and $\Wdualaug{r}$ for its dual:
 \[
 \dotsb
@@ -195,16 +195,16 @@ R[\Cyc_r]\langle e_{3}^\dd\rangle
 R[\Cyc_r]\langle e_{2}^\dd\rangle
 \overset{T}{\lla}
 R[\Cyc_r]\langle e_{1}^\dd\rangle
-\overset{-N}{\lla} %Same as before, -N here is mult by -r? so that $-N(1)=-r e_1^\dd$?
+\overset{-\varepsilon}{\lla} 
 R.
 \]
-Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$.
+Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$. %The thing is that the correct action is the right action, so that $e_i^\dd \rho=(\rho^{-1}e_i)^\dd$.
 The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
-If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \susp{r-1}\Waug{r}$ defined as %It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match.
+If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \susp{r-1}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match.
 \begin{align*}
 	\theta(e_0) &= N(e_{r-1}),
 	&
-	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r.	%Where do you send $e_i$ when $0 < i < r$? %Also, if the comment in line 180 is right maybe then it should be $r e_{i+r-1}$ (multiply by $r$ aswell).
+	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r.	%Where do you send $e_i$ when $0 < i < r$? 
 \end{align*}
 If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, 
 Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\Cyc_r]$-module $\Wdualaug{r} \ot \rucadenas$ with the differential

@@ -18,7 +18,7 @@ Through the isomorphism $\Cyc_r \cong \{0,1,\dots,r-1\}$ we endow the latter wit
 		0 & \text{otherwise,}
 	\end{cases}
 \end{align*}
-Let $A= a_0\prec a_1\prec\dots\prec a_{q-1}$ be a cyclically ordered sequence in $\{0,1,\dots,r-1\}$. Say that $a_i$ is \emph{even (resp. \emph{odd}) in the sequence} if $a_{i+1}-a_i$ is an even number (resp. an odd number).
+Let $A= a_0\prec a_1\prec\dots\prec a_{q-1}$ be a cyclically ordered sequence in $\{0,1,\dots,r-1\}$. Say that $a_i$ is \emph{even (resp. \emph{odd}) in the sequence} if $a_{i+1}-a_i$ is an even number (resp. an odd number). Note that $a_q=a_0+r$.
 Define the following elements of $\rW(r)$:
 \begin{align*}
 	\Phi_e(a_0,\dots,a_{q-1}) &= \begin{cases}
@@ -30,7 +30,7 @@ Define the following elements of $\rW(r)$:
 		\sum_{j=0}^{q-1} \phi_o(a_j,a_{j+1})\cdot e_q & \text{if $A$ has no even entries} \\
 		0 & \text{otherwise.}
 	\end{cases}
-\end{align*}
+\end{align*}\martin{If I want to compute $\Phi_e(4, 1, 2)$, for $r=5$, where the only even entry is $4$, do I compute $\phi_e(4,1)$ or $\phi_e(4,6)$? If it is the second, the formula should be $\phi_e(\bar{a}_j,\bar{a}_{j+1})$, right? Similar question for $\Phi_o$}
 
 A \emph{cyclic representative} of a generator $[a_0,\dots,a_{q-1}]\in \chains(\partial \asimplex^{r-1})$ is a cyclically ordered sequence $(a_{\perm(0)},\dots,a_{\perm(q-1)})$. Removing an element from the sequence keeps the property of being cyclically ordered. The assignments $\Phi_e(A)$ and $\Phi_o(A)$ induce well defined assigments $\Phi_e[a_0,\dots,a_{q-1}]$ and $\Phi_o[a_0,\dots,a_{q-1}]$ on the generators of $\chains(\asimplex^{r-1})$. In what follows we work always with these cyclic representatives. Let $\varphi(q) = \lfloor\frac{r-q-1}{2}\rfloor$ if $q<r-1$ and $\varphi(r-1) =1$.
 
