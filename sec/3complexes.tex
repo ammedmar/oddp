@@ -79,22 +79,22 @@ given on an ordered representative $[v_0,\dots,v_{k-1}]\in \chains(\asimplex^n)$
 \\
 \s^i([v_0,\dots,v_{k-1}]) &= [v_0,\dots,v_{j-1},v_j-1,\dots,v_{k-1}-1] \quad \text{if $v_{j-1} \leq i < v_j$}.
 \end{align*}
-If $X$ is an augmented simplicial object in $\cC$, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and the augmented simplicial $R$-module $\abel(X)_\bullet$:
-\begin{equation}\label{eq:1}
-	\chains(X)
- \cong 
- \chains(\asimplex^\bullet) \ot_{\asimplex} \abel(X)_\bullet.
+If $X$ is an augmented simplicial object in $\cC$, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and the augmented simplicial $R$-module $\L(X)_\bullet$:
+\begin{equation}\label{eq:1} 
+ \chains(\asimplex^\bullet) \ot_{\asimplex} \L(X)_\bullet
+ \cong	
+ \chains(X).
 \end{equation}
 This sends a simplex $[k] \to [n]$ and a simplex $[n] \to X$ to the composition $[k] \to X$.
 
 
 
 
-Via Alexander duality, the sequence of chain complexes $\cochains(\asimplex^\bullet)$ is then endowed with the following augmented \emph{cosimplicial} structure
+Via Alexander duality, the sequence of chain complexes $\susp{\bullet +1}\cochains(\asimplex^\bullet)$ is then endowed with the following augmented \emph{cosimplicial} structure
 \begin{align*}
 	\d^i \colon \cochains(\asimplex^n) & \lra \susp{}\cochains(\asimplex^{n+1})
-	&
-	\s^i \colon \cochains(\asimplex^{n+1}) & \lra \susp{}\cochains(\asimplex^n)
+	\\
+	\s^i \colon \cochains(\asimplex^{n+1}) & \lra \susp{-1}\cochains(\asimplex^n)
 \end{align*}
 given on an ordered generator $U=(u_0,\dots,u_{m-1})$ by
 \begin{align*}
@@ -108,86 +108,90 @@ given on an ordered generator $U=(u_0,\dots,u_{m-1})$ by
 	0 & \text{otherwise.}
 	\end{cases}
 \end{align*} %Why is the next statement important? It wasn't stated for $\chains(\asimplex^\bullet)$.
-The face maps of this cosimplicial structure have degree $1$ while degeneracies have degree $-1$. 
-\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.} The chain complexes $\cochains(\asimplex^\bullet)$ have a simplicial structure as well: the linear dual of the cosimplicial structure on $\chains(\asimplex^\bullet)$, whose face and degeneracies are denoted by $\d_i$ and $\s_i$.
-
-Let $L^{(m)}(X)_\bullet$ be the graded simplicial $R$-module with $\mathbf{L}(X)_n = \sus{nm}L(x)_n$. The face maps of this simplicial set have degree $-m$ and the degeneracies have degree $m$. The map 
-\[
-	\Lambda_n \ot \sus{-n}\colon \cochains(\asimplex^\bullet)\ot_{\asimplex} L^{(1)}(X)_\bullet\to \chains(\asimplex^{\bullet})\ot_{\asimplex} L(X)_\bullet
-\]
-is well-defined and an isomorphism of chain complexes. Since the $r$-fold tensor product of (co)simplicial chain complexes is again a (co)simplicial chain complex, we obtain an isomorphism
+ The chain complexes $\cochains(\asimplex^\bullet)$ have a simplicial structure as well: the linear dual of the cosimplicial structure on $\chains(\asimplex^\bullet)$, whose face and degeneracies are denoted by $\d_i$ and $\s_i$.\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.}
+The following isomorphism gives another characterization of $\chains(X)$:
+\begin{equation}\label{eq:dual}
+	\Lambda^{-1} \ot \Id\colon \susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet
+	\lra
+	\chains(\asimplex^{\bullet})\ot_{\asimplex} \L(X)_\bullet
+\end{equation}
+The $r$-fold tensor product of (co)simplicial chain complexes is again a (co)simplicial chain complex, and the functor tensor product construction commutes with the tensor product:
 \begin{equation}\label{eq:assemble}
-	\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} L^{(1)}(X)^{\ot r}_\bullet \lra \left(\cochains(\asimplex^\bullet)\ot_{\asimplex} L^{(1)}(X)_\bullet \right)^{\ot r} \lra
-	\chains(X)^{\ot r}
+	\susp{(\bullet +1)r}\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} \L(X)^{\ot r}_\bullet 
+	\lra 
+	\left(\susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet \right)^{\ot r}.
 \end{equation}
 
-A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^\bullet)^{\ot r}$ is \emph{almost $i$-full} if all but one of the tuples $U_0,\ldots,U_{r-1}$ contain the number $i$. It is \emph{$i$-full} if all the tuples contain $i$. The generators that are not $i$-full for any $i$ are also known as \emph{interior}. 
+A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^n)^{\ot r}$ is \emph{almost $i$-full} if all but one of the tuples $U_0,\ldots,U_{r-1}$ contain the number $i$. It is \emph{$i$-full} if all the tuples contain $i$. The generators that are not $i$-full for any $i$ are also known as \emph{interior} for the cosimplicial structure. Let $\cochains(\asimplex^n)^{\ot r}_{\interior}$ denote the quotient of the complex $\cochains(\asimplex^n)^{\ot r}$ by the subcomplex generated by the non-interior generators, and let $\chains(\asimplex^n)^{\ot r}_\interior$ be its linear dual. The cyclic group $\Cyc_r$ acts on them permuting the factors.
+\begin{definition}
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\cochains(\asimplex^{n})^{\ot r}_\interior$ has a semi-simplicial structure with face maps 
+	\begin{align*}
+		\d_i\colon \cochains(\asimplex^n)^{\ot r}_\interior &\lra
+		\susp{1-r}\cochains(\asimplex^{n-1})^{\ot r}_\interior	
+	\end{align*}
+	given by $\d_i = \sum \s^i\ot \ldots \s^i\ot\d_i\ot \s^i \ot \ldots \s^i$. This map sends an almost $i$-full generator $U_0\ot \cdots \ot U_{r-1}$ to $\s^iU_0\ot\ldots\ot \d_iU_j\ot\ldots\ot \s^iU_{r-1}$ if $i$ is not contained in $U_j$. All other generators are sent to $0$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(\bullet+1)(1-r)}\chains(\asimplex^n)^{\ot r}_\interior$ whose coface maps are denoted $\d^i$.	
+\end{definition}
 
-Let $\cochains(\asimplex^\bullet)^{\ot r}_{\interior}$ denote the quotient of the complex $\cochains(\asimplex^\bullet)^{\ot r}$ by the subcomplex generated by the non-interior generators. Define
-\begin{align*}
-	\d_i\colon \cochains(\asimplex^n)^{\ot r}_\interior &\lra
-	\cochains(\asimplex^{n-1})^{\ot r}_\interior	
-\end{align*}
-as follows: if $U_0\ot \cdots \ot U_{r-1}$ is not almost $i$-full, then it is sent to $0$. Otherwise, let $d_i(U_0\ot \cdots \ot U_{r-1})$ be $\pm s^iU_0\ot\ldots\ot \d_iU_j\ot\ldots\ot s^iU_{r-1}$ if $i$ is not contained in $U_j$. This endows $\cochains(\asimplex^\bullet)^{\ot r}_\interior$ with a simplicial structure. 
+\begin{definition}
+	Let $[n]\mapsto \Lnd(X)_n$ denote the semi-simplicial $R$-module obtained from the simplicial $R$-module $\L(X)_\bullet$ by quotienting by the degeneracies.
+\end{definition}
 
-Let $\Lnd(X)_\bullet$ denote the semi-simplicial object obtained from $L(X)$ by quotienting by the degeneracies. 
-
-In the following lemma $\chains(\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot_{\asimplex} \Lnd^{(1)}(X)^{\ot r})$ denotes the chain complex of the semi-simplicial tensor product and $\cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} L^{(1)}(X)^{\ot r}_\bullet$ denotes the simplicial functor tensor product.
+ For the following lemma recall that $\ot$ denotes the semi-simplicial tensor product and $\ot_{\asimplex}$ denotes the functor tensor product.
 
 \begin{lemma}\label{lemma:simp-cosimp}
 	The map 
-	\[\chains(\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot_{\asimplex} \Lnd^{(1)}(X)^{\ot r})
-	\lra \cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} L^{(1)}(X) ^{\ot r}_\bullet\]
-	that sends a generator $(U_0\ot\ldots \ot U_{r-1})\ot (x_0\ot\ldots\ot x_{r-1})$ to the same generator on the right hand-side is an isomorphisms of chain complexes.
+	\[\chains(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot \Lnd(X)^{\ot r}_\bullet)
+	\lra \susp{(\bullet+1)r}\cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} \L(X) ^{\ot r}_\bullet\]
+	that sends a generator $(U_0\ot\ldots \ot U_{r-1})\ot (x_0\ot\ldots\ot x_{r-1})$ to the same generator on the right hand-side is an isomorphism of $R\Cyc_r$-chain complexes.
 \end{lemma}
 \begin{proof}
 	TBD. The paper \url{https://www.jstor.org/stable/2043689} basically says that this is an isomorphism of graded modules (i.e., forgetting the differential). Probably this is already in the literature.
 \end{proof}
 
-Consider the semi-simplicial chain complex whose $n$-simplices are $\Wdualaug{r}$ (thus it is constant on objects) and whose face maps are all equal to the map $\theta$.  \federico{the degeneracies are missing}
+Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chain map $\theta^\vee\colon \Wdualaug{r}\to \susp{1-r}\Wdualaug{r}$.
+
+\begin{definition} The sequence of chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\Wdualaug{r}$ has a semi-simplicial structure whose face maps are all equal to $\theta^\vee$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(n+1)(1-r)}\Waug{r}$ whose coface maps are all equal to $\theta$.	
+\end{definition}
 
 \begin{lemma}\label{lemma:hotimessimp}
-	The chain complex $\Wdualaug{r}\hotimes \rchains(X)_\bullet$ is isomorphic to the chain complex $\chains(\Wdualaug{r}_\bullet \ot_{\asimplex} L^{(r)}(X)_\bullet)$
+	The chain complex $\Wdualaug{r}\hotimes \chains(X)$ is isomorphic to the chain complex $\chains(\susp{(\bullet+1)(r-1)}\Wdualaug{r} \ot \L(X)_\bullet)$
 \end{lemma}
 \begin{proof}
 	TBD
 \end{proof}
 
-We now let $\chains(\asimplex^n)^{\ot r}_\interior$ be the linear dual of $\cochains(\asimplex^n)^{\ot r}_\interior$, and $\Waug{r}$ the linear dual of $\Wdualaug{r}$, which are therefore semi-cosimplicial chain complexes.
 
 \begin{corollary}\label{prop:milnor_to_minimal}
 	A family of equivariant chain maps 
 	\[
 	\Psi_n\colon \chains(\asimplex^{n})^{\ot r}_\interior \lra \Waug{r}
 	\]
-	such that $\theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \d_j$ for each $j$ and for some constant $c$ yields an equivariant chain map
+	such that $\theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \d^j$ for each $j$ and for some constant $c$ yields an equivariant chain map
 	\[
-	\mu\colon \Wdualaug{r}\hotimes \rchains(X)\lra \chains(X)^{\ot r}
+	\mu\colon \Wdualaug{r}\hotimes \chains(X)\lra \chains(X)^{\ot r}
 	\]
 \end{corollary}
 \begin{proof}
-	The map is obtained as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map 
+	The map is obtained on dimension $n$ as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map 
 	\[
-		c^{\bullet+1}\cdot \Psi_\bullet^\vee\ot \diag\colon \chains(\Wdualaug{r}_\bullet \ot_{\asimplex} L^{(r)}(X)_\bullet) 
+		\chains(\susp{(\bullet+1)(r-1)}\Wdualaug{r} \ot_{\asimplex} \L(X)_\bullet) 
 		\lra
-		\chains\left(\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot_{\asimplex} L^{(1)}(X)^{\ot r}_\bullet\right),	
+		\chains\left(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^n)^{\ot r}_\interior\ot_{\asimplex} \L(X)^{\ot r}_\bullet\right),	
 	\]
-	the isomorphism of Lemma \ref{lemma:simp-cosimp} and the map \eqref{eq:assemble}.
+	given on $n$-simplices by $c^{n+1}\cdot \Psi_n^\vee\ot \diag$, the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.
 \end{proof}
 
-In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define three semi-cosimplicial chain complexes with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three maps between them:  
+In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define two additional cosemi-simplicial chain complexes $	\sus{(\bullet +1)(r-1) }\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}$ and $\sus{(\bullet+1)(r-1)}\Per{r}$ with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three maps between them (for the sake of clearness, we omit the symbol $\sus{(\bullet+1)(r-1)}$ everywhere):  
 \[
 	\chains(\asimplex^{\bullet})^{\ot r}_{\interior}
 	\lra
 	\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}
 	\lra
-	\Lambda_+(\asimplex^{r-1})
+	\Per{r}
 	\lra
 	\Waug{r}
 \]
-whose composition satisfies the conditions of this corollary (the last  two semi-cosimplicial chain complexes are constant on objects). 
-\label{remark:many_coefficients}
-	For this map, the constant will be $c= \tilde{r}!$, where $\tilde{r} = \frac{r-1}{2}$. Although the map $\phi$ produced in \cref{prop:milnor_to_per} is only defined with coefficients in $R[\frac{1}{\tilde{r}!}]$, the map $\tilde{r}^{n+1}\phi$ is well defined with coefficients in $R$.
+whose composition satisfies the conditions of this corollary. The first two maps are cosemi-simplicial maps while the rightmost commutes with the face maps up to the constant $c= \tilde{r}!$, where $\tilde{r} = \frac{r-1}{2}$. Although the map $\phi$ produced in \cref{prop:milnor_to_per} is only defined with coefficients in $R[\frac{1}{\tilde{r}!}]$, the map $c^{n+1}\cdot \phi$ is well defined with coefficients in $R$.\label{remark:many_coefficients}
 \subsection{A Milnor resolution}\label{s:milnor}
 
 Let $X$ be a space and let $X_+$ be the augmented space obtained by adding the trivial augmentation $X\to *$. Let $X*X$ denote the join of $X$ with itself and $X\star X$ denote the reduced join of $X$ with itself. There are isomorphisms
@@ -197,18 +201,16 @@ Let $X$ be a space and let $X_+$ be the augmented space obtained by adding the t
 	\chains(X\star X) &\cong \chains(X)^{\ot 2}.
 \end{align}
 
-If $G$ is a finite group and $X$ is a space with a free $G$-action, then the infinite join of $X$ with itself is a contractible space with a free $G$-action, and therefore a model of $EG$. Its normalised chain complex with coefficients in $R$ is then an acyclic resolution of $G$. For example, taking $X$ to be the set $G$ with the left action by $G$ and using the reduced join results in the \emph{Milgram resolution of $G$}:
+If $G$ is a finite group and $X$ is a space with a free $G$-action, then the infinite join of $X$ with itself is a contractible space with a free $G$-action, and therefore a model of $EG$. Its normalised chain complex with coefficients in $R$ is then an acyclic resolution of $G$. For example, taking $X$ to be the set $G$ with the left action by $G$ and using the reduced join we obtain the Milgram resolution of $G$ (see \cref{ss:milnor})
 
-DISPLAY MILGRAM RESOLUTION
-
-If instead we take the $n$-fold join of $X$ with itself and $X$ is $m$-connected, the resulting space is $n(m+1)$-connected, hence its chain complex gives an $n(m+1)$-acyclic resolution of $G$. We refer to these resolutions as \emph{Milnor resolutions}. We will be interested in the case $X=\partial \simplex^{r-1}$ is the boundary of the standard $(r-1)$-simplex, with the $\Cyc_r$-action that permutes the vertices of $\partial \simplex^{r-1}$. This action is free if and only if $r$ is prime. The following definition assumes that $r$ is odd or that $R=\bF_2$.
+If instead we take the $n$-fold join of $X$ with itself and $X$ is $m$-connected, the resulting space is $(n(m+2)-1)$-connected, hence its chain complex gives an $(n(m+2)-1)$-acyclic resolution of $G$. We refer to these resolutions as \emph{Milnor resolutions}. We will be interested in the case $X=\partial \simplex^{r-1}$ is the boundary of the standard $(r-1)$-simplex, with the $\Cyc_r$-action that permutes the vertices of $\partial \simplex^{r-1}$. This action is free if and only if $r$ is prime. Write $\sigma = [0,1,\ldots,r-1]$ for the top simplex of $\asimplex^{r-1}$. The following definition assumes that $r$ is odd or that $R=\bF_2$.
 
 \begin{definition}
-	The chain complexes $\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}$ assemble into a semi-cosimplicial chain complex with
+	The sequence of chain complexes $[n]\mapsto \sus{(n+1)(1-r)}\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}$ has a cosemi-simplicial structure with coface maps
 	\begin{align*}
-		\d_i\colon \chains(\partial \asimplex^{r-1})^{\ot n+1} &\lra \chains(\partial \asimplex^{r-1})^{\ot n+2}
+		\d^i\colon \chains(\partial \asimplex^{r-1})^{\ot n+1} &\lra \chains(\partial \asimplex^{r-1})^{\ot n+2}
 	\end{align*}
-	given by $\d_i([\tau_0\ot \dots \ot\tau_{n}]) = \tau_0\ot \dots \tau_{i-1}\ot \partial\sigma \ot \rho^{-1}(\tau_i) \ot \dots \ot \rho^{-1}(\tau_{n}).
+	given by $\d^i([\tau_0\ot \dots \ot\tau_{n}]) = \tau_0\ot \dots \tau_{i-1}\ot \partial\sigma \ot \rho^{-1}(\tau_i) \ot \dots \ot \rho^{-1}(\tau_{n}).
 		$%\label{eq:simp_str2}
 \end{definition}
 
@@ -233,16 +235,18 @@ Explicitly, if $\tau_0\ot \ldots \ot \tau_{r-1}$ is a generator of $\chains(\asi
 \]
 where $s$ is the sign of the permutation that rearranges the vertices.
 
-\begin{lemma}\label{lemma:bartomilnor}
-	The restriction of this isomorphism to the subcomplexes  $\chains(\asimplex^{\bullet})^{\ot r}_\interior$ induces an isomorphism of semi-cosimplicial chain complexes
+Now, let $\beta$ be the automorphism of $\chains(\partial\asimplex^{r-1})^{\ot(n+1)}$ given by $\rho^0\ot \rho^{-1}\ot\ldots \ot \rho^{-n}$, where $\rho$ denotes the action of the cyclic group $\Cyc_r$. 
+
+\begin{proposition}\label{lemma:bartomilnor}
+	The restriction of $\beta\circ \alpha$ to the subcomplexes  $\chains(\asimplex^{\bullet})^{\ot r}_\interior$ induces an isomorphism of cosemi-simplicial chain complexes
 	\[
-		\chains(\asimplex^{\bullet})^{\ot r}_\interior
+		\sus{(\bullet+1)(r-1)}\chains(\asimplex^{\bullet})^{\ot r}_\interior
 		\lra 
-		\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}.
+		\sus{(\bullet+1)(r-1)}\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}.
 	\]
-\end{lemma}
+\end{proposition}
 \begin{proof}
-	TBD: I think it is easier to write down the cosimplicial structure in $\chains(\asimplex^{n})^{\ot r}_\interior$, see that $\alpha$ induces an isomorphism and that $\alpha$ commutes with the simplicial structure.
+	TBD: I think it is easier to write down the cosemi-simplicial structure in $\chains(\asimplex^{n})^{\ot r}_\interior$, see that $\alpha$ induces an isomorphism and that $\alpha$ commutes with the simplicial structure.
 \end{proof}
 
 
