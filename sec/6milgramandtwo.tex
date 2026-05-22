@@ -54,12 +54,34 @@ $\Psi^\vee(e^\vee_{-4})$ is the signed sum of all permutations of $(0,1,2,3)$, s
 
 This map is different from the one obtained in \cite[Prop.~6.16]{brumfiel2023explicit}, and in fact that map cannot be used to construct $\Psiom$ following the recipy of Definition \ref{def:psiom}.
 
-
-\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\bigcup_n \chains(\partial \asimplex^1)^{\ot n}$ is isomorphic to the unnormalized chain complex of $\EC_2$, while both $\Waug{r}$ and $\Per{r}$ are isomorphic to the normalized chain complex of $\EC_2$. The quotient map $\uchains(\EC_2) \to \chains(\EC_2)$ induces therefore a map
+\subsection{The join and the reduced join} Observe that the map $\psi$ constructed factors through the reduced join:
 \[
-\chains(\partial \asimplex^1)^{\ot (n+1)} \lra \Per{r} \overset{=}{\lra} \Waug{r}
+	\chains(\partial\asimplex^{r-1})^{\bullet+1}
+	\lra
+	\chains(\partial \simplex)^{\bullet+1}_+
+	\lra
+	\Per{r}
 \]
-and it is easy to see that they intertwines $\theta_j$ and $\theta$, for $j=0,1$.
+where the middle chain complex has been augmented. For example, the image of $\tau_0\ot \emptyset \ot \tau_1$ is the same as the image of $\tau_0\ot\tau_1\ot\emptyset$.
+
+
+\subsection{The even prime}\label{ss:even} If $r= 2$ and $R=\bF_2$, then $\Per{r}$ and $\Waug{r}$ are isomorphic and $\phi$ sends the generator $\sus{q}[0]$ to $e_q$ and the generator $\sus{q}[1]$ to $\rho e_q$.
+
+Regarding the map $\psi$, observe that $\partial \simplex^{r-1}$ is isomorphic to $\Cyc_r$, thus the union $\bigcup_n \chains(\partial \simplex^1)^{\ot n}$ is isomorphic to the unnormalized chain complex of the Milgram resolution $\EC_2$, while $\Per{r}$ is isomorphic to the normalized chain complex of $\EC_2$. The map $\psi\colon \chains(\partial \asimplex^1)^{\ot (n+1)} \lra \Per{r}$ is the composition of
+\[
+	\chains(\partial \asimplex^1)^{\ot (n+1)}
+	\to
+	\chains(\partial \simplex^1)^{\ot (n+1)}
+	\to
+	\uchains(\EC_r)
+	\to
+	\chains(\EC_r)
+	\overset{\cong}{\to}
+	\Per{r}
+\] 
+where the first map forgets the empty factors, the second map is the inclusion into the union, the third map is the projection to the normalised chains and the last map sends a normalised chain $[u_0,u_1,\ldots,u_q]$ to $\sus{q}[u_0]$. 
+
+Under this identification, the coface map $\d^i$ of $\chains(\partial\simplex^{r-1})^{n+1}$ (resp.\ $\chains(\partial\asimplex^{r-1})^{n+1}$) sends a sequence $[a_0]\ot \ldots\ot a_n]$ of $[0]$'s and $[1]$'s (resp.\ and $\emptyset$) to the sum of the two sequences that result from adding a $[0]$ or a $[1]$ at the right of the sequence. The coface map $\d^i$ of $\Per{r}$ sends $\sus{q}[0]$ to $\sus{q+1}[0]$ and $\sus{q}[1]$ to $\sus{q+1}[1]$. Thus $\psi$ is a cosemi-simplicial chain map.
 \begin{remark}
-	The combinatorics in pages 13 and 14 of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalized chains to the normalized chains is well-defined, i.e., to the fact that the degenerate simplices generate a subcomplex of the unnormalized chain complex.
+	The combinatorics in pages 13 and 14 \federico{check pages, I don't have access to the published version} of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalized chains to the normalized chains is well-defined, i.e., to the fact that the degenerate simplices generate a subcomplex of the unnormalized chain complex. To add more detail: Medina-Mardones needs to check that the map $\alpha^\vee\circ \beta^{\vee}\circ \psi^\vee\circ \phi^\vee$ is a cosemi-simplicial chain map, though most of the trouble is just proving that it is a chain map (with his notation, the sum $\sum_{U\in \cP_q(n)}U^0\otimes U^1$ is precisely the image of $e_q^\vee$ under this map). Since $\alpha$ and $\beta$ are isomorphisms, this is the same as proving that $\psi^\vee\circ \phi^\vee$ is a chain map. This chain map factors through the subcomplex of normalised cochains.	The cancellations taking place in these pages are due to the fact that the image of $e_q$ in $\chains(\partial\asimplex^{r-1})^{\ot n+1}$ is a normalised cochain, thus its coboundary is again a normalised cochain. As there are only two normalised cochains in each degree, one sees that the only terms that do not cancel out in the coboundary of, say, $[0,1,0,1,0,1]$ come from adding a $1$ at the beginning or a $0$ at the end.
 \end{remark}
