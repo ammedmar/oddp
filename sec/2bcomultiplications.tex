@@ -166,14 +166,10 @@ We will now show that if $r$ is odd or $r=2$ and $R=\bF_2$, the quotient of $\Ws
  \vspace{2cm}
 
 	\input{tables/hat_alone}\martin{This table should change to the current notation.}
-	\caption{The complex $\Wdualaug{r} \ot_\theta \rucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot_\theta C^3_n$.} 
+	\caption{The complex $\susp{\blacksquare(r-1)}\Wdualaug{r} \ot \rucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot C^3_n$.} 
 	\label{figure:3}
 \end{figure}
 
-\begin{definition} 
-If $\ucadenas$ is a chain complex with a differential of degree $-1$, we define $\rucadenas$ as the chain complex that in degree $rm$ is equal to $\ucadenas[m]$ and is trivial otherwise. We endow it with the same differential as $\ucadenas$, which now has degree $-r$. \martin{I think we should choose a different notation for this. Instead of $N^r$ maybe $N^{(r)}$ or $N^{\langle r\rangle}$ or $N^{\{r\}}$ or $N^{[r]}$, or even $N^{\langle r}$.}
-An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$.
-\end{definition}
 Let $\Waug{r}$ be the augmented minimal resolution of $\Cyc_r$, i.e., the chain complex
 \[
 R
@@ -200,17 +196,39 @@ R.
 \]
 Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$. %The thing is that the correct action is the right action, so that $e_i^\dd \rho=(\rho^{-1}e_i)^\dd$.
 The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
-If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \susp{r-1}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match.
+If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \sus{r-1}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match. fc: I've changed \susp for \sus, was that the issue?
 \begin{align*}
 	\theta(e_0) &= N(e_{r-1}),
 	&
 	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r.	%Where do you send $e_i$ when $0 < i < r$? 
 \end{align*}
-If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, 
-Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\Cyc_r]$-module $\Wdualaug{r} \ot \rucadenas$ with the differential
+Let $I$ be the poset of integers. An \emph{ordered sequence of $R$-modules} is a functor $F\colon I\to \Mod{R}$. If $F,G$ are two such functors, then $F\ot G$ denotes the functor obtained by performing the tensor product levelwise. The category $\Ch{R}$ is a subcategory of this category of functors, and the tensor product of a chain complex and any functor is again a chain complex. If we replace the target category $\Mod{R}$ by $\Ch{R}$, we have again that $\Ch{R}$ is a subcategory of the functor category, and that the tensor product of a chain complex and any functor is a bicomplex.
+
+Denote by $\susp{\blacksquare(r-1)}\Wdualaug{r}$ the ordered sequence that in nonnegative takes the form
 \[
-\partial(e^\dd_{q} \ot \vec{x}) = \partial (e^\dd_{q}) \ot \vec{x} + (-1)^q \theta^\dd(e^\dd_{q}) \ot \partial (\vec{x}).
+	\Wdualaug{r}\overset{\theta^\vee}{\lla }
+	\susp{r-1}\Wdualaug{r}\overset{\theta^\vee}{\lla }
+	\susp{2(r-1)}\Wdualaug{r} \overset{\theta^\vee}{\lla }
+	\ldots 
+	\susp{n(r-1)}\Wdualaug{r} \overset{\theta^\vee}{\lla }
+	\ldots
 \]
+and vanishes in negative degrees. Recall that $r$ is odd or $R=\mathbb{F}_2$.
+
+\begin{example}
+	Let $C$ be a $R$-chain complex, which we view as a $R[\Cyc_r]$-chain complex with trivial $\Cyc_r$ action.  The tensor product $\susp{\blacksquare(r-1)}\Wdualaug{r} \ot C$ is the graded $R[\Cyc_r]$-module
+	\[
+		\bigoplus_n \susp{n(r-1)}\Wdualaug{r}\ot C_n
+	\] 
+	with differential
+	\[
+	\partial(e^\dd_{q} \ot \vec{x}) = \partial (e^\dd_{q}) \ot \vec{x} + (-1)^q \theta^\dd(e^\dd_{q}) \ot \partial (\vec{x}).
+	\]
+\end{example}
+There is a functor $Q\colon \asimplexinj\to I$ that sends an ordinal $[m]$ to the number $m$. Thus, any ordered sequence of chain complexes $F$ yields, precomposing with this functor, a simplicial chain complex $Q^*(F)$, and it is easy to see that if $X_\bullet$ is a simplicial $R$-module, then there is a canonical isomorphism
+\begin{equation}\label{eq:adj}
+	\chains(Q^*(F)\ot X_\bullet)\cong F\ot \chains(X). 
+\end{equation}
 
 \federico{Aquí está comentado el caso $r$ par, que no se usa en el paper}
 %If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
@@ -238,7 +256,7 @@ Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\
 \begin{definition}\label{def:connected_diagonal}
 If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \Wdualaug{r} \ot_{\theta} \rucadenas \lra \ucadenas^{\ot r}.
+	\mu \colon \susp{\blacksquare(r-1)}\Wdualaug{r} \ot \rucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
@@ -253,12 +271,12 @@ If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on 
 %In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$.
 %%If $k$ is odd, let $\varphi_k \colon \Wst(r) \to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
 
-Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \Wdualaug r \hotimes \rucadenas$ as 
+Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \susp{\blacksquare(r-1)}\Wdualaug{r} \ot C$ as 
 	\[
 	\varphi(e_q \ot x) = (-1)^{\binom{n(r-1)-q+1}{2}}e_{q-(r-1)n}^\dd \ot \vec{x}
 	\]
 if $x$ has degree $n$.
-It has degree $0$ and is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
+It is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
 As a consequence,
 
 \begin{proposition}
