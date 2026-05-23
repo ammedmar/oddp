@@ -71,7 +71,7 @@ Regarding the map $\psi$, observe that $\partial \simplex^{r-1}$ is isomorphic t
 \[
 	\chains(\partial \asimplex^1)^{\ot (n+1)}
 	\to
-	\chains(\partial \simplex^1)^{\ot (n+1)}
+	\chains(\partial \simplex^1)^{\ot (n+1)}_+
 	\to
 	\uchains(\EC_r)
 	\to
@@ -83,5 +83,63 @@ where the first map forgets the empty factors, the second map is the inclusion i
 
 Under this identification, the coface map $\d^i$ of $\chains(\partial\simplex^{r-1})^{n+1}$ (resp.\ $\chains(\partial\asimplex^{r-1})^{n+1}$) sends a sequence $[a_0]\ot \ldots\ot a_n]$ of $[0]$'s and $[1]$'s (resp.\ and $\emptyset$) to the sum of the two sequences that result from adding a $[0]$ or a $[1]$ at the right of the sequence. The coface map $\d^i$ of $\Per{r}$ sends $\sus{q}[0]$ to $\sus{q+1}[0]$ and $\sus{q}[1]$ to $\sus{q+1}[1]$. Thus $\psi$ is a cosemi-simplicial chain map.
 \begin{remark}
-	The combinatorics in pages 13 and 14 \federico{check pages, I don't have access to the published version} of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalized chains to the normalized chains is well-defined, i.e., to the fact that the degenerate simplices generate a subcomplex of the unnormalized chain complex. To add more detail: Medina-Mardones needs to check that the map $\alpha^\vee\circ \beta^{\vee}\circ \psi^\vee\circ \phi^\vee$ is a cosemi-simplicial chain map, though most of the trouble is just proving that it is a chain map (with his notation, the sum $\sum_{U\in \cP_q(n)}U^0\otimes U^1$ is precisely the image of $e_q^\vee$ under this map). Since $\alpha$ and $\beta$ are isomorphisms, this is the same as proving that $\psi^\vee\circ \phi^\vee$ is a chain map. This chain map factors through the subcomplex of normalised cochains.	The cancellations taking place in these pages are due to the fact that the image of $e_q$ in $\chains(\partial\asimplex^{r-1})^{\ot n+1}$ is a normalised cochain, thus its coboundary is again a normalised cochain. As there are only two normalised cochains in each degree, one sees that the only terms that do not cancel out in the coboundary of, say, $[0,1,0,1,0,1]$ come from adding a $1$ at the beginning or a $0$ at the end.
+	The combinatorics in pages 13 and 14 \federico{check pages, I don't have access to the published version} of \cite{medina2021fast_sq} translate here to the fact that the map from the unnormalized chains to the normalized chains is well-defined, i.e., to the fact that the degenerate simplices generate a subcomplex of the unnormalized chain complex. To add more detail: Medina-Mardones needs to check that the map $\alpha^\vee\circ \beta^{\vee}\circ \psi^\vee\circ \phi^\vee$ ($\nabla^{\binom{n}{q}}$ in his notation) is a cosemi-simplicial chain map, though most of the trouble is just proving that it is a chain map.
+	
+	As we have seen in the previous subsection, the map $\psi$ factors as $\mathrm{red}\circ \psi_{\mathrm{red}}$ and we have
+	\[
+		e_q^{\vee}\overset{\phi^\vee}{\longmapsto}
+		\susp{q}(0)^{\vee}\overset{\psi^\vee_{\mathrm{red}}}{\longmapsto}
+		(0)\ot(1)\ot(0)\overset{q}{\ldots} 
+	\]
+	Now, the map $\mathrm{red}$ takes this last generator and inserts $n+1-q$ instances of $\emptyset$ in all possible ways, for example, if $q=2$ and $n=3$, then we obtain the following summands:
+	\begin{align*}
+		&(0)\ot(1)\ot\emptyset\ot\emptyset
+		&
+		&(0)\ot\emptyset\ot(1)\ot\emptyset
+		&
+		&(0)\ot\emptyset\ot\emptyset\ot(1)
+		\\
+		&\emptyset\ot(0)\ot(1)\ot\emptyset
+		&
+		&\emptyset\ot(0)\ot\emptyset\ot(1)
+		&
+		&\emptyset\ot\emptyset\ot(0)\ot(1)
+	\end{align*}
+	Each of these summands can be indexed by the positions of the non-empty entries
+	\begin{align*}
+		&(0,1)&& (0,2)&&(0,3)
+		\\
+		&(1,2)&& (1,3) &&(2,3)
+	\end{align*}
+	These are the elements $U\in \cP_q(n)$ in Medina-Mardones' notation. The map $\beta^\vee$ sends these summands to
+	\begin{align*}
+		&(0)\ot(0)\ot\emptyset\ot\emptyset
+		&
+		&(0)\ot\emptyset\ot(1)\ot\emptyset
+		&
+		&(0)\ot\emptyset\ot\emptyset\ot(0)
+		\\
+		&\emptyset\ot(1)\ot(1)\ot\emptyset
+		&
+		&\emptyset\ot(1)\ot\emptyset\ot(0)
+		&
+		&\emptyset\ot\emptyset\ot(0)\ot(0)
+	\end{align*}
+	and the map $\alpha$ sends these summands to
+	\begin{align*}
+		&(0,1)\ot \emptyset
+		&
+		&(0)\ot (2)
+		&
+		&(0,3)\ot \emptyset
+		\\
+		&\emptyset\ot(1,2)
+		&
+		&(3)\ot (1)
+		&
+		&(2,3)\ot\emptyset
+	\end{align*}
+	which correspond to the decomposition $U^0\ot U^1$ of each $U$ in Medina-Mardones' notation. 
+
+	The cancellations taking place in these pages are due to the fact that $\psi_{\mathrm{red}}^\vee \circ \phi^\vee(e_q^\vee)$ in $\cochains(\partial\simplex^{r-1})^{\ot n+1}\cong \ucochains(\EC_2)$ is a normalised cochain, thus its coboundary is again a normalised cochain. For example, in $\cochains(\asimplex^{n})^{\ot r}_{\interior}$ the coboundary of $(0)\ot (2)$ has a summand $(0,1)\ot (2)$ that also appears in the coboundary of $(0,1)\ot\emptyset$, thus they cancel out. If we translate this back to the chain complex of the reduced join $\cochains(\partial\simplex^{r-1})^{\ot 4}$, we see that $(0)\ot (2)$ and $(0,1)\ot\emptyset$ are summands in the image of $(0)\ot (1)$ and that $(0,1)\ot (2)$ is a summand in the image of $(0)\ot (1)\ot(1)$. Now, in the coboundary of $(0)\ot (1)$ the summand $(0)\ot (1)\ot(1)$ appears twice: one comes from inserting a $(1)$ in the middle position and another from inserting a $(1)$ in the right position, thus they cancel out.
 \end{remark}
