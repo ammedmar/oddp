@@ -7,8 +7,6 @@
 \newtheorem{question}[theorem]{Question}
 \newtheorem*{question*}{Question}
 
-
-
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem*{definition*}{Definition}
@@ -23,6 +21,29 @@
 \newtheorem*{convention*}{Convention}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem*{notation*}{Notation}
+
+%\crefname{theorem}{Theorem}{Theorems}
+%\crefname{proposition}{Proposition}{Propositions}
+%\crefname{lemma}{Lemma}{Lemmas}
+%\crefname{corollary}{Corollary}{Corollaries}
+%\crefname{question}{Question}{Questions}
+%\crefname{definition}{Definition}{Definitions}
+%\crefname{construction}{Construction}{Constructions}
+%\crefname{remark}{Remark}{Remarks}
+%\crefname{example}{Example}{Examples}
+%\crefname{convention}{Convention}{Conventions}
+%\crefname{notation}{Notation}{Notations}
+
+\crefalias{proposition}{proposition}
+\crefalias{lemma}{lemma}
+\crefalias{corollary}{corollary}
+\crefalias{question}{question}
+\crefalias{definition}{definition}
+\crefalias{construction}{construction}
+\crefalias{remark}{remark}
+\crefalias{example}{example}
+\crefalias{convention}{convention}
+\crefalias{notation}{notation}
 
 % hyphenation
 \hyphenation{co-chain}
@@ -137,7 +158,7 @@
 \newcommand{\Waug}[1]{W_+(#1)}
 \newcommand{\Wdual}[1]{W^\vee(#1)}
 \newcommand{\W}[1]{W(#1)}
-\newcommand{\Per}[1]{\Lambda_+(#1)}
+\newcommand{\Per}[1]{\mathrm{Per}_+(#1)}
 
 
 % pair delimiters (mathtools)
