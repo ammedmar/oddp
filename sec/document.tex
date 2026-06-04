@@ -1,0 +1,98 @@
+\subsection{homotopy retractions} One could try to define a homotopy retraction of $\Waug{r}$, and then extend the map between the augmentations of $\Per{r}$ and $\Waug{r}$ (which is the identity map $R\to R$) using this homotopy retraction. This would solve our problem if in addition the homotopy retraction is periodic with respect to the endomorphism $\theta$ of $\Waug{r}$. For example, if $r=3$, one can use the following retraction $\eta$:
+\begin{align*}
+	\eta(1) &= \rho^0e_1 
+	\\
+	\eta(\rho^0e_{2k-1}) &= 0
+	&
+	\eta(\rho^1e_{2k-1}) &= \rho^0e_2
+	&
+	\eta(\rho^2e_{2k-1}) &= -\rho^2e_2
+	\\
+	\eta(\rho^0e_{2k}) &= 0 
+	&
+	\eta(\rho^1e_{2k}) &= (\rho^0+\rho^1+\rho^2)e_3
+	&
+	\eta(\rho^2e_{2k}) &= 0 
+\end{align*}  
+and define recursively 
+\begin{align*}
+	\phi(\sus{k}[0]) &= \eta\circ \phi \circ \partial(\sus{k}[0])
+	\\
+	\phi(\sus{k}[0,1]) &= \eta\circ \phi \circ \partial(\sus{k}[0,1])
+\end{align*}
+and extend equivariantly. Finding such a periodic homotopy retraction in general seems as challenging as finding the map $\phi$.
+
+\subsection{Suspensions} Let $X$ be a pointed augmented simplicial set, let $\sus{}X$ be its right suspension. If $x\in X_n$ is a simplex of dimension $n$, let $x'\in X_{n+1}$ be the corresponding simplex in dimension $n+1$. We have that $d_ix' = (d_ix)'$ if $i<n+1$ and the basepoint otherwise.
+
+We now compare the homogeneous part of $\left(\susp{(r-1)(n+1)}e_{ir}^\vee\ot x\right)'$ to the homogenoeus part of the image of $\susp{(r-1)(n+2)}e_{ir}^\vee\ot x'$.
+
+We have that $\alpha^\vee\circ \beta^\vee \circ \psi^\vee\circ \phi^\vee(e_{ir})$ is the same element in both cases, up to a $(r-1)$-fold suspension.
+
+The isomorphism of Lemma 4.9 does not introduce any sign.
+
+The isomorphism (9) involves first, to move each $\susp{n+1}$ across several copies of $\cochains(\asimplex^{n})$. This amounts to a sign of $\binom{r}{2}(n+1)i$, since $\susp{n+1}$ has degree $n+1$ and each generator in $\cochains(\asimplex^{n})$ has degree $i$ (because we are keeping the homogeneous part). Then, it involves moving $L(X)$, but since $L(X)$ has degree $0$, this does not have any sign.
+
+Finally, the $r$-fold tensor product of (8) has the sign $\binom{r}{r}(n+1-i)(n+1)$ because $\alex$ has degree $n+1$ and the cochains have degree $(n+1-i)$. It has an additional sign 
+
+------------------
+
+Recall the simplicial structure on $\chains(\asimplex^{n})$, coming from Alexander duality. The face map
+\[
+	\d_n\colon \chains(\asimplex^{n})\lra \chains(\asimplex^{n-1})
+\]
+and the shift $\mathrm{sh}$ makes the following diagram commute:
+\[
+\xymatrix{
+	\chains(\sus{}X) 
+	\ar[r]^-{\cong}\ar[d] 
+	& 
+	\chains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )
+	\ar[d]^{d_{n}\ot \mathrm{sh}}
+	\\
+	\chains(X) \ar[r]^-{\cong}
+	&
+	\chains(\asimplex^\bullet)\ot_{\asimplex} \L(X_\bullet ) 	
+}
+\]
+and, by definition
+\[
+\xymatrix{ 
+	\chains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )
+	\ar[d]^{\d_{n}\ot \mathrm{sh}}\ar[rr]^{\alex^{n+1}\ot \Id}
+	&&
+	\susp{\bullet+2}\cochains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )
+	\ar[d]^{\d_{n}\ot \mathrm{sh}}	
+	\\
+	\chains(\asimplex^\bullet)\ot_{\asimplex} \L(X_\bullet ) \ar[rr]^{\alex^{n}\ot \Id}
+	&&
+	\susp{\bullet+1}\cochains(\asimplex^{\bullet})\ot_{\asimplex} \L(X_{\bullet} )
+}
+\]
+Now we take $r$-fold tensor products and still commutes:
+\[
+\xymatrix{ 
+	\left(\chains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )\right)^{\ot r}
+	\ar[d]^{\d_{n}\ot \mathrm{sh}}\ar[rr]^{(\alex^{n+1}\ot \Id)^{\ot r}}
+	&&
+	\left(\susp{\bullet+2}\cochains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )\right)^{\ot r}
+	\ar[d]^{\d_{n}\ot \mathrm{sh}}	
+	\\
+	\left(\chains(\asimplex^\bullet)\ot_{\asimplex} \L(X_\bullet )\right)^{\ot{r}} \ar[rr]^{(\alex^{n}\ot \Id)^{\ot r}}
+	&&
+	\left(\susp{\bullet+1}\cochains(\asimplex^{\bullet})\ot_{\asimplex} \L(X_{\bullet} )\right)^{\ot r}
+}
+\]
+Now we separate the $r$-fold tensor products
+\[
+\xymatrix{ 
+	\left(\susp{\bullet+2}\cochains(\asimplex^{\bullet+1})\ot_{\asimplex} \L(\sus{}X_{\bullet+1} )\right)^{\ot r}
+	\ar[d]^{(\d_{n}\ot \mathrm{sh})^{\ot r}}
+	\ar[rr]	
+	&&
+	\left(\susp{\bullet+2}\cochains(\asimplex^{\bullet+1})\right)^{\ot r}\ot_{\asimplex} \left(\L(\sus{}X_{\bullet+1} )\right)^{\ot r}\ar[d]^{\d_n^{\ot r} \ot \mathrm{sh}^{\ot r}}
+	\\
+	\left(\chains(\asimplex^\bullet)\ot_{\asimplex} \L(X_\bullet )\right)^{\ot{r}} \ar[rr]
+	&&
+	\left(\susp{\bullet+1}\cochains(\asimplex^{\bullet})\right)^{\ot r}\ot_{\asimplex} \left(\L(X_{\bullet} )\right)^{\ot r}
+}
+\]
