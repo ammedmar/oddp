@@ -17,7 +17,7 @@ In this section we present a duality on the normalized chains of the augmented s
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}\label{d:join_product}
+\begin{definition}\label{def:join_product}
 	For any $[n] \in \ob\asimplex$ the \textit{join product} $\ast \colon \chains(\asimplex^{n})^{\ot 2} \to \chains(\asimplex^{n})$ is the linear map defined by sending a basis element $[v_0, \dots, v_{p-1}] \ot [v_{p},\dots,v_{m-1}]$ to $(-1)^{\sign{\perm}}[v_{\perm(0)}, \dots, v_{\perm(m-1)}]$	if $v_i \neq v_j$ for all $i \neq j$, where $\perm$ is the permutation ordering the vertices, and to $0$ otherwise. \federico{Here we can avoid the permutation $\pi$ writing $[v_0,\ldots,v_{p-1},v_p,\ldots,v_{m-1}]$}
 \end{definition}
 
@@ -42,7 +42,7 @@ In this section we present a duality on the normalized chains of the augmented s
 
 This pairing thus induces an isomorphism
 \begin{equation}\label{eq:iso1}
-	\Lambda \colon \chains(\asimplex^n) \to \susp{n+1}\cochains(\asimplex^n)
+	\alex \colon \chains(\asimplex^n) \to \susp{n+1}\cochains(\asimplex^n)
 \end{equation}
 that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
 
@@ -66,6 +66,7 @@ Recall that if $A$ is an augmented cosimplicial chain complex and $B$ is an augm
 	&
 	\s^ia \ot b &\sim (-1)^{|\s^i||a|}a \ot \s_ib.
 \end{align*}
+
 The chain complexes $\chains(\asimplex^\bullet)$ form an augmented cosimplicial chain complex with
 \begin{align*}
 	\d^i \colon \chains(\asimplex^n)& \lra \chains(\asimplex^{n+1})
@@ -78,36 +79,24 @@ given on an ordered representative $[v_0,\dots,v_{k-1}]\in \chains(\asimplex^n)$
 \\
 \s^i([v_0,\dots,v_{k-1}]) &= [v_0,\dots,v_{j-1},v_j-1,\dots,v_{k-1}-1] \quad \text{if $v_{j-1} \leq i < v_j$}.
 \end{align*}
-If $X$ is an augmented simplicial object in $\cC$, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and the augmented simplicial $R$-module $\abel(X)_\bullet$:
-\begin{equation}\label{eq:1}
-	\chains(X)
- \cong 
- \chains(\asimplex^\bullet) \ot_{\asimplex} \abel(X)_\bullet.
+If $X$ is an augmented simplicial object in $\cC$, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and the augmented simplicial $R$-module $\L(X)_\bullet$:
+\begin{equation}\label{eq:1} 
+ \chains(\asimplex^\bullet) \ot_{\asimplex} \L(X)_\bullet
+ \cong	
+ \chains(X).
 \end{equation}
 This sends a simplex $[k] \to [n]$ and a simplex $[n] \to X$ to the composition $[k] \to X$.
 
-\begin{proposition}\label{prop:cosimplicial}
-	A cosimplicial map
-	\[
-		\Wdualaug{r}\ot_\theta \rchains(\asimplex^n)\lra \chains(\asimplex^n)^{\ot r}
-	\]
-	gives rise to a connected comultiplication.\martin{This term is only mentioned in the introduction, it would be better to state the difference between this and a connected diagonal.}
-\end{proposition}
-\begin{proof}
-	The tensor product of this map and the map $L(X)\to L(X)^{\ot r}$ induced by the diagonal yields an equivariant map 
-	\[
-		\Wdualaug{r}\ot_\theta \rchains(\asimplex^n)\ot_{\asimplex} L(X)\lra \chains(\asimplex^n)^{\ot r}\ot_{\asimplex} L(X)^{\ot r}
-	\]
-	and therefore a connected comultiplication.
-\end{proof}
 
-Via Alexander duality, we may endow $\cochains(\asimplex^n)$ with the following augmented \emph{cosimplicial} structure
+
+\subsection{Alexander duality}
+Via Alexander duality, the sequence of chain complexes $\susp{\bullet +1}\cochains(\asimplex^\bullet)$ is then endowed with the following augmented \emph{cosimplicial} structure
 \begin{align*}
 	\d^i \colon \cochains(\asimplex^n) & \lra \susp{}\cochains(\asimplex^{n+1})
-	&
-	\s^i \colon \cochains(\asimplex^{n+1}) & \lra \susp{}\cochains(\asimplex^n)
+	\\
+	\s^i \colon \cochains(\asimplex^{n+1}) & \lra \susp{-1}\cochains(\asimplex^n)
 \end{align*}
-given on a generator $U=(u_0,\dots,u_{m-1})$ by
+given on an ordered generator $U=(u_0,\dots,u_{m-1})$ by
 \begin{align*}
 	\d^i(U) &=
 	(-1)^{i+j+m+n+1}(u_0,\dots,u_{j-1},i,u_{j}+1,\dots,u_{m-1}+1)
@@ -119,10 +108,98 @@ given on a generator $U=(u_0,\dots,u_{m-1})$ by
 	0 & \text{otherwise.}
 	\end{cases}
 \end{align*} %Why is the next statement important? It wasn't stated for $\chains(\asimplex^\bullet)$.
-The face maps of this cosimplicial structure have degree $1$ while degeneracies have degree $-1$. %Let $\rA(X)$ be the augmented simplicial graded $R$-module with $\rA(X)_n = \susp{n+1}\abel(X)_{n}$, and face maps and degeneracies are induced by those of $\abel(X)$ and have degree $-1$ and $+1$ respectively.
-\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.}
+ The chain complexes $\cochains(\asimplex^\bullet)$ have a simplicial structure as well: the linear dual of the cosimplicial structure on $\chains(\asimplex^\bullet)$, whose face and degeneracies are denoted by $\d_i$ and $\s_i$.\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.}
+The following isomorphism gives another characterization of $\chains(X)$:
+\begin{equation}\label{eq:dual}
+	\alex^{-1} \ot \Id\colon \susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet
+	\lra
+	\chains(\asimplex^{\bullet})\ot_{\asimplex} \L(X)_\bullet
+\end{equation}
+The $r$-fold tensor product of (co)simplicial chain complexes is again a (co)simplicial chain complex, and the functor tensor product construction commutes with the tensor product:
+\begin{equation}\label{eq:assemble}
+	\susp{(\bullet +1)r}\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} \L(X)^{\ot r}_\bullet 
+	\lra 
+	\left(\susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet \right)^{\ot r}.
+\end{equation}
 
-\subsection{Another presentation of $\chains(\asimplex^n)^{\ot r}$}\label{s:join} The duality maps
+\subsection{Simplicial tensor products and functor tensor products}
+A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^n)^{\ot r}$ is \emph{almost $i$-full} if all but one of the tuples $U_0,\ldots,U_{r-1}$ contain the number $i$. It is \emph{$i$-full} if all the tuples contain $i$. The generators that are not $i$-full for any $i$ are also known as \emph{interior} for the cosimplicial structure. Let $\cochains(\asimplex^n)^{\ot r}_{\interior}$ denote the quotient of the complex $\cochains(\asimplex^n)^{\ot r}$ by the subcomplex generated by the non-interior generators, and let $\chains(\asimplex^n)^{\ot r}_\interior$ be its linear dual. The cyclic group $\Cyc_r$ acts on them permuting the factors.
+\begin{definition}
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\cochains(\asimplex^{n})^{\ot r}_\interior$ has a semi-simplicial structure with face maps 
+	\begin{align*}
+		\d_i\colon \cochains(\asimplex^n)^{\ot r}_\interior &\lra
+		\susp{1-r}\cochains(\asimplex^{n-1})^{\ot r}_\interior	
+	\end{align*}
+	given by $\d_i = \sum \s^i\ot \ldots \s^i\ot\d_i\ot \s^i \ot \ldots \s^i$. This map sends an almost $i$-full generator $U_0\ot \cdots \ot U_{r-1}$ to $\pm \s^iU_0\ot\ldots\ot \d_iU_j\ot\ldots\ot \s^iU_{r-1}$ if $i$ is not contained in $U_j$. All other generators are sent to $0$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(\bullet+1)(r-1)}\chains(\asimplex^n)^{\ot r}_\interior$ whose coface maps are denoted $\d^i$.	
+\end{definition}
+
+\begin{definition}
+	Let $[n]\mapsto \Lnd(X)_n$ denote the semi-simplicial $R$-module obtained from the simplicial $R$-module $\L(X)_\bullet$ by quotienting by the degeneracies.
+\end{definition}
+
+ For the following lemma recall that $\ot$ denotes the semi-simplicial tensor product and $\ot_{\asimplex}$ denotes the functor tensor product.
+
+\begin{lemma}\label{lemma:simp-cosimp}
+	The map 
+	\[\chains(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot \Lnd(X)^{\ot r}_\bullet)
+	\lra \susp{(\bullet+1)r}\cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} \L(X) ^{\ot r}_\bullet\]
+	that sends a generator $(U_0\ot\ldots \ot U_{r-1})\ot (x_0\ot\ldots\ot x_{r-1})$ to the same generator on the right hand-side is an isomorphism of $R\Cyc_r$-chain complexes.
+\end{lemma}
+\begin{proof}
+	TBD. The paper \url{https://www.jstor.org/stable/2043689} basically says that this is an isomorphism of graded modules (i.e., forgetting the differential). Probably this is already in the literature.
+\end{proof}
+
+\subsection{A connected diagonal}
+
+Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chain map $\theta^\vee\colon \Wdualaug{r}\to \susp{1-r}\Wdualaug{r}$.
+
+\begin{definition} The sequence of chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\Wdualaug{r}$ has a semi-simplicial structure whose face maps are all equal to $\theta^\vee$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(n+1)(r-1)}\Waug{r}$ whose coface maps are all equal to $\theta$ (cf. \cref{ex:311} and \cref{lemma:adj}).
+\end{definition}
+
+\begin{lemma}\label{lemma:hotimessimp}
+	The chain complex $\susp{\bs(1-r)}\Wdualaug{r}\ot \chains(X)_\bs$ is isomorphic to the chain complex $\chains(\susp{(\bullet+1)(1-r)}\Wdualaug{r} \ot \Lnd(X)_\bullet)$
+\end{lemma}
+\begin{proof}
+	This is the isomorphism \eqref{eq:adj}.
+\end{proof}
+
+
+\begin{corollary}\label{prop:milnor_to_minimal}
+	A family of equivariant chain maps 
+	\[
+	\Psi_n\colon \chains(\asimplex^{n})^{\ot r}_\interior \lra \Waug{r}
+	\]
+	such that $\theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \d^j$ for each $j$ and for some constant $c$ yields an equivariant chain map
+	\[
+	\mu\colon \susp{\bs(1-r)}\Wdualaug{r}\ot \chains(X)_\bs\lra \chains(X)^{\ot r}
+	\]
+\end{corollary}
+\begin{proof}
+	The map is obtained on dimension $n$ as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map 
+	\[
+		\chains(\susp{(\bullet+1)(r-1)}\Wdualaug{r} \ot_{\asimplex} \Lnd(X)_\bullet) 
+		\lra
+		\chains\left(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^n)^{\ot r}_\interior\ot \Lnd(X)^{\ot r}_\bullet\right),	
+	\]
+	given on $n$-simplices by $c^{n+1}\cdot \Psi_n^\vee\ot \diag$, the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.
+\end{proof}
+
+In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define two additional cosemi-simplicial chain complexes $	\sus{(\bullet +1)(r-1) }\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}$ and $\sus{(\bullet+1)(1-r)}\Per{r}$ with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three maps between them (for the sake of clearness, we omit the symbol $\sus{(\bullet+1)(r-1)}$ everywhere):  
+\[
+	\chains(\asimplex^{\bullet})^{\ot r}_{\interior}
+	\overset{\beta\circ \alpha}{\lra}
+	\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}
+	\overset{\psi}{\lra}
+	\Per{r}
+	\overset{\phi}{\lra}
+	\Waug{r}
+\]
+whose composition satisfies the conditions of this corollary. There is a map $\psi$ for each choice of $r$-cyclic straightening with duality. The first two maps are cosemi-simplicial maps while the rightmost commutes with the face maps up to the constant $c= \tilde{r}!$, where $\tilde{r} = \frac{r-1}{2}$. Although the map $\phi$ produced in \cref{prop:milnor_to_per} is only defined with coefficients in $R[\frac{1}{\tilde{r}!}]$, the map $c^{n+1}\cdot \phi$ is well defined with coefficients in $R$.\label{remark:many_coefficients}
+
+
+
+{\color{red}
+\subsection{Another presentation of $\chains(\asimplex^n)^{\ot r}$: THIS IS TO BE REMOVED. WE KEEP IT UNTIL THE NOTES ARE RESOLVED}\label{s:join} The duality maps
 \begin{align*}
 	\Lambda^r\colon \chains^r(\asimplex^n) &\lra \Sigma^{r(n+1)}\chains^{r,\vee}(\asimplex^n)
 	&
@@ -212,3 +289,20 @@ The following diagram encapsulates the map $\mu_\bullet$ from Proposition \ref{p
 
 
 
+
+
+\begin{proposition}\label{prop:cosimplicial}
+	A cosimplicial map
+	\[
+	\Wdualaug{r}\ot_\theta \rchains(\asimplex^n)\lra \chains(\asimplex^n)^{\ot r}
+	\]
+	gives rise to a connected comultiplication.\martin{This term is only mentioned in the introduction, it would be better to state the difference between this and a connected diagonal.}
+\end{proposition}
+\begin{proof}
+	The tensor product of this map and the map $L(X)\to L(X)^{\ot r}$ induced by the diagonal yields an equivariant map 
+	\[
+	\Wdualaug{r}\ot_\theta \rchains(\asimplex^n)\ot_{\asimplex} L(X)\lra \chains(\asimplex^n)^{\ot r}\ot_{\asimplex} L(X)^{\ot r}
+	\]
+	and therefore a connected comultiplication.
+\end{proof}
+}

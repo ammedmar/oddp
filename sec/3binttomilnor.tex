@@ -1,0 +1,81 @@
+% !TEX root = ../oddp.tex
+
+\section{Interior simplices and the Milnor resolution}\label{s:milnor}
+
+Let $X, Y$ be pointed simplicial sets and let $X_+, Y_+$ be the augmented simplicial sets obtained by adding the trivial augmentation to a point $\{\mathrm{pt}\}$.
+
+Let $X_+*_{\asimplex}Y_+$ denote the augmented simplicial join of $X_+$ with $Y_+$ and $X *_{\simplex} Y$ the non-augmented simplicial join of $X$ with $Y$. Let $|X|*|Y|$ denote the join of the realizations of $X$ and $Y$ and let $|X|\times |Y|$ denote their product. 
+
+There are homeomorphisms\footnote{The second one can be explained as follows: $|X*_\simplex X|$ is obtained from $|X_+*_{\asimplex} X_+|$ as the result of collapsing the simplices in the image of $X*\{\mathrm{pt}\}$ and $\{\mathrm{pt}\}*X$ to the basepoint. These are precisely the canonical inclusions of $X$ into the join. The resulting space can be also obtained by adding two cones to the subspace $\{[(x,y,t)]\in X*X\mid t=1/2\}\cong X\times Y$}
+\begin{align*}
+	|X_+*_{\asimplex} Y_+| 
+	& \cong 
+	(|X| * |Y|)_+
+	\simeq
+	\Sigma(|X|\wedge |Y|)
+	\\
+	|X*_{\simplex} Y| & \cong \Sigma (|X|\times |Y|)
+\end{align*}
+and isomorphisms (recall our degree convention for the chain complex of an (augmented) simplicial set)
+\begin{align} \label{eq:chains_join}
+	\chains(X_+*_{\asimplex} Y_+) &\cong \chains(X_+)\ot \chains(Y_+)
+	\\
+	\chains(X*_{\simplex} Y) &\cong \chains(X)\ot \chains(Y).
+\end{align}
+and epimorphisms
+\begin{align*}
+	|X_+*_{\asimplex} Y_+| &\lra |X*_{\simplex} Y|
+	\\
+	\chains(X_+)\ot \chains(Y_+) & \lra
+	\chains(X)\ot \chains(Y)	
+\end{align*}
+
+If $G$ is a finite group and $X$ is a simplicial set with a free $G$-action, then the infinite (augmented or non-augmented) join of $X$ with itself is a contractible space with a free $G$-action, and therefore a model of $EG$. Its normalised chain complex with coefficients in $R$ is then an acyclic resolution of $G$.
+
+For example, taking $X$ to be the set $G$ with the left action by $G$ and using the non-augmented join we obtain the Milgram resolution of $G$. Taking instead the augmented join we obtain the Milnor resolution of $G$ (see \cref{ss:milnor}). Thus, we will refer to these kind of resolutions as \emph{Milgram} and \emph{Milnor} resolutions respectively.
+
+If instead we take the $n$-fold (non-augmented) join of $X$ with itself and $X$ is $m$-connected, the resulting (non-augmented) simplicial set is $(n(m+2)-1)$-connected (resp. $(n+m)$-connected), hence its chain complex gives a partial resolution of $G$. We will be interested in the case $X=\partial \simplex^{r-1}$ is the boundary of the standard $(r-1)$-simplex, with the $\Cyc_r$-action that permutes the vertices of $\partial \simplex^{r-1}$. This action is free if and only if $r$ is prime. Write $\sigma = [0,1,\ldots,r-1]$ for the top simplex of $\asimplex^{r-1}$. The following definition assumes that $r$ is odd or that $R=\bF_2$.
+
+\begin{definition}\label{def:milnor}
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{(n+1)(1-r)}\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}$ has a cosemi-simplicial structure with coface maps
+	\begin{align*}
+		\d^i\colon \chains(\partial \asimplex^{r-1})^{\ot n+1} &\lra \sus{1-r}\chains(\partial \asimplex^{r-1})^{\ot n+2}
+	\end{align*}
+	given by $\d^i([\tau_0\ot \dots \ot\tau_{n}]) = \tau_0\ot \dots \tau_{i-1}\ot \partial\sigma \ot \rho^{-1}(\tau_i) \ot \dots \ot \rho^{-1}(\tau_{n}).
+	$%\label{eq:simp_str2}
+\end{definition}
+
+Relabeling the vertices gives a simplicial homeomorphism
+\[
+\simplex^n*\overset{r}{\cdots}*\simplex^n
+\lra
+\simplex^{r(n+1)}
+\lra
+\simplex^{r-1}*\overset{n+1}{\cdots}*\simplex^{r-1}
+\]
+and using the isomorphisms in \eqref{eq:chains_join}, we obtain an isomorphism of chain complexes
+\[
+\alpha\colon \chains(\asimplex^n)^{\otimes r}
+\to
+\chains(\asimplex^{r-1})^{\otimes n+1}.
+\]
+Explicitly, if $\tau_0\ot \ldots \ot \tau_{r-1}$ is a generator of $\chains(\asimplex^{n})^{\ot r}$, and $\omega_i = [j \mid i\in \tau_j]$, then
+\[
+\alpha(\tau_0\ot \ldots \ot \tau_{r-1})
+= (-1)^{s}\omega_0\ot\ldots \ot \omega_{r-1}.
+\]
+where $s$ is the sign of the permutation that rearranges the vertices.
+
+Now, let $\beta$ be the automorphism of $\chains(\partial\asimplex^{r-1})^{\ot(n+1)}$ given by $\rho^0\ot \rho^{-1}\ot\ldots \ot \rho^{-n}$, where $\rho$ denotes the action of the cyclic group $\Cyc_r$. 
+
+\begin{proposition}\label{lemma:bartomilnor}
+	The restriction of $\beta\circ \alpha$ to the subcomplexes  $\chains(\asimplex^{\bullet})^{\ot r}_\interior$ induces an isomorphism of cosemi-simplicial chain complexes
+	\[
+	\sus{(\bullet+1)(1-r)}\chains(\asimplex^{\bullet})^{\ot r}_\interior
+	\lra 
+	\sus{(\bullet+1)(1-r)}\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}.
+	\]
+\end{proposition}
+\begin{proof}
+	TBD: I think it is easier to write down the cosemi-simplicial structure in $\chains(\asimplex^{n})^{\ot r}_\interior$, see that $\alpha$ induces an isomorphism and that $\alpha$ commutes with the simplicial structure.
+\end{proof}

@@ -81,13 +81,13 @@ R[\Cyc_r]\langle e_{2}\rangle
 \]
 If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
 \[
-\dotsb \xra{\theta} \susp{2(1-r)}\W{r} \xra{\theta} \susp{1-r} \W{r} \xra{\theta} \W{r}.
+\dotsb \xra{\eta} \susp{2(1-r)}\W{r} \xra{\eta} \susp{1-r} \W{r} \xra{\eta} \W{r}.
 \]
 %In general, we understand it as the limit of
 %\[
-%\dotsb \lra \sus{4(1-r)}\W{r}\overset{\theta_{2(1-r)}}{\lra} \sus{2(1-r)} \W{r} \overset{\theta_{2(1-r)}}{\lra} \W{r}.
+%\dotsb \lra \sus{4(1-r)}\W{r}\overset{\eta_{2(1-r)}}{\lra} \sus{2(1-r)} \W{r} \overset{\eta_{2(1-r)}}{\lra} \W{r}.
 %\]
-where $\theta \colon \susp{1-r}\W{r} \to \W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence %Cohomology, not homology
+where $\eta \colon \W{r} \to \susp{r-1}\W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence %Cohomology, not homology
 \[
 \Wst(r) \lra \W{r}\overset{N}{\lra} \Wd(r)
 \]
@@ -104,9 +104,9 @@ Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fibre: 
 \begin{definition}
 	Let $\ESst_r$ be the inverse limit of
 	\[
-	\dotsb \lra \susp{2(1-r)} \ES_r\overset{\theta}{\lra}\susp{1-r} \ES_r\overset{\theta}{\lra} \ES_r
+	\dotsb \lra \susp{2(1-r)} \ES_r\overset{\eta}{\lra}\susp{1-r} \ES_r\overset{\eta}{\lra} \ES_r
 	\]
-	where $\theta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.
+	where $\eta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.
 \end{definition}
 
 \begin{definition}
@@ -156,24 +156,10 @@ A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<
 	\[
 	\bigoplus_n\bigoplus_{q>(r-1)n}\Wst[q] \ot \ucadenas[n].
 	\]
-We will now show that if $r$ is odd or $r=2$ and $R=\bF_2$, the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule is isomorphic to a tensor product $\Wdualaug{r}\otimes_\theta \rucadenas$ (see Figures \ref{figure:2} and \ref{figure:3}). We then define a connected diagonal as a map from this tensor product to $\ucadenas^{\otimes r}$.
+We will now identify the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule when $r$ is odd or $r=2$ and $R=\bF_2$ (see Figures \ref{figure:2}). We then define a connected diagonal as a map from this quotient to $\ucadenas^{\otimes r}$.
 
-\begin{figure}
-	\input{tables/hat}
-	\caption{If a stable diagonal for $r=3$ vanishes on the part coloured in green, then $\power^i$ vanishes for $i<0$.}
-	\label{figure:2}
 
- \vspace{2cm}
 
-	\input{tables/hat_alone}\martin{This table should change to the current notation.}
-	\caption{The complex $\Wdualaug{r} \ot_\theta \rucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot_\theta C^3_n$.} 
-	\label{figure:3}
-\end{figure}
-
-\begin{definition} 
-If $\ucadenas$ is a chain complex with a differential of degree $-1$, we define $\rucadenas$ as the chain complex that in degree $rm$ is equal to $\ucadenas[m]$ and is trivial otherwise. We endow it with the same differential as $\ucadenas$, which now has degree $-r$. \martin{I think we should choose a different notation for this. Instead of $N^r$ maybe $N^{(r)}$ or $N^{\langle r\rangle}$ or $N^{\{r\}}$ or $N^{[r]}$, or even $N^{\langle r}$.}
-An element $x\in \ucadenas$ viewed in $\rucadenas$ will be denoted $\vec{x}$.
-\end{definition}
 Let $\Waug{r}$ be the augmented minimal resolution of $\Cyc_r$, i.e., the chain complex
 \[
 R
@@ -200,17 +186,52 @@ R.
 \]
 Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$. %The thing is that the correct action is the right action, so that $e_i^\dd \rho=(\rho^{-1}e_i)^\dd$.
 The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
-If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \susp{r-1}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match.
+If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \sus{1-r}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match. fc: I've changed \susp for \sus, was that the issue?
 \begin{align*}
 	\theta(e_0) &= N(e_{r-1}),
 	&
-	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r.	%Where do you send $e_i$ when $0 < i < r$? 
+	\theta(e_{i}) &= e_{i+r-1}, \quad i>0 
 \end{align*}
-If either $r$ is odd or $r=2$ and $R=\mathbb{F}_2$, 
-Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\Cyc_r]$-module $\Wdualaug{r} \ot \rucadenas$ with the differential
+whose dual $\theta^\vee\colon \Wdualaug{r}\to \Sigma^{1-r}\Wdualaug{r}$ takes the form
+\begin{align*}
+	\theta(e_{i}^{\vee}) &= 0, \quad i < r-1
+	&
+	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r-1.
+\end{align*}
+
+Let $(I,>)$ be the poset of natural numbers (i.e., non-negative integers). An \emph{directed system of $R$-modules} is a functor $F_\bs\colon I\to \Mod{R}$. If $F_\bs,G_{\bs}$ are two directed systems, then $F_\bs\ot G_{\bs}$ denotes the directed system obtained by performing the tensor product levelwise. Maps between directed systems are natural transformations of functors. 
+
+A chain complex $C$ can be viewed as a directed system of $R$-modules $C_{\bs}$ setting $C_i$ as the $R$-module of chains of degree $i$, and letting the differential be the structure map. 
+
+From this viewpoint, chain complexes are those directed systems such that the composition of any two structure maps is zero. Observe that the tensor product of a directed system and a chain complex is again a chain complex.
+
+Similarly, if $F_\bs$ is a directed system of chain complexes and $G_\bs$ is a directed system of $R$-modules, then $F_\bs \otimes G_\bs$ is a bicomplex.
+
+\begin{definition} Let $\susp{\bs(r-1)}\Wdualaug{r}$ be the directed system of chain complexes
 \[
-\partial(e^\dd_{q} \ot \vec{x}) = \partial (e^\dd_{q}) \ot \vec{x} + (-1)^q \theta^\dd(e^\dd_{q}) \ot \partial (\vec{x}).
+	\Wdualaug{r}\overset{\theta^\vee}{\lla }
+	\susp{r-1}\Wdualaug{r}\overset{\theta^\vee}{\lla }
+	\susp{2(r-1)}\Wdualaug{r} \overset{\theta^\vee}{\lla }
+	\ldots
+	\overset{\theta^\vee}{\lla }	
+	\susp{n(r-1)}\Wdualaug{r} \overset{\theta^\vee}{\lla }
+	\ldots
 \]
+\end{definition}
+
+\begin{example}\label{ex:311}
+	Let $C$ be a $R$-chain complex, which we view as a $R[\Cyc_r]$-chain complex with trivial $\Cyc_r$ action.  The tensor product $\susp{\bs(r-1)}\Wdualaug{r} \ot C_\bs$ is bicomplex of $R[\Cyc_r]$-modules whose totalization has the following differential:
+	\[
+	\partial(e^\dd_{q} \ot \vec{x}) = \partial (e^\dd_{q}) \ot \vec{x} + (-1)^q \theta^\dd(e^\dd_{q}) \ot \partial (\vec{x}).
+	\]
+\end{example}
+There is a functor $Q\colon \asimplexinj\to I$ that sends an ordinal $[m]$ to the number $m$. Thus, any ordered sequence of chain complexes $F$ yields, precomposing with this functor, a semi-simplicial chain complex $Q^*(F)$, and we have:
+\begin{lemma} \label{lemma:adj}
+	If $X_\bullet$ is a semi-simplicial $R$-module, then there is a canonical isomorphism
+\begin{equation}\label{eq:adj}
+	\chains(Q^*(F)\ot X_\bullet)\cong F\ot \chains(X). 
+\end{equation}
+\end{lemma}
 
 \federico{Aquí está comentado el caso $r$ par, que no se usa en el paper}
 %If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
@@ -235,12 +256,35 @@ Define the chain complex $\Wdualaug{r} \ot_\theta \rucadenas$ as the graded $R[\
 %\] 	%%Shouldn't it be $\hotimes_{1-r}...$?
 %Observe that if $r=2$ and $R=\bF_2$, the complexes $\rWd(r)$ and $\rWhatd(r)$ coincide, and so do both definitions of $\rWd(r) \hotimes \rucadenas$.
 
+Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \susp{\bs(r-1)}\Wdualaug{r} \ot C$ as 
+\[
+\varphi(e_q \ot x) = (-1)^{\binom{n(r-1)-q+1}{2}}e_{q-(r-1)n}^\dd \ot \vec{x}
+\]
+if $x$ has degree $n$.\federico{The sign needs revision.}
+\begin{lemma} The map $\varphi$ is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
+\end{lemma}
+\begin{proof} TBD (almost obvious)
+\end{proof}
+
 \begin{definition}\label{def:connected_diagonal}
 If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \Wdualaug{r} \ot_{\theta} \rucadenas \lra \ucadenas^{\ot r}.
+	\mu \colon \susp{\bs(r-1)}\Wdualaug{r} \ot C_{\bs} \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
+
+\begin{figure}{top}
+	\input{tables/hat}
+	\caption{If a stable diagonal for $r=3$ vanishes on the part coloured in green, then $\power^i$ vanishes for $i<0$.}
+	\label{figure:2}
+	
+	\vspace{2cm}
+	
+	\input{tables/hat_alone}\martin{This table should change to the current notation.}
+	\caption{The complex $\susp{\bs(r-1)}\Wdualaug{r} \ot \rucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot C^3_n$.} 
+	\label{figure:3}
+\end{figure}
+
 
 \federico{He comentado una explicación no concluyente de cómo se obtiene esta aplicación}
 %If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
@@ -253,12 +297,6 @@ If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on 
 %In other words, it is isomorphic to the truncation $\tau_k \Wst(r)$.
 %%If $k$ is odd, let $\varphi_k \colon \Wst(r) \to \sus{k}\rWhatd(r)$ be the chain map that sends $e_q$ to $e_{k-q}^{\vee}$.
 
-Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \Wdualaug r \hotimes \rucadenas$ as 
-	\[
-	\varphi(e_q \ot x) = (-1)^{\binom{n(r-1)-q+1}{2}}e_{q-(r-1)n}^\dd \ot \vec{x}
-	\]
-if $x$ has degree $n$.
-It has degree $0$ and is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
 As a consequence,
 
 \begin{proposition}
@@ -285,3 +323,4 @@ As a consequence,
 	Give a good definition of ``May--Steenrod connected $r$-diagonal''.
 	Give a homotopy equivalence between the Tate complex of $\ES_r$ and the unbounded complex $\ESst_r$.
 \end{question}
+

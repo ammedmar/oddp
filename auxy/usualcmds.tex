@@ -7,8 +7,6 @@
 \newtheorem{question}[theorem]{Question}
 \newtheorem*{question*}{Question}
 
-
-
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem*{definition*}{Definition}
@@ -23,6 +21,29 @@
 \newtheorem*{convention*}{Convention}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem*{notation*}{Notation}
+
+%\crefname{theorem}{Theorem}{Theorems}
+%\crefname{proposition}{Proposition}{Propositions}
+%\crefname{lemma}{Lemma}{Lemmas}
+%\crefname{corollary}{Corollary}{Corollaries}
+%\crefname{question}{Question}{Questions}
+%\crefname{definition}{Definition}{Definitions}
+%\crefname{construction}{Construction}{Constructions}
+%\crefname{remark}{Remark}{Remarks}
+%\crefname{example}{Example}{Examples}
+%\crefname{convention}{Convention}{Conventions}
+%\crefname{notation}{Notation}{Notations}
+
+\crefalias{proposition}{proposition}
+\crefalias{lemma}{lemma}
+\crefalias{corollary}{corollary}
+\crefalias{question}{question}
+\crefalias{definition}{definition}
+\crefalias{construction}{construction}
+\crefalias{remark}{remark}
+\crefalias{example}{example}
+\crefalias{convention}{convention}
+\crefalias{notation}{notation}
 
 % hyphenation
 \hyphenation{co-chain}
@@ -101,6 +122,7 @@
 \newcommand{\ucochains}[1][]{\operatorname{C}^\dd_{#1}}
 \newcommand{\rchains}[1][]{\operatorname{N}^{r}_{#1}}
 \newcommand{\ruchains}[1][]{\operatorname{C}^{r}_{#1}}
+\newcommand{\interior}{\mathrm{int}}
 
 \newcommand{\cadenas}[1][]{N_{#1}} %el [] es para poner el valor por defecto.
 \newcommand{\ucadenas}[1][]{C_{#1}}
@@ -112,6 +134,8 @@
 \newcommand{\rA}{\operatorname{L}}
 \renewcommand{\AA}{\operatorname{\mathbf{L}}}
 \newcommand{\abel}{\operatorname{{\it L}}}
+\renewcommand{\L}{\operatorname{L}}
+\newcommand{\Lnd}{\L_{\mathrm{nd}}}
 \newcommand{\NN}[1][*]{\operatorname{\mathbf{N}}^\dd_{#1}}
 
 \newcommand{\Omd}[1][*]{\operatorname{\Omega}^{\dd}_{#1}}
@@ -127,14 +151,14 @@
 \newcommand{\rWhatd}[1][]{\hat{\operatorname{W}}^{\dd}_{#1}}
 %\newcommand{\W}[1][]{W_{#1}}
 \newcommand{\Wd}[1][]{W^\dd_{#1}}
-\newcommand{\Wst}[1][]{W^{\mathrm{st}}_{#1}}
+\newcommand{\Wst}[1]{W^{\mathrm{st}}(#1)}
 
 
 \newcommand{\Wdualaug}[1]{W^\vee_+(#1)}
 \newcommand{\Waug}[1]{W_+(#1)}
 \newcommand{\Wdual}[1]{W^\vee(#1)}
 \newcommand{\W}[1]{W(#1)}
-\newcommand{\Per}[1]{\Lambda_+(#1)}
+\newcommand{\Per}[1]{\mathrm{Per}_+(#1)}
 
 
 % pair delimiters (mathtools)

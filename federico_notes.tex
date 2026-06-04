@@ -1,0 +1,53 @@
+\documentclass{report}
+
+\begin{document}
+	\section*{Federico's notes}
+	\subsection*{Fixes and todos}
+	\begin{enumerate}
+		\item Define semi-simplicial object in Section 2, and maybe $L_{nd}$.
+	\end{enumerate}
+	\subsection*{Progress of the paper}
+	\begin{enumerate}
+		\item The introduction should stress that 1) What is the realization of an augmented simplicial set? A natural way to realize it is to define it as the homotopy cofiber of the map induced on realization by the augmentation. This produces a space, but without cup products (one gets disjoint unions of suspensions of spaces). Endowing them with cup-i products is new, I believe. 2) There are other interesting categories that may not have a realization into spaces. 3) Stress that our construction is completely independent of the Alexander-Whitney diagonal (which is quite difficult to recover) and the Surjection operad approach.
+		\item Establish the sign that makes the operations commute up to suspension (this is probably another section).
+		\item Rewrite Section 2 (small changes) - better to write everything in terms of $R$-coalgebras, the functor $L$ should only appear in concrete examples.
+		\item Rewrite Section 3 adding what we know about the stable and the Tate resolution.
+		\item In Section 5 and 6, talk about Tate resolutions and possibly (only if it is worthy) about products.
+		\item Sections 6.2, 6.3 and 6.4 should be a separate section.
+		\item Is it good to have a section on Kan spectra? I like the idea, but not sure whether it is worth it.
+		\begin{itemize}
+			\item Good: The operations are specially well-suited for Kan spectra: With the current notation we only need to replace the finite joins by infinite joins et voilá.
+			\item Bad: Nobody uses Kan spectra.
+			\item Good: I like Kan spectra.
+			\item Bad: The longer the section, the worse: We don't want this to be an introduction to Kan spectra.
+		\end{itemize}
+		\item Check the other categories of coalgebras. What are the $\mathrm{Sq}^1$ in those cases?
+		\item Find a nullhomotopy of $W_+(r)$ that gives rise to $\phi$.
+		\item When the paper is competely finished, we whould evaluate the following: We can write everything without Alexander duality. The consequences are:
+		\begin{enumerate}
+			\item (Good) The cosemi-simplicial maps are of degree 1 instead of degree r-1. If we revert to the traditional convention on simplicial dimensions, then vertices have dimension 0, and the cosemi-simplicial maps are of degree 0.
+			\item (Good) One can phrase everything without having to introduce the stable W, it is enough to work with $W_+$ truncated at degree (r-1)n above (and something else below, depending on the convention for dimensions in a simplicial set)
+			\item (Good) In fact, one fan define a generalized May comultiplication on a chain complex as a May comultiplication on its augmented suspension. Then we are constructing a generalized May comultiplication.
+			\item (Good) The "augmentation" of the augmented simplicial set corresponds to the augmentation of the different standard simplices (currently it corresponds to its Alexander dual, the top simplices $\sigma$ of the standard simplices).
+			\item (Bad) The statement that $\psi$ factors through the Milgram resolution does not have a nice counterpart.
+			\item (Bad) The map $\phi$ that we build is suitable to be defined by extending the map between augmentations to the whole complex. The Alexander dual map is not, because the augmentation is in the wrong end of the complex. I think this is the key insight of working with the Alexander duals: That one can obtain $\phi$ by extending the identity on the augmentations to the whole complex. Viewed with perspective, if we mod out by the construction of $\psi$ and $\alpha,\beta$, the trouble in the original construction was precisely doing this extension.
+			\item (Bad) In the definition of $\xi$ (when building $\psi$), one needs to replace in Condition (1) the join by the Alexander dual of the join, which is he intersection. This is a less common operation.
+		\end{enumerate}
+	\end{enumerate}\title{Federico's notes}
+	\subsection*{Curiosities}
+	\begin{enumerate}
+		\item Try to prove that the operation in degree $0$ induces a product in cohomology.
+		\item Prove that the operation that computes the Bockstein (the one induced by $\Psi^\vee(e_r^\vee)$) does indeed compute the Bockstein.
+		\item Prove a Cartan formula for the join product.
+		\item Try to prove the Adem relations as Steenrod does in `Cohomology operations''. In that respect, notice that the map $\alpha$ is not only $C_r$-equivariant, but also $\Sigma_r$-equivariant. What can be said about $\psi$? Both the source and target have an action of the symmetric group, but the construction seems to be equivariant only for the action of the cyclic group.
+	\end{enumerate}
+	\subsection*{Further questions}
+	\begin{enumerate}
+		\item Rephrase the maps $\phi, \psi$ conjugating by $\Lambda$.
+		\item We seem to be proving that the Eilenberg-Zilber simplicial operad in arity $r$ is isomorphic to the chain complex of the unreduced join product of $\partial \Delta^{r-1}$ with itself. Is this true? The join product on the latter seems to play an important role in defining $\psi$, can it be related to something in the operadic structure of the Eilenberg-Zilber?
+		\item Our construction of $\psi$ requires that $r$ is prime (I believe the construction of $\phi$ and $\alpha$ work for any odd $r$). Is it possible to extend it to other odd $r$'s? The key point seems to be that we are requiring the assemblage maps to be simplicial. This is not completely necessary for our construction.
+		\item What can be said about even $r$'s? In particular, try to find the signs for $r=2$ (this may involve working with twisted coefficients).
+		\item Rethink the construction of $\psi$, trying to relate it as much as possible to the join product and its adjoints.
+		\item The fact that $\psi$ factors through the reduced join gives some properties to the cup-(p,i) products. Are they related to Anibal's properties that characterize Steenrod's cup-(2,i) products? 
+	\end{enumerate}
+\end{document}
