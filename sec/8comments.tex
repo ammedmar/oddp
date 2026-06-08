@@ -2,6 +2,31 @@
 
 \section{Additional remarks}
 
+\subsection{Homotopy retractions}\label{s:hretractions} In the previous section, one could try to define a homotopy retraction of $\Waug{r}$, and then extend the map between the augmentations of $\Per{r}$ and $\Waug{r}$ (which is the identity map $R\to R$) using this homotopy retraction. This would solve our problem if in addition the homotopy retraction is periodic with respect to the endomorphism $\theta$ of $\Waug{r}$. For example, if $r=3$, one can use the following retraction $\eta$:
+\begin{align*}
+	\eta(1) &= \rho^0e_1 
+	\\
+	\eta(\rho^0e_{2k-1}) &= 0
+	&
+	\eta(\rho^1e_{2k-1}) &= \rho^0e_2
+	&
+	\eta(\rho^2e_{2k-1}) &= -\rho^2e_2
+	\\
+	\eta(\rho^0e_{2k}) &= 0 
+	&
+	\eta(\rho^1e_{2k}) &= (\rho^0+\rho^1+\rho^2)e_3
+	&
+	\eta(\rho^2e_{2k}) &= 0 
+\end{align*}  
+and define recursively 
+\begin{align*}
+	\phi(\sus{k}[0]) &= \eta\circ \phi \circ \partial(\sus{k}[0])
+	\\
+	\phi(\sus{k}[0,1]) &= \eta\circ \phi \circ \partial(\sus{k}[0,1])
+\end{align*}
+and extend equivariantly. Finding such a periodic homotopy retraction in general seems as challenging as finding the map $\phi$.
+
+
 \subsection{The bar resolution}\label{ss:milgram} Recall the that the Milgram construction applied to a group $G$, yields a contractible augmented simplicial set $\EG$ with a free $G$-action:
 \begin{align*}
 	(\EG)_k &= G^{k+1}\\
@@ -233,7 +258,7 @@ The disparity in the behaviour with respect to left suspension of the operations
 
 \subsection{Effective computations} \label{s:python} The maps in this work have been implemented in the repository \cite{github-oddp}. 
 
-\subsubsection{The abstract comultiplication} The following are the times (in seconds) required to find $\alpha^{\dd}\circ \beta^{\dd}\circ \circ \mathrm{red}\circ \psi_{\mathrm{red}}^\dd\circ \phi^\dd(e_{q}^{\dd})$ on dimension $n$ for $r=3$. Notice that the maps $\alpha$ and $\beta$ are isomorphisms. We have observed that most of the time is used to compute the reduction map $\mathrm{red}$:
+\subsubsection{The abstract comultiplication} The following are the times (in seconds) required to find $\alpha^{\dd}\circ \beta^{\dd}\circ \mathrm{red}\circ \psi_{\mathrm{red}}^\dd\circ \phi^\dd(e_{q}^{\dd})$ on dimension $n$ for $r=3$. Notice that the maps $\alpha$ and $\beta$ are isomorphisms. We have observed that most of the time is used to compute the reduction map $\mathrm{red}$:
 
 For $q=3$ (this computes the Bockstein):
 \[
@@ -268,7 +293,7 @@ For $q= 15$ (this computes the Bockstein of the previous operation)
 \]
 
 \subsubsection{Evaluating the formulas on particular simplicial complexes}
-Below are the times taken to compute the Bockstein ($q=3$) for the model of the Moore space $M(\bZ/3)$ of sagemath and its $m$-fold unreduced suspension  (that triplicates the number of faces). Below we write $n=m+3$ for the degree of the top simplex in $\susp{m}M(\bZ/3)$, to ease comparison with the previous tables.
+Below are the times taken to compute the Bockstein ($q=3$) for the model of the Moore space $M(\bZ/3)$ of sagemath and its $m$-fold unreduced suspension (that multiplies the number of faces by $3m$). Below we write $n=m+3$ for the degree of the top simplex in $\susp{m}M(\bZ/3)$, to ease comparison with the previous tables.
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|}\hline 
 	n & 9  & 10 & 11    & 12 & 13 & 14 & 15\\ \hline
@@ -276,7 +301,7 @@ Below are the times taken to compute the Bockstein ($q=3$) for the model of the 
 \end{array}
 \]
 %Curiously the next column gives memory error.
-We then implemented a small simplicial model of $\bC P^3$ found by \cite{datta} with 18 vertices, and considered its $m$th unreduced suspension (that triplicates the number of faces) and applied to it an algorithm to compute the first non-trivial operation after the Bockstein ($q=12$). Below we write $n=m+7$ for the degree of the top simplex in $\susp{m}\bC P^3$, to ease comparison with the previous tables.
+We then implemented a small simplicial model of $\bC P^3$ found by \cite{datta} with 18 vertices, and considered its $m$th unreduced suspension (that multiplies the number of faces by $3m$) and applied to it an algorithm to compute the first non-trivial operation after the Bockstein ($q=12$). Below we write $n=m+7$ for the degree of the top simplex in $\susp{m}\bC P^3$, to ease comparison with the previous tables.
 \[
 \begin{array}{|c|c|c|c|c|}\hline 
 	n & 7     & 8    & 9 & 10 \\ \hline

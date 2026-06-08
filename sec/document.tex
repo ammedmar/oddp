@@ -1,26 +1,3 @@
-\subsection{homotopy retractions} One could try to define a homotopy retraction of $\Waug{r}$, and then extend the map between the augmentations of $\Per{r}$ and $\Waug{r}$ (which is the identity map $R\to R$) using this homotopy retraction. This would solve our problem if in addition the homotopy retraction is periodic with respect to the endomorphism $\theta$ of $\Waug{r}$. For example, if $r=3$, one can use the following retraction $\eta$:
-\begin{align*}
-	\eta(1) &= \rho^0e_1 
-	\\
-	\eta(\rho^0e_{2k-1}) &= 0
-	&
-	\eta(\rho^1e_{2k-1}) &= \rho^0e_2
-	&
-	\eta(\rho^2e_{2k-1}) &= -\rho^2e_2
-	\\
-	\eta(\rho^0e_{2k}) &= 0 
-	&
-	\eta(\rho^1e_{2k}) &= (\rho^0+\rho^1+\rho^2)e_3
-	&
-	\eta(\rho^2e_{2k}) &= 0 
-\end{align*}  
-and define recursively 
-\begin{align*}
-	\phi(\sus{k}[0]) &= \eta\circ \phi \circ \partial(\sus{k}[0])
-	\\
-	\phi(\sus{k}[0,1]) &= \eta\circ \phi \circ \partial(\sus{k}[0,1])
-\end{align*}
-and extend equivariantly. Finding such a periodic homotopy retraction in general seems as challenging as finding the map $\phi$.
 
 \subsection{Suspensions} Let $X$ be a pointed augmented simplicial set, let $\sus{}X$ be its right suspension. If $x\in X_n$ is a simplex of dimension $n$, let $x'\in X_{n+1}$ be the corresponding simplex in dimension $n+1$. We have that $d_ix' = (d_ix)'$ if $i<n+1$ and the basepoint otherwise.
 

@@ -32,13 +32,13 @@ One can then define a \emph{stable Steenrod-May structure} on a chain complex $\
 \begin{equation}\label{eq:tatediag}
 \Wst(p)\ot \uchains\to \uchains^{\ot p}
 \end{equation}
-that factor through $\ESst(p)$ and again, the cohomology of these chain complexes has power operations. A \emph{weak stable May--Steenrod structure} is a stable May--Steenrod structure where the collection of chain maps do not need to factor through $\ESst{p}$. Such a structure endows the cohomology of $\uchains$ with power operations of all degrees. Finally, we remark that there is a map $\Wst(p)\to \W{p}$, and thus a May--Steenrod structure induces also a stable May--Steenrod structure.
+that factor through $\ESst(p)$ and again, the cohomology of these chain complexes has power operations. A \emph{stable $p$-cyclic homotopy coalgebra} is simply a cyclically equivariant map $\Wst(p)\ot \uchains\to \uchains^{\ot r}$. Such a structure endows the cohomology of $\uchains$ with power operations of all degrees. Finally, we remark that there is a map $\Wst(p)\to \W{p}$, and thus a May--Steenrod structure induces also a stable May--Steenrod structure. \federico{Tate diagonal?}
 
-In \cref{s:stable} we notice that, if $X$ is a $\Sigma$-spectrum, the map
-\[
-	\chains(X)\lra \left(\chains(X)^{\ot p}\right)^{t\Cyc_p}
-\] 
-induced by the Tate diagonal $H\bF_p\to \left(H\bF_p^{\ot p}\right)^{t\Cyc_p}$ is the quotient of the adjoint of the map \eqref{eq:tatediag} by the action of the cyclic group.
+%In \cref{s:stable} we notice that, if $X$ is a $\Sigma$-spectrum, the map
+%\[
+%	\chains(X)\lra \left(\chains(X)^{\ot p}\right)^{t\Cyc_p}
+%\] 
+%induced by the Tate diagonal $H\bF_p\to \left(H\bF_p^{\ot p}\right)^{t\Cyc_p}$ is the quotient of the adjoint of the map \eqref{eq:tatediag} by the action of the cyclic group.
 
  
  \subsection*{Purpose of the article} In this article we try to answer the following question: 
@@ -77,7 +77,7 @@ Let $R$ be a commutative ring and $p$ a prime number. A \emph{$p$-cyclic coalgeb
 We mention that this structure can exist only if $p$ is prime. Assume now that $p$ is an odd prime or that $p=2$ and $R=\bF_2$.
 
 \begin{theorem}\label{thm:main}
-	Each $p$-cyclic straightening with duality yields an effective construction of a weak stable May-Steenrod structure on the normalized chain complex of an augmented simplicial $p$-cyclic coalgebra.
+	Each $p$-cyclic straightening with duality yields an effective construction of a stable $p$-cyclic homotopy coalgebra structure on the normalized chain complex of an augmented simplicial $p$-cyclic coalgebra.
 \end{theorem}
 
 %A simplicial set has a canonical augmentation, thus every simplicial set $X$ yields an augmented simplicial set $X_+$ whose chain complex is the chain complex of the original simplicial set that computes reduced homology. Thus we can compare the weak stable May--Steenrod structure on $\chains(X_+)$ obtained in the theorem and the stable May--Steenrod structure on $\chains(X)$ induced by the May--Steenrod structure of \cite{medina2021may_st}. 
@@ -116,9 +116,9 @@ We note that for $p=2$ and $R=\bF_2$ the May--Steenrod structures coincide with 
 	\]
 In \cref{s:2bdiagonals} we will construct a semi-simplicial structure $\susp{\bullet} \Wdualaug{r}$ on this chain complex with face maps of degree $r-1$, and describe a chain map
 \begin{equation}\label{eq:uno}
-	\Wst{r}\ot \chains(X) \lra \chains(\Wdualaug{r}\ot X_{\mathrm{nd}}),
+	\Wst(r)\ot \chains(X) \lra \chains(\Wdualaug{r}\ot X^{\mathrm{nd}}),
 \end{equation}
-where $X_{\mathrm{nd}}$ denotes the semi-simplicial $R$-module obtained by quotienting by the degeneracies.
+where $X^{\mathrm{nd}}$ denotes the augmented semi-simplicial $R$-module obtained by quotienting by the degeneracies.
 \subsubsection*{Step 2} There is an isomorphism between the cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and its linear dual $\cochains(\asimplex^{\bullet})$ to which we refer as \emph{Alexander duality}. As a consequence, $\cochains(\asimplex^{\bullet})$ is endowed with a cosimplicial structure, and so is $\cochains(\asimplex^{\bullet})^{\ot r}$. Writing $\cochains(\asimplex^{\bullet})_{\mathrm{int}}^{\ot r}$ for the interior simplices (i.e., those that are not the image of coface maps), we explain how to endow $\cochains(\asimplex^{\bullet})_{\mathrm{int}}$ with a semi-simplicial structure with face maps of degree $r-1$. In \cref{s:3complexes} we construct an isomorphism
 \begin{equation}\label{eq:dos}
 	 \chains(\cochains(\asimplex^{\bullet})_{\mathrm{int}}^{\ot r}\ot X_{\mathrm{nd}}^{\ot r})
@@ -136,7 +136,7 @@ that commutes with the face maps of the semi-simplicial structure on each side. 
 \]
 and check that it commutes with the coface maps of the cosemi-simplicial structure on each side. Once this is obtained, the map $\Psi^{\vee}\ot \diag_p$ gives a map from the target of \eqref{eq:uno} to the source of \eqref{eq:dos}.
 
-We construct the map $\Psi$ by first observing that $\chains(\asimplex^n)_{\mathrm{int}}^{\ot r}$ is isomorphic to $\chains(\partial\asimplex^{r-1})^{\ot n+1}$ with a very simple cosemi-simplicial structure (\cref{s:milnor}), and then building chain maps
+We construct the map $\Psi$ by first observing that $\chains(\asimplex^n)_{\mathrm{int}}^{\ot r}$ is isomorphic to $\chains(\partial\asimplex^{r-1})^{\ot n+1}$ with a very simple cosemi-simplicial structure (\cref{s:milnor}), and then build chain maps
 \[
 	\chains(\partial\asimplex^{r-1})^{\ot n+1}
 	\overset{\mathrm{red}}{\lra}
@@ -146,14 +146,16 @@ We construct the map $\Psi$ by first observing that $\chains(\asimplex^n)_{\math
 	\overset{\phi}{\lra} 
 	\Waug{r},
 \]
-where the subscript $+$ denotes a natural augmentation of the non-augmented chain complex $\chains(\partial\simplex^{r-1})^{\ot \bullet}$, and the chain complex $\Per{r}$ is the augmented periodic resolution of the cyclic group $\Cyc_r$. Both complexes are endowed with cosemi-simplicial structures and the chain maps commute with them in all cases except for $\phi$, when they commute up to a constant. There will be a map $\psi_{\mathrm{red}}$ for each $p$-cyclic straightening with duality. We remark that $\phi$ could be redefined so that it commutes on the nose at the cost of having to take $R=\bF_p$-coefficients instead of arbitrary coefficients.
+where the subscript $+$ denotes a natural augmentation of the non-augmented chain complex $\chains(\partial\simplex^{r-1})^{\ot \bullet}$, and the chain complex $\Per{r}$ is the augmented periodic resolution of the cyclic group $\Cyc_r$. Both complexes are endowed with cosemi-simplicial structures and the chain maps commute with them in all cases except for $\phi$, when they commute up to a constant. There will be a map $\psi_{\mathrm{red}}$ for each $p$-cyclic straightening with duality. 
 
 \subsection{Outline}
 
 In \cref{s:preliminaries} we set some sign and degree conventions for chain complexes and the conventions for augmented simplicial objects. The reader is encouraged to read Section \cref{s:simplices} at least once paying attention to the three warnings there: we do not follow the usual convention to denote the simplicial category.
 The proof of the main theorem is developed in Sections \ref{s:2bdiagonals}, \ref{s:3complexes}, \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} as described in the previous sketch.
+
+In \cref{s:hretractions} we reflect on how to define the map $\phi$ of \cref{s:per_to_minimal} using homotopy retractions.
 In \cref{ss:milgram} we use the map of \cref{s:per_to_minimal} to construct a map from the Milgram resolution of the cyclic group to the minimal resolution that may be of independent interest.
 In \cref{ss:even} we show that our construction when $p=2$ agrees with the construction of \cite{medina2021fast_sq}.
-In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.
+In \cref{s:9Kanspectra} we briefly explain how our method applies also to the chain complex of a Kan spectrum.
 In \cref{s:suspension} we study the behaviour of the May--Steenrod structure of \cite{medina2021may_st} under suspension, and deduce that for $p>5$ it is different from the construction of this paper applied to simplicial sets.
 In \cref{s:python} we will give a few comments on the performance of the code \cite{github-oddp}.
