@@ -12,8 +12,7 @@ In this section we present a duality on the normalized chains of the augmented s
 %Given a simplicial set $X$, let $\chains(X) = \sus{}\cadenas(X)$ be the right suspension of the normalized chains of $X$. \federico{I propose that }
 
 \begin{definition}\label{d:poincare_duality_algebra}
-	Let $A$ be a connected commutative algebra that is finite dimensional for each degree.
-	We say $A$ is a \textit{Poincar\'e duality algebra} of \textit{formal dimension} $d$ if:
+	A connected commutative algebra $A$ of finite type is a \emph{Poincar\'e duality algebra} of \emph{formal dimension} $d$ if:
 	\begin{enumerate}
 		\item\label{i:pd1} $A_i = 0$ for $i > d$,
 		\item\label{i:pd2} $\dim A_d = 1$,
@@ -26,35 +25,35 @@ In this section we present a duality on the normalized chains of the augmented s
 \end{definition}
 
 \begin{notation}
-	If $\tau = [v_0,\dots,v_{k-1}]$ and $\tau'=[u_0,\dots,u_{m}-1]$ are two non-degenerate simplices of $\asimplex^n$, let $\lambda(\tau,\tau')$ be the parity of the permutation that orders the sequence $[v_0,\dots,v_{k-1},u_0,\dots,u_{m-1}]$. Let $\tau^c$ be the complementary face of $\tau$. The top generator $[0,1,\dots,n]$ will be denoted $\sigma$.
+	If $\tau = [v_0,\dots,v_{k-1}]$ and $\tau'=[u_0,\dots,u_{m}-1]$ are two non-degenerate simplices of $\asimplex^n$, let $\lambda(\tau,\tau')$ be the parity of the permutation that orders the sequence $[v_0,\dots,v_{k-1},u_0,\dots,u_{m-1}]$. Let $\tau^c$ be the complementary face of $\tau$. The top generator $[0,1,\dots,n-1]$ will be denoted $\sigma$.
 \end{notation}
 
 \begin{theorem}
-	The join product defines on $\chains(\asimplex^{n})$ the structure of a Poincar\'e duality algebra with unit the empty simplex $[0] \to [n+1]$ and formal dimension $n+1$. This structure is natural with respect to simplicial maps.
+	The join product defines on $\chains(\asimplex^{n})$ the structure of a Poincar\'e duality algebra with unit the empty simplex $[0] \to [n]$ and formal dimension $n$. This structure is natural with respect to simplicial maps.
 \end{theorem}
 
 \begin{proof}
-	The complex $\chains(\asimplex^{n})$ is connected and satisfies \cref{i:pd2,i:pd3} in \cref{d:poincare_duality_algebra} since $\chains(\asimplex^{n})_0 \cong \Z\{[0] \to [n+1]\}$, $\chains(\asimplex^{n})_{n+1} \cong \Z\{[n+1] \to [n+1]\}$, and $\chains(\asimplex^{n})_{n+k} \cong 0$ for $k>1$.
+	The complex $\chains(\asimplex^{n})$ is connected and satisfies \cref{i:pd2,i:pd3} in \cref{d:poincare_duality_algebra} since $\chains(\asimplex^{n})_0 \cong \Z\{[0] \to [n]\}$, $\chains(\asimplex^{n})_{n} \cong \Z\{[n] \to [n]\}$, and $\chains(\asimplex^{n})_{n+k} \cong 0$ for $k>0$.
 
 	That the join product is a natural chain map can be easily verified and a complete proof is presented in \cite[p.19]{medina2020prop1}.
 
 	Thinking about the join product in terms of the union of sets with a permutation sign leads to a direct verification of its commutativity (in the graded sense) and unitality with respect to the empty simplex.
 
 	To verify \cref{i:pd3} consider a basis element $x = [v_1,\dots,v_i]$.
-	Let $x^c$ be the ordered complement of $\set{v_1,\dots,v_i}$ in $\{0,\dots,n\}$ and notice that $x \ast x^c = \pm [0,\dots,n]$ as required.
+	Let $x^c$ be the ordered complement of $\set{v_1,\dots,v_i}$ in $\{0,\dots,n-1\}$ and notice that $x \ast x^c = \pm [0,\dots,n-1]$ as required.
 \end{proof}
 
 This pairing thus induces an isomorphism
 \begin{equation}\label{eq:iso1}
-	\alex \colon \chains(\asimplex^n) \to \susp{n+1}\cochains(\asimplex^n)
+	\alex \colon \chains(\asimplex^n) \to \susp{n}\cochains(\asimplex^n)
 \end{equation}
 that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will refer to this isomorphism as \emph{Alexander duality}.
 
 \begin{remark}\label{remark:alex}
-	If $\tau = [v_0,\dots,v_k]$ and $\tau^c = [u_0,\dots,u_m]$ are the ordered representatives, then
+	If $\tau = [v_0,\dots,v_{k-1}]$ and $\tau^c = [u_0,\dots,u_{m-1}]$ are the ordered representatives, then
 	\begin{align*}
-		\lambda(\tau,\tau^c)&\equiv \sum_{i=0}^k (v_i-i) \equiv \sum_{i=0}^k v_i - \binom{k+1}{2} \\
-		\lambda(\tau,\tau^c)&\equiv \sum_{j=0}^m (n-u_j-m+j) \equiv \sum_{j=0}^m u_j +(n-m)(m+1)+\binom{m+1}{2}.
+		\lambda(\tau,\tau^c)&\equiv \sum_{i=0}^{k-1} (v_i-i) \equiv \sum_{i=0}^{k-1} v_i - \binom{k+1}{2} \\
+		\lambda(\tau,\tau^c)&\equiv \sum_{j=0}^{m-1} (n-u_j-m+j) \equiv \sum_{j=0}^{m-1} u_j +(n-m)(m+1)+\binom{m+1}{2}.
 	\end{align*}
 \end{remark}
 
@@ -62,7 +61,7 @@ that sends a chain $\tau$ to $(-1)^{\lambda(\tau,\tau^c)}(\tau^c)^\vee$. We will
 	We will denote normalized chains between brackets and normalized cochains between parentheses.
 \end{notation}
 
-\subsection{Simplicial functor tensor products}
+\subsection{Simplicial functor tensor products}\label{s:functortensor}
 
 Recall that if $A$ is an augmented cosimplicial chain complex and $B$ is an augmented simplicial chain complex, the functor tensor product $A \ot_{\asimplex} B$ is the quotient of the tensor product $A \ot B$ by the relation generated by
 \begin{align*}
@@ -83,18 +82,18 @@ given on an ordered representative $[v_0,\dots,v_{k-1}]\in \chains(\asimplex^n)$
 \\
 \s^i([v_0,\dots,v_{k-1}]) &= [v_0,\dots,v_{j-1},v_j-1,\dots,v_{k-1}-1] \quad \text{if $v_{j-1} \leq i < v_j$}.
 \end{align*}
-If $X$ is an augmented simplicial object in $\cC$, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and the augmented simplicial $R$-module $\L(X)_\bullet$:
+If $X_\bullet$ is an augmented simplicial $R$-module, the chain complex $\chains(X)$ can alternatively be described as the functor tensor product over $\asimplex$ of the augmented cosimplicial chain complex $\chains(\asimplex^{\bullet})$ and $X_\bullet$:
 \begin{equation}\label{eq:1} 
- \chains(\asimplex^\bullet) \ot_{\asimplex} \L(X)_\bullet
+ \chains(\asimplex^\bullet) \ot_{\asimplex} X_\bullet
  \cong	
  \chains(X).
 \end{equation}
-This sends a simplex $[k] \to [n]$ and a simplex $[n] \to X$ to the composition $[k] \to X$.
+%This sends a simplex $[k] \to [n]$ and a simplex $[n] \to X$ to the composition $[k] \to X$.
 
 
 
 \subsection{Alexander duality}
-Via Alexander duality, the sequence of chain complexes $\susp{\bullet +1}\cochains(\asimplex^\bullet)$ is then endowed with the following augmented \emph{cosimplicial} structure
+Via Alexander duality, the sequence of chain complexes $\susp{\bullet }\cochains(\asimplex^\bullet)$ is then endowed with the following augmented \emph{cosimplicial} structure
 \begin{align*}
 	\d^i \colon \cochains(\asimplex^n) & \lra \susp{}\cochains(\asimplex^{n+1})
 	\\
@@ -115,38 +114,34 @@ given on an ordered generator $U=(u_0,\dots,u_{m-1})$ by
  The chain complexes $\cochains(\asimplex^\bullet)$ have a simplicial structure as well: the linear dual of the cosimplicial structure on $\chains(\asimplex^\bullet)$, whose face and degeneracies are denoted by $\d_i$ and $\s_i$.\martin{Here we are missing a description of the simplicial structure on $\chains(\asimplex^n)$ that is dual from this one on $\cochains(\asimplex^n)$. Also, maybe this belongs to the next subsection.}
 The following isomorphism gives another characterization of $\chains(X)$:
 \begin{equation}\label{eq:dual}
-	\alex^{-1} \ot \Id\colon \susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet
+	\alex^{-1} \ot \Id\colon \susp{\bullet }\cochains(\asimplex^\bullet)\ot_{\asimplex} X_\bullet
 	\lra
-	\chains(\asimplex^{\bullet})\ot_{\asimplex} \L(X)_\bullet
+	\chains(\asimplex^{\bullet})\ot_{\asimplex} X_\bullet
 \end{equation}
 The $r$-fold tensor product of (co)simplicial chain complexes is again a (co)simplicial chain complex, and the functor tensor product construction commutes with the tensor product:
 \begin{equation}\label{eq:assemble}
-	\susp{(\bullet +1)r}\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} \L(X)^{\ot r}_\bullet 
+	\susp{\bullet r}\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} X^{\ot r}_\bullet 
 	\lra 
-	\left(\susp{\bullet +1}\cochains(\asimplex^\bullet)\ot_{\asimplex} \L(X)_\bullet \right)^{\ot r}.
+	\left(\susp{\bullet }\cochains(\asimplex^\bullet)\ot_{\asimplex} X_\bullet \right)^{\ot r}.
 \end{equation}
 
 \subsection{Simplicial tensor products and functor tensor products}
 A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^n)^{\ot r}$ is \emph{almost $i$-full} if all but one of the tuples $U_0,\ldots,U_{r-1}$ contain the number $i$. It is \emph{$i$-full} if all the tuples contain $i$. The generators that are not $i$-full for any $i$ are also known as \emph{interior} for the cosimplicial structure. Let $\cochains(\asimplex^n)^{\ot r}_{\interior}$ denote the quotient of the complex $\cochains(\asimplex^n)^{\ot r}$ by the subcomplex generated by the non-interior generators, and let $\chains(\asimplex^n)^{\ot r}_\interior$ be its linear dual. The cyclic group $\Cyc_r$ acts on them permuting the factors.
 \begin{definition}
-	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\cochains(\asimplex^{n})^{\ot r}_\interior$ has a semi-simplicial structure with face maps 
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \susp{n(r-1)}\cochains(\asimplex^{n})^{\ot r}_\interior$ has a semi-simplicial structure with face maps 
 	\begin{align*}
 		\d_i\colon \cochains(\asimplex^n)^{\ot r}_\interior &\lra
 		\susp{1-r}\cochains(\asimplex^{n-1})^{\ot r}_\interior	
 	\end{align*}
-	given by $\d_i = \sum \s^i\ot \ldots \s^i\ot\d_i\ot \s^i \ot \ldots \s^i$. This map sends an almost $i$-full generator $U_0\ot \cdots \ot U_{r-1}$ to $\pm \s^iU_0\ot\ldots\ot \d_iU_j\ot\ldots\ot \s^iU_{r-1}$ if $i$ is not contained in $U_j$. All other generators are sent to $0$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(\bullet+1)(r-1)}\chains(\asimplex^n)^{\ot r}_\interior$ whose coface maps are denoted $\d^i$.	
+	given by $\d_i = \sum \s^i\ot \ldots \s^i\ot\d_i\ot \s^i \ot \ldots \s^i$. This map sends an almost $i$-full generator $U_0\ot \cdots \ot U_{r-1}$ to $\pm \s^iU_0\ot\ldots\ot \d_iU_j\ot\ldots\ot \s^iU_{r-1}$ if $i$ is not contained in $U_j$. All other generators are sent to $0$. Dualising we obtain the cosemi-simplicial chain complex $\sus{\bullet(1-r)}\chains(\asimplex^\bullet)^{\ot r}_\interior$ whose coface maps are denoted $\d^i$.	
 \end{definition}
 
-\begin{definition}
-	Let $[n]\mapsto \Lnd(X)_n$ denote the semi-simplicial $R$-module obtained from the simplicial $R$-module $\L(X)_\bullet$ by quotienting by the degeneracies.
-\end{definition}
-
- For the following lemma recall that $\ot$ denotes the semi-simplicial tensor product and $\ot_{\asimplex}$ denotes the functor tensor product.
+ For the following lemma recall that $\ot$ denotes the semi-simplicial tensor product of \cref{s:simplices} and $\ot_{\asimplex}$ denotes the functor tensor product of \cref{s:functortensor}.
 
 \begin{lemma}\label{lemma:simp-cosimp}
 	The map 
-	\[\chains(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot \Lnd(X)^{\ot r}_\bullet)
-	\lra \susp{(\bullet+1)r}\cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} \L(X) ^{\ot r}_\bullet\]
+	\[\chains(\susp{\bullet(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot (X^\nd)^{\ot r}_\bullet)
+	\lra \susp{\bullet r}\cochains(\asimplex^\bullet)^{\ot r} \ot_{\asimplex} X ^{\ot r}_\bullet\]
 	that sends a generator $(U_0\ot\ldots \ot U_{r-1})\ot (x_0\ot\ldots\ot x_{r-1})$ to the same generator on the right hand-side is an isomorphism of $R\Cyc_r$-chain complexes.
 \end{lemma}
 \begin{proof}
@@ -157,48 +152,61 @@ A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^n)^{\ot r}$ is \e
 
 Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chain map $\theta^\vee\colon \Wdualaug{r}\to \susp{1-r}\Wdualaug{r}$.
 
-\begin{definition} The sequence of chain complexes $[n]\mapsto \susp{(n+1)(r-1)}\Wdualaug{r}$ has a semi-simplicial structure whose face maps are all equal to $\theta^\vee$. Dualising we obtain the cosemi-simplicial chain complex $\sus{(n+1)(r-1)}\Waug{r}$ whose coface maps are all equal to $\theta$ (cf. \cref{ex:311} and \cref{lemma:adj}).
+\begin{definition} The sequence of chain complexes $[n]\mapsto \susp{n(r-1)}\Wdualaug{r}$ has a semi-simplicial structure whose face maps are all equal to $\theta^\vee$. Dualising we obtain the cosemi-simplicial chain complex $\sus{\bullet(1-r)}\Waug{r}$ whose coface maps are all equal to $\theta$ (cf. \cref{ex:311} and \cref{lemma:adj}).
 \end{definition}
 
 \begin{lemma}\label{lemma:hotimessimp}
-	The chain complex $\susp{\bs(1-r)}\Wdualaug{r}\ot \chains(X)_\bs$ is isomorphic to the chain complex $\chains(\susp{(\bullet+1)(r-1)}\Wdualaug{r} \ot \Lnd(X)_\bullet)$
+	The chain complex $\susp{\bs(r-1)}\Wdualaug{r}\ot \chains(X)_\bs$ is isomorphic to the chain complex $\chains(\susp{\bullet(r-1)}\Wdualaug{r} \ot X^\nd_\bullet)$
 \end{lemma}
 \begin{proof}
 	This is the isomorphism \eqref{eq:adj}.
 \end{proof}
 
 
-\begin{corollary}\label{prop:milnor_to_minimal}
+\begin{corollary}
 	A family of equivariant chain maps 
 	\[
 	\Psi_n\colon \chains(\asimplex^{n})^{\ot r}_\interior \lra \Waug{r}
 	\]
-	such that $\theta\circ \Psi_n = c \cdot  \Psi_{n+1} \circ \d^j$ for each $j$ and for some constant $c$ yields an equivariant chain map
+	such that $\theta\circ \Psi_n =  \Psi_{n+1} \circ \d^i$ for each $i$ yields an equivariant chain map
 	\[
-	\mu\colon \susp{\bs(1-r)}\Wdualaug{r}\ot \chains(X)_\bs\lra \chains(X)^{\ot r}
+	\mu\colon \susp{\bs(r-1)}\Wdualaug{r}\ot \chains(X)_\bs\lra \chains(X)^{\ot r}.
 	\]
+	If additionally they factor as $c^n\cdot \Psi\circ \iota$
+	\[
+		\chains(\asimplex^n)^{\ot r}_{\mathrm{\mathrm{int}}}\overset{\iota}{\lra} \bigcup_n\chains(\asimplex^n)^{\ot r}_{\mathrm{int}} \overset{\Psi}{\lra} \Waug{r}
+	\]
+	for some cosemi-simplicial map $\Psi$ and some constant $c$,
+	then they satisfy that 
+	\begin{align*}
+		\mu\circ \sus{} &= c\cdot \sus{}\circ \mu
+		\\
+		\mu\circ \susp{} &= c\cdot \rho(\susp{\ot r}\circ \mu).
+	\end{align*}
 \end{corollary}
 \begin{proof}
-	The map is obtained on dimension $n$ -!!!!!!!!!!!!!!!!!!!!!!!!!! as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map 
+	The map is obtained as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map 
 	\[
-		\chains(\susp{(\bullet+1)(r-1)}\Wdualaug{r} \ot_{\asimplex} \Lnd(X)_\bullet) 
+		\Psi_n^\vee\ot \diag\colon \chains(\susp{\bullet(r-1)}\Wdualaug{r} \ot_{\asimplex} X^{\nd}_\bullet) 
 		\lra
-		\chains\left(\susp{(\bullet+1)(r-1)}\cochains(\asimplex^n)^{\ot r}_\interior\ot \Lnd(X)^{\ot r}_\bullet\right),	
+		\chains\left(\susp{\bullet(r-1)}\cochains(\asimplex^n)^{\ot r}_\interior\ot (X^{\nd})^{\ot r}_\bullet\right),	
 	\]
-	given on $n$-simplices by $c^{n+1}\cdot \Psi_n^\vee\ot \diag$, the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.
+	the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.
+	
+	THE SECOND PART (SUSPENSION) IS TBD AND POSSIBLY SLIGHTLY ADJUSTED.
 \end{proof}
 
-In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define two additional cosemi-simplicial chain complexes $	\sus{(\bullet +1)(r-1) }\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}$ and $\sus{(\bullet+1)(1-r)}\Per{r}$ with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three maps between them (for the sake of clearness, we omit the symbol $\sus{(\bullet+1)(r-1)}$ everywhere):  
+In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define two additional cosemi-simplicial chain complexes $	\sus{\bullet(1-r) }\chains(\partial \asimplex^{r})^{\ot \bullet}$ and $\sus{\bullet(1-r)}\Per{r}$ with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three cosemi-simplicial maps between them (for the sake of clearness, we omit the symbol $\sus{\bullet(1-r)}$ everywhere):  
 \[
 	\chains(\asimplex^{\bullet})^{\ot r}_{\interior}
 	\overset{\beta\circ \alpha}{\lra}
-	\chains(\partial \asimplex^{r-1})^{\ot \bullet +1}
+	\chains(\partial \asimplex^{r})^{\ot \bullet }
 	\overset{\psi}{\lra}
 	\Per{r}
 	\overset{\phi}{\lra}
 	\Waug{r}
 \]
-whose composition satisfies the conditions of this corollary. There is a map $\psi$ for each choice of $r$-cyclic straightening with duality. The first two maps are cosemi-simplicial maps while the rightmost commutes with the face maps up to the constant $c= \tilde{r}!$, where $\tilde{r} = \frac{r-1}{2}$. Although the map $\phi$ produced in \cref{prop:milnor_to_per} is only defined with coefficients in $R[\frac{1}{\tilde{r}!}]$, the map $c^{n+1}\cdot \phi$ is well defined with coefficients in $R$.\label{remark:many_coefficients}
+whose composition satisfies the conditions of this corollary. There is a map $\psi$ for each choice of $r$-cyclic straightening with duality. The composition $\phi\circ\psi\circ\beta\circ\alpha$ satisfies the extra hypothesis of the Corollary.
 
 
 

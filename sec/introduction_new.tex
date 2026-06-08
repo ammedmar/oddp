@@ -12,7 +12,7 @@ For $p$ an odd prime, the homotopy commutativity is encoded in a $\Sigma_p$-equi
 \begin{equation}\label{eq:stp}
 	\mathfrak{m}\colon \ES_p\ot \chains(X;\bF_p)\to \chains(X;\bF_p)^{\ot p}
 \end{equation}
-These maps exist for arbitrary coefficients and for all natural numbers $p$ and together have the richer structure of an operad, but we will not pursue this structure here. These maps were made explicit in \cite{mcclure2003multivariable} and \cite{berger2004combinatorial} (see also the more recent account \cite{BM}) taking as $\ES_p$ the Surjection and the Barrat--Eccles operads. 
+These maps exist for arbitrary coefficients and for all natural numbers $p$ and together have the richer structure of an operad, but we will not pursue this structure here. These maps were made explicit in \cite{mcclure2003multivariable} and \cite{berger2004combinatorial} (see also the more recent account \cite{brumfiel2023explicit}) taking as $\ES_p$ the Surjection and the Barrat--Eccles operads. 
 
 In practice, it is more convenient to work with the cyclic group $\Cyc_p$ instead of the symmetric group, because it has smaller resolutions and the inclusion map $\Cyc_p\to \Sigma_p$ induces an epimorphism in homology. Taking as $\EC_p$ the minimal resolution $\W{p}$ (see \cref{s:unstable}) and as $\ES_p$ the Barrat-Eccles operad, in \cite{medina2021may_st} a map $\W{p}\to \ES_p$ was described, whose composition with the above maps yields
 \[
@@ -20,19 +20,19 @@ In practice, it is more convenient to work with the cyclic group $\Cyc_p$ instea
 \]
 One of the interests of this latter map is that it allows to give explicit cochain-level formulas for the power operations on the cohomology of $X$.
  
-These maps had been already considered by May \cite{May} in more generality: He defined a category whose objects were chain complexes $\uchains$ endowed with a comultiplication $m\colon \uchains\to \uchains\ot \uchains$ and structural maps $\mu\colon \W{p}\ot \uchains\to \uchains^{\ot p}$ that factor through a resolution of the symmetric group and such that $\mu(e_0\ot x) = m(x, m(x,\ldots))$ (we follow \cite{medina2021may_st} in calling these \emph{Steenrod-May structures}). He proved that for each prime $p$, the cohomology of these chain complexes has power operations that satisfy a Cartan relation with the coproduct $m$. This generalization allows to describe cohomology operations on the cohomology of other objects than simplicial complexes, such as Hopf algebras.
+These maps had been already considered by May \cite{may1970general} in more generality: He defined a category whose objects were chain complexes $\uchains$ endowed with a comultiplication $m\colon \uchains\to \uchains\ot \uchains$ and structural maps $\mu\colon \W{p}\ot \uchains\to \uchains^{\ot p}$ that factor through a resolution of the symmetric group and such that $\mu(e_0\ot x) = m(x, m(x,\ldots))$ (we follow \cite{medina2021may_st} in calling these \emph{Steenrod-May structures}). He proved that for each prime $p$, the cohomology of these chain complexes has power operations that satisfy a Cartan relation with the coproduct $m$. This generalization allows to describe cohomology operations on the cohomology of other objects than simplicial complexes, such as Hopf algebras.
 
-On the other hand, there are objects that support power operations but not a comultiplication, spectra being the main example. A chain-level description of the stable version of \eqref{eq:st2} and \eqref{eq:stp} was given in \cite{Gill}, where stable versions of the Surjection operad and the Barrat-Eccles operad $\ESst\Sigma_p$ were given. Let us mention that these are operads in unbounded chain complexes. One can define a stable version $\Wst{p}$ of $\W{p}$ and maps $\Wst{p}\to \ESst\Sigma_p$, and if $X$ is a $\Sigma$-spectrum, end up with smaller models
+On the other hand, there are objects that support power operations but not a comultiplication, spectra being the main example. A chain-level description of the stable version of \eqref{eq:st2} and \eqref{eq:stp} was given in \cite{Gill2020}, where stable versions of the Surjection operad and the Barrat-Eccles operad $\ESst\Sigma_p$ were given. Let us mention that these are operads in unbounded chain complexes. One can define a stable version $\Wst(p)$ of $\W{p}$ and maps $\Wst(p)\to \ESst\Sigma_p$, and if $X$ is a $\Sigma$-spectrum, end up with smaller models
 \[
- \Wst{p}\ot \chains(X;\bF_p)\to \chains(X;\bF_p)^{\ot p}
+ \Wst(p)\ot \chains(X;\bF_p)\to \chains(X;\bF_p)^{\ot p}
 \]
-which are obtained using that one can define the chain complex of a $\Sigma$-spectrum as a direct limit of the chain complexes of simplicial sets\federico{This construction works better for cochains, because then both $\Wst{p}$ and $\cochains(X)$ form an inverse system.}, and constructing the stable May-Steenrod structure as a limit of the unstable May-Steenrod structures.
+which are obtained using that one can define the chain complex of a $\Sigma$-spectrum as a direct limit of the chain complexes of simplicial sets\federico{This construction works better for cochains, because then both $\Wst(p)$ and $\cochains(X)$ form an inverse system.}, and constructing the stable May-Steenrod structure as a limit of the unstable May-Steenrod structures.
 
 One can then define a \emph{stable Steenrod-May structure} on a chain complex $\uchains$ as a collection of chain maps
 \begin{equation}\label{eq:tatediag}
-\Wst{p}\ot \uchains\to \uchains^{\ot p}
+\Wst(p)\ot \uchains\to \uchains^{\ot p}
 \end{equation}
-that factor through $\ESst(p)$ and again, the cohomology of these chain complexes has power operations. A \emph{weak stable May--Steenrod structure} is a stable May--Steenrod structure where the collection of chain maps do not need to factor through $\ESst{p}$. Such a structure endows the cohomology of $\uchains$ with power operations of all degrees. Finally, we remark that there is a map $\Wst{p}\to \W{p}$, and thus a May--Steenrod structure induces also a stable May--Steenrod structure.
+that factor through $\ESst(p)$ and again, the cohomology of these chain complexes has power operations. A \emph{weak stable May--Steenrod structure} is a stable May--Steenrod structure where the collection of chain maps do not need to factor through $\ESst{p}$. Such a structure endows the cohomology of $\uchains$ with power operations of all degrees. Finally, we remark that there is a map $\Wst(p)\to \W{p}$, and thus a May--Steenrod structure induces also a stable May--Steenrod structure.
 
 In \cref{s:stable} we notice that, if $X$ is a $\Sigma$-spectrum, the map
 \[
@@ -45,11 +45,13 @@ induced by the Tate diagonal $H\bF_p\to \left(H\bF_p^{\ot p}\right)^{t\Cyc_p}$ i
  \begin{quotation}
  	\emph{How to define a stable Steenrod-May structure on a chain complex that is not presented as the stabilization of chain complexes with a Steenrod-May structure?} 
  \end{quotation}
- The case that drove us to this question is the cochain complex of Khovanov homology, which computes the cohomology of a spectrum \cite{LS14, LLS20}, but is not obtained as the cochain complex of a $\Sigma$-spectrum of simplicial sets. When $p=2$, Lipshitz and Sarkar gave formulas to compute $\mathrm{Sq}^2$ \cite{LS14b}, and later the first author found a stable May-Steenrod structure for $p=2$ on the Khovanov chain complex \cite{CM-Steenrod}. 
+ The case that drove us to this question is the cochain complex of Khovanov homology, which computes the cohomology of a spectrum \cite{LS14, LLS20}, but is not obtained as the cochain complex of a $\Sigma$-spectrum of simplicial sets. When $p=2$, Lipshitz and Sarkar gave formulas to compute $\mathrm{Sq}^2$ \cite{LS14b}, and later the first author found a stable May-Steenrod structure for $p=2$ on the Khovanov chain complex \cite{cantero-moran2020khovanov}. 
  
   In this article we present an answer to this question for the chain complex of an augmented $p$-cyclic coalgebra. This setting is not general enough to cover Khovanov homology, and in a subsequent paper we will extend the construction of this paper to endow the Khovanov chain complex with a weak stable May--Steenrod structure for each odd prime $p$.
   
 The chain complex of a simplicial set is covered by our theorem, and we stress that in this case, our stable May-Steenrod structure is not obtained from the May-Steenrod structures for simplicial sets previously mentioned. In particular, we do not use the Alexander-Whitney diagonal and we cannot easily witness the existence of a comultiplication. In exchange, our construction satisfies the property $\power^{0}=\Id$ by definition and makes use of the join operation between simplicial sets instead of the product. Another property of our formulas for $\power^i$ is that they have a simpler description when $i$ is smaller, while the formulas of \cite{medina2021may_st} have a simpler description when $i$ is large. 
+
+As a proof of concept, our construction covers the chain complex of an augmented simplicial set. The May-Steenrod constructions obtained in \cite{mcclure2003multivariable, berger2004combinatorial, medina2021may_st} do not apply directly to this case because this chain complex is not an algebra over the Surjection or the Barratt-Eccles operad. 
 
 The weak stable May--Steenrod structure on the chain complex of an augmented simplicial set has been implemented in \cite{github-oddp}, and can be compared to the May--Steenrod structure on the chain complex of a simplicial set implemented in \cite{github-comch}.
  
@@ -150,8 +152,8 @@ where the subscript $+$ denotes a natural augmentation of the non-augmented chai
 
 In \cref{s:preliminaries} we set some sign and degree conventions for chain complexes and the conventions for augmented simplicial objects. The reader is encouraged to read Section \cref{s:simplices} at least once paying attention to the three warnings there: we do not follow the usual convention to denote the simplicial category.
 The proof of the main theorem is developed in Sections \ref{s:2bdiagonals}, \ref{s:3complexes}, \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} as described in the previous sketch.
+In \cref{ss:milgram} we use the map of \cref{s:per_to_minimal} to construct a map from the Milgram resolution of the cyclic group to the minimal resolution that may be of independent interest.
 In \cref{ss:even} we show that our construction when $p=2$ agrees with the construction of \cite{medina2021fast_sq}.
-In \cref{s:suspension} we show that these operations behave well with respect to suspensions.
 In \cref{s:9Kanspectra} we briefly explain how our method yields natural connected diagonals in the chain complex of a Kan spectrum.
-\federico{Before there was an extra line: ``  Finally, in \cref{s:formulas} we give an algorithmic presentation of the formulas. These formulas are meant to be understandable after reading Sections \ref{s:preliminaries} and \ref{s:2bdiagonals}'' I think it is no longer necessary, the construction is now self-explanatory}
+In \cref{s:suspension} we study the behaviour of the May--Steenrod structure of \cite{medina2021may_st} under suspension, and deduce that for $p>5$ it is different from the construction of this paper applied to simplicial sets.
 In \cref{s:python} we will give a few comments on the performance of the code \cite{github-oddp}.

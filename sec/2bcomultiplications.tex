@@ -2,13 +2,16 @@
 
 \section{Cyclic diagonals and power operations}\label{s:2bdiagonals}
 
+1. May-Steenrod are for $R$, operations only for $R=\bF_p$.
+
+2. Give the two options for $\phi$ and give in 4.11 the statement that commutes with suspensions if it commutes with suspensions.
+
 Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\dots,r-1\}$ via $i\mapsto \rho^i$.
 The symmetric group on $\{0,1,\dots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$.
 The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$.
 The definitions of \cref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st}.
-{\color{red} Chain complexes in this section are assumed to be non-negatively graded.}
 
-\subsection{Unstable diagonals}\label{s:unstable}
+\subsection{Cyclic homotopy comultiplications}\label{s:unstable}
 
 The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial action is the chain complex $\W{r} = \bigoplus_{q \geq 0} \W{r}_q$ defined as follows:
 \begin{align*}
@@ -21,14 +24,20 @@ The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial 
 where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 
 \begin{definition}
-	An \emph{unstable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or \emph{unstable $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
+	A \emph{homotopy $r$-cyclic coalgebra} is a chain complex $\ucadenas$ together with a $\Cyc_r$-equivariant chain map (the comultiplication)
 	\[
 	\mu \colon \W{r} \ot \ucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
+Let $\ES$ be the Barratt--Eccless operad. Suppose now that $\ucadenas$ is a $\ES$-algebra. A \emph{May--Steenrod structure} is a family of maps $f_r\colon \W{r}\ot \ucadenas \to \ucadenas^{\ot r}$ that factor as
+\[
+\W{r} \ot \ucadenas \xra{g_r \ot \id} \ES(r) \ot \ucadenas \lra \ucadenas^{\ot r}
+\]
+$g_r$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is the structural map of the $\ES$-algebra.	
+
 \begin{proposition}\label{prop:unstable}
-	If $r$ is prime, an unstable diagonal $\mu$ on a chain complex $\ucadenas$ induces operations indexed by the integers
+	If $r$ is prime and $R=\bF_r$, a homotopy $r$-cyclic comultiplication $\mu$ on a chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
 		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
@@ -36,9 +45,10 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 	\[
 	y(a) = (-1)^{\binom{m}{2} \tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)m-i} \ot a)).
 	\]
-	Furthermore, these operations satisfy the following equation
+	If additionally the comultiplication is part of a May--Steenrod structure, then these operations satisfy the following
 	\begin{itemize}
 		\item $\power^i(x) = 0$ if $i>(r-1)m$ and $x$ has degree $-m$.
+		\item $\power^i = 0$ unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
 	\end{itemize}
 \end{proposition}
 
@@ -46,24 +56,12 @@ where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 	See \cite{may1970general}. For the last claim, note that if $i>(r-1)m$, then $(r-1)m-i$ is negative, and therefore $\mu(e_{(r-1)m-i},a)$ vanishes.
 \end{proof}
 
-\begin{definition}
-	An unstable $r$-diagonal $\mu$ on a chain complex $\ucadenas$ is said to be \emph{May--Steenrod} if $\mu$ factors as
-	\[
-	\W{r} \ot \ucadenas \xra{f \ot \id} V(r) \ot \ucadenas \lra \ucadenas^{\ot r}
-	\]
-	where $V(r)$ is a free resolution of the symmetric group on $r$ letters, $f$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is $\Sym_r$-equivariant.
-\end{definition}
-
-\begin{remark}
-	If $\mu$ is May--Steenrod, then $\power^i = 0$ unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
-\end{remark}
-
 \begin{example}
-	The cup-$i$ coproducts of Steenrod \cite{steenrod1947products, medina2022axiomatic} yield a natural unstable $2$-diagonal on the normalized chains of simplicial sets which is May--Steenrod.
+	The cup-$i$ coproducts of Steenrod \cite{steenrod1947products, medina2022axiomatic} yield a natural May--Steenrod structure of arity $2$ on the normalized chains of simplicial sets which is May--Steenrod.
 	For general $r$, a similar May--Steenrod unstable $r$-diagonal was constructed in \cite{medina2021may_st}.
 \end{example}
 
-\subsection{Stable diagonals}\label{s:stable}
+\subsection{Cyclic stable homotopy comultiplications}\label{s:stable}
 
 Let $\Wst(r)$ be the unbounded chain complex
 \[
@@ -75,56 +73,41 @@ R[\Cyc_r]\langle e_0\rangle
 \overset{T}{\lla}
 R[\Cyc_r]\langle e_{1}\rangle
 \overset{N}{\lla}
-R[\Cyc_r]\langle e_{2}\rangle
-\overset{T}{\lla}
 \dots
+%R[\Cyc_r]\langle e_{2}\rangle
+%\overset{T}{\lla}
 \]
 If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
 \[
-\dotsb \xra{\eta} \susp{2(1-r)}\W{r} \xra{\eta} \susp{1-r} \W{r} \xra{\eta} \W{r}.
+\dotsb \xra{\eta} \sus{2(1-r)}\W{r} \xra{\eta} \sus{1-r} \W{r} \xra{\eta} \W{r}.
 \]
 %In general, we understand it as the limit of
 %\[
 %\dotsb \lra \sus{4(1-r)}\W{r}\overset{\eta_{2(1-r)}}{\lra} \sus{2(1-r)} \W{r} \overset{\eta_{2(1-r)}}{\lra} \W{r}.
 %\]
-where $\eta \colon \W{r} \to \susp{r-1}\W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. This complex is isomorphic to the desuspension of the complex that computes the Tate homology of $\Cyc_r$, which is part of a homotopy fibre sequence %Cohomology, not homology
-\[
-\Wst(r) \lra \W{r}\overset{N}{\lra} \Wd(r)
-\]
-where the second map is the norm map that sends $e_q$ to zero unless $q=0$, in which case it is sent to $N(e_0^\dd)$.
-Notice that $\Wst(r)$ is not equal to the standard model of the homotopy fibre: in the homotopy fibre we have, for negative $i$, that $\partial(e_i) = -N(e_{i-1})$ or $T(e_{i-1})$ depending on whether $i$ is even or odd.
+where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. 
 
 \begin{definition}
-	A \emph{stable $r$-cyclic diagonal} on a chain complex $\ucadenas$, or simply a \textit{stable $r$-diagonal}, is a $\Cyc_r$-equivariant chain map
+	A \emph{stable homotopy $r$-cyclic coalgebra} is a chain complex $\ucadenas$ with a $\Cyc_r$-equivariant chain map (the stable comultiplication)
 	\[
 	\mu \colon \Wst(r) \ot \ucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
-\begin{definition}
 	Let $\ESst_r$ be the inverse limit of
 	\[
 	\dotsb \lra \susp{2(1-r)} \ES_r\overset{\eta}{\lra}\susp{1-r} \ES_r\overset{\eta}{\lra} \ES_r
 	\]
-	where $\eta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.
-\end{definition}
-
-\begin{definition}
-	A stable $r$-cyclic diagonal $\mu$ on a chain complex $\ucadenas$ is said to be $\emph{May--Steenrod}$ if it factors as
+	where $\eta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.	Suppose now that $\ucadenas$ is an algebra over $\ESst$. A $\emph{stable May--Steenrod}$ structure is a family of maps $f_r\colon \Wst(r)\ot \ucadenas\to \ucadenas^{\ot r}$ that factor as
 	\[
 	\mu \colon \Wst(r) \ot \ucadenas \xra{f \ot \id} \ESst_r \ot \ucadenas \lra \ucadenas^{\ot r}
 	\]
-	with $f$ equivariant with respect to the inclusion $\Cyc_r \subset \Sym_r$ and the second map is $\Sym_r$-equivariant.
-\end{definition}
+	where each $g_r$ is equivariant with respect to the inclusion $\Cyc_r \subset \Sym_r$ and the second map the structural map of the $\ESst$-algebra.
 
-\begin{figure}
-	\input{tables/unstable}
-	\caption{A depiction of $\Wst(3) \ot \ucadenas$. A stable diagonal comes from an unstable diagonal if it vanishes on the part coloured in green.}
-	\label{figure:1}
-\end{figure}
 
-Every unstable diagonal yields a stable diagonal by precomposing $\mu$ with the projection $\Wst(r) \to \W{r}$.
-A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) \ot \ucadenas$ for $i<0$ (See \cref{figure:1}).
+
+
+
 
 \begin{proposition}
 	If $r$ is prime, a stable $r$-cyclic diagonal $\mu$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
@@ -143,20 +126,44 @@ A stable diagonal comes from an unstable diagonal if it vanishes on $\Wst[i](r) 
 	Then a truncation reduces this to the situation of an unstable diagonal.
 \end{proof}
 
-\begin{example}
-	As we will see in \cref{s:suspension}, the unstable diagonal for normalized chains in simplicial sets of the previous example, defines a stable diagonal on the normalized chains of simplicial spectra (these are defined in \cite{Gill2020}) which is May--Steenrod.
+\begin{example}[Suspension spectra]
+	Every May--Steenrod structure yields a stable May--Steenrod structure by precomposing with the projections $\Wst(r) \to \W{r}$, $\ESst\to \ES$. These May--Steenrod structures vanish on $\Wst[i](r) \ot \ucadenas$ for $i<0$ (See \cref{figure:1}).
 \end{example}
 
+\begin{example}[$\Sigma$-spectra]
+	\cite{Gill2020} endowed the chain complex of a $\Sigma$-spectrum of pointed simplicial sets with the structure of a $\ESst$-coalgebra. It is easy to see that the May--Steenrod structure of \cite{medina2021may_st} gives also a stable May--Steenrod structure in this case.
+\end{example}
 
+\begin{figure}[b]
+	\input{tables/unstable}
+	\caption{A depiction of $\Wst(3) \ot \ucadenas$. A stable May--Steenrod structure comes from a May--Steenrod structure if it vanishes on the part coloured in green.}
+	\label{figure:1}
+\end{figure}
 
-\subsection{Connected diagonals}\label{s:connected}
+\begin{figure}
+	\input{tables/hat}
+	\caption{If a stable homotopy $r$-cyclic comultiplication for $r=3$ vanishes on the part coloured in green, then $\power^i$ vanishes for $i<0$.}
+	\label{figure:2}
+	
+	\vspace{1cm}
+	
+	\input{tables/hat_alone}\martin{This table should change to the current notation.}
+	\caption{The complex $\susp{\bs(r-1)}\Wdualaug{r} \ot \ucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot C^3_n$. } 
+	\label{figure:3}
+\end{figure}
+
+\begin{remark}
+	¿Tate diagonal?
+\end{remark}
+
+\subsection{Cyclic connected homotopy comultiplications}\label{s:connected}
 
 Let $\mu$ be a stable diagonal on $\ucadenas$.
 A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on
 	\[
 	\bigoplus_n\bigoplus_{q>(r-1)n}\Wst[q] \ot \ucadenas[n].
 	\]
-We will now identify the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule when $r$ is odd or $r=2$ and $R=\bF_2$ (see Figures \ref{figure:2}). We then define a connected diagonal as a map from this quotient to $\ucadenas^{\otimes r}$.
+We will now identify the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule when $r$ is odd or $r=2$ and $R=\bF_2$ (see Figures \ref{figure:2}). We then define a connected $r$-cyclic homotopy comultiplication as a map from this quotient to $\ucadenas^{\otimes r}$.
 
 
 
@@ -184,8 +191,8 @@ R[\Cyc_r]\langle e_{1}^\dd\rangle
 \overset{-\varepsilon}{\lla} 
 R.
 \]
-Observe that $\rho$ acts ``backwards'' in the dual complex, in the sense that $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$. %The thing is that the correct action is the right action, so that $e_i^\dd \rho=(\rho^{-1}e_i)^\dd$.
-The generator of the copy of $R$ in the right will be denoted as $1$ or as $e_0^\dd$.
+Observe that $\rho$ acts with the dual action in the dual complex, so $\rho (e_{i}^\dd) = (\rho^{-1} e_i)^{\dd}$. %The thing is that the correct action is the right action, so that $e_i^\dd \rho=(\rho^{-1}e_i)^\dd$.
+The generator of the copy of $R$ in degree $0$ will be denoted as $1$ or as $e_0^\dd$.
 If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \sus{1-r}\Waug{r}$ defined as \martin{This part needs revision, see comments in the tex file}%It should be $\susp{1-r}$ instead of $\susp{r-1}$. Either way, I think you'd rather see %\theta$ as a map $\Waug{r} \to \Waug{r}$ of degree r-1, instead of a suspension map of degree 0. If not, the degrees of the differential of $\Wdualaug{r} \ot \rucadenas$ won't match. fc: I've changed \susp for \sus, was that the issue?
 \begin{align*}
 	\theta(e_0) &= N(e_{r-1}),
@@ -267,23 +274,12 @@ if $x$ has degree $n$.\federico{The sign needs revision.}
 \end{proof}
 
 \begin{definition}\label{def:connected_diagonal}
-If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on a non-negatively graded chain complex $\ucadenas$, or a \textit{connected $r$-diagonal} for short, is a $\Cyc_r$-equivariant chain map
+If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic homotopy comultiplication} on a non-negatively graded chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
 	\mu \colon \susp{\bs(r-1)}\Wdualaug{r} \ot C_{\bs} \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
-\begin{figure}{top}
-	\input{tables/hat}
-	\caption{If a stable diagonal for $r=3$ vanishes on the part coloured in green, then $\power^i$ vanishes for $i<0$.}
-	\label{figure:2}
-	
-	\vspace{2cm}
-	
-	\input{tables/hat_alone}\martin{This table should change to the current notation.}
-	\caption{The complex $\susp{\bs(r-1)}\Wdualaug{r} \ot \rucadenas$ for $r=3$ and $R=\bF_3$. The map $\varphi$ goes from Figure \ref{figure:2} to here, is an epimorphism and its kernel is the smallest chain subcomplex that contains the green part. The power operation $\power^0$ is computed at the corners $\bF_3\ot C^3_n$.} 
-	\label{figure:3}
-\end{figure}
 
 
 \federico{He comentado una explicación no concluyente de cómo se obtiene esta aplicación}
@@ -300,13 +296,14 @@ If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic diagonal} on 
 As a consequence,
 
 \begin{proposition}
-	If $r$ is prime, a connected $r$-cyclic diagonal induces operations indexed by the integers
+	If $r$ is prime and $R=\bF_r$, a connected $r$-cyclic homotopy comultiplication induces operations indexed by the integers
 	\begin{align*}
 		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $m$ to the cohomology class $[y]$ with
+	% (-1)^{\binom{ir}{2} + \binom{m}{2}\tilde{r}}(\tilde{r}!)^m
 	\[
-	y(a) = (-1)^{\binom{ir}{2} + \binom{m}{2}\tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{ri}^\vee \ot a))
+	y(a) = (x \ot \overset{r}{\dots} \ot x)(\mu(e_{ri}^\vee \ot a))
 	\]
 	These operations satisfy the following equation
 	\begin{itemize}
@@ -315,8 +312,8 @@ As a consequence,
 \end{proposition}
 
 \begin{example}
-	As far as we know, the concept of connected diagonal has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the unstable diagonal for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.
-	It is also implicit in the construction of the stable diagonal for $r=2$ of the cochain operations on the cochains of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
+	As far as we know, the concept of connected homotopy comultiplication has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the cyclic homotopy comultiplication for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.
+	It is also implicit in the construction of the cyclic stable homotopy comultiplication for $r=2$ of the cochain operations on the cochains of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
 \end{example}
 
 \begin{question}

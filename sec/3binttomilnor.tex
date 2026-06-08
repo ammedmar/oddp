@@ -39,11 +39,11 @@ For example, taking $X$ to be the set $G$ with the left action by $G$ and using 
 If instead we take the $n$-fold (non-augmented) join of $X$ with itself and $X$ is $m$-connected, the resulting (non-augmented) simplicial set is $(n(m+2)-1)$-connected (resp. $(n+m)$-connected), hence its chain complex gives a partial resolution of $G$. We will be interested in the case $X=\partial \simplex^{r-1}$ is the boundary of the standard $(r-1)$-simplex, with the $\Cyc_r$-action that permutes the vertices of $\partial \simplex^{r-1}$. This action is free if and only if $r$ is prime. Write $\sigma = [0,1,\ldots,r-1]$ for the top simplex of $\asimplex^{r-1}$. The following definition assumes that $r$ is odd or that $R=\bF_2$.
 
 \begin{definition}\label{def:milnor}
-	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{(n+1)(r-1)}\chains(\partial\asimplex^{r-1})^{\ot n+1}$ has a cosemi-simplicial structure with coface maps
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{n(1-r)}\chains(\partial\asimplex^{r})^{\ot n}$ has a cosemi-simplicial structure with coface maps
 	\begin{align*}
-		\d^i\colon \chains(\partial \asimplex^{r-1})^{\ot n+1} &\lra \sus{1-r}\chains(\partial \asimplex^{r-1})^{\ot n+2}
+		\d^i\colon \chains(\partial \asimplex^{r})^{\ot n} &\lra \sus{1-r}\chains(\partial \asimplex^{r})^{\ot n+1}
 	\end{align*}
-	given by $\d^i([\tau_0\ot \dots \ot\tau_{n}]) = \tau_0\ot \dots \tau_{i-1}\ot \partial\sigma \ot \rho^{-1}(\tau_i) \ot \dots \ot \rho^{-1}(\tau_{n}).
+	given by $\d^i([\tau_0\ot \dots \ot\tau_{n-1}]) = \tau_0\ot \dots \tau_{i-1}\ot \partial\sigma \ot \rho^{-1}(\tau_i) \ot \dots \ot \rho^{-1}(\tau_{n-1}).
 	$%\label{eq:simp_str2}
 \end{definition}
 
@@ -51,15 +51,15 @@ Relabeling the vertices gives a simplicial homeomorphism
 \[
 \simplex^n*\overset{r}{\cdots}*\simplex^n
 \lra
-\simplex^{r(n+1)}
+\simplex^{rn}
 \lra
-\simplex^{r-1}*\overset{n+1}{\cdots}*\simplex^{r-1}
+\simplex^{r}*\overset{n}{\cdots}*\simplex^{r}
 \]
 and using the isomorphisms in \eqref{eq:chains_join}, we obtain an isomorphism of chain complexes
 \[
 \alpha\colon \chains(\asimplex^n)^{\otimes r}
 \to
-\chains(\asimplex^{r-1})^{\otimes n+1}.
+\chains(\asimplex^{r})^{\otimes n}.
 \]
 Explicitly, if $\tau_0\ot \ldots \ot \tau_{r-1}$ is a generator of $\chains(\asimplex^{n})^{\ot r}$, and $\omega_i = [j \mid i\in \tau_j]$, then
 \[
@@ -68,14 +68,14 @@ Explicitly, if $\tau_0\ot \ldots \ot \tau_{r-1}$ is a generator of $\chains(\asi
 \]
 where $s$ is the sign of the permutation that rearranges the vertices.
 
-Now, let $\beta$ be the automorphism of $\chains(\partial\asimplex^{r-1})^{\ot(n+1)}$ given by $\rho^0\ot \rho^{-1}\ot\ldots \ot \rho^{-n}$, where $\rho$ denotes the action of the cyclic group $\Cyc_r$. 
+Now, let $\beta$ be the automorphism of $\chains(\partial\asimplex^{r-1})^{\ot n}$ given by $\rho^0\ot \rho^{-1}\ot\ldots \ot \rho^{-n-1}$, where $\rho$ denotes the action of the cyclic group $\Cyc_r$. 
 
 \begin{proposition}\label{lemma:bartomilnor}
 	The restriction of $\beta\circ \alpha$ to the subcomplexes  $\chains(\asimplex^{\bullet})^{\ot r}_\interior$ induces an isomorphism of cosemi-simplicial chain complexes
 	\[
-	\sus{(\bullet+1)(1-r)}\chains(\asimplex^{\bullet})^{\ot r}_\interior
+	\sus{\bullet(1-r)}\chains(\asimplex^{\bullet})^{\ot r}_\interior
 	\lra 
-	\sus{(\bullet+1)(1-r)}\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}.
+	\sus{\bullet(1-r)}\chains(\partial\asimplex^{r})^{\ot \bullet}.
 	\]
 \end{proposition}
 \begin{proof}
