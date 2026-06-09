@@ -21,7 +21,7 @@ If $(C,\partial)$ is a chain complex, its left suspension $\susp{}C$ is the chai
 that send $a$ to $a \ot 1$ and to $1 \ot a$ respectively. From this viewpoint left and right suspensions are functors that act on a chain map $f$ as $(\sus{}f) = f\ot \id$ and $(\susp{} f) = \id\ot f$.
 
 
-\subsubsection{Linear dual} The linear dual of a complex $\ucadenas$ is the chain complex $\ucocadenas = \hom(\ucadenas,R)$, where $R$ is concentrated in degree $0$. Thus, if $\ucadenas$ is positively graded, then $\ucocadenas$ is negatively graded. The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
+\subsubsection{Linear dual} The linear dual of a complex $\ucadenas$ is the chain complex $\ucocadenas = \hom_R(\ucadenas,R)$, where $R$ is concentrated in degree $0$. Thus, if $\ucadenas$ is positively graded, then $\ucocadenas$ is negatively graded. The differential in the dual complex $(\ucocadenas,\partial^\dd)$ is
 \begin{align*}
 	(\partial^\dd f)(a) &= (-1)^{|f|+1} f(\partial a). 
 \end{align*} 
@@ -36,7 +36,15 @@ There is an isomorphism $A^\dd \ot B^\dd \to (B \ot A)^{\dd}$ that sends $f \ot 
 \end{align*}
 that sends a cochain $f$ to the cochain $\susp{}f$ defined as $(\susp{}f)(a) = f(a\ot 1)$.
 
-\subsubsection{Cyclic actions} TBD (left and right actions)
+\subsubsection{Cyclic actions}
+
+Let $\ucadenas$ be a chain complex of left $R[\Cyc_r]$-modules. The linear dual $\ucocadenas=\hom_{R[\Cyc_r]}(C, R[\Cyc_r])$ is a chain complex of right $R[\Cyc_r]$-modules with right $\Cyc_r$-action given by $ (f\cdot \rho)(a)=f(a)\rho$. Thus, if $u^\dd$ is the dual of a basis element of $\ucadenas$, the cyclic group acts backwards, in the sense that $u^\dd\cdot \rho=(\rho^{-1}u)^\dd$.
+
+Via the group anti-automorphism $\rho\mapsto\rho^{-1}$, we can endow $\ucocadenas$ with a left $\Cyc_r$-action, defined as 
+\[
+\rho\cdot u^\dd:=u^\dd\cdot \rho^{-1}=(\rho u)^\dd.
+\] Note that $(\rho\cdot f)(a)=f(a)\rho^{-1}$, not $\rho f(a)$. We will always consider these left cyclic actions for the dual chain complexes.
+
 
 \subsection{Cyclic coalgebras}\label{s:categories} Here we define $r$-cyclic coalgebras and give three examples. Note that we do not impose any axiom (associativity, unitality).
 
