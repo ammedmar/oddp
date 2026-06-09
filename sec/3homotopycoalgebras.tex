@@ -148,8 +148,21 @@ where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphis
 	\label{figure:3}
 \end{figure}
 
-\begin{remark}
-	¿Tate diagonal?
+\begin{remark}[Tate diagonal]
+Let $N_{W(r)} \colon W(r) \xrightarrow{\sim} W^\dd(r)$ be the chain map that sends $e_0$ to $N \cdot e_0^\dd$ and is $0$ in both positive and negative degrees. Its mapping cone, which we denote by $\widehat W(r)$, is the \emph{Tate complex} of $\Cyc_r$ in the sense that, for any $R[\Cyc_r]$-module $M$ seen as a chain complex concentrated in degree $0$, 
+\[
+H_*(\widehat W(r)\otimes_{R[\Cyc(r)]}M)\cong\widehat H^*(\Cyc_r;M), 
+\]
+the \emph{Tate cohomology groups} of $\Cyc_r$ with coefficients in $M$.
+
+Furthermore, given a chain complex $\ucadenas$ and considering $\ucadenas^{\ot r}$ with the $\Cyc_r$-action given by cyclically permuting the factors, we have that $\widehat W(r)\otimes_{R[\Cyc(r)]}\ucadenas^{\ot r}$ is a model for the \emph{Tate construction} of $\ucadenas^{\ot r}$, denoted by $(\ucadenas^{\ot r})^{t\Cyc_r}$ (see [{\bf Nikolaus-Scholze}]). \martin{Citation needed}
+A map 
+\[
+\ucadenas \lra (\ucadenas^{\ot r})^{t\Cyc_r}
+\]
+is called a \emph{Tate diagonal}.
+
+There is an isomorphism of chain complexes $(\Wst)^\dd(r)\cong \widehat W (r)$. Since $\Wst(r)$ is projective, any equivariant stable comultiplication $\Wst(r)\otimes \ucadenas\to\ucadenas^{\otimes r}$ gives rise to an equivariant chain map $\ucadenas\to \widehat W(r)\otimes \ucadenas^{\otimes r}$, and quotienting by the group action yields a model of a Tate diagonal.
 \end{remark}
 
 \subsection{Cyclic connected homotopy comultiplications}\label{s:connected}
