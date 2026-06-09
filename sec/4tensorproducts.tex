@@ -161,6 +161,8 @@ Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chai
 \begin{proof}
 	This is the isomorphism \eqref{eq:adj}.
 \end{proof}
+Let $\chains(\asimplex^\infty)^{\ot r}_{\mathrm{int}}$ be the colimit of the maps $\chains(\asimplex^n)^{\ot r}_{\mathrm{int}} \to \chains(\asimplex^{n+1})^{\ot r}_{\mathrm{int}}$ induced by the coface maps
+$\d^i\colon \chains(\asimplex^n)^{\ot r} \to \chains(\asimplex^{n+1})^{\ot r}$.
 
 
 \begin{corollary}
@@ -172,14 +174,14 @@ Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chai
 	\[
 	\mu\colon \susp{\bs(r-1)}\Wdualaug{r}\ot \chains(X)_\bs\lra \chains(X)^{\ot r}.
 	\]
-	If additionally they factor as $c^n\cdot \Psi\circ \iota$
+	If additionally $\Psi_n$ factors as $c^n\cdot \Psi^{\infty}\circ \iota_n$
 	\[
-		\chains(\asimplex^n)^{\ot r}_{\mathrm{\mathrm{int}}}\overset{\iota}{\lra} \bigcup_n\chains(\asimplex^n)^{\ot r}_{\mathrm{int}} \overset{\Psi}{\lra} \Waug{r}
+		\chains(\asimplex^n)^{\ot r}_{\mathrm{\mathrm{int}}}\overset{\iota_n}{\lra} \chains(\asimplex^\infty)^{\ot r}_{\mathrm{int}} \overset{\Psi^{\infty}}{\lra} \Waug{r}
 	\]
-	for some cosemi-simplicial map $\Psi$ and some constant $c$,
+	for some cosemi-simplicial map $\Psi^{\infty}$ and some constant $c$,
 	then they satisfy that 
 	\begin{align*}
-		\mu\circ \sus{} &= c\cdot \sus{}\circ \mu
+		\mu\circ \sus{} &= c\cdot \sus{\ot r}\circ \mu
 		\\
 		\mu\circ \susp{} &= c\cdot \rho(\susp{\ot r}\circ \mu).
 	\end{align*}

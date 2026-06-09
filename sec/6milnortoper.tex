@@ -21,14 +21,14 @@ We assume always that either $r$ is odd or $R=\bF_2$, and at some point we will 
 	\[
 		\partial(\sus{(r-1)m}[v]) = \sus{(r-1)(m-1)}h\circ \partial([v]) = \sus{(r-1)(m-1)}\partial\circ h([v]),
 	\]
-	on other degrees, we take the differential of the tensor product. %What tensor product?
+	on other degrees, we take the suspended differential. Note that there is an inclusion $\iota\colon \chains(\partial\asimplex^r)\to \Per{r}.$
 \end{definition}
 \begin{definition}
 	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{\bullet(1-r)}\Per{r}$ has a cosemi-simplicial structure with coface maps
 	\[
 		\d^i\colon \Per{r}\to \sus{1-r}\Per{r}
 	\]
-	given by $\d^i(\tau) = \sus{(r-1)}\tau$	in degrees $>0$ and $\d^i(\varnothing) = \partial \sigma$.
+	given by $\d^i(\sus{m(r-1)}\tau) = \sus{(m+1)(r-1)}\tau$	in degrees $>0$ and $\d^i(\varnothing) = \partial \sigma$.
 \end{definition}
 	Recall the coface maps $\d^0,\d^1\colon \chains(\partial\asimplex^{r})\to \sus{1-r}\chains(\partial\asimplex^{r})^{\ot 2}$ from \cref{def:milnor}
 \begin{align*}
@@ -43,11 +43,11 @@ as well as the join product (\cref{def:join_product}) $\chains(\asimplex^{r})\ot
 %\end{definition}
 
 \begin{definition}\label{def:weak_codegeneracy}
-	A $\Cyc_r$-equivariant chain map $\xi\colon \chains(\partial\asimplex^r)^{\otimes 2}\to \Per{r}$ is a \emph{weak codegeneracy} if:
+	A $\Cyc_r$-equivariant chain map $\xi\colon \chains(\partial\asimplex^r)^{\otimes 2}\to \Per{r}$ is a \emph{weak codegeneracy} if :
 	\begin{enumerate}
 		\item\label{codeg:1} $\xi(\tau_1\otimes \tau_2) = \tau_1*\tau_2$ if $|\tau_1| + |\tau_2| \leq r-1$,
-		\item\label{codeg:2} $(\xi\circ \d^0)(\tau) = \d^0(\tau)$,
-		\item\label{codeg:3} $(\xi\circ \d^1)(\tau) = \d^0(\tau)$.
+		\item\label{codeg:2} $(\xi\circ \d^0)(\tau) = (\d^0\circ \iota)(\tau)$,
+		\item\label{codeg:3} $(\xi\circ \d^1)(\tau) = (\d^0\circ \iota)(\tau)$
 	\end{enumerate}
 \end{definition}
 

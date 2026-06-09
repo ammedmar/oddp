@@ -140,7 +140,7 @@ If $r=5$, we have:
 	\[
 		\phi\colon \sus{\bullet (r-1)}\Per{r}\lra \sus{\bullet(r-1)}\Waug{r}
 	\] 
-	given by $\phi_n(\tau) = (\tilde{r}!)^n\Phi(\tau)$ is a semi-simplicial map well-defined with any coefficients.
+	given by $\phi_n(\tau) = (\tilde{r}!)^n\Phi(\tau)$ is a cosemi-simplicial map well-defined with any coefficients.
 \end{proposition}
 \begin{proof}                                                                          
 	Let $v = [i]$ be a vertex of $\simplex^{r}$. We need to prove that $\Phi\circ \partial(\sus{r-1}v) = \partial\circ \Phi(\sus{r-1}(v))$. The right hand-side is 
@@ -160,4 +160,13 @@ If $r=5$, we have:
 		&= \frac{1}{\tilde{r}!}\left (\rho^{r+1}+\sum_{j=1}^{r-1} \rho^{j+1}\right) e_{r-1} \\
 		&= \frac{1}{\tilde{r}!}N(e_{r-1}).
 	\end{align*}
+	Finally, we check that $\phi$ commutes with the coface maps $\d^i$ (recall that these do not depend on $i$): if $\tau\neq \varnothing$,
+	 \begin{align*}
+	\phi\circ \d^i(\tau) &= (\tilde{r}!)^{n+1}\Phi(\sus{r-1}\tau) \\
+	&= (\tilde{r}!)^{n+1}\cdot (\tilde{r}!)^{-1}\theta\Phi(\tau)\\
+	&= \theta\left((\tilde{r}!)^{n}\Phi(\tau)\right).\\
+	&= \d^i\circ \phi(\tau).
+	\end{align*}
+	If $\tau=\emptyset$, we have that $\d^i(\tau) = \sum(-1)^j [0,1,\dots,\hat{j},\ldots,r]$ and one can check from the definition of $\phi$ that $\phi([0,1,\dots,\hat{i},\ldots,r]) = e_{r-1}$.
 \end{proof}
+
