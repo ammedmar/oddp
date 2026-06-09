@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+	\node (1) at (-3.8,3){$\susp{\bs(r-1)}\Wdualaug{r}\ot \chains(X)_\bs$};
+	\node (2) at (-3.8,0){$\chains\left (\susp{\bullet(r-1)}\Wdualaug{r}\ot X^\nd_\bullet\right )$};
+	\node (3) at (-3.8,-3){$\chains\left (\susp{\bullet(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot (X^\nd)^{\ot r}_\bullet \right )$};
+	\node (4) at (3.5,-3){$\susp{\bullet r}\cochains(\asimplex^\bullet)^{\ot r}\ot_{\asimplex} X^{\ot r}_\bullet $};
+	\node (5) at (3.5,-1){$\left (\susp{\bullet}\cochains(\asimplex^\bullet)\ot_{\asimplex}X_\bullet\right)^{\ot r}$};
+	\node (6) at (3.5,1){$\left (\chains(\asimplex^\bullet)\ot_{\asimplex}X_\bullet\right )^{\ot r}$};
+	\node (7) at (3.5,3){$\chains(X)^{\ot r}$};
+	%
+	\draw[->] (1)--node[above]{$\mu$}(7);
+	\draw[->](1)--node[right]{\ref{lemma:hotimessimp}}node[left]{$\cong$}(2);
+	\draw[->](2)--node[right]{$\Psi^\vee\ot \diag$}(3);
+	\draw[->](3)--node[above]{\ref{lemma:simp-cosimp}}node[below]{$\cong$}(4);
+	\draw[->](4)--node[right]{\eqref{eq:assemble}}node[left]{$\cong$}(5);
+	\draw[->](5)--node[right]{$(\Lambda^{-1} \ot \Id)^{\ot r}$}node[left]{$\cong$}(6);
+	\draw[->](6)--node[right]{$\eqref{eq:1}^{\ot r}$}node[left]{$\cong$}(7);
+\end{tikzpicture}
