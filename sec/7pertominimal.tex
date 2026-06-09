@@ -2,7 +2,11 @@
 
 \section{The periodic and the minimal resolutions}\label{s:per_to_minimal}
 
-Except for the last part of this section, we assume that $r$ is odd. In \cref{prop:chains_to_minimal} we construct a chain map from $\chains(\asimplex^{r-1})$ to $\Waug{r}$. In \cref{prop:per_to_minimal} we extend it to a chain map from $\Per{r}$ to $\Waug{r}$ that intertwines the endomorphisms $\theta$ of each of these chain complexes. In \cref{ss:milnor} we explain how the above chain map yields a chain map from the Milgram resolution $\chains(\EC_r)$ to $\Waug{r}$, and in \cref{ss:even} we discuss the case $r=2$. Recall that $\tilde{r} = \lfloor \frac{r-1}{2}\rfloor$.
+\begin{warning}
+Recall from Section \cref{s:simplices} and its three warnings that we are not following the usual convention to denote the simplex category.
+\end{warning}
+
+Except for the last part of this section, we assume that $r$ is odd. In \cref{prop:chains_to_minimal} we construct a chain map from $\chains(\simplex^{r})$ to $\Waug{r}$. In \cref{prop:per_to_minimal} we extend it to a chain map from $\Per{r}$ to $\Waug{r}$ that intertwines the endomorphisms $\theta$ of each of these chain complexes. Recall that $\tilde{r} = \lfloor \frac{r-1}{2}\rfloor$.
 
 \subsection{From the simplex to the minimal resolution}
 
@@ -25,7 +29,7 @@ a_0=:\bar{a}_0<\bar{a}_1<\dots<\bar{a}_{q-1}<\bar{a}_q:=a_0+r.
 \]
 Observe that removing an element from the sequence keeps the property of being $r$-cyclically ordered.
 
-A representative $[a_0,\dots,a_{q-1}]$ of a generator in $\chains(\partial \asimplex^{r-1})$ is a \emph{cyclically ordered representative} if the sequence $(a_0,\dots,a_{q-1})$ is $r$-cyclically ordered. Let $A=[a_0,\dots,a_{q-1}]\in \chains(\partial \asimplex^{r-1})$ be a cyclically ordered representative. Say that $a_i$ is \emph{even \emph{(resp. \emph{odd})} in $A$} if $\bar{a}_{i+1}-\bar{a}_i$ is an even number (resp. an odd number). 
+A representative $[a_0,\dots,a_{q-1}]$ of a generator in $\chains(\partial \simplex^{r})$ is a \emph{cyclically ordered representative} if the sequence $(a_0,\dots,a_{q-1})$ is $r$-cyclically ordered. Let $A=[a_0,\dots,a_{q-1}]\in \chains(\partial \simplex^{r})$ be a cyclically ordered representative. Say that $a_i$ is \emph{even \emph{(resp. \emph{odd})} in $A$} if $\bar{a}_{i+1}-\bar{a}_i$ is an even number (resp. an odd number). 
 Define the following elements of $\rW(r)$:
 \begin{align*}
 	\Phi_e([a_0,\dots,a_{q-1}]) &= \begin{cases}
@@ -42,7 +46,7 @@ In what follows we work always with cyclic representatives. Let $\varphi(q) = \l
 
 \begin{proposition}\label{prop:chains_to_minimal} The linear homomorphism with $\bZ[\frac{1}{\tilde{r}!}]$-coefficients
 	\begin{align*}
-		\Phi \colon \chains(\partial \asimplex^{r-1})& \lra \Waug{r}
+		\Phi \colon \chains(\partial \simplex^{r})& \lra \Waug{r}
 		&
 		\Phi(A) = \begin{cases}
 			e_0 & \text{if $q=0$ and $A = \emptyset$,}\\
@@ -125,17 +129,21 @@ If $r=5$, we have:
 \end{example}
 
 \begin{remark}\label{remark:phidual}
-	For each $0\leq q<r-1$, let $L_q \subset (\partial \asimplex^{r-1})_q$ be the set of those simplices $[a_0,\dots, a_{q-1}]$ with increasing entries (in the total order) such that $a_{2i}$ is even and different from $r-1$, and $a_{2i+1}$ is odd. Then the linear dual of $\Phi$ has the following expression
+	For each $0\leq q<r-1$, let $L_q \subset (\partial \simplex^{r})_q$ be the set of those simplices $[a_0,\dots, a_{q-1}]$ with increasing entries (in the total order) such that $a_{2i}$ is even and different from $r-1$, and $a_{2i+1}$ is odd. Then the linear dual of $\Phi$ has the following expression
 	\begin{equation}\label{eq:111}
 		\Phi^\vee(e_{q}^\dd) = \frac{\varphi(q)!}{\tilde{r}!}\sum_{A\in L_q} A^\vee.
 	\end{equation}
 \end{remark}
 
 \begin{proposition}\label{prop:per_to_minimal}
-	The chain map $\Phi$ extends to a chain map $\Phi\colon \Per{r}\to \Waug{r}$ defining $\Phi(\sus{(r-1)m}\tau) = (\tilde{r}!)^{-m}\theta^{m}\Phi(\tau)$. As a consequence, $\theta\circ \Phi = (\tilde{r}!)\Phi\circ \theta$.\martin{Change $\theta$ to the current notation} 	
+	The chain map $\Phi$ extends to a chain map $\Phi\colon \Per{r}\to \Waug{r}$ defining $\Phi(\sus{(r-1)m}\tau) = (\tilde{r}!)^{-m}\theta^{m}\Phi(\tau)$. As a consequence, the map 
+	\[
+		\phi\colon \sus{\bullet (r-1)}\Per{r}\lra \sus{\bullet(r-1)}\Waug{r}
+	\] 
+	given by $\phi_n(\tau) = (\tilde{r}!)^n\Phi(\tau)$ is a cosemi-simplicial map well-defined with any coefficients.
 \end{proposition}
 \begin{proof}                                                                          
-	Let $v = [i]$ be a vertex of $\asimplex^{r-1}$. We need to prove that $\Phi\circ \partial(\sus{r-1}v) = \partial\circ \Phi(\sus{r-1}(v))$. The right hand-side is 
+	Let $v = [i]$ be a vertex of $\simplex^{r}$. We need to prove that $\Phi\circ \partial(\sus{r-1}v) = \partial\circ \Phi(\sus{r-1}(v))$. The right hand-side is 
 	\begin{align*}
 		\frac{1}{\tilde{r}!} \partial\circ \theta \circ \Phi(v) &= 
 		\frac{1}{\tilde{r}!} \partial\circ \theta \left(\frac{1}{\tilde{r}}\phi_o(i,i+r)\right) \\
@@ -152,4 +160,13 @@ If $r=5$, we have:
 		&= \frac{1}{\tilde{r}!}\left (\rho^{r+1}+\sum_{j=1}^{r-1} \rho^{j+1}\right) e_{r-1} \\
 		&= \frac{1}{\tilde{r}!}N(e_{r-1}).
 	\end{align*}
+	Finally, we check that $\phi$ commutes with the coface maps $\d^i$ (recall that these do not depend on $i$): if $\tau\neq \varnothing$,
+	 \begin{align*}
+	\phi\circ \d^i(\tau) &= (\tilde{r}!)^{n+1}\Phi(\sus{r-1}\tau) \\
+	&= (\tilde{r}!)^{n+1}\cdot (\tilde{r}!)^{-1}\theta\Phi(\tau)\\
+	&= \theta\left((\tilde{r}!)^{n}\Phi(\tau)\right).\\
+	&= \d^i\circ \phi(\tau).
+	\end{align*}
+	If $\tau=\emptyset$, we have that $\d^i(\tau) = \sum(-1)^j [0,1,\dots,\hat{j},\ldots,r]$ and one can check from the definition of $\phi$ that $\phi([0,1,\dots,\hat{i},\ldots,r]) = e_{r-1}$.
 \end{proof}
+

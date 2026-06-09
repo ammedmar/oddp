@@ -113,31 +113,3 @@ From these two lemmas we deduce:
 \]
 that yields a stable diagonal on the chain complex of a $\sus{}$-spectrum.
 
-\begin{proposition}\label{prop:suspensionunstable}
- The effect of left and right suspensions on the $r$-cyclic unstable diagonals of \cite{medina2021may_st} is the following:
- \begin{align*}
- \mu(e_q \ot \susp{} \tau) &= (-1)^{q+\binom{r}{2}n}(\tilde{r}-1)!\susp{\ot r}\sum_{i=1}^{\tilde{r}} \rho^{2i}\mu(e_{q-r+1} \ot \tau)
- \\
- \mu(e_q \ot \sus{}\tau) &= (-1)^{q+\binom{r}{2}n}\tilde{r}!\sus{\ot r}\mu(e_{q-r+1} \ot \tau)
- \end{align*}
-\end{proposition}
-
-\begin{proof}
- The effect of suspension on the Barrat-Eccles operad and the surjection operad is described in the appendix of \cite{berger2004combinatorial}. From that description one deduces that the summands on the left corresponding to an element $(\rho^0,\rho^{i_1},\rho^{i_1+1},\dots,\rho^{i_k},\rho^{i_k+1})$ will vanish unless the first $r$ elements are all distinct. A count yields the result.
-
- For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
-\end{proof}
-
- If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, there is a stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$ defined as
- \[
- \mu_{st}(e_q \ot \tau) = (-1)^{mq+\binom{r}{2}\left(m(m+n-1) + \binom{m+1}{2}\right)}\frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
- \]
- where $\tau\in \chains[n](E_m)$. Since $\sum_{i=1}^{\tilde{r}} \rho^{2i}$ is invertible, we have can derive a formula for the left suspension too.
-
- The disparity in the behaviour with respect to left suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
-
- \begin{corollary}
-	The chain level operations of \cite{medina2021may_st} are not the same as the ones of this work if $r\geq 5$.
-\end{corollary}
-
-

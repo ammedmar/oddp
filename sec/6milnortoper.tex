@@ -1,70 +1,90 @@
 % !TEX root = ../oddp.tex
 
 \section{The Milnor resolution and the periodic resolution}\label{s:milnor_to_per}
-In this section we will construct a cosemi-simplicial structure on the periodic resolution $\Per{r}$ of the cyclic group $\Cyc_r$ and a chain map $\chains(\partial\asimplex^{r-1})^{\ot n+1}\to \Per{r}$ that commutes with the cofaces
+
+\begin{warning}
+	Recall from Section \cref{s:simplices} and its three warnings that we are not following the usual convention to denote the simplex category.
+\end{warning}
+
+In this section we will construct a cosemi-simplicial structure on the periodic resolution $\Per{r}$ of the cyclic group $\Cyc_r$ and a chain map $\chains(\partial\asimplex^{r})^{\ot n}\to \Per{r}$ that commutes with the cofaces
 \begin{align*}
-	\d^i\colon \chains(\partial\asimplex^{r-1})^{\ot n+1} & \lra \sus{1-r} \chains(\partial\asimplex^{r-1})^{\ot n+2}
+	\d^i\colon \chains(\partial\asimplex^{r})^{\ot n} & \lra \sus{1-r} \chains(\partial\asimplex^{r})^{\ot n+1}
 	\\
 	\d^i\colon \Per{r} &\lra \sus{1-r}\Per{r}.
 \end{align*} 
-% cosemi-simplicial map $\sus{(\bullet+1)(r-1)}\chains(\partial\asimplex^{r-1})^{\ot n+1}\to \sus{(\bullet+1)(r-1)}\Per{r}$. 
+% cosemi-simplicial map $\sus{(\bullet+1)(r-1)}\chains(\partial\asimplex^{r})^{\ot n+1}\to \sus{(\bullet+1)(r-1)}\Per{r}$. 
 We assume always that either $r$ is odd or $R=\bF_2$, and at some point we will have to assume additionally that $r$ is prime. This construction is divided into two parts. In \cref{prop:construction_xi} we show that each ``weak codegeneracy'' on $\Per{r}$ gives rise to such a chain map. In \cref{prop:straightenings} we show that each ``$r$-cyclic straightening with duality'' yields a weak codegeneracy.  
 
-\subsection{Weak codegeneracies} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r-1}$. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r-1})\to \chains(\asimplex^{r-1})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$. %I understand that $[v]$ has deg 1 before suspension, but maybe should be written differently.
+\subsection{Weak codegeneracies} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r}$. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r})\to \chains(\asimplex^{r})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$. %I understand that $[v]$ has deg 1 before suspension, but maybe should be written differently.
 \begin{definition}
-	The \emph{augmented periodic resolution of $\Cyc_r$} is the graded $R$-module $\Per{r} = \chains(\partial\asimplex^{r-1})\oplus \bigoplus_{m>0} \sus{(r-1)m} \chains(\partial \simplex^{r-1})$ with the following differential: if $[v]$ is an element of degree $1$, then
+	The \emph{augmented periodic resolution of $\Cyc_r$} is the graded $R$-module $\Per{r} = \chains(\partial\asimplex^{r})\oplus \bigoplus_{m>0} \sus{(r-1)m} \chains(\partial \simplex^{r})$ with the following differential: if $[v]$ is an element of degree $1$, then
 	\[
 		\partial(\sus{(r-1)m}[v]) = \sus{(r-1)(m-1)}h\circ \partial([v]) = \sus{(r-1)(m-1)}\partial\circ h([v]),
 	\]
-	on other degrees, we take the differential of the tensor product. %What tensor product?
+	on other degrees, we take the suspended differential. Note that there is an inclusion $\iota\colon \chains(\partial\asimplex^r)\to \Per{r}.$
 \end{definition}
 \begin{definition}
-	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{(\bullet+1)(1-r)}\Per{r}$ has a cosemi-simplicial structure with coface maps
+	The sequence of $R\Cyc_r$-chain complexes $[n]\mapsto \sus{\bullet(1-r)}\Per{r}$ has a cosemi-simplicial structure with coface maps
 	\[
 		\d^i\colon \Per{r}\to \sus{1-r}\Per{r}
 	\]
-	given by $\d^i(\tau) = \sus{(r-1)}\tau$	in degrees $>0$ and $\d^i(\varnothing) = \partial \sigma$.
+	given by $\d^i(\sus{m(r-1)}\tau) = \sus{(m+1)(r-1)}\tau$	in degrees $>0$ and $\d^i(\varnothing) = \partial \sigma$.
 \end{definition}
-	Recall the coface maps $\d^0,\d^1\colon \chains(\partial\asimplex^{r-1})\to \sus{1-r}\chains(\partial\asimplex^{r-1})^{\ot 2}$ from \cref{def:milnor}
+	Recall the coface maps $\d^0,\d^1\colon \chains(\partial\asimplex^{r})\to \sus{1-r}\chains(\partial\asimplex^{r})^{\ot 2}$ from \cref{def:milnor}
 \begin{align*}
 	\d^0(\tau) &= \partial \sigma \ot \rho^{-1}(\tau) 
 	&
 	\d^1(\tau) &= \tau \ot \partial \sigma,
 \end{align*}
-as well as the join product (\cref{def:join_product}) $\chains(\asimplex^{r-1})\otimes \chains(\asimplex^{r-1})\to \sus{1-r}\chains(\asimplex^{r-1})$.
+as well as the join product (\cref{def:join_product}) $\chains(\asimplex^{r})\otimes \chains(\asimplex^{r})\to \chains(\asimplex^{r})$.
 
 %\begin{definition}
-	%We write $\chains(\asimplex^{r-1})^{\text{per}}$ for the chain complex $\chains(\partial\simplex^{r-1})$ considered with $\bZ_r$-grading and the usual differential, except that $\partial([v]) = \partial \sigma$.
+	%We write $\chains(\asimplex^{r})^{\text{per}}$ for the chain complex $\chains(\partial\simplex^{r})$ considered with $\bZ_r$-grading and the usual differential, except that $\partial([v]) = \partial \sigma$.
 %\end{definition}
 
 \begin{definition}\label{def:weak_codegeneracy}
-	A $\Cyc_r$-equivariant chain map $\xi\colon \chains(\partial\asimplex^{r-1})^{\otimes 2}\to \Per{r}$ is a \emph{weak codegeneracy} if:
+	A $\Cyc_r$-equivariant chain map $\xi\colon \chains(\partial\asimplex^r)^{\otimes 2}\to \Per{r}$ is a \emph{weak codegeneracy} if :
 	\begin{enumerate}
 		\item\label{codeg:1} $\xi(\tau_1\otimes \tau_2) = \tau_1*\tau_2$ if $|\tau_1| + |\tau_2| \leq r-1$,
-		\item\label{codeg:2} $(\xi\circ \d^0)(\tau) = \d^0(\tau)$,
-		\item\label{codeg:3} $(\xi\circ \d^1)(\tau) = \d^0(\tau)$.
+		\item\label{codeg:2} $(\xi\circ \d^0)(\tau) = (\d^0\circ \iota)(\tau)$,
+		\item\label{codeg:3} $(\xi\circ \d^1)(\tau) = (\d^0\circ \iota)(\tau)$
 	\end{enumerate}
 \end{definition}
 
 \begin{proposition}\label{prop:milnor_to_per}
 	A weak codegeneracy $\xi$ induces a chain map 
 	\[
-		\psi\colon \chains(\partial \asimplex^{r-1})^{\otimes (n+1)}\to \Per{r}
+		\psi\colon \chains(\partial \asimplex^{r})^{\otimes (n)}\to \Per{r}
 	\]
 	defined recursively on $n$ as:
 	\begin{align*}
-		\psi(\tau) &= \tau & \text{if $n=0$}, \\
-		\psi(\tau_0\ot \tau_1 \ldots \ot \tau_n) &=  \psi(\tau_0\otimes \ldots\otimes \xi(\tau_{n-1}\otimes \tau_n)) &\text{if $n>0$.} %& \text{if $|\tau_{n-1}| + |\tau_n| < r$} \\
+		\psi(\tau) &= \tau & \text{if $n=1$}, \\
+		\psi(\tau_0\ot \tau_1 \ldots \ot \tau_{n-1}) &=  \psi(\tau_0\otimes \ldots\otimes \xi(\tau_{n-2}\otimes \tau_{n-1})) &\text{if $n>1$.} %& \text{if $|\tau_{n-1}| + |\tau_n| < r$} \\
 %			\psi(\tau_0\otimes \ldots \otimes  \tau_n) &= \sus{(r-1)} \psi(\tau_0\otimes \ldots\otimes  \xi(\tau_{n-1}\otimes \tau_n)) & \text{if $|\tau_{n-1}| + |\tau_n| \geq r$}
 	\end{align*}
-	In addition, $\psi\circ \d^i = \d^i\circ \psi$ for each $i=0\ldots n$.
+	In addition, $\psi\circ \d^i = \d^i\circ \psi$ for each $i=0\ldots n-1$.
 \end{proposition} 
 \begin{proof}
 	The map $\psi$ is a chain map, because it is a composition of chain maps. It commutes with the coface maps $\d^i$, as a direct consequence of Conditions \eqref{codeg:2} and \eqref{codeg:3}. 
 \end{proof}
 
+ \begin{remark}
+	Observe that because $\xi(\tau\ot \emptyset) = \xi(\emptyset\ot \tau) = \tau$, the map $\psi$ constructed factors through the infinite union and the Milgram resolution:
+	\[
+	\chains(\partial\asimplex^{r})^{\ot n}
+	\lra
+	\bigcup_n \chains(\partial \asimplex^{r})^{\ot n}
+	\lra
+	\bigcup_n \chains(\partial \simplex^{r})^{\ot n}_+
+	\lra
+	\Per{r}
+	\]
+	where the third chain complex has been augmented.
+\end{remark}
+
+
 \begin{remark}
-	The map $\xi$ extends to a family of maps $\xi^i\colon \Per{r}^{\ot n+1}\to \Per{r}^{\ot n}$, for $i=0,\ldots,n-1$, by contracting the factors $i$ and $i+1$ using $\xi$. Similarly, the maps $\d^i$ of the cosemi-simplicial structure of $\chains(\asimplex^{r-1})^{\ot n+1}$ extend to a family of maps $\d^i\colon \Per{r}^{\ot n}\to \Per{r}^{\ot n+1}$. Interpreting the maps $\xi^i$ as codegeneracies and the maps $\d^i$ as cofaces, we find that they satisfy all the simplicial identities
+	The map $\xi$ extends to a family of maps $\xi^i\colon \Per{r}^{\ot n+1}\to \Per{r}^{\ot n}$, for $i=0,\ldots,n-1$, by contracting the factors $i$ and $i+1$ using $\xi$. Similarly, the maps $\d^i$ of the cosemi-simplicial structure of $\chains(\asimplex^{r})^{\ot n}$ extend to a family of maps $\d^i\colon \Per{r}^{\ot n}\to \Per{r}^{\ot n+1}$. Interpreting the maps $\xi^i$ as codegeneracies and the maps $\d^i$ as cofaces, we find that they satisfy all the simplicial identities
 	\begin{align*}
 		\d^j \circ \d^i &= \d^i \circ \d^{j-1} & i &< j \\
 		\xi^j \circ \xi^i &= \xi^i \circ \xi^{j+1} & i &\leq j \\
@@ -74,46 +94,35 @@ as well as the join product (\cref{def:join_product}) $\chains(\asimplex^{r-1})\
 \end{remark}
 
 \federico{\begin{remark}[(federico:no estoy seguro de ponerla)]
-	The join product on $\chains(\asimplex^{r-1})$ induces the product on the negative part of Tate cohomology \cite{}. 
+	The join product on $\chains(\asimplex^{r})$ induces the product on the negative part of Tate cohomology \cite{}. 
 \end{remark}}
 
- \begin{remark}
- 	Observe that because $\xi(\tau\ot \emptyset) = \xi(\emptyset\ot \tau) = \tau$, the map $\psi$ constructed factors through the Milgram resolution:
-\[
-\chains(\partial\asimplex^{r-1})^{\ot \bullet+1}
-\lra
-\bigcup_n \chains(\partial \simplex^{r-1})^{\ot n}_+
-\lra
-\Per{r}
-\]
-where the middle chain complex has been augmented.
-\end{remark}
 
 
 
 \subsection{Barycentric subdivisions}\label{s:assembly}
 
-Recall that the barycentric subdivision $\sd \partial\simplex^{r-1}$ of the boundary of the standard simplex $\simplex^{r-1}$ is the simplicial complex that has one vertex for each non-empty face of $\partial\simplex^{r-1}$ and one face $(\tau_0,\dots,\tau_k)$ of dimension $k$ for every ascending chain $\tau_0 \subset \tau_1\subset\dots \subset \tau_k$ of simplices of $\partial \simplex^{r-1}$. We will denote the face $(\tau_0 \subset \dots \subset \tau_k)$ as $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_k]$, where $\bar{\tau}_i = \tau_i\smallsetminus \tau_{i-1}$ is the face such that the geometric join $\bar{\tau}_i\star \tau_{i-1}$ is the face $\tau_i$. With this notation, the differential on $\chains(\sd \partial \simplex^{r-1})$ becomes
+Recall that the barycentric subdivision $\sd \partial\simplex^{r}$ of the boundary of the standard simplex $\simplex^{r}$ is the simplicial complex that has one vertex for each non-empty face of $\partial\simplex^{r}$ and one face $(\tau_0,\dots,\tau_{k-1})$ of dimension $k$ for every ascending chain $\tau_0 \subset \tau_1\subset\dots \subset \tau_{k-1}$ of simplices of $\partial \simplex^{r}$. We will denote the face $(\tau_0 \subset \dots \subset \tau_{k-1})$ as $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_{k-1}]$, where $\bar{\tau}_i = \tau_i\smallsetminus \tau_{i-1}$ is the face such that the geometric join $\bar{\tau}_i\star \tau_{i-1}$ is the face $\tau_i$. With this notation, the differential on $\chains(\sd \partial \simplex^{r})$ becomes
 \[
-\partial([\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_k]) = \sum_{i=0}^{k-1} (-1)^i[\bar{\tau}_0|\dots|\bar{\tau}_i\star \bar{\tau}_{i+1}|\dots |\bar{\tau}_k] + (-1)^k [\bar{\tau}_0|\dots|\bar{\tau}_{k-1}].
+\partial([\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_{k-1}]) = \sum_{i=0}^{k-2} (-1)^i[\bar{\tau}_0|\dots|\bar{\tau}_i\star \bar{\tau}_{i+1}|\dots |\bar{\tau}_{k-1}] + (-1)^k [\bar{\tau}_0|\dots|\bar{\tau}_{k-2}].
 \]
 
-The \emph{pair barycentric subdivision} $\Psd \partial\simplex^{r-1}$ of $\partial \simplex^{r-1}$ is a cubulation of $\partial \simplex^{r-1}$ with the same vertices as $\sd \partial \simplex^{r-1}$ and one face for each pair $(a,b)$ of faces of $\partial\simplex^{r-1}$ such that $b \subset a$ (cf. \cite{Rounds2010}). Geometrically, that face is the union of all the faces of dimension $|a|-|b|$ of the barycentric subdivision that correspond to ascending chains $b = \tau_0 \subset \dots \subset \tau_k= a$. Interpreting $b$ as a dual cochain, its chain complex $\chains(\Psd \partial\simplex^{r-1})$ is isomorphic to the tensor product $\chains(\partial\simplex^{r-1}) \ot \cochains(\partial\simplex^{r-1})$ modulo the pairs $a \ot b$ such that the support of $b$ is not contained in $a$.
+The \emph{pair barycentric subdivision} $\Psd \partial\simplex^{r}$ of $\partial \simplex^{r}$ is a cubulation of $\partial \simplex^{r}$ with the same vertices as $\sd \partial \simplex^{r}$ and one face for each pair $(a,b)$ of faces of $\partial\simplex^{r}$ such that $b \subset a$ (cf. \cite{Rounds2010}). Geometrically, that face is the union of all the faces of dimension $|a|-|b|$ of the barycentric subdivision that correspond to ascending chains $b = \tau_0 \subset \dots \subset \tau_k= a$. Interpreting $b$ as a dual cochain, its chain complex $\chains(\Psd \partial\simplex^{r})$ is isomorphic to the tensor product $\chains(\partial\simplex^{r}) \ot \cochains(\partial\simplex^{r})$ modulo the pairs $a \ot b$ such that the support of $b$ is not contained in $a$.
 
 These constructions are related by the following chain maps
 %\[
 %\xymatrix{
 %	%	&\susp{-n-1}\chains(\partial\simplex^n) \ot \chains(\partial\simplex^n)\ar[d]^h& \\
-%	\chains(\partial\simplex^{r-1})\ar[r]^{s_*^{\simplex}}\ar@/_2.0pc/[rr]^{s_*} & \sus{}\chains(\Psd \partial\simplex^{r-1})\ar[r]^{s^{\Psd}_*} & \chains(\sd\partial\simplex^{r-1})
+%	\chains(\partial\simplex^{r})\ar[r]^{s_*^{\simplex}}\ar@/_2.0pc/[rr]^{s_*} & \sus{}\chains(\Psd \partial\simplex^{r})\ar[r]^{s^{\Psd}_*} & \chains(\sd\partial\simplex^{r})
 %}
 %\]
 \[
 	\xymatrix{
 %	&\susp{-n-1}\chains(\partial\simplex^n) \ot \chains(\partial\simplex^n)\ar[d]^h& \\
-	\chains(\partial\simplex^{r-1})\ar[r]^{s_*^{\simplex}}\ar@/_2.0pc/[rr]^{s_*} & \susp{}\chains(\Psd \partial\simplex^{r-1})\ar[r]^{s^{\Psd}_*} & \chains(\sd\partial\simplex^{r-1})
+	\chains(\partial\simplex^{r})\ar[r]^{s_*^{\simplex}}\ar@/_2.0pc/[rr]^{s_*} & \susp{}\chains(\Psd \partial\simplex^{r})\ar[r]^{s^{\Psd}_*} & \chains(\sd\partial\simplex^{r})
 }
 \]
-defined as follows: if $[a_0,\dots,a_{k-1}]\in \chains(\partial\simplex^{r-1})$ is an ordered representative of a generator,
+defined as follows: if $[a_0,\dots,a_{k-1}]\in \chains(\partial\simplex^{r})$ is an ordered representative of a generator,
 %\begin{align*}
 %	s_*([a_0,\dots,a_{k-1}]) &= \sum_{\perm\in \Sigma_{k}} (-1)^{\sign{\perm}}[a_{\perm(0)}|a_{\perm(1)}|\dots|a_{\perm(k-1)}],
 %	\\
@@ -123,53 +132,53 @@ defined as follows: if $[a_0,\dots,a_{k-1}]\in \chains(\partial\simplex^{r-1})$ 
 	s_*^{\simplex}([a_0,\dots,a_{k-1}]) &= (-1)^{k-1}\sum_{j=0}^{k-1} [a_0,\dots,a_{k-1}]\ot (a_j)
 	\end{align*}
 
-If $b = (b_0,\dots,b_{m-1})\in \cochains(\partial\simplex^{r-1})$ and $a = [c_0,\dots,c_{\ell-1},b_0,\dots,b_{m-1}]\in \chains(\partial\simplex^{r-1})$ with $k = m+\ell$, then
+If $b = (b_0,\dots,b_{m-1})\in \cochains(\partial\simplex^{r})$ and $a = [c_0,\dots,c_{\ell-1},b_0,\dots,b_{m-1}]\in \chains(\partial\simplex^{r})$ with $k = m+\ell$, then
 %\begin{equation}\label{eq:sP}
 %	s_*^{\Psd}( a\ot b) = (-1)^{l-1} \sum_{\perm\in \Sigma_{\ell}} (-1)^{\sign{\perm}} [b|c_{\perm(0)}|c_{\perm(1)}|\dots|c_{\perm(\ell-1)}]
 %\end{equation}
-	\begin{equation}
+	\begin{equation}\label{eq:sP}
 		s_*^{\Psd}( a\ot b) = (-1)^{m} \sum_{\perm\in \Sigma_{\ell}} (-1)^{\sign{\perm}} [b|c_{\perm(0)}|c_{\perm(1)}|\dots|c_{\perm(\ell-1)}]
 	\end{equation}
-Notice that the letter $b$ plays a different role in each side: on the left, it is a dual generator of the normalized cochain complex, thus it makes sense to permute its entries changing the generator by a sign. On the right, $b$ is a vertex of $\sd\partial\simplex^{r-1}$. Observe also that, with the notation above, any reordering of $b$ entails also a reordering of $a$, thus these reorderings do not change the sign of the right-hand side.
+Notice that the letter $b$ plays a different role in each side: on the left, it is a dual generator of the normalized cochain complex, thus it makes sense to permute its entries changing the generator by a sign. On the right, $b$ is a vertex of $\sd\partial\simplex^{r}$. Observe also that, with the notation above, any reordering of $b$ entails also a reordering of $a$, thus these reorderings do not change the sign of the right-hand side.
 
 \subsection{Subdivisions and Alexander duality}
 Consider the following endomorphisms of the chain complexes of the barycentric and the pair subdivision
 \begin{align*}
-	\alex_{\sd} \colon \chains(\sd \partial\simplex^{r-1})& \lra \chains(\sd \partial\simplex^{r-1}),
+	\alex_{\sd} \colon \chains(\sd \partial\simplex^{r})& \lra \chains(\sd \partial\simplex^{r}),
 	&
-	\alex_{\Psd} \colon \chains(\Psd \partial\simplex^{r-1})& \lra \chains(\Psd \partial\simplex^{r-1}).
+	\alex_{\Psd} \colon \chains(\Psd \partial\simplex^{r})& \lra \chains(\Psd \partial\simplex^{r}).
 \end{align*}
 The first one sends an ascending chain of simplices $\tau_0 \subset \dots \subset \tau_{k-1}$ to the ascending chain of their complementary simplices $(-1)^{\binom{k}{2}} \tau_{k-1}^c \subset \dots\subset\tau_0^c$, which in our notation becomes $[\bar{\tau}_0|\bar{\tau}_1|\dots|\bar{\tau}_{k-1}]\mapsto (-1)^{\binom{k}{2}}[\tau_{k-1}^c|\bar{\tau}_{k-1}|\dots|\bar{\tau}_1]$.
 The second one sends $a \ot b$ to $\twist\circ \left(\alex \ot \alex^{-1}\right)(a \ot b)$, where $\twist\colon C\ot D\to D\ot C$ is the chain map $\twist(x\ot y) = (-1)^{|x||y|}y\ot x$.
 \begin{lemma}\label{lemma:diag_alex_twist} The following diagram commutes.
 %	\begin{equation*}\label{diag:newdiag}
 %		\xymatrix{
-%			\sus{-r}\chains(\partial \simplex^{r-1})\ot \chains(\partial\simplex^{r-1})\ar[r]^-{\id\ot \alex}
+%			\sus{-r}\chains(\partial \simplex^{r})\ot \chains(\partial\simplex^{r})\ar[r]^-{\id\ot \alex}
 %			\ar[d]^{\twist} %\ar@{}[dr] | {(-1)^{n+1}}
-%			&\chains(\Psd \partial \asimplex^{r-1}) \ar[r]^{s_*^{\Psd}}\ar[d]_{\alex_{\Psd}} %\ar@{}[dr] | {(-1)^{n+1}}
-%			& \sus{-1}\chains(\sd \partial \asimplex^{r-1})
+%			&\chains(\Psd \partial \asimplex^{r}) \ar[r]^{s_*^{\Psd}}\ar[d]_{\alex_{\Psd}} %\ar@{}[dr] | {(-1)^{n+1}}
+%			& \sus{-1}\chains(\sd \partial \asimplex^{r})
 %			\ar[d]^{\alex_{\sd}}
 %			\\
-%			\sus{-r}\chains(\partial \simplex^{r-1})\ot \chains(\partial\simplex^{r-1})
+%			\sus{-r}\chains(\partial \simplex^{r})\ot \chains(\partial\simplex^{r})
 %			\ar[r]^-{\id \ot \alex} 
-%			&\chains(\Psd \partial \asimplex^{r-1}) 
+%			&\chains(\Psd \partial \asimplex^{r}) 
 %			\ar[r]^{s_*^{\Psd}}
-%			& \sus{-1}\chains(\sd \partial \asimplex^{r-1}).
+%			& \sus{-1}\chains(\sd \partial \asimplex^{r}).
 %		}
 %	\end{equation*}
 		\begin{equation*}
 			\xymatrix{
-		\susp{-r}\chains(\partial \simplex^{r-1})\ot \chains(\partial\simplex^{r-1})\ar[r]^-{\id\ot \alex}
+		\susp{-r}\chains(\partial \simplex^{r})\ot \chains(\partial\simplex^{r})\ar[r]^-{\id\ot \alex}
 		\ar[d]^{\twist} %\ar@{}[dr] | {(-1)^{n+1}}
-		&\chains(\Psd \partial \asimplex^{r-1}) \ar[r]^{s_*^{\Psd}}\ar[d]_{\alex_{\Psd}} %\ar@{}[dr] | {(-1)^{n+1}}
-		& \susp{-1}\chains(\sd \partial \asimplex^{r-1})
+		&\chains(\Psd \partial \asimplex^{r}) \ar[r]^{s_*^{\Psd}}\ar[d]_{\alex_{\Psd}} %\ar@{}[dr] | {(-1)^{n+1}}
+		& \susp{-1}\chains(\sd \partial \asimplex^{r})
 		\ar[d]^{\alex_{\sd}}
 		\\
-		\susp{-r}\chains(\partial \simplex^{r-1})\ot \chains(\partial\simplex^{r-1})
+		\susp{-r}\chains(\partial \simplex^{r})\ot \chains(\partial\simplex^{r})
 		\ar[r]^-{\id \ot \alex} 
-		&\chains(\Psd \partial \asimplex^{r-1}) 
+		&\chains(\Psd \partial \asimplex^{r}) 
 		\ar[r]^{s_*^{\Psd}}
-		& \susp{-1}\chains(\sd \partial \asimplex^{r-1}).
+		& \susp{-1}\chains(\sd \partial \asimplex^{r}).
 	}
 	\end{equation*}	
 \end{lemma}
@@ -183,7 +192,7 @@ The second one sends $a \ot b$ to $\twist\circ \left(\alex \ot \alex^{-1}\right)
 	\end{align*}
 	For the second square, with the notation of \eqref{eq:sP}, let
 	$$a\ot b =  [c_0,\dots,c_{\ell-1},b_0,\dots,b_{m-1}]\ot(b_0,\dots,b_{m-1})$$ 
-	be a generator of $\chains(\Psd \partial\asimplex^{r-1})$ such that both $b=[b_0,\dots,b_{m-1}]$ and $c=[c_0,\dots,c_{\ell-1}]$ are ordered, and suppose additionally that $a = [a_0,\dots,a_k]$ is the result of ordering $[b_0,\dots,b_{m-1},c_0,\dots,c_{\ell-1}]$. Then,
+	be a generator of $\chains(\Psd \partial\asimplex^{r})$ such that both $b=[b_0,\dots,b_{m-1}]$ and $c=[c_0,\dots,c_{\ell-1}]$ are ordered, and suppose additionally that $a = [a_0,\dots,a_k]$ is the result of ordering $[b_0,\dots,b_{m-1},c_0,\dots,c_{\ell-1}]$. Then,
 	\begin{equation}\label{eq:lastsign}
 		\begin{split}
 			\alex\circ s_*^{\Psd} (a \ot b)                                                        
@@ -237,50 +246,50 @@ Since the sign of \eqref{eq:lastsign} was $(-1)^{k}$, the second square commutes
 
 
 \subsection{Weak codegeneracies and cyclic straightenings}
-For a general simplicial complex $X$, the map $s_*$ defines a canonical homotopy equivalence $\chains(X)\to \chains(\sd X)$, but this homotopy equivalence is not induced by a simplicial map. An `assemblage map'' for $X$ is a simplicial homotopy equivalence $g\colon \sd X\to X$ such that the pair $(s_*,\chains(g))$ includes $\chains(X)$ into $\chains(\sd X)$ as a homotopy retract. These assemblage maps always exist but they are non-canonical. We only need them for $X=\partial\simplex^{r-1}$.
+For a general simplicial complex $X$, the map $s_*$ defines a canonical homotopy equivalence $\chains(X)\to \chains(\sd X)$, but this homotopy equivalence is not induced by a simplicial map. An `assemblage map'' for $X$ is a simplicial homotopy equivalence $g\colon \sd X\to X$ such that the pair $(s_*,\chains(g))$ includes $\chains(X)$ into $\chains(\sd X)$ as a homotopy retract. These assemblage maps always exist but they are non-canonical. We only need them for $X=\partial\simplex^{r}$.
 
 \begin{definition}
-	An \emph{assemblage map} is a simplicial map $g \colon \sd \partial \simplex^{r-1} \to \partial \simplex^{r-1}$ such that the composition of chain maps $g_*\circ s_*$ is the identity.
+	An \emph{assemblage map} is a simplicial map $g \colon \sd \partial \simplex^{r} \to \partial \simplex^{r}$ such that the composition of chain maps $g_*\circ s_*$ is the identity.
 \end{definition}
 
 \begin{definition}
-	An \emph{$r$-cyclic assemblage map} is an assemblage map $g \colon \sd \partial \simplex^{r-1} \to \partial \simplex^{r-1}$ that is cyclic with respect to the forward action of the cyclic group $\Cyc_{r}$.
+	An \emph{$r$-cyclic assemblage map} is an assemblage map $g \colon \sd \partial \simplex^{r} \to \partial \simplex^{r}$ that is cyclic with respect to the forward action of the cyclic group $\Cyc_{r}$.
 \end{definition}
 
 \begin{definition}
 	An \emph{$r$-cyclic assemblage map with duality} is an $r$-cyclic assemblage map $g$ such that the composition
-	\[\sd \partial \simplex^{r-1} \overset{\alex_{\sd}}{\lra} \sd \partial\simplex^{r-1} \overset{g}{\lra} \partial\simplex^{r-1}\overset{\rho^{-1}}{\lra} \partial\simplex^{r-1} \]
+	\[\sd \partial \simplex^{r} \overset{\alex_{\sd}}{\lra} \sd \partial\simplex^{r} \overset{g}{\lra} \partial\simplex^{r}\overset{\rho^{-1}}{\lra} \partial\simplex^{r} \]
 	is also an assemblage map.
 \end{definition}
 
 \begin{proposition}\label{prop:construction_xi}
-	If $g$ is an $r$-cyclic assemblage map with duality, then there is a weak codegeneracy $\xi\colon \chains(\asimplex^{r-1})\ot \chains(\asimplex^{r-1})\to \Per{r}$ given by $\xi(a\ot b) = a*b$ if $|a|+|b|<r$ and by the following composition otherwise: \martin{I would change the places for the suspensions so it matches the target:{\small
+	If $g$ is an $r$-cyclic assemblage map with duality, then there is a weak codegeneracy $\xi\colon \chains(\asimplex^{r})\ot \chains(\asimplex^{r})\to \Per{r}$ given by $\xi(a\ot b) = a*b$ if $|a|+|b|<r$ and by the following composition otherwise: \martin{I would change the places for the suspensions so it matches the target:{\small
 	\[
-		\chains(\partial \simplex^{r-1})\otimes \chains(\partial \simplex^{r-1})
+		\chains(\partial \simplex^{r})\otimes \chains(\partial \simplex^{r})
 		\overset{\id\otimes \alex}{\lra}
-		\susp{r}\chains(\Psd\partial\simplex^{r-1})
+		\susp{r}\chains(\Psd\partial\simplex^{r})
 		\overset{s_*^{\Psd}}{\lra}
-		\susp{r-1}\chains(\sd\partial\simplex^{r-1})
+		\susp{r-1}\chains(\sd\partial\simplex^{r})
 		\overset{g_*}{\lra}
-		\susp{r-1}\chains(\partial\simplex^{r-1}).
+		\susp{r-1}\chains(\partial\simplex^{r}).
 	\]
 	}}
 	{\small
 	\[
-		\susp{-r}\chains(\partial \simplex^{r-1})\otimes \chains(\partial \simplex^{r-1})
+		\susp{-r}\chains(\partial \simplex^{r})\otimes \chains(\partial \simplex^{r})
 		\overset{\id\otimes \alex}{\lra}
-		\chains(\Psd\partial\simplex^{r-1})
+		\chains(\Psd\partial\simplex^{r})
 		\overset{s_*^{\Psd}}{\lra}
-		\susp{-1}\chains(\sd\partial\simplex^{r-1})
+		\susp{-1}\chains(\sd\partial\simplex^{r})
 		\overset{g_*}{\lra}
-		\susp{-1}\chains(\partial\simplex^{r-1}).
+		\susp{-1}\chains(\partial\simplex^{r}).
 	\]
 	}
 \end{proposition}
 \begin{remark}
-	In \cref{prop:construction_xi} we obtain a map $\chains(\partial\asimplex^{r-1}\ot \partial\asimplex^{r-1})\to \susp{r-1}\chains(\asimplex^{r-1})$, and since $r-1$ is even, this is also a map $\chains(\partial\asimplex^{r-1}\ot \partial\asimplex^{r-1})\to \sus{r-1}\chains(\asimplex^{r-1})$ and the latter is a subcomplex of $\Per{r}$. If we had used the other duality map $\chains(\asimplex^{r-1})\to \sus{r}\cochains(\asimplex^{r-1})$ given by $a\mapsto (-1)^{\lambda(a^c,a)}$, then this remark would not be needed, and in the proof of the Proposition we would not need to use the fact that $r$ is odd to prove that $\lambda(a,b)$ and $\lambda(b,a)$ have the same parity. In that case, we would remove the sign $(-1)^{k-1}$ of the definition of $s_*^{\Delta}$ and replaced the sign $(-1)^m$ in the definition of $s_*^\Psd$ by the sign $(-1)^{l-1}$. These changes would only affect to the second part of the proof of \cref{lemma:diag_alex_twist}. Nonetheless, we have found preferable to work with a single definition of $\alex$.
+	In \cref{prop:construction_xi} we obtain a map $\chains(\partial\asimplex^{r}\ot \partial\asimplex^{r})\to \susp{r-1}\chains(\asimplex^{r})$, and since $r-1$ is even, this is also a map $\chains(\partial\asimplex^{r}\ot \partial\asimplex^{r})\to \sus{r-1}\chains(\asimplex^{r})$ and the latter is a subcomplex of $\Per{r}$. If we had used the other duality map $\chains(\asimplex^{r})\to \sus{r}\cochains(\asimplex^{r})$ given by $a\mapsto (-1)^{\lambda(a^c,a)}$, then this remark would not be needed, and in the proof of the Proposition we would not need to use the fact that $r$ is odd to prove that $\lambda(a,b)$ and $\lambda(b,a)$ have the same parity. In that case, we would remove the sign $(-1)^{k-1}$ of the definition of $s_*^{\Delta}$ and replaced the sign $(-1)^m$ in the definition of $s_*^\Psd$ by the sign $(-1)^{l-1}$. These changes would only affect to the second part of the proof of \cref{lemma:diag_alex_twist}. Nonetheless, we have found preferable to work with a single definition of $\alex$.
 \end{remark}
-\begin{proof} It is clear that the resulting map is equivariant and a chain map in degrees different from $r$. If $a\otimes b \in \chains(\partial\simplex^{r-1})\ot \chains(\partial\simplex^{r-1})$ is an element of degree $r$, we have to check that 
+\begin{proof} It is clear that the resulting map is equivariant and a chain map in degrees different from $r$. If $a\otimes b \in \chains(\partial\simplex^{r})\ot \chains(\partial\simplex^{r})$ is an element of degree $r$, we have to check that 
 \begin{equation}\label{eq:771}
 	\partial\circ \xi(a\otimes b) = \text{join}\circ \partial (a\ot b),
 \end{equation}
@@ -300,7 +309,7 @@ but $s^{\Psd}(a\ot \alex(b))$ is zero unless $a\star b = \sigma$, in which case 
 	= (-1)^{\lambda(b,a)} \partial\circ g_* ([a])
 	= (-1)^{\lambda(b,a)}\partial \sigma,
 \]
-because $g_*([a])$ is some vertex $v$ of $\simplex^{r-1}$, and $\partial(v) = \partial\sigma$ in $\Per{r}$. Additionally, notice that $\lambda(a,b)$ and $\lambda(b,a)$ have the same parity because $r$ is odd.\federico{Maybe we chould choose the other isomorphism for $\alex$...}
+because $g_*([a])$ is some vertex $v$ of $\simplex^{r}$, and $\partial(v) = \partial\sigma$ in $\Per{r}$. Additionally, notice that $\lambda(a,b)$ and $\lambda(b,a)$ have the same parity because $r$ is odd.\federico{Maybe we chould choose the other isomorphism for $\alex$...}
 
 
 We now check the three conditions of \cref{def:weak_codegeneracy}. The first condition holds by construction. The third condition holds as well:
@@ -332,7 +341,7 @@ In $(1)$ we use that $\partial\sigma$ is fixed by the action of $\rho$, in $(2)$
 \end{proof}
 
 
-Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r-1}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime. %proposition?
+Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r}$, but it only acts freely on the vertices of $\partial \sd\simplex^{r}$ if $r$ is prime. Therefore $r$-cyclic assemblage maps only exist if $r$ is prime. On the other hand, the following lemma, pointed to us by Martin Palmer, assures the existece of such maps when $r$ is prime. %proposition?
 
 
 
@@ -362,7 +371,7 @@ Observe that $\Cyc_r$ acts freely on the vertices of $\partial \simplex^{r-1}$, 
 	\end{align*}
 	Reciprocally, if $g$ is an assemblage map, then $\tau\mapsto g([\tau])$ is a straightening.
 	
-	The second assertion is evident. For the last one, if $\tau$ is a face of $\sd \partial \simplex^{r-1}$, then $\rho^{-1}(g(\alex(\tau))) = \rho^{-1}(x_{\tau^c})$ is the cyclic predecessor of $x_{\tau^c}$, which does not belong to $\tau^c$, and therefore belongs to $\tau$.
+	The second assertion is evident. For the last one, if $\tau$ is a face of $\sd \partial \simplex^{r}$, then $\rho^{-1}(g(\alex(\tau))) = \rho^{-1}(x_{\tau^c})$ is the cyclic predecessor of $x_{\tau^c}$, which does not belong to $\tau^c$, and therefore belongs to $\tau$.
 \end{proof}
 
 \subsection{Examples}
@@ -401,7 +410,7 @@ If $r=7$ there are several thousands of assemblage maps with duality.
 		\draw[->] (-.5,.866) -- (-.25,1.299);
 		\draw[->] (.5,.866) -- (.75,.433);
 	\end{tikzpicture}
-	\caption{The $r$-cyclic assemblage map with duality for $\partial \simplex^2$.}
+	\caption{The $r$-cyclic assemblage map with duality for $\partial \simplex^3$.}
 \end{figure}
 
 \begin{example}\label{example:f3_1}
