@@ -1,13 +1,13 @@
 % !TEX root = ../oddp.tex
 
-\section{Cyclic diagonals and power operations}\label{s:2bdiagonals}
+\section{Homotopy cyclic diagonals and power operations}\label{s:2bdiagonals}
 
 Let $\rho$ denote the standard generator of the cyclic group $\Cyc_r$ on $r$ elements, which we identify with $\{0,1,\dots,r-1\}$ via $i\mapsto \rho^i$.
 The symmetric group on $\{0,1,\dots,r-1\}$ is denoted $\Sym_r$, and the regular representation includes $\Cyc_r$ into $\Sym_r$.
 The letter $\tilde{r}$ will denote the quantity $\frac{r-1}{2}$.
 The definitions of \cref{s:unstable} are taken from \cite{may1970general} and \cite{medina2021may_st}.
 
-\subsection{Cyclic homotopy comultiplications}\label{s:unstable}
+\subsection{Homotopy cyclic diagonals}\label{s:unstable}
 
 The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial action is the chain complex $\W{r} = \bigoplus_{q \geq 0} \W{r}_q$ defined as follows:
 \begin{align*}
@@ -20,44 +20,44 @@ The \emph{minimal $\Cyc_r$-resolution} of the commutative ring $R$ with trivial 
 where $N = \sum_j \rho^j$ and $T = \rho - \Id$.
 
 \begin{definition}
-	A \emph{homotopy $r$-cyclic coalgebra} is a chain complex $\ucadenas$ together with a $\Cyc_r$-equivariant chain map (the comultiplication)
+	A \emph{homotopy cyclic $r$-diagonal} on a chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \W{r} \ot \ucadenas \lra \ucadenas^{\ot r}.
+	\mu_r \colon \W{r} \ot \ucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
-Let $\ES$ be the Barratt--Eccless operad. Suppose now that $\ucadenas$ is a $\ES$-algebra. A \emph{May--Steenrod structure} is a family of maps $f_r\colon \W{r}\ot \ucadenas \to \ucadenas^{\ot r}$ that factor as
+Let $\ES$ be the Barratt--Eccless operad. Suppose now that $\ucadenas$ is a $\ES$-algebra. A \emph{May--Steenrod structure} is a family of homotopy cyclic $r$-diagonals $\{\mu_r\}_{r>1}$ that factor as
 \[
 \W{r} \ot \ucadenas \xra{g_r \ot \id} \ES(r) \ot \ucadenas \lra \ucadenas^{\ot r}
 \]
 $g_r$ is equivariant with respect to the regular representation of $\Cyc_r$, and the second map is the structural map of the $\ES$-algebra.	
 
-\begin{proposition}\label{prop:unstable}
-	If $r$ is prime and $R=\bF_r$, a homotopy $r$-cyclic comultiplication $\mu$ on a chain complex $\ucadenas$ induces operations indexed by the integers
+\begin{proposition}\cite{may1970general}\label{prop:unstable}
+	If $r$ is prime and $R=\bF_r$, a homotopy cyclic $r$-diagonal $\mu_r$ on a chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
 		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
 	that send a cohomology class $[x]$ in degree $-m$ to the cohomology class $[y]$ with
 	\[
-	y(a) = (-1)^{\binom{m}{2} \tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu(e_{(r-1)m-i} \ot a)).
+	y(a) = (-1)^{\binom{m}{2} \tilde{r}}(\tilde{r}!)^m(x \ot \overset{r}{\dots} \ot x)(\mu_r(e_{(r-1)m-i} \ot a)).
 	\]
-	If additionally the comultiplication is part of a May--Steenrod structure, then these operations satisfy the following
+	If additionally the homotopy cyclic $r$-diagonal is part of a May--Steenrod structure, then these operations satisfy the following
 	\begin{itemize}
 		\item $\power^i(x) = 0$ if $i>(r-1)m$ and $x$ has degree $-m$.
 		\item $\power^i = 0$ unless $i = 2(r-1)k$ or $i = 2(r-1)k+1$.
 	\end{itemize}
 \end{proposition}
-
-\begin{proof}
-	See \cite{may1970general}. For the last claim, note that if $i>(r-1)m$, then $(r-1)m-i$ is negative, and therefore $\mu(e_{(r-1)m-i},a)$ vanishes.
-\end{proof}
+%
+%\begin{proof}
+%	See . For the last claim, note that if $i>(r-1)m$, then $(r-1)m-i$ is negative, and therefore $\mu(e_{(r-1)m-i},a)$ vanishes.
+%\end{proof}
 
 \begin{example}
 	The cup-$i$ coproducts of Steenrod \cite{steenrod1947products, medina2022axiomatic} yield a natural May--Steenrod structure of arity $2$ on the normalized chains of simplicial sets which is May--Steenrod.
 	For general $r$, a similar May--Steenrod unstable $r$-diagonal was constructed in \cite{medina2021may_st}.
 \end{example}
 
-\subsection{Cyclic stable homotopy comultiplications}\label{s:stable}
+\subsection{Stable homotopy cyclic diagonals}\label{s:stable}
 
 Let $\Wst(r)$ be the unbounded chain complex
 \[
@@ -84,9 +84,9 @@ If either $r$ is odd or $r=2$ and $R=\bF_2$, we understand it as the limit of
 where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphism} that sends $e_{q}$ to $e_{q+1-r}$. 
 
 \begin{definition}
-	A \emph{stable homotopy $r$-cyclic coalgebra} is a chain complex $\ucadenas$ with a $\Cyc_r$-equivariant chain map (the stable comultiplication)
+	A \emph{stable homotopy cyclic $r$-diagonal} on a chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
-	\mu \colon \Wst(r) \ot \ucadenas \lra \ucadenas^{\ot r}.
+	\mu_r \colon \Wst(r) \ot \ucadenas \lra \ucadenas^{\ot r}.
 	\]
 \end{definition}
 
@@ -94,9 +94,9 @@ where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphis
 	\[
 	\dotsb \lra \susp{2(1-r)} \ES_r\overset{\eta}{\lra}\susp{1-r} \ES_r\overset{\eta}{\lra} \ES_r
 	\]
-	where $\eta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.	Suppose now that $\ucadenas$ is an algebra over $\ESst$. A $\emph{stable May--Steenrod}$ structure is a family of maps $f_r\colon \Wst(r)\ot \ucadenas\to \ucadenas^{\ot r}$ that factor as
+	where $\eta$ is the operadic suspension of \cite{berger2004combinatorial} that sends a sequence of permutations $(\sigma_0,\dots,\sigma_q)$ to zero if $(\sigma_0(0),\dots,\sigma_{r-1}(0))$ has repeated elements, and to $\pm (\sigma_{r-1},\sigma_r,\dots,\sigma_q)$ otherwise, where $\pm$ is the sign of the permutation that orders the sequence $(\sigma_0(0),\dots,\sigma_{r-1}(0))$.	Suppose now that $\ucadenas$ is an algebra over $\ESst$. A $\emph{stable May--Steenrod}$ structure is a family of stable homotopy cyclic $r$-diagonals $\mu_r\colon \Wst(r)\ot \ucadenas\to \ucadenas^{\ot r}$ that factor as
 	\[
-	\mu \colon \Wst(r) \ot \ucadenas \xra{f \ot \id} \ESst_r \ot \ucadenas \lra \ucadenas^{\ot r}
+	\Wst(r) \ot \ucadenas \xra{g_r \ot \id} \ESst_r \ot \ucadenas \lra \ucadenas^{\ot r}
 	\]
 	where each $g_r$ is equivariant with respect to the inclusion $\Cyc_r \subset \Sym_r$ and the second map the structural map of the $\ESst$-algebra.
 
@@ -106,7 +106,7 @@ where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphis
 
 
 \begin{proposition}
-	If $r$ is prime, a stable $r$-cyclic diagonal $\mu$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
+	If $r$ is prime, a stable cyclic $r$-diagonal $\mu_r$ on a non-negatively graded chain complex $\ucadenas$ induces operations indexed by the integers
 	\begin{align*}
 		\power^{i} \colon H_{-n}(\ucocadenas;\mathbb{F}_r)& \lra H_{-n-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
@@ -123,12 +123,63 @@ where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphis
 \end{proof}
 
 \begin{example}[Suspension spectra]
-	Every May--Steenrod structure yields a stable May--Steenrod structure by precomposing with the projections $\Wst(r) \to \W{r}$, $\ESst\to \ES$. These May--Steenrod structures vanish on $\Wst[i](r) \ot \ucadenas$ for $i<0$ (See \cref{figure:1}).
+	Every May--Steenrod structure yields a stable May--Steenrod structure by precomposing with the projections $\Wst(r) \to \W{r}$, $\ESst\to \ES$. These May--Steenrod structures vanish on $\Wst[i](r) \ot \ucadenas$ for $i<0$ (See \cref{figure:1}). The chain complex of the suspension spectrum of a pointed simplicial set $X$ is isomorphic to the chain complex of $X$, and the May--Steenrod structure on the latter gives a stable May--Steenrod structure on the former. 
 \end{example}
 
 \begin{example}[$\Sigma$-spectra]
 	\cite{Gill2020} endowed the chain complex of a $\Sigma$-spectrum of pointed simplicial sets with the structure of a $\ESst$-coalgebra. It is easy to see that the May--Steenrod structure of \cite{medina2021may_st} gives also a stable May--Steenrod structure in this case.
 \end{example}
+
+
+
+\begin{remark}[Tate diagonal]\federico{Needs review}
+Let $p$ be a prime number. The norm map $\nu \colon W(p) \xrightarrow{\sim} W^\dd(p)$ is the chain map that sends $e_0$ to $N \cdot e_0^\dd$ and is $0$ in both positive and negative degrees. Its mapping cone, which we denote by $\widehat W(p)$, is the \emph{Tate complex} of $\Cyc_p$. If $M$ is a $R[\Cyc_p]$-module, the \emph{Tate cohomology groups} of $\Cyc_p$ with coefficients in $M$ are computed as 
+\[
+\widehat H^*(\Cyc_p;M)
+\cong 
+H_*(\widehat W(r)\otimes_{R[\Cyc(p)]}M).
+\]
+There is an isomorphism of chain complexes $(\Wst)^\dd(p)\cong \widehat W (p)$. Since $\Wst(p)$ is projective, any equivariant stable comultiplication $\Wst(p)\otimes \ucadenas\to\ucadenas^{\otimes p}$ gives rise to an equivariant chain map $\ucadenas\to \widehat W(p)\otimes \ucadenas^{\otimes p}$, and quotienting by the group action yields a map 
+\begin{equation}\label{eq:tate1}
+	C\lra \left(\widehat W(p)\otimes \ucadenas^{\otimes p}\right)_{\h\Cyc_p}.
+\end{equation}
+Now, if $X$ is a spectrum, the Tate construction $\left(X^{\wedge p}\right)^{t\Cyc_p}$ on $X$ is defined as the cofiber of the norm map 
+\[
+(X\wedge \overset{p}{\dots} \wedge X)_{h\Cyc_p}\to (X\wedge \overset{p}{\dots} \wedge X)^{h\Cyc_p}.
+\]
+In \cite{Nikolaus-Scholze} it was proven that this construction is compatible with smash products and that there exist a unique natural transformation $\Delta_X\colon X\to \left(X^{\wedge p}\right)^{t\Cyc_p}$ called the \emph{Tate diagonal}. We can view the chain complex $C$ of a spectrum as the $HR$-module $X\wedge HR$. Then the smash product of the Tate diagonals
+\[
+	X\wedge HR
+	\lra
+	\left(X^{\wedge p}\right)^{t\Cyc_p}
+	\wedge
+	\left(HR^{\wedge p}\right)^{t\Cyc_p}
+	\simeq
+	\left(X^{\wedge p}
+	\wedge
+	HR^{\wedge p}\right)^{t\Cyc_p}
+\]
+composed with the map that arranges the factors
+\[
+\left(X^{\wedge p}
+\wedge
+HR^{\wedge p}\right)^{t\Cyc_p}
+\lra
+\left((X\wedge HR)^{\wedge p}\right)^{t\Cyc_p}
+\]
+and with the canonical map
+\[
+\left((X\wedge HR)^{\wedge p}\right)^{t\Cyc_p}
+\lra
+\left((X\wedge HR)^{\ot p}\right)^{t\Cyc_p},
+\]
+(where $\ot$ denotes the tensor product of $HR$-modules) gives a map
+\begin{equation}\label{eq:tate2}
+	X\wedge HR \lra \left(\left(X\wedge HR\right)^{\ot p}\right)^{t\Cyc_p}.
+\end{equation}
+Viewing the chain complex $C$ as a model of $X\wedge HR$, the map 
+\eqref{eq:tate2} is an instance of a map of the form \eqref{eq:tate1} and therefore of a stable homotopy cyclic $p$-diagonal.
+\end{remark}
 
 \begin{figure}[b]
 	\input{tables/unstable}
@@ -148,31 +199,14 @@ where $\eta \colon \W{r} \to \sus{r-1}\W{r}$ is the \emph{suspension homomorphis
 	\label{figure:3}
 \end{figure}
 
-\begin{remark}[Tate diagonal]
-Let $N_{W(r)} \colon W(r) \xrightarrow{\sim} W^\dd(r)$ be the chain map that sends $e_0$ to $N \cdot e_0^\dd$ and is $0$ in both positive and negative degrees. Its mapping cone, which we denote by $\widehat W(r)$, is the \emph{Tate complex} of $\Cyc_r$ in the sense that, for any $R[\Cyc_r]$-module $M$ seen as a chain complex concentrated in degree $0$, 
-\[
-H_*(\widehat W(r)\otimes_{R[\Cyc(r)]}M)\cong\widehat H^*(\Cyc_r;M), 
-\]
-the \emph{Tate cohomology groups} of $\Cyc_r$ with coefficients in $M$.
+\subsection{Connected homotopy cyclic diagonals}\label{s:connected}
 
-Furthermore, given a chain complex $\ucadenas$ and considering $\ucadenas^{\ot r}$ with the $\Cyc_r$-action given by cyclically permuting the factors, we have that $\widehat W(r)\otimes_{R[\Cyc(r)]}\ucadenas^{\ot r}$ is a model for the \emph{Tate construction} of $\ucadenas^{\ot r}$, denoted by $(\ucadenas^{\ot r})^{t\Cyc_r}$ (see [{\bf Nikolaus-Scholze}]). \martin{Citation needed}
-A map 
-\[
-\ucadenas \lra (\ucadenas^{\ot r})^{t\Cyc_r}
-\]
-is called a \emph{Tate diagonal}.
-
-There is an isomorphism of chain complexes $(\Wst)^\dd(r)\cong \widehat W (r)$. Since $\Wst(r)$ is projective, any equivariant stable comultiplication $\Wst(r)\otimes \ucadenas\to\ucadenas^{\otimes r}$ gives rise to an equivariant chain map $\ucadenas\to \widehat W(r)\otimes \ucadenas^{\otimes r}$, and quotienting by the group action yields a model of a Tate diagonal.
-\end{remark}
-
-\subsection{Cyclic connected homotopy comultiplications}\label{s:connected}
-
-Let $\mu$ be a stable diagonal on $\ucadenas$.
-A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu$ to vanish on
+Let $\mu_r$ be a stable homotopy cyclic $r$-diagonal on $\ucadenas$.
+A way of guaranteeing the desirable property that $\power^i(x)$ vanishes for $i<0$ is to ask for $\mu_r$ to vanish on
 	\[
-	\bigoplus_n\bigoplus_{q>(r-1)n}\Wst[q] \ot \ucadenas[n].
+	\bigoplus_n\bigoplus_{q>(r-1)n}\Wst[q](r) \ot \ucadenas[n].
 	\]
-We will now identify the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule when $r$ is odd or $r=2$ and $R=\bF_2$ (see Figures \ref{figure:2}). We then define a connected $r$-cyclic homotopy comultiplication as a map from this quotient to $\ucadenas^{\otimes r}$.
+We will now identify the quotient of $\Wst(r)\otimes \ucadenas$ by this graded submodule when $r$ is odd or $r=2$ and $R=\bF_2$ (see Figures \ref{figure:2}). We then define a connected homotopy cyclic $r$-diagonal as a map from this quotient to $\ucadenas^{\otimes r}$.
 
 
 
@@ -200,10 +234,10 @@ R[\Cyc_r]\langle e_{1}^\dd\rangle
 \overset{-\varepsilon}{\lla} 
 R,
 \]
-where $T^\dd(e_i^\dd)=(\rho^{-1}-1)\cdot e_{i+1}^\dd$.
+where $T^\dd(e_i^\dd)=\left((\rho^{-1}-1)\cdot e_{i+1}\right)^\dd$.
 Observe that $\rho$ acts with the dual action in the dual complex, so $\rho \cdot e_{i}^\dd = (\rho^{-1} e_i)^{\dd}$.
 The generator of the copy of $R$ in degree $0$ will be denoted as $1$ or as $e_0^\dd$.
-If $r$ is odd or $r=2$ and $R=\bF_2$, there is a suspension map $\theta \colon \Waug{r} \to \sus{1-r}\Waug{r}$ defined as 
+If $r$ is odd or $r=2$ and $R=\bF_2$, there is a chain map $\theta \colon \Waug{r} \to \sus{1-r}\Waug{r}$ defined as 
 \begin{align*}
 	\theta(e_0) &= N(e_{r-1}),
 	&
@@ -216,11 +250,11 @@ whose dual $\theta^\vee\colon \Wdualaug{r}\to \Sigma^{1-r}\Wdualaug{r}$ takes th
 	\theta(e_{i}) &= e_{i+r-1}, \quad i\geq r-1.
 \end{align*}
 
-Let $(I,>)$ be the poset of natural numbers (i.e., non-negative integers). An \emph{directed system of $R$-modules} is a functor $F_\bs\colon I\to \Mod{R}$. If $F_\bs,G_{\bs}$ are two directed systems, then $F_\bs\ot G_{\bs}$ denotes the directed system obtained by performing the tensor product levelwise. Maps between directed systems are natural transformations of functors. 
+Let $(I,>)$ be the poset of natural numbers (i.e., non-negative integers). A \emph{directed system of $R$-modules} is a functor $F_\bs\colon I\to \Mod{R}$. If $F_\bs,G_{\bs}$ are two directed systems, then $F_\bs\ot G_{\bs}$ denotes the directed system obtained by performing the tensor product levelwise. Maps between directed systems are natural transformations of functors. 
 
 A chain complex $C$ can be viewed as a directed system of $R$-modules $C_{\bs}$ setting $C_i$ as the $R$-module of chains of degree $i$, and letting the differential be the structure map. 
 
-From this viewpoint, chain complexes are those directed systems such that the composition of any two structure maps is zero. Observe that the tensor product of a directed system and a chain complex is again a chain complex.
+From this viewpoint, chain complexes are those directed systems for which the composition of any two structure maps is zero. Observe that the tensor product of a directed system and a chain complex is again a chain complex.
 
 Similarly, if $F_\bs$ is a directed system of chain complexes and $G_\bs$ is a directed system of $R$-modules, then $F_\bs \otimes G_\bs$ is a bicomplex.
 
@@ -250,7 +284,6 @@ There is a functor $Q\colon \asimplexinj\to I$ that sends an ordinal $[m]$ to th
 \end{equation}
 \end{lemma}
 
-\federico{Aquí está comentado el caso $r$ par, que no se usa en el paper}
 %If $r$ is even and $R$ is arbitrary, define the cochain complex $\rWhatd(r)$ as
 %\[
 %\dotsb
@@ -277,14 +310,13 @@ Define the chain map $\varphi \colon \Wst(r)\ot \ucadenas \to \susp{\bs(r-1)}\Wd
 \[
 \varphi(e_q \ot x) = (-1)^{\binom{n(r-1)-q+1}{2}}e_{q-(r-1)n}^\dd \ot \vec{x}
 \]
-if $x$ has degree $n$.\federico{The sign needs revision.}
+if $x$ has degree $n$.\federico{The sign needs revision.} Observe that
 \begin{lemma} The map $\varphi$ is an epimorphism with kernel the smallest chain subcomplex that contains $\bigoplus_n\bigoplus_{i>(r-1)n} \Wst[i] \ot \ucadenas[n]$.
 \end{lemma}
-\begin{proof} TBD (almost obvious)
-\end{proof}
+
 
 \begin{definition}\label{def:connected_diagonal}
-If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic homotopy comultiplication} on a non-negatively graded chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
+If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected homotopy cyclic $r$-diagonal} on a chain complex $\ucadenas$ is a $\Cyc_r$-equivariant chain map
 	\[
 	\mu \colon \susp{\bs(r-1)}\Wdualaug{r} \ot C_{\bs} \lra \ucadenas^{\ot r}.
 	\]
@@ -292,7 +324,7 @@ If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic homotopy comu
 
 
 
-\federico{He comentado una explicación no concluyente de cómo se obtiene esta aplicación}
+\federico{He comentado una explicación no concluyente de cómo se obtiene esta aplicación. No sé si merece la pena liarse con esto}
 %If either $k$ is even or $r=2$ and $R=\bF_2$, let $\varphi_k \colon \Wst(r) \to \susp{-k}\rWd(r)$ be the chain map that sends $e_q$ to $(-1)^{\binom{k-q}{2}}e_{k-q}^{\vee}$.
 %One can obtain this chain map as follows: We already saw $\Wst(r)$ as the homotopy fibre of the norm map $N \colon \W{r} \to \Wdual{r}$, but it is also the homotopy fibre of the map $\Wdualaug{r} \to \Waug{r}$ that is the identity on $R$ and zero elsewhere.
 %The map $\varphi_k$ is the composition
@@ -306,7 +338,7 @@ If $r$ is odd or $r=2$ and $R=\bF_2$, a \emph{connected $r$-cyclic homotopy comu
 As a consequence,
 
 \begin{proposition}
-	If $r$ is prime and $R=\bF_r$, a connected $r$-cyclic homotopy comultiplication induces operations indexed by the integers
+	If $r$ is prime and $R=\bF_r$, a connected homotopy cyclic $r$-diagonal induces operations indexed by the integers
 	\begin{align*}
 		\power^{i} \colon H_{-m}(\ucocadenas;\mathbb{F}_r)& \lra H_{-m-i}(\ucocadenas;\mathbb{F}_r)
 	\end{align*}
@@ -322,12 +354,12 @@ As a consequence,
 \end{proposition}
 
 \begin{example}
-	As far as we know, the concept of connected homotopy comultiplication has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the cyclic homotopy comultiplication for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.
-	It is also implicit in the construction of the cyclic stable homotopy comultiplication for $r=2$ of the cochain operations on the cochains of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
+	As far as we know, the concept of connected homotopy cyclic $r$-diagonal has not appeared before in the literature, nonetheless, this viewpoint is implicit in the construction of the homotopy comultiplication for $r=2$ on the cochain operations on the normalized cochains of a simplicial set of \cite{medina2021fast_sq}.
+	It is also implicit in the construction of the stable homotopy comultiplication on the chain complex of augmented semi-simplicial objects in the Burnside $2$-category \cite{cantero-moran2020khovanov}.
 \end{example}
 
 \begin{question}
 	Give a good definition of ``May--Steenrod connected $r$-diagonal''.
-	Give a homotopy equivalence between the Tate complex of $\ES_r$ and the unbounded complex $\ESst_r$.
+	Give a homotopy equivalence between the Tate complex of $\ES_r$ and the unbounded complex $\ESst_r$.\federico{The second one, I find it challenging, but unmotivated in the current version of the paper.}
 \end{question}
 

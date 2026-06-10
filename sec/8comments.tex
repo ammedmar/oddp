@@ -241,11 +241,11 @@ and
 	For the second statement, we follow the same argument, except that the summands that do not vanish are those whose last $r$ elements are all distinct.
 \end{proof}
 
-If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, there is a stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$ defined as
-\[
-\mu_{st}(e_q \ot \tau) = (-1)^{mq+\binom{r}{2}\left(m(m+n-1) + \binom{m+1}{2}\right)}\frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
-\]
-where $\tau\in \chains[n](E_m)$. Since $\sum_{i=1}^{\tilde{r}} \rho^{2i}$ is invertible, we have can derive a formula for the left suspension too.
+%If $\mu$ is the unstable diagonal of \cite{medina2021may_st}, there is a stable diagonal $\mu_{st}$ on the stable chains of a $\sus{}$-spectrum with coefficients in $\bZ[\frac{1}{\tilde{r}!}]$ defined as
+%\[
+%\mu_{st}(e_q \ot \tau) = (-1)^{mq+\binom{r}{2}\left(m(m+n-1) + \binom{m+1}{2}\right)}\frac{1}{(\tilde{r}!)^{m}}\mu(e_{q+m(r-1)}) \ot \tau)
+%\]
+%where $\tau\in \chains[n](E_m)$. Since $\sum_{i=1}^{\tilde{r}} \rho^{2i}$ is invertible, we have can derive a formula for the left suspension too.
 
 The disparity in the behaviour with respect to left suspension of the operations in this work and the ones in \cite{medina2021may_st} show that
 
@@ -265,7 +265,7 @@ For $q=3$ (this computes the Bockstein):
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
 	n & 10  & 20    & 30    & 40   & 50   & 60 & 70 & 80 & 90 & 100
 	\\ \hline
-	  &0    & 0.04  & 0.11  & 0.32 & 0.71 & 1.5 & 2.5& 4.2 & 6.7 & 8,3 \\ \hline
+	  &0    & 0.04  & 0.11  & 0.32 & 0.71 & 1.5 & 2.5& 4.2 & 6.7 & 8.3 \\ \hline
 \end{array}
 \]For $q=12$ (this computes the first non-trivial operation after the Bockstein):
 \begin{equation}\label{eq:comp}
@@ -284,7 +284,7 @@ For $q= 15$ (this computes the Bockstein of the previous operation)
 \end{array}
 \]
 
-\subsubsection{Comparison with comch} Computing the formulas of the table \eqref{eq:comp} with comch takes the following times:
+\subsubsection{Comparison with comch} Computing the formulas of the table \eqref{eq:comp} with comch takes the following times\federico{The comparison is a bit unfair, because comch might be optimized to give better times when computing power operations}:
 \[
 \begin{array}{|c|c|c|c|} \hline
 	n & 7 & 8 & 9  \\ \hline
@@ -293,21 +293,22 @@ For $q= 15$ (this computes the Bockstein of the previous operation)
 \]
 
 \subsubsection{Evaluating the formulas on particular simplicial complexes}
-Below are the times taken to compute the Bockstein ($q=3$) for the model of the Moore space $M(\bZ/3)$ of sagemath and its $m$-fold unreduced suspension (that multiplies the number of faces by $3m$). Below we write $n=m+3$ for the degree of the top simplex in $\susp{m}M(\bZ/3)$, to ease comparison with the previous tables.
+Below are the times taken to compute the Bockstein ($q=3$) for the model of the Moore space $M(\bZ/3)$ of sagemath and its $m$-fold unreduced suspension (that adds two vertices and multiplies the number of faces by $3^m$). Below we write $n=m+3$ for the degree of the top simplex in $\susp{m}M(\bZ/3)$, to ease comparison with the previous tables.
 \[
-\begin{array}{|c|c|c|c|c|c|c|c|}\hline 
-	n & 9  & 10 & 11    & 12 & 13 & 14 & 15\\ \hline
-	  & 0.03  & 0.1 & 0.25 & 0.7 & 2 & 5 & 15\\ \hline
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline 
+	n &3 & 4 & 5 & 6 & 7 & 8 & 9  & 10 & 11    & 12 & 13 & 14 & 15\\ \hline
+	  &0 & 0  & 0 & 0 & 0 & 0 & 0.03  & 0.1 & 0.25 & 0.7 & 2 & 5 & 15\\ \hline
 \end{array}
 \]
 %Curiously the next column gives memory error.
-We then implemented a small simplicial model of $\bC P^3$ found by \cite{datta} with 18 vertices, and considered its $m$th unreduced suspension (that multiplies the number of faces by $3m$) and applied to it an algorithm to compute the first non-trivial operation after the Bockstein ($q=12$). Below we write $n=m+7$ for the degree of the top simplex in $\susp{m}\bC P^3$, to ease comparison with the previous tables.
+We then implemented a small simplicial model of $\bC P^3$ found by \cite{datta} with 18 vertices, and considered its $m$th unreduced suspension (that adds two vertices and multiplies the number of faces by $3^m$) and applied to it an algorithm to compute the first non-trivial operation after the Bockstein ($q=12$). Below we write $n=m+7$ for the degree of the top simplex in $\susp{m}\bC P^3$, to ease comparison with the previous tables.
 \[
 \begin{array}{|c|c|c|c|c|}\hline 
 	n & 7     & 8    & 9 & 10 \\ \hline
 	  & 0.02  & 0.48 & 7 & 87 \\ \hline
 \end{array}
 \]
+\federico{One can also take the reduced suspension, in which case the number of faces stays constant and the performance is better. Maybe we can write both.}
 
 
 The computer used in these calculations had a 13th Gen Intel(R) Core(TM) i5-1335 1.30GHz and 8GB of RAM. %(13th Gen Intel® Core™ i5-13420H × 12 and 16GB RAM)

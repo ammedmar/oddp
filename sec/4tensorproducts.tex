@@ -2,7 +2,7 @@
 
 \section{Alexander duality on the simplex and tensor products}\label{s:3complexes}
 
-In this section we present a duality on the normalized chains of the augmented simplex. The main result of this section is \cref{prop:milnor_to_minimal}, where we find that building a connected $r$-cyclic diagonal is equivalent to build a map between two augmented resolutions of the cyclic group that intertwines certain endomorphisms of the resolutions. 
+In this section we present a duality on the normalized chains of the augmented simplex. The main result of this section is \cref{thm:milnor_to_minimal}, where we find that building a connected $r$-cyclic diagonal is equivalent to build a map between two augmented resolutions of the cyclic group that intertwines certain endomorphisms of the resolutions. 
 
 \begin{warning}
 	Recall from Section \cref{s:simplices} and its three warnings that we are not following the usual convention to denote the simplex category.
@@ -146,10 +146,10 @@ A generator $U_0\ot\cdots \ot U_{r-1}$ of $\cochains(\asimplex^n)^{\ot r}$ is \e
 	that sends a generator $(U_0\ot\ldots \ot U_{r-1})\ot (x_0\ot\ldots\ot x_{r-1})$ to the same generator on the right hand-side is an isomorphism of $R\Cyc_r$-chain complexes.
 \end{lemma}
 \begin{proof}
-	TBD. The paper \url{https://www.jstor.org/stable/2043689} basically says that this is an isomorphism of graded modules (i.e., forgetting the differential). Probably this is already in the literature.
+	\federico{TO BE WRITTEN BY ANIBAL}. The paper \url{https://www.jstor.org/stable/2043689} basically says that this is an isomorphism of graded modules (i.e., forgetting the differential). Probably this is already in the literature.
 \end{proof}
 
-\subsection{A connected diagonal}
+\subsection{A connected homotopy cyclic diagonal}
 
 Recall from \cref{s:preliminaries} the chain complex $\Wdualaug{r}$ and the chain map $\theta^\vee\colon \Wdualaug{r}\to \susp{1-r}\Wdualaug{r}$.
 
@@ -166,7 +166,7 @@ Let $\chains(\asimplex^\infty)^{\ot r}_{\mathrm{int}}$ be the colimit of the map
 $\d^i\colon \chains(\asimplex^n)^{\ot r} \to \chains(\asimplex^{n+1})^{\ot r}$.
 
 
-\begin{corollary}
+\begin{theorem}\label{thm:milnor_to_minimal}
 	A family of equivariant chain maps 
 	\[
 	\Psi_n\colon \chains(\asimplex^{n})^{\ot r}_\interior \lra \Waug{r}
@@ -186,18 +186,18 @@ $\d^i\colon \chains(\asimplex^n)^{\ot r} \to \chains(\asimplex^{n+1})^{\ot r}$.
 		\\
 		\mu\circ \susp{} &= c\cdot \rho(\susp{\ot r}\circ \mu).
 	\end{align*}
-\end{corollary}
+\end{theorem}
 \begin{proof}
-	The map is obtained as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map \martin{change $n$ by $\bullet$?}
+	The map is obtained as the composition of the isomorphism of Lemma \ref{lemma:hotimessimp}, the map
 	\[
 		\Psi_n^\vee\ot \diag\colon \chains(\susp{\bullet(r-1)}\Wdualaug{r} \ot X^{\nd}_\bullet) 
 		\lra
-		\chains\left(\susp{\bullet(r-1)}\cochains(\asimplex^n)^{\ot r}_\interior\ot (X^{\nd})^{\ot r}_\bullet\right),	
+		\chains\left(\susp{\bullet(r-1)}\cochains(\asimplex^\bullet)^{\ot r}_\interior\ot (X^{\nd})^{\ot r}_\bullet\right),	
 	\]
-	the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.
+	the isomorphism of Lemma \ref{lemma:simp-cosimp}, the isomorphism \eqref{eq:assemble}, the $r$-fold tensor product of the isomorphism \eqref{eq:dual} and the $r$-fold tensor product of the isomorphism \eqref{eq:1}.\federico{Martin, I would write the map $\mu$ with dashes in the diagram, but I don't know how to do that}
 \input{tables/diagram_mu}
 	
-	THE SECOND PART (SUSPENSION) IS TBD AND POSSIBLY SLIGHTLY ADJUSTED.
+	\federico{THE SECOND PART (SUSPENSION) IS TBD AND POSSIBLY SLIGHTLY ADJUSTED. I'll do it}
 \end{proof}
 
 In Sections \ref{s:milnor}, \ref{s:milnor_to_per} and \ref{s:per_to_minimal} we will define two additional cosemi-simplicial chain complexes $	\sus{\bullet(1-r) }\chains(\partial \asimplex^{r})^{\ot \bullet}$ and $\sus{\bullet(1-r)}\Per{r}$ with an action of $\Cyc_r$ and in \cref{lemma:bartomilnor}, \cref{prop:milnor_to_per} and \cref{prop:per_to_minimal} we will construct three cosemi-simplicial maps between them (for the sake of clearness, we omit the symbol $\sus{\bullet(1-r)}$ everywhere):  

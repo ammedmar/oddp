@@ -15,8 +15,8 @@ In this section we will construct a cosemi-simplicial structure on the periodic 
 % cosemi-simplicial map $\sus{(\bullet+1)(r-1)}\chains(\partial\asimplex^{r})^{\ot n+1}\to \sus{(\bullet+1)(r-1)}\Per{r}$. 
 We assume always that either $r$ is odd or $R=\bF_2$, and at some point we will have to assume additionally that $r$ is prime. This construction is divided into two parts. In \cref{prop:construction_xi} we show that each ``weak codegeneracy'' on $\Per{r}$ gives rise to such a chain map. In \cref{prop:straightenings} we show that each ``$r$-cyclic straightening with duality'' yields a weak codegeneracy.  
 
-\subsection{Weak codegeneracies} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r}$. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r})\to \chains(\asimplex^{r})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$. %I understand that $[v]$ has deg 1 before suspension, but maybe should be written differently.
-\begin{definition}
+\subsection{Weak codegeneracies} Let $\sigma = [0,1,\ldots,r-1]$ denote the positively oriented top generator of $\asimplex^{r}$. There is a chain map $h\colon \sus{r-1}\chains(\asimplex^{r})\to \chains(\asimplex^{r})$ that sends every generator to zero except for $h([v]) = \sigma$ if $[v]$ has degree $1$ and $h(\varnothing) = \partial \sigma$. \federico{I said that this complex was constructed by Hatcher, but Hatcher constructs the complex of the minimal resolution. Hence I've written only the reference for Brown}
+\begin{definition}\cite[Section~I.6]{Brown-cohomology-of-groups}
 	The \emph{augmented periodic resolution of $\Cyc_r$} is the graded $R$-module $\Per{r} = \chains(\partial\asimplex^{r})\oplus \bigoplus_{m>0} \sus{(r-1)m} \chains(\partial \simplex^{r})$ with the following differential: if $[v]$ is an element of degree $1$, then
 	\[
 		\partial(\sus{(r-1)m}[v]) = \sus{(r-1)(m-1)}h\circ \partial([v]) = \sus{(r-1)(m-1)}\partial\circ h([v]),
@@ -273,7 +273,7 @@ For a general simplicial complex $X$, the map $s_*$ defines a canonical homotopy
 		\overset{g_*}{\lra}
 		\susp{r-1}\chains(\partial\simplex^{r}).
 	\]
-	}}
+	} I think doing that adds more cluttering, since one needs to write more suspensions (federico)}
 	{\small
 	\[
 		\susp{-r}\chains(\partial \simplex^{r})\otimes \chains(\partial \simplex^{r})
